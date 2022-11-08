@@ -3,10 +3,10 @@ import axios from "axios";
 export async function getCurrencies(setFiatArray, setCryptoArray) {
   var config = {
     method: "get",
-    url: "http://195.201.5.81/api/currencies/getAll",
+    url: "https://top2pro.com/api/currencies/getAll",
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 20|AY1o7b5K3KhSktKI5fGiFchL0bzpkVFLsqA7MkjV",
+      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
   };
 
@@ -43,11 +43,11 @@ export async function getTradeMethods(mode, fiat, crypto, setTrade) {
 
   var config = {
     method: "post",
-    url: "http://195.201.5.81/api/trade-methods/search",
+    url: "https://top2pro.com/api/trade-methods/search",
     withCredentials: true,
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 20|AY1o7b5K3KhSktKI5fGiFchL0bzpkVFLsqA7MkjV",
+      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "Content-Type": "application/json",
     },
     data: data,
@@ -92,10 +92,10 @@ export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
 
   var config = {
     method: "post",
-    url: "http://195.201.5.81/api/orders/search",
+    url: "https://top2pro.com/api/orders/search",
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 20|AY1o7b5K3KhSktKI5fGiFchL0bzpkVFLsqA7MkjV",
+      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "Content-Type": "application/json",
     },
     data: data,
