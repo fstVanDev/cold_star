@@ -19,9 +19,9 @@ const Sidebar = () => {
   return (
     <>
       {viewSidebar === true ? (
-        <div className="2xl:w-[1290px]  2xl:mx-auto 2xl:mt-[79px]">
+        <div className="2xl:w-[1290px]  2xl:mx-auto 2xl:mt-[104px]">
           <aside className="2xl:w-[240px] fixed">
-            <div className="py-4 px-3 bg-main rounded-10">
+            <div className="py-4 px-3 bg-main rounded-10 border border-[1.5px] border-secondary">
               {/* Sidebar menu links */}
               <ul className="space-y-2">
                 {/* Account */}

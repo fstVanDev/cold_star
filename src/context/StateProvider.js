@@ -22,6 +22,7 @@ export const StateProvider = ({ children }) => {
   const [tradeIdFirst, settradeIdFirst] = useState([]); // массив с выбранными способами оплаты
   const [priceFirst, setPriceFirst] = useState(""); // цена указанная пользователем
   const [tradeFirstArray, setTradeFirstArray] = useState(null); // массив со всеми банками и способами оплаты при покупке
+  const [ordersArrayFirst, setOrdersArrayFirst] = useState(null); //  массив со всеми ордерами по первому фильтру
 
   // second-filter states
   const [modeSecond, setModeSecond] = useState(1);
@@ -30,6 +31,7 @@ export const StateProvider = ({ children }) => {
   const [tradeIdSecond, setTradeIdSecond] = useState([]);
   const [priceSecond, setPriceSecond] = useState("");
   const [tradeSecondArray, setTradeSecondArray] = useState(null); // массив со всеми банками и способами оплаты при продаже
+  const [ordersArraySecond, setOrdersArraySecond] = useState(null); // массив со всеми ордерами по второму фильтру
 
   //requests
   const [fiatArray, setFiatArray] = useState(null); // массив со всеми фиатными валютами
@@ -68,7 +70,10 @@ export const StateProvider = ({ children }) => {
         settradeIdFirst,
         priceFirst,
         setPriceFirst,
-
+        ordersArraySecond,
+        setOrdersArraySecond,
+        ordersArrayFirst,
+        setOrdersArrayFirst,
         fiatIdSecond,
         setFiatIdSecond,
         cryptoIdSecond,

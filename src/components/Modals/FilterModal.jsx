@@ -17,7 +17,6 @@ const FilterModal = () => {
     setModeSecond,
     cryptoIdSecond,
     setCryptoIdSecond,
-    setCryptoArray,
     tradeFirstArray,
     tradeIdFirst,
     settradeIdFirst,
@@ -33,6 +32,10 @@ const FilterModal = () => {
     setfiatIdFirst,
     cryptoIdFirst,
     setcryptoIdFirst,
+    ordersArraySecond,
+    setOrdersArraySecond,
+    ordersArrayFirst,
+    setOrdersArrayFirst,
 
     fiatIdFirst,
   } = useContext(StateContext);
@@ -47,7 +50,7 @@ const FilterModal = () => {
         fiatIdFirst,
         cryptoIdFirst,
         tradeIdFirst,
-        setTradeFirstArray
+        setOrdersArrayFirst
       );
     }
     if (tradeIdSecond.length !== 0) {
@@ -56,7 +59,7 @@ const FilterModal = () => {
         fiatIdSecond,
         cryptoIdSecond,
         tradeIdSecond,
-        setTradeSecondArray
+        setOrdersArraySecond
       );
     }
 
@@ -74,19 +77,6 @@ const FilterModal = () => {
     }
   }, [fiatIdFirst, cryptoIdFirst]);
 
-  // useEffect(() => {
-  //   console.log(tradeIdFirst);
-  //   if (tradeIdFirst.length !== 0) {
-  //     getOrders(
-  //       modeFirst,
-  //       fiatIdFirst,
-  //       cryptoIdFirst,
-  //       tradeIdFirst,
-  //       setTradeFirstArray
-  //     );
-  //   }
-  // }, [tradeIdFirst]);
-
   useEffect(() => {
     if (fiatIdSecond !== null && cryptoIdSecond !== null) {
       getTradeMethods(
@@ -97,19 +87,6 @@ const FilterModal = () => {
       );
     }
   }, [fiatIdSecond, cryptoIdSecond]);
-
-  // useEffect(() => {
-  //   console.log(tradeIdSecond);
-  //   if (tradeIdSecond.length !== 0) {
-  //     getOrders(
-  //       modeSecond,
-  //       fiatIdSecond,
-  //       cryptoIdSecond,
-  //       tradeIdSecond,
-  //       setTradeSecondArray
-  //     );
-  //   }
-  // }, [tradeIdSecond]);
 
   return (
     <MainModal visible={filterView} onClose={() => setFilterView(false)}>
@@ -441,7 +418,7 @@ const FilterModal = () => {
             onClick={() => setFilterView(false)}
             className="flex items-center w-max my-auto ml-[30px] py-2 px-3 text-16 font-normalplus bg-inherit text-light-blue rounded-6 bg-gray"
           >
-            <p className="w-max h-max mx-auto whitespace-nowrap">Get Orders</p>
+            <p className="w-max h-max mx-auto whitespace-nowrap">Cancel</p>
           </button>
         </div>
       </div>

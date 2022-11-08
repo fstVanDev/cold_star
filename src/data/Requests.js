@@ -103,7 +103,7 @@ export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
 
   axios(config)
     .then(function (response) {
-      console.log(response.data.data, "getOrders");
+      console.log(response.data.data, "getOrders", mode);
       setOrders(response.data.data);
     })
     .catch(function (error) {

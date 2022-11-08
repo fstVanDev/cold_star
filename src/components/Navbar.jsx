@@ -15,8 +15,8 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed w-[100vw] bg-secondary">
-      <div className="flex justify-between h-[64px] px-[30px] 2xl:w-[1290px] bg-main rounded-10 2xl:mx-auto">
+    <div className="fixed w-[100vw] bg-secondary h-[104px] py-auto z-10">
+      <div className="flex justify-between h-[64px] px-[30px] my-[20px] 2xl:w-[1290px] bg-main rounded-10 2xl:mx-auto border border border-secondary z-10">
         {/* // logo */}
         <div className="w-max h-max text-white flex my-auto">
           {user === true ? (

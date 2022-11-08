@@ -17,7 +17,7 @@ const LoginModal = () => {
 
   return (
     <MainModal visible={loginView} onClose={() => setLoginView(false)}>
-      <div className="grid bg-inherit h-max mx-auto h-max 2xl:w-[450px] 2xl:rounded-10">
+      <div className="grid bg-inherit h-max mx-auto h-max 2xl:w-[450px] 2xl:rounded-10 border border-[1.5px] border-secondary">
         <div className="flex bg-main w-full rounded-10 px-[30px] justify-center mb-[15px] py-[12px]">
           <p className="w-max h-max mx-auto text-light-blue 2xl:text-26 font-bold">
             Login
