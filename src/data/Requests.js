@@ -1,5 +1,21 @@
 import axios from "axios";
 
+export async function getCsrf() {
+  var config = {
+    method: "get",
+    url: "https://top2pro.com/sanctum/csrf-cookie",
+    headers: {},
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
 export async function getCurrencies(setFiatArray, setCryptoArray) {
   var config = {
     method: "get",

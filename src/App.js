@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { StateContext } from "./context/StateProvider";
 
 import Navbar from "./components/Navbar";
@@ -7,8 +7,14 @@ import Main from "./components/Main";
 import LoginModal from "./components/Modals/LoginModal";
 import FilterModal from "./components/Modals/FilterModal";
 
+import { getCsrf } from "./data/Requests";
+
 const App = () => {
   const { user, loginView, filterView } = useContext(StateContext);
+
+  useEffect(() => {
+    getCsrf();
+  }, []);
 
   return (
     <div className="font-main mx-auto grid bg-secondary min-h-[200vh] h-max overflow-auto">
