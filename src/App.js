@@ -7,14 +7,13 @@ import Main from "./components/Main";
 import LoginModal from "./components/Modals/LoginModal";
 import FilterModal from "./components/Modals/FilterModal";
 
-import { getCsrf, getUser } from "./data/Requests";
+import { getCsrf } from "./data/Requests";
 
 const App = () => {
   const { user, loginView, filterView } = useContext(StateContext);
 
-  useEffect(async () => {
-    await getCsrf();
-    await getUser();
+  useEffect(() => {
+    getCsrf();
   }, []);
 
   return (

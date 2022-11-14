@@ -9,14 +9,16 @@ export async function getCsrf() {
 
   axios(config)
     .then(function (response) {
-      console.log(response);
+      console.log(response, "csrf");
+
+      getUser();
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-export async function getUser() {
+async function getUser() {
   var config = {
     method: "get",
     url: "https://top2pro.com/api/user",
