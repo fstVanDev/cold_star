@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 import MainModal from "../AuxiliaryComponents/MainModal";
 
-import { registerFunc } from "../../data/Requests";
+import { registerFunc, getCsrf } from "../../data/Requests";
 
 const RegisterModal = () => {
   const {
     setUser,
+    setStatus,
     registerView,
     setRegisterView,
     registerLogin,
@@ -32,6 +33,7 @@ const RegisterModal = () => {
     ) {
       alert("Login and Password can`t be null");
     } else {
+      getCsrf(setStatus, setUser);
       registerFunc(
         setUser,
         registerName,
