@@ -33,7 +33,7 @@ const RegisterModal = () => {
     ) {
       alert("Login and Password can`t be null");
     } else {
-      getCsrf(setStatus, setUser);
+      // getCsrf(setStatus, setUser);
       registerFunc(
         setUser,
         registerName,
