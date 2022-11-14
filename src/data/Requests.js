@@ -4,7 +4,9 @@ export async function getCsrf(setStatus, setUser) {
   var config = {
     method: "get",
     url: "https://top2pro.com/sanctum/csrf-cookie",
-    headers: {},
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+    },
   };
 
   axios(config)
@@ -24,6 +26,7 @@ async function getUser(setStatus, setUser) {
     url: "https://top2pro.com/api/user",
     headers: {
       Accept: "application/json",
+      "X-Requested-With": "XMLHttpRequest",
     },
   };
 
@@ -51,6 +54,7 @@ export async function loginFunc(login, password, setUser) {
     url: "https://top2pro.com/login",
     headers: {
       "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
     },
     data: data,
   };
@@ -87,6 +91,7 @@ export async function registerFunc(
     url: "https://top2pro.com/register",
     headers: {
       "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
     },
     data: data,
   };
@@ -109,6 +114,7 @@ export async function getCurrencies(setFiatArray, setCryptoArray) {
     headers: {
       Accept: "application/json",
       Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      "X-Requested-With": "XMLHttpRequest",
     },
   };
 
@@ -151,6 +157,7 @@ export async function getTradeMethods(mode, fiat, crypto, setTrade) {
       Accept: "application/json",
       Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
     },
     data: data,
   };
@@ -199,6 +206,7 @@ export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
       Accept: "application/json",
       Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
     },
     data: data,
   };
