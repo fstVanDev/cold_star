@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 export async function getCsrf(setStatus, setUser) {
   var config = {
