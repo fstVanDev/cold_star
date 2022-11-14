@@ -8,6 +8,8 @@ export const StateProvider = ({ children }) => {
   const [login, setLogin] = useState(""); // хранить email пользователя при входе
   const [password, setPassword] = useState(""); // хранить пароль пользователя при входе
 
+  const [csrf, setCsrf] = useState(null);
+
   const [viewSidebar, setViewSidebar] = useState(false); // true - Sidebar виден, false - скрыт
 
   // modals-view states
@@ -46,6 +48,8 @@ export const StateProvider = ({ children }) => {
         setLogin,
         password,
         setPassword,
+        csrf,
+        setCsrf,
 
         viewSidebar,
         setViewSidebar,
