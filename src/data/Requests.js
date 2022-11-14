@@ -16,6 +16,75 @@ export async function getCsrf() {
     });
 }
 
+export async function getUser() {
+  var config = {
+    method: "get",
+    url: "https://top2pro.com/api/user",
+    headers: {
+      Accept: "application/json",
+    },
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+export async function loginFunc(login, password) {
+  var data = JSON.stringify({
+    email: login,
+    password: password,
+  });
+
+  var config = {
+    method: "post",
+    url: "https://top2pro.com/login",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+export async function registerFunc() {
+  var data = JSON.stringify({
+    name: "Test",
+    email: "test@test.test",
+    password: "12345678",
+    password_confiramtion: "12345678",
+    validation: "k32nf91mss2",
+  });
+
+  var config = {
+    method: "post",
+    url: "https://top2pro.com/register",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
 export async function getCurrencies(setFiatArray, setCryptoArray) {
   var config = {
     method: "get",
