@@ -82,7 +82,7 @@ export async function registerFunc(
 
   var config = {
     method: "post",
-    url: "https://.top2pro.com/register",
+    url: "https://top2pro.com/register",
     headers: {
       "Content-Type": "application/json",
     },
