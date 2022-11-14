@@ -40,7 +40,7 @@ async function getUser(setStatus, setUser) {
     });
 }
 
-export async function loginFunc(login, password) {
+export async function loginFunc(login, password, setUser) {
   var data = JSON.stringify({
     email: login,
     password: password,
@@ -58,9 +58,11 @@ export async function loginFunc(login, password) {
   axios(config)
     .then(function (response) {
       console.log(response);
+      setUser(true);
     })
     .catch(function (error) {
       console.log(error);
+      setUser(false);
     });
 }
 

@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 import MainModal from "../AuxiliaryComponents/MainModal";
 
+import { loginFunc } from "../../data/Requests";
+
 const LoginModal = () => {
   const {
     user,
@@ -14,6 +16,14 @@ const LoginModal = () => {
     setLoginView,
     setViewSidebar,
   } = useContext(StateContext);
+
+  function confirmLogin() {
+    if (login.length !== 0 && password.length !== null) {
+      loginFunc(login, password, setUser);
+    } else {
+      alert("All fields cant`t be null");
+    }
+  }
 
   return (
     <MainModal visible={loginView} onClose={() => setLoginView(false)}>
@@ -57,11 +67,7 @@ const LoginModal = () => {
           <div className="flex w-full h-max mt-[60px] justify-center">
             <button
               type="button"
-              onClick={() => {
-                setUser(true);
-                setLoginView(false);
-                setViewSidebar(true);
-              }}
+              onClick={() => confirmLogin()}
               className="text-white bg-light-blue text-16 hover:bg-blue w-max h-max rounded-6 border-none px-[30px] py-[6px] mr-[24px]  font-bold"
             >
               Log in
