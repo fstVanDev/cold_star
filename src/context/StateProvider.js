@@ -8,11 +8,17 @@ export const StateProvider = ({ children }) => {
   const [login, setLogin] = useState(""); // хранить email пользователя при входе
   const [password, setPassword] = useState(""); // хранить пароль пользователя при входе
 
-  const [csrf, setCsrf] = useState(null);
+  // register states
+  const [registerLogin, setRegisterLogin] = useState(""); // логин при регистрации
+  const [registerPassword, setRegisterPassword] = useState(""); // пароль при регистрации
+  const [registerConfirmPassword, setRegisterConfirmPassword] = useState(""); // подтвверждение при регистрации пароля
+  const [validation, setValidation] = useState(""); // валидация
+  const [registerName, setRegisterName] = useState("");
 
-  const [viewSidebar, setViewSidebar] = useState(false); // true - Sidebar виден, false - скрыт
+  const [status, setStatus] = useState(null); // статус ответа об активности сессии, для автоматическиго входа
 
   // modals-view states
+  const [viewSidebar, setViewSidebar] = useState(false); // true - Sidebar виден, false - скрыт
   const [loginView, setLoginView] = useState(false); // true - показать модальное окно входа, false - скрыть
   const [registerView, setRegisterView] = useState(false); // true - показать модальное окно регистрации, false - скрыть
   const [filterView, setFilterView] = useState(false); // true - показать модальное окно фильтров, false - скрыть
@@ -48,9 +54,20 @@ export const StateProvider = ({ children }) => {
         setLogin,
         password,
         setPassword,
-        csrf,
-        setCsrf,
 
+        registerLogin,
+        setRegisterLogin,
+        registerPassword,
+        setRegisterPassword,
+        validation,
+        setValidation,
+        registerConfirmPassword,
+        setRegisterConfirmPassword,
+        registerName,
+        setRegisterName,
+
+        status,
+        setStatus,
         viewSidebar,
         setViewSidebar,
 

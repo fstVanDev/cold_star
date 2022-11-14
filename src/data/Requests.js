@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getCsrf(setCsrf) {
+export async function getCsrf(setStatus, setUser) {
   var config = {
     method: "get",
     url: "https://top2pro.com/sanctum/csrf-cookie",
@@ -11,16 +11,14 @@ export async function getCsrf(setCsrf) {
     .then(function (response) {
       console.log(response, "csrf");
 
-      console.log(document.cookie);
-
-      getUser();
+      getUser(setStatus, setUser);
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-async function getUser() {
+async function getUser(setStatus, setUser) {
   var config = {
     method: "get",
     url: "https://top2pro.com/api/user",
@@ -34,7 +32,11 @@ async function getUser() {
       console.log(response);
     })
     .catch(function (error) {
-      console.log(error);
+      if (error.response.status === 401) {
+        setStatus(error.response.status);
+        setUser(false);
+      }
+      console.log(error.response.status);
     });
 }
 
@@ -62,18 +64,25 @@ export async function loginFunc(login, password) {
     });
 }
 
-export async function registerFunc() {
+export async function registerFunc(
+  setUser,
+  name,
+  login,
+  password,
+  confirm,
+  validation
+) {
   var data = JSON.stringify({
-    name: "Test",
-    email: "test@test.test",
-    password: "12345678",
-    password_confiramtion: "12345678",
-    validation: "k32nf91mss2",
+    name: name,
+    email: login,
+    password: password,
+    password_confiramtion: confirm,
+    validation: validation,
   });
 
   var config = {
     method: "post",
-    url: "https://top2pro.com/register",
+    url: "https://.top2pro.com/register",
     headers: {
       "Content-Type": "application/json",
     },
@@ -82,10 +91,12 @@ export async function registerFunc() {
 
   axios(config)
     .then(function (response) {
-      console.log(JSON.stringify(response.data));
+      console.log(response);
+      setUser(true);
     })
     .catch(function (error) {
       console.log(error);
+      setUser(false);
     });
 }
 

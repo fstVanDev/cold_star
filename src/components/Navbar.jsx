@@ -5,7 +5,7 @@ import { getCurrencies } from "../data/Requests";
 import { burgerMenu, fire } from "../images";
 
 const Navbar = () => {
-  const { user, setLoginView, viewSidebar, setViewSidebar } =
+  const { user, setLoginView, viewSidebar, setViewSidebar, setRegisterView } =
     useContext(StateContext);
 
   const navButtons = [
@@ -59,7 +59,7 @@ const Navbar = () => {
               <>
                 <button
                   type="button"
-                  onClick={() => console.log()}
+                  onClick={() => setRegisterView(true)}
                   className="text-white bg-light-blue text-16 hover:bg-blue w-max h-max rounded-6 border-none px-[12px] py-[4px] mr-[15px] font-bold"
                 >
                   Sign Up
