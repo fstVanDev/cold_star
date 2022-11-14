@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(async () => {
     await getCsrf();
-    getUser();
+    await getUser();
   }, []);
 
   return (
