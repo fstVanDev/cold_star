@@ -56,6 +56,7 @@ export async function loginFunc(login, password, setUser) {
     url: "https://top2pro.com/login",
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
     withCredentials: true,
