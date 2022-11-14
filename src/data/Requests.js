@@ -1,5 +1,4 @@
 import axios from "axios";
-axios.defaults.withCredentials = true;
 
 export async function getCsrf(setStatus, setUser) {
   var config = {
@@ -8,6 +7,7 @@ export async function getCsrf(setStatus, setUser) {
     headers: {
       "X-Requested-With": "XMLHttpRequest",
     },
+    withCredentials: true,
   };
 
   axios(config)
@@ -29,6 +29,7 @@ async function getUser(setStatus, setUser) {
       Accept: "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
+    withCredentials: true,
   };
 
   axios(config)
@@ -57,6 +58,7 @@ export async function loginFunc(login, password, setUser) {
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
+    withCredentials: true,
     data: data,
   };
 
@@ -94,6 +96,7 @@ export async function registerFunc(
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
+    withCredentials: true,
     data: data,
   };
 
