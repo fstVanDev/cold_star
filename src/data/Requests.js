@@ -192,14 +192,7 @@ export async function getTradeMethods(mode, fiat, crypto, setTrade) {
     });
 }
 
-export async function getOrders(
-  mode,
-  fiat,
-  crypto,
-  tradeId,
-  setOrders,
-  amount
-) {
+export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
   const ids = [];
 
   tradeId.map((item) => {
@@ -217,7 +210,7 @@ export async function getOrders(
       onlyMerchants: true,
       minOrdersCount: 100,
       minFinishRate: 0.5,
-      amount: amount,
+      amount: 500,
     },
   });
 
