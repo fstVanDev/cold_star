@@ -38,6 +38,7 @@ const FilterModal = () => {
     setAmountSecond,
     fiatIdFirst,
     setFiatRateFirst,
+    currencies,
     setFiatRateSecond,
   } = useContext(StateContext);
 
@@ -76,7 +77,7 @@ const FilterModal = () => {
         setTradeFirstArray
       );
 
-      const item = fiatArray[fiatIdFirst - 1].rates.rate;
+      const item = currencies[fiatIdFirst - 1].rates.rate;
 
       if (item !== null || item !== undefined) {
         setFiatRateFirst(item);
@@ -94,7 +95,7 @@ const FilterModal = () => {
         setTradeSecondArray
       );
 
-      const item = fiatArray[fiatIdSecond - 1].rates.rate;
+      const item = currencies[fiatIdSecond - 1].rates.rate;
 
       if (item !== null || item !== undefined) {
         setFiatRateSecond(item);

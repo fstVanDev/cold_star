@@ -17,7 +17,7 @@ const Main = () => {
 
   const [active, setActive] = useState(0);
 
-  const takeProfit = (item, flap) => {
+  const takeProfit = () => {
     // let result = (item * 100) / flap;
     // if (modeFirst === 2) {
     //   if (result < 100) {
@@ -511,7 +511,7 @@ const Main = () => {
                                   {flap.type === 2 ? "Buy" : "Sell"}
                                 </p>
 
-                                {takeProfit(item.price, flap.price)}
+                                {takeProfit()}
                               </div>
                             </div>
                           ))}

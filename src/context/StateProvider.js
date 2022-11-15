@@ -16,6 +16,7 @@ export const StateProvider = ({ children }) => {
   const [validation, setValidation] = useState(""); // валидация
   const [registerName, setRegisterName] = useState("");
 
+  const [currencies, setCurrencies] = useState(null);
   const [status, setStatus] = useState(null); // статус ответа об активности сессии, для автоматическиго входа
 
   // modals-view states
@@ -58,6 +59,8 @@ export const StateProvider = ({ children }) => {
         fiatRateSecond,
         setFiatRateSecond,
 
+        currencies,
+        setCurrencies,
         user,
         setUser,
         login,

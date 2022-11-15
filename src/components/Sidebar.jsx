@@ -12,6 +12,7 @@ const Sidebar = () => {
     setFilterView,
     setFiatArray,
     setCryptoArray,
+    setCurrencies,
   } = useContext(StateContext);
   const [chevronAcc, setChevronAcc] = useState(false); // true - параметры аккаунта показываются, false - скрываются
   const [chevronFav, setChevronFav] = useState(false); // true - параметры Избранных показываются, false - скрываются
@@ -80,7 +81,11 @@ const Sidebar = () => {
                     type="button"
                     onClick={() => {
                       setFilterView(true);
-                      getCurrencies(setFiatArray, setCryptoArray);
+                      getCurrencies(
+                        setFiatArray,
+                        setCryptoArray,
+                        setCurrencies
+                      );
                     }}
                     className="flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between rounded-6 hover:bg-gray hover:text-light-blue"
                   >
