@@ -52,7 +52,8 @@ const FilterModal = () => {
         fiatIdFirst,
         cryptoIdFirst,
         tradeIdFirst,
-        setOrdersArrayFirst
+        setOrdersArrayFirst,
+        amountFirst
       );
     }
     if (tradeIdSecond.length !== 0) {
@@ -61,7 +62,8 @@ const FilterModal = () => {
         fiatIdSecond,
         cryptoIdSecond,
         tradeIdSecond,
-        setOrdersArraySecond
+        setOrdersArraySecond,
+        amountSecond
       );
     }
 
