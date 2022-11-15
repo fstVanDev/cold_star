@@ -29,8 +29,8 @@ const Main = () => {
     //   }
     // }
 
-    var realRate = fiatRateSecond / fiatRateFirst;
-    var resultRate = item / flap;
+    var realRate = amountSecond / amountFirst;
+    var resultRate = fiatRateFirst / fiatRateSecond;
     const result = Math.round((resultRate / realRate - 1) * 10000) / 100;
 
     return (
