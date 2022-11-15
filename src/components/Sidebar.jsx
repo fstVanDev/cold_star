@@ -16,6 +16,17 @@ const Sidebar = () => {
   const [chevronFav, setChevronFav] = useState(false); // true - параметры Избранных показываются, false - скрываются
   const [beta, setBeta] = useState(true); // true - beta block is visible, false - not visible
 
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+  }
+
   return (
     <>
       {viewSidebar === true ? (
@@ -226,6 +237,7 @@ const Sidebar = () => {
                   setChevronAcc(false);
                   setChevronFav(false);
                   setViewSidebar(false);
+                  deleteAllCookies();
                   setUser(false);
                 }}
                 className="flex items-center w-full mt-[6px] p-2 text-16 font-normalplus bg-[#0c9aed] mt-2 text-white rounded-6 bg-gray"
