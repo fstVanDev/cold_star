@@ -29,7 +29,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="font-main mx-auto grid bg-secondary min-h-[200vh] h-max overflow-auto">
+    <div className="font-white mx-auto grid bg-secondary min-h-[200vh] h-max overflow-auto">
       <div
         className={
           loginView === true || filterView === true || registerView

@@ -122,7 +122,7 @@ const Dropdown = ({ name, mainArray, val, funct, boo }) => {
 
   return (
     <div className="grid h-max w-max">
-      <p className="text-white w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
+      <p className="text-black w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
         {name}
       </p>
       {boo === false ? (

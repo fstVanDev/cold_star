@@ -16,9 +16,9 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-[100vw] bg-secondary h-[104px] py-auto z-10">
-      <div className="flex justify-between h-[64px] px-[30px] my-[20px] 2xl:w-[1290px] bg-main rounded-10 2xl:mx-auto border border border-secondary z-10">
+      <div className="flex justify-between h-[64px] px-[30px] my-[20px] 2xl:w-[1290px] bg-white rounded-10 2xl:mx-auto border border border-secondary z-10">
         {/* // logo */}
-        <div className="w-max h-max text-white flex my-auto">
+        <div className="w-max h-max text-black flex my-auto">
           {user === true ? (
             <button
               type="button"
@@ -30,7 +30,7 @@ const Navbar = () => {
           ) : null}
           <img src={fire} alt="fire" className="w-max h-max " />
           <p
-            className="w-max h-max text-white flex my-auto font-bold my-auto
+            className="w-max h-max text-black flex my-auto font-bold my-auto
         2xl:text-22 xl:text-22 lg:text-20 md:text-18 sm:text-16"
           >
             COLDSTAR
@@ -46,7 +46,7 @@ const Navbar = () => {
               <a
                 href={item.href}
                 key={item.id}
-                className="font-normal text-light-blue my-auto w-max h-max hover:border-b hover:border-1 hover:border-b-light-blue 
+                className="font-normal text-yellow my-auto w-max h-max hover:border-b hover:border-1 hover:border-b-yellow 
               2xl:text-16 xl:text-14 lg:text-12"
               >
                 {item.name}
@@ -60,14 +60,14 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={() => setRegisterView(true)}
-                  className="text-white bg-light-blue text-16 hover:bg-blue w-max h-max rounded-6 border-none px-[12px] py-[4px] mr-[15px] font-bold"
+                  className="text-black bg-yellow text-16 hover:bg-yellow w-max h-max rounded-6 border-none px-[12px] py-[4px] mr-[15px] font-bold"
                 >
                   Sign Up
                 </button>
                 <button
                   type="button"
                   onClick={() => setLoginView(true)}
-                  className="text-light-blue text-16 hover:text-blue py-[4px] px-[12px] font-bold"
+                  className="text-yellow text-16 hover:text-yellow py-[4px] px-[12px] font-bold"
                 >
                   Sign in
                 </button>

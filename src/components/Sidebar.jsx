@@ -23,7 +23,7 @@ const Sidebar = () => {
       {viewSidebar === true ? (
         <div className="2xl:w-[1290px]  2xl:mx-auto 2xl:mt-[104px]">
           <aside className="2xl:w-[240px] fixed">
-            <div className="py-4 px-3 bg-main rounded-10 border border-[1.5px] border-secondary">
+            <div className="py-4 px-3 bg-white rounded-10 border border-[1.5px] border-secondary">
               {/* Sidebar menu links */}
               <ul className="space-y-2">
                 {/* Account */}
@@ -36,11 +36,11 @@ const Sidebar = () => {
                     }}
                     className={
                       chevronAcc === false
-                        ? "flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between rounded-6 hover:bg-gray hover:text-light-blue"
-                        : "flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between bg-gray rounded-t-6 rounded-b-0 border-b border-b-1 border-b-light-blue"
+                        ? "flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between rounded-6 hover:bg-gray hover:text-yellow"
+                        : "flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between bg-gray rounded-t-6 rounded-b-0 border-b border-b-1 border-b-yellow"
                     }
                   >
-                    <span className="ml-3 whitespace-nowrap w-max ">
+                    <span className="ml-3 blackspace-nowrap w-max ">
                       Account
                     </span>
                     <img
@@ -58,16 +58,16 @@ const Sidebar = () => {
                     <>
                       {" "}
                       <ul className="space-y-0 ">
-                        <li className="flex items-center p-2 text-16 font-normal text-white cursor-pointer bg-gray hover:text-light-blue">
-                          <p className="w-max h-max ml-3 whitespace-nowrap ">
+                        <li className="flex items-center p-2 text-16 font-normal text-black cursor-pointer bg-gray hover:text-yellow">
+                          <p className="w-max h-max ml-3 blackspace-nowrap ">
                             Settings
                           </p>
                         </li>
-                        <li className="flex items-center p-2 text-16 font-normal text-white w-full justify-between rounded-b-6 cursor-pointer bg-gray hover:text-light-blue">
-                          <p className="w-max h-max ml-3 whitespace-nowrap ">
+                        <li className="flex items-center p-2 text-16 font-normal text-black w-full justify-between rounded-b-6 cursor-pointer bg-gray hover:text-yellow">
+                          <p className="w-max h-max ml-3 blackspace-nowrap ">
                             My Plan
                           </p>
-                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-white bg-blue rounded-6">
+                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-black bg-yellow rounded-6">
                             Pro
                           </span>
                         </li>
@@ -87,7 +87,7 @@ const Sidebar = () => {
                         setCurrencies
                       );
                     }}
-                    className="flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between rounded-6 hover:bg-gray hover:text-light-blue"
+                    className="flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between rounded-6 hover:bg-gray hover:text-yellow"
                   >
                     <p className="ml-3">New Filter</p>
                   </button>
@@ -103,11 +103,11 @@ const Sidebar = () => {
                     }}
                     className={
                       chevronFav === false
-                        ? "flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between rounded-6 hover:bg-gray hover:text-light-blue"
-                        : "flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between bg-gray rounded-t-6 rounded-b-0 border-b border-b-1 border-b-light-blue"
+                        ? "flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between rounded-6 hover:bg-gray hover:text-yellow"
+                        : "flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between bg-gray rounded-t-6 rounded-b-0 border-b border-b-1 border-b-yellow"
                     }
                   >
-                    <span className="ml-3 whitespace-nowrap w-max ">
+                    <span className="ml-3 blackspace-nowrap w-max ">
                       Favorites
                     </span>
                     <img
@@ -123,35 +123,35 @@ const Sidebar = () => {
                   {chevronFav === true ? (
                     <div>
                       <ul>
-                        <li className="flex items-center p-2 text-16 font-normal text-white w-full justify-between cursor-pointer bg-gray hover:text-light-blue">
-                          <p className="w-max h-max ml-3 whitespace-nowrap ">
+                        <li className="flex items-center p-2 text-16 font-normal text-black w-full justify-between cursor-pointer bg-gray hover:text-yellow">
+                          <p className="w-max h-max ml-3 blackspace-nowrap ">
                             USDT / KZT
                           </p>
-                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-white bg-green rounded-6">
+                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-black bg-green rounded-6">
                             BUY
                           </span>
                         </li>
-                        <li className="flex items-center p-2 text-16 font-normal text-white w-full justify-between cursor-pointer bg-gray hover:text-light-blue">
-                          <p className="w-max h-max ml-3 whitespace-nowrap ">
+                        <li className="flex items-center p-2 text-16 font-normal text-black w-full justify-between cursor-pointer bg-gray hover:text-yellow">
+                          <p className="w-max h-max ml-3 blackspace-nowrap ">
                             BUSD / USD
                           </p>
-                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-white bg-red rounded-6">
+                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-black bg-red rounded-6">
                             SELL
                           </span>
                         </li>
-                        <li className="flex items-center p-2 text-16 font-normal text-white w-full justify-between cursor-pointer bg-gray hover:text-light-blue">
-                          <p className="w-max h-max ml-3 whitespace-nowrap ">
+                        <li className="flex items-center p-2 text-16 font-normal text-black w-full justify-between cursor-pointer bg-gray hover:text-yellow">
+                          <p className="w-max h-max ml-3 blackspace-nowrap ">
                             BUSD / KZT
                           </p>
-                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-white bg-red rounded-6">
+                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-black bg-red rounded-6">
                             SELL
                           </span>
                         </li>
-                        <li className="flex items-center p-2 text-16 font-normal text-white w-full justify-between rounded-b-6 cursor-pointer bg-gray hover:text-light-blue">
-                          <p className="w-max h-max ml-3 whitespace-nowrap ">
+                        <li className="flex items-center p-2 text-16 font-normal text-black w-full justify-between rounded-b-6 cursor-pointer bg-gray hover:text-yellow">
+                          <p className="w-max h-max ml-3 blackspace-nowrap ">
                             BTC / RUB
                           </p>
-                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-white bg-green rounded-6">
+                          <span className="inline-flex justify-center items-center px-2 ml-3 text-10 font-normal text-black bg-green rounded-6">
                             BUY
                           </span>
                         </li>
@@ -164,7 +164,7 @@ const Sidebar = () => {
                 <li>
                   <button
                     type="button "
-                    className="flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between rounded-6 hover:bg-gray hover:text-light-blue"
+                    className="flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between rounded-6 hover:bg-gray hover:text-yellow"
                   >
                     <p className="ml-3">Help</p>
                   </button>
@@ -174,7 +174,7 @@ const Sidebar = () => {
                 <li>
                   <button
                     type="button "
-                    className="flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between rounded-6 hover:bg-gray hover:text-light-blue"
+                    className="flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between rounded-6 hover:bg-gray hover:text-yellow"
                   >
                     <p className="ml-3">Something</p>
                   </button>
@@ -182,7 +182,7 @@ const Sidebar = () => {
                 <li>
                   <button
                     type="button "
-                    className="flex items-center p-2 text-16 font-normal text-white w-full h-max justify-between rounded-6 hover:bg-gray hover:text-light-blue"
+                    className="flex items-center p-2 text-16 font-normal text-black w-full h-max justify-between rounded-6 hover:bg-gray hover:text-yellow"
                   >
                     <p className="ml-3">Something</p>
                   </button>
@@ -191,14 +191,14 @@ const Sidebar = () => {
 
               {/* Beta Block */}
               {beta === true ? (
-                <div className="p-4 mt-6 bg-light-blue rounded-10">
+                <div className="p-4 mt-6 bg-yellow rounded-10">
                   <div className="flex items-center mb-3 bg-inherit">
-                    <span className="bg-blue text-white text-12 font-bold mr-2 px-2.5 py-0.5 rounded-6">
+                    <span className="bg-yellow text-black text-12 font-bold mr-2 px-2.5 py-0.5 rounded-6">
                       Beta
                     </span>
                     <button
                       type="button"
-                      className="ml-auto text-main rounded-6 p-1 inline-flex h-6 w-6 bg-white"
+                      className="ml-auto text-white rounded-6 p-1 inline-flex h-6 w-6 bg-black"
                       onClick={() => setBeta(false)}
                     >
                       <svg
@@ -216,11 +216,11 @@ const Sidebar = () => {
                     </button>
                   </div>
                   <p className="mb-3 text-12 text-black ">
-                    FIRESTAR is in beta version, there may be changes in the
+                    COLDSTAR is in beta version, there may be changes in the
                     interface and the logical part of the project. Follow us on
                     social networks.
                   </p>
-                  <a className="text-12 text-white underline" href="">
+                  <a className="text-12 text-black underline" href="">
                     To social media links
                   </a>
                 </div>
@@ -235,9 +235,9 @@ const Sidebar = () => {
                   clearCoockies();
                   setUser(false);
                 }}
-                className="flex items-center w-full mt-[6px] p-2 text-16 font-normalplus bg-[#0c9aed] mt-2 text-white rounded-6 bg-gray"
+                className="flex items-center w-full mt-[6px] p-2 text-16 font-normalplus bg-[#0c9aed] mt-2 text-black rounded-6 bg-gray"
               >
-                <p className="w-max h-max mx-auto whitespace-nowrap">Log out</p>
+                <p className="w-max h-max mx-auto blackspace-nowrap">Log out</p>
               </button>
             </div>
           </aside>

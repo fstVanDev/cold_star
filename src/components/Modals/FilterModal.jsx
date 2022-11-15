@@ -109,13 +109,13 @@ const FilterModal = () => {
   return (
     <MainModal visible={filterView} onClose={() => setFilterView(false)}>
       <div className="grid bg-inherit h-max mx-auto h-max 2xl:w-[850px] 2xl:rounded-10 ">
-        <div className="flex bg-main w-full rounded-10 px-[30px] justify-center mb-[15px] py-[12px] border border-1 border-gray">
-          <p className="w-max h-max mx-auto text-light-blue 2xl:text-26 font-bold">
+        <div className="flex bg-white w-full rounded-10 px-[30px] justify-center mb-[15px] py-[12px] border border-1 border-gray">
+          <p className="w-max h-max mx-auto text-yellow 2xl:text-26 font-bold">
             Filter
           </p>
         </div>
 
-        <div className="grid bg-main w-full rounded-10 justify-center py-[12px] border border-1 border-gray">
+        <div className="grid bg-white w-full rounded-10 justify-center py-[12px] border border-1 border-gray">
           <div
             className={
               first === false
@@ -127,7 +127,7 @@ const FilterModal = () => {
               className={
                 first === false
                   ? "flex w-full h-max"
-                  : "flex w-full h-max border-b border-b-1 border-b-blue "
+                  : "flex w-full h-max border-b border-b-1 border-b-yellow "
               }
             >
               <button
@@ -135,8 +135,8 @@ const FilterModal = () => {
                 onClick={() => setFirst(!first)}
                 className={
                   first === false
-                    ? "text-white flex w-full justify-center mb-[12px] hover:text-light-blue  mx-auto text-center text-22 my-auto"
-                    : "text-light-blue flex w-full justify-center mb-[12px] mx-auto text-center text-22 my-auto"
+                    ? "text-black flex w-full justify-center mb-[12px] hover:text-yellow  mx-auto text-center text-22 my-auto"
+                    : "text-yellow flex w-full justify-center mb-[12px] mx-auto text-center text-22 my-auto"
                 }
               >
                 <p>Create filter</p>
@@ -155,15 +155,15 @@ const FilterModal = () => {
           {first === true ? (
             <div className="grid h-max w-full px-[15px] mb-[36px]">
               <div className="rounded-10 w-full h-max bg-secondary px-[15px] py-[12px]">
-                <div className="bg-main grid w-full h-max rounded-10 px-[48px] py-[24px]">
+                <div className="bg-white grid w-full h-max rounded-10 px-[48px] py-[24px]">
                   <div className="flex w-max h-[42px] mb-[10px] border border-1 border-secondary rounded-6 px-[2px] mx-auto">
                     <button
                       type="button"
                       onClick={() => setModeFirst(2)}
                       className={
                         modeFirst === 2
-                          ? "bg-green w-max text-16 h-[32px] px-[22px] text-white font-main font-normalplus rounded-6 my-auto"
-                          : "bg-inherit w-max text-16 h-[32px] px-[22px] text-white font-main font-normalplus my-auto"
+                          ? "bg-green w-max text-16 h-[32px] px-[22px] text-black font-white font-normalplus rounded-6 my-auto"
+                          : "bg-inherit w-max text-16 h-[32px] px-[22px] text-black font-white font-normalplus my-auto"
                       }
                     >
                       Buy
@@ -173,8 +173,8 @@ const FilterModal = () => {
                       onClick={() => setModeFirst(1)}
                       className={
                         modeFirst === 1
-                          ? "bg-red w-max text-16 h-[33px] px-[22px] text-white font-main font-normalplus rounded-6 my-auto"
-                          : "bg-inherit w-max text-16 h-[33px] px-[22px] text-white font-main font-normalplus my-auto"
+                          ? "bg-red w-max text-16 h-[33px] px-[22px] text-black font-white font-normalplus rounded-6 my-auto"
+                          : "bg-inherit w-max text-16 h-[33px] px-[22px] text-black font-white font-normalplus my-auto"
                       }
                     >
                       Sell
@@ -182,7 +182,7 @@ const FilterModal = () => {
                   </div>
                   <div className="flex w-full justify-around h-max">
                     <div>
-                      <p className="text-white w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
+                      <p className="text-black w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
                         Amount
                       </p>
 
@@ -190,14 +190,14 @@ const FilterModal = () => {
                         type="text"
                         value={amountFirst}
                         onChange={(e) => setAmountFirst(e.target.value)}
-                        className="w-[100px] h-[38px] bg-secondary border border-1 border-light-blue 
-                        focus:border-blue focus:ring-0 focus:outline-none text-white
+                        className="w-[100px] h-[38px] bg-secondary border border-1 border-yellow 
+                        focus:border-yellow focus:ring-0 focus:outline-none text-black
                         rounded-6 text-16 font-normal px-[12px] py-[6px] 
                         "
                       />
                     </div>
                     {fiatArray === null ? (
-                      <p className="text-white">Wait</p>
+                      <p className="text-black">Wait</p>
                     ) : (
                       <Dropdown
                         name={"Fiat"}
@@ -208,7 +208,7 @@ const FilterModal = () => {
                       />
                     )}
                     {cryptoArray === null ? (
-                      <p className="text-white">Wait</p>
+                      <p className="text-black">Wait</p>
                     ) : (
                       <Dropdown
                         name={"Crypto"}
@@ -228,7 +228,7 @@ const FilterModal = () => {
                       />
                     ) : (
                       <div className="grid h-max w-max">
-                        <p className="text-white w-max h-max mb-[8px] 2xl:text-16 font-normalplus">
+                        <p className="text-black w-max h-max mb-[8px] 2xl:text-16 font-normalplus">
                           Payment
                         </p>
                         <div className="w-[180px] h-[38px] bg-secondary rounded-6 flex justify-between">
@@ -236,7 +236,7 @@ const FilterModal = () => {
                             Payment..
                           </p>
                           <div className="w-max h-max my-auto flex">
-                            <div className="w-[1px] bg-white h-[20px] my-auto" />
+                            <div className="w-[1px] bg-black h-[20px] my-auto" />
 
                             <svg
                               height="20"
@@ -256,7 +256,7 @@ const FilterModal = () => {
 
                   {tradeFirstArray === null ? (
                     <div className="w-max h-max flex  mt-[20px] py-[8px]">
-                      <p className="text-14 font-normal text-white border-b border-b-1 border-b-red">
+                      <p className="text-14 font-normal text-black border-b border-b-1 border-b-red">
                         Request status:
                       </p>
                       <img
@@ -267,7 +267,7 @@ const FilterModal = () => {
                     </div>
                   ) : (
                     <div className="w-max h-max flex  mt-[20px] py-[8px]">
-                      <p className="text-14 font-normal text-white border-b border-b-1 border-b-light-blue">
+                      <p className="text-14 font-normal text-black border-b border-b-1 border-b-yellow">
                         Request status:
                       </p>
                       <img
@@ -293,7 +293,7 @@ const FilterModal = () => {
               className={
                 second === false
                   ? "flex w-full h-max"
-                  : "flex w-full h-max border-b border-b-1 border-b-blue "
+                  : "flex w-full h-max border-b border-b-1 border-b-yellow "
               }
             >
               <button
@@ -301,8 +301,8 @@ const FilterModal = () => {
                 onClick={() => setSecond(!second)}
                 className={
                   second === false
-                    ? "text-white flex w-full justify-center mb-[12px] hover:text-light-blue  mx-auto text-center text-22 my-auto"
-                    : "text-light-blue flex w-full justify-center mb-[12px] mx-auto text-center text-22 my-auto"
+                    ? "text-black flex w-full justify-center mb-[12px] hover:text-yellow  mx-auto text-center text-22 my-auto"
+                    : "text-yellow flex w-full justify-center mb-[12px] mx-auto text-center text-22 my-auto"
                 }
               >
                 <p>Create filter</p>
@@ -321,15 +321,15 @@ const FilterModal = () => {
           {second === true ? (
             <div className="grid h-max w-full px-[15px] mb-[36px]">
               <div className="rounded-10 w-full h-max bg-secondary px-[15px] py-[12px]">
-                <div className="bg-main grid w-full h-max rounded-10 px-[48px] py-[24px]">
+                <div className="bg-white grid w-full h-max rounded-10 px-[48px] py-[24px]">
                   <div className="flex w-max h-[42px] mb-[10px] border border-1 border-secondary rounded-6 px-[2px] mx-auto">
                     <button
                       type="button"
                       onClick={() => setModeSecond(2)}
                       className={
                         modeSecond === 2
-                          ? "bg-green w-max text-16 h-[32px] px-[22px] text-white font-main font-normalplus rounded-6 my-auto"
-                          : "bg-inherit w-max text-16 h-[32px] px-[22px] text-white font-main font-normalplus my-auto"
+                          ? "bg-green w-max text-16 h-[32px] px-[22px] text-black font-white font-normalplus rounded-6 my-auto"
+                          : "bg-inherit w-max text-16 h-[32px] px-[22px] text-black font-white font-normalplus my-auto"
                       }
                     >
                       Buy
@@ -339,8 +339,8 @@ const FilterModal = () => {
                       onClick={() => setModeSecond(1)}
                       className={
                         modeSecond === 1
-                          ? "bg-red w-max text-16 h-[33px] px-[22px] text-white font-main font-normalplus rounded-6 my-auto"
-                          : "bg-inherit w-max text-16 h-[33px] px-[22px] text-white font-main font-normalplus my-auto"
+                          ? "bg-red w-max text-16 h-[33px] px-[22px] text-black font-white font-normalplus rounded-6 my-auto"
+                          : "bg-inherit w-max text-16 h-[33px] px-[22px] text-black font-white font-normalplus my-auto"
                       }
                     >
                       Sell
@@ -348,7 +348,7 @@ const FilterModal = () => {
                   </div>
                   <div className="flex w-full justify-between h-max">
                     <div>
-                      <p className="text-white w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
+                      <p className="text-black w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
                         Amount
                       </p>
 
@@ -356,15 +356,15 @@ const FilterModal = () => {
                         type="text"
                         value={amountSecond}
                         onChange={(e) => setAmountSecond(e.target.value)}
-                        className="w-[100px] h-[38px] bg-secondary border border-1 border-light-blue 
-                        focus:border-blue focus:ring-0 focus:outline-none text-white
+                        className="w-[100px] h-[38px] bg-secondary border border-1 border-yellow 
+                        focus:border-yellow focus:ring-0 focus:outline-none text-black
                         rounded-6 text-16 font-normal px-[12px] py-[6px] 
                         "
                       />
                     </div>
 
                     {fiatArray === null ? (
-                      <p className="text-white">Wait</p>
+                      <p className="text-black">Wait</p>
                     ) : (
                       <Dropdown
                         name={"Fiat"}
@@ -375,7 +375,7 @@ const FilterModal = () => {
                       />
                     )}
                     {cryptoArray === null ? (
-                      <p className="text-white">Wait</p>
+                      <p className="text-black">Wait</p>
                     ) : (
                       <Dropdown
                         name={"Crypto"}
@@ -394,10 +394,10 @@ const FilterModal = () => {
                         boo={true}
                       />
                     ) : (
-                      <p className="text-white">Wait</p>
+                      <p className="text-black">Wait</p>
 
                       // <div className="grid h-max w-max">
-                      //   <p className="text-white w-max h-max mb-[8px] 2xl:text-16 font-normalplus">
+                      //   <p className="text-black w-max h-max mb-[8px] 2xl:text-16 font-normalplus">
                       //     Payment
                       //   </p>
                       //   <div className="w-[180px] h-[38px] bg-secondary rounded-6 flex justify-between">
@@ -405,7 +405,7 @@ const FilterModal = () => {
                       //       Payment..
                       //     </p>
                       //     <div className="w-max h-max my-auto flex">
-                      //       <div className="w-[1px] bg-white h-[20px] my-auto" />
+                      //       <div className="w-[1px] bg-black h-[20px] my-auto" />
 
                       //       <svg
                       //         height="20"
@@ -425,7 +425,7 @@ const FilterModal = () => {
 
                   {tradeSecondArray === null ? (
                     <div className="w-max h-max flex  mt-[20px] py-[8px]">
-                      <p className="text-14 font-normal text-white border-b border-b-1 border-b-red">
+                      <p className="text-14 font-normal text-black border-b border-b-1 border-b-red">
                         Request status:
                       </p>
                       <img
@@ -436,7 +436,7 @@ const FilterModal = () => {
                     </div>
                   ) : (
                     <div className="w-max h-max flex  mt-[20px] py-[8px]">
-                      <p className="text-14 font-normal text-white border-b border-b-1 border-b-light-blue">
+                      <p className="text-14 font-normal text-black border-b border-b-1 border-b-yellow">
                         Request status:
                       </p>
                       <img
@@ -452,7 +452,7 @@ const FilterModal = () => {
           ) : null}
         </div>
 
-        <div className="flex bg-main w-full rounded-10 px-[30px] justify-center mt-[15px] py-[12px] border border-1 border-gray">
+        <div className="flex bg-white w-full rounded-10 px-[30px] justify-center mt-[15px] py-[12px] border border-1 border-gray">
           <button
             type="button"
             onClick={
@@ -460,16 +460,16 @@ const FilterModal = () => {
                 ? () => toGetOrders()
                 : null
             }
-            className="flex items-center w-max my-auto py-2 px-3 text-16 font-normal bg-[#0c9aed] text-white rounded-6 bg-gray"
+            className="flex items-center w-max my-auto py-2 px-3 text-16 font-normal bg-[#0c9aed] text-black rounded-6 bg-gray"
           >
-            <p className="w-max h-max mx-auto whitespace-nowrap">Get Orders</p>
+            <p className="w-max h-max mx-auto blackspace-nowrap">Get Orders</p>
           </button>
           <button
             type="button"
             onClick={() => setFilterView(false)}
-            className="flex items-center w-max my-auto ml-[30px] py-2 px-3 text-16 font-normalplus bg-inherit text-light-blue rounded-6 bg-gray"
+            className="flex items-center w-max my-auto ml-[30px] py-2 px-3 text-16 font-normalplus bg-inherit text-yellow rounded-6 bg-gray"
           >
-            <p className="w-max h-max mx-auto whitespace-nowrap">Cancel</p>
+            <p className="w-max h-max mx-auto blackspace-nowrap">Cancel</p>
           </button>
         </div>
       </div>
