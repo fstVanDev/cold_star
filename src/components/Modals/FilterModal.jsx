@@ -76,7 +76,7 @@ const FilterModal = () => {
         cryptoIdFirst,
         setTradeFirstArray
       );
-
+      console.log(fiatIdFirst, "fiatIdFirst");
       const item = currencies[fiatIdFirst - 1].rates.rate;
 
       if (item !== null || item !== undefined) {
