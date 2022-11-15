@@ -230,3 +230,23 @@ export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
       console.log(error);
     });
 }
+
+export async function clearCoockies() {
+  var config = {
+    method: "post",
+    url: "https://top2pro.com/logout",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      Accept: "application/json",
+    },
+    withCredentials: true,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response, "clearCoockies");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

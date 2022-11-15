@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { StateContext } from "../context/StateProvider";
-import { getCurrencies } from "../data/Requests";
+
+import { getCurrencies, clearCoockies } from "../data/Requests";
 import { chevron } from "../images";
 
 const Sidebar = () => {
@@ -15,15 +16,6 @@ const Sidebar = () => {
   const [chevronAcc, setChevronAcc] = useState(false); // true - параметры аккаунта показываются, false - скрываются
   const [chevronFav, setChevronFav] = useState(false); // true - параметры Избранных показываются, false - скрываются
   const [beta, setBeta] = useState(true); // true - beta block is visible, false - not visible
-
-  function deleteCookies() {
-    var allCookies = document.cookie.split(";"); // The "expire" attribute of every cookie is // Set to "Thu, 01 Jan 1970 00:00:00 GMT"
-    for (var i = 0; i < allCookies.length; i++)
-      document.cookie =
-        allCookies[i] + "=;expires=" + new Date(0).toUTCString();
-
-    console.log(document.coockie);
-  }
 
   return (
     <>
@@ -235,7 +227,7 @@ const Sidebar = () => {
                   setChevronAcc(false);
                   setChevronFav(false);
                   setViewSidebar(false);
-                  deleteCookies();
+                  clearCoockies();
                   setUser(false);
                 }}
                 className="flex items-center w-full mt-[6px] p-2 text-16 font-normalplus bg-[#0c9aed] mt-2 text-white rounded-6 bg-gray"
