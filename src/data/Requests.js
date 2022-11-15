@@ -117,7 +117,11 @@ export async function registerFunc(
     });
 }
 
-export async function getCurrencies(setFiatArray, setCryptoArray) {
+export async function getCurrencies(
+  setFiatArray,
+  setCryptoArray,
+  setCurrencies
+) {
   var config = {
     method: "get",
     url: "https://top2pro.com/api/currencies/getAll",
@@ -144,6 +148,7 @@ export async function getCurrencies(setFiatArray, setCryptoArray) {
       });
       setFiatArray(fiat);
       setCryptoArray(crypto);
+      setCurrencies(response.data.data);
     })
     .catch(function (error) {
       console.log(error);
