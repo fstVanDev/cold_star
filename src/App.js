@@ -26,7 +26,6 @@ const App = () => {
 
   useEffect(() => {
     getCsrf(setStatus, setUser, setLogin, setName);
-    console.log(document.cookie);
   }, []);
 
   return (

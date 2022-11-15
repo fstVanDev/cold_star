@@ -242,4 +242,6 @@ const Sidebar = () => {
   );
 };
 
+// Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+
 export default Sidebar;

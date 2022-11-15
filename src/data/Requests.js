@@ -123,7 +123,6 @@ export async function getCurrencies(setFiatArray, setCryptoArray) {
     url: "https://top2pro.com/api/currencies/getAll",
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "X-Requested-With": "XMLHttpRequest",
     },
   };
@@ -165,7 +164,6 @@ export async function getTradeMethods(mode, fiat, crypto, setTrade) {
     withCredentials: true,
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
@@ -214,7 +212,6 @@ export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
     url: "https://top2pro.com/api/orders/search",
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
