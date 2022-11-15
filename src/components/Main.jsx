@@ -41,7 +41,7 @@ const Main = () => {
             : "text-14 bg-green px-[16px] pu-[12px] m-auto text-white rounded-6"
         }
       >
-        {result.toFixed(3)}%
+        {result.toFixed(5)}%
       </div>
     );
   };
