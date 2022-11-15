@@ -33,6 +33,7 @@ export const StateProvider = ({ children }) => {
   const [tradeFirstArray, setTradeFirstArray] = useState(null); // массив со всеми банками и способами оплаты при покупке
   const [ordersArrayFirst, setOrdersArrayFirst] = useState(null); //  массив со всеми ордерами по первому фильтру
   const [amountFirst, setAmountFirst] = useState(null);
+  const [fiatRateFirst, setFiatRateFirst] = useState(null);
 
   // second-filter states
   const [modeSecond, setModeSecond] = useState(1);
@@ -43,6 +44,7 @@ export const StateProvider = ({ children }) => {
   const [tradeSecondArray, setTradeSecondArray] = useState(null); // массив со всеми банками и способами оплаты при продаже
   const [ordersArraySecond, setOrdersArraySecond] = useState(null); // массив со всеми ордерами по второму фильтру
   const [amountSecond, setAmountSecond] = useState(null);
+  const [fiatRateSecond, setFiatRateSecond] = useState(null);
 
   //requests
   const [fiatArray, setFiatArray] = useState(null); // массив со всеми фиатными валютами
@@ -51,6 +53,11 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        fiatRateFirst,
+        setFiatRateFirst,
+        fiatRateSecond,
+        setFiatRateSecond,
+
         user,
         setUser,
         login,

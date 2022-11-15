@@ -9,6 +9,8 @@ const Main = () => {
     ordersArrayFirst,
     modeSecond,
     modeFirst,
+    fiatRateFirst,
+    fiatRateSecond,
     amountFirst,
     amountSecond,
   } = useContext(StateContext);
@@ -16,16 +18,20 @@ const Main = () => {
   const [active, setActive] = useState(0);
 
   const takeProfit = (item, flap) => {
-    let result = (item * 100) / flap;
-    if (modeFirst === 2) {
-      if (result < 100) {
-        result = result - 100;
-      }
-    } else {
-      if (result > 100) {
-        result = 100 - result;
-      }
-    }
+    // let result = (item * 100) / flap;
+    // if (modeFirst === 2) {
+    //   if (result < 100) {
+    //     result = result - 100;
+    //   }
+    // } else {
+    //   if (result > 100) {
+    //     result = 100 - result;
+    //   }
+    // }
+
+    var realRate = fiatRateSecond / fiatRateFirst;
+    var resultRate = item / flap;
+    const result = Math.round((resultRate / realRate - 1) * 10000) / 100;
 
     return (
       <div

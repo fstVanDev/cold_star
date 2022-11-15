@@ -24,23 +24,21 @@ const FilterModal = () => {
     setFiatIdSecond,
     tradeIdSecond,
     setTradeIdSecond,
-    priceSecond,
-    setPriceSecond,
     setTradeFirstArray,
     tradeSecondArray,
     setTradeSecondArray,
     setfiatIdFirst,
     cryptoIdFirst,
     setcryptoIdFirst,
-    ordersArraySecond,
     setOrdersArraySecond,
-    ordersArrayFirst,
     setOrdersArrayFirst,
     amountFirst,
     setAmountFirst,
     amountSecond,
     setAmountSecond,
     fiatIdFirst,
+    setFiatRateFirst,
+    setFiatRateSecond,
   } = useContext(StateContext);
 
   const [first, setFirst] = useState(false); // true - виден блок конфигурации, false - скрыть блок
@@ -77,6 +75,13 @@ const FilterModal = () => {
         cryptoIdFirst,
         setTradeFirstArray
       );
+
+      const item = fiatArray[fiatIdFirst - 1].rates.rate;
+
+      if (item !== null || item !== undefined) {
+        setFiatRateFirst(item);
+        console.log(item, "first");
+      }
     }
   }, [fiatIdFirst, cryptoIdFirst]);
 
@@ -88,6 +93,13 @@ const FilterModal = () => {
         cryptoIdSecond,
         setTradeSecondArray
       );
+
+      const item = fiatArray[fiatIdSecond - 1].rates.rate;
+
+      if (item !== null || item !== undefined) {
+        setFiatRateSecond(item);
+        console.log(item, "second");
+      }
     }
   }, [fiatIdSecond, cryptoIdSecond]);
 
