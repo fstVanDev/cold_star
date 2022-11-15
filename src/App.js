@@ -26,6 +26,7 @@ const App = () => {
 
   useEffect(() => {
     getCsrf(setStatus, setUser, setLogin, setName);
+    console.log(document.coockie);
   }, []);
 
   return (
