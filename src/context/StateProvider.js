@@ -23,7 +23,7 @@ export const StateProvider = ({ children }) => {
   const [viewSidebar, setViewSidebar] = useState(false); // true - Sidebar виден, false - скрыт
   const [loginView, setLoginView] = useState(false); // true - показать модальное окно входа, false - скрыть
   const [registerView, setRegisterView] = useState(false); // true - показать модальное окно регистрации, false - скрыть
-  const [filterView, setFilterView] = useState(false); // true - показать модальное окно фильтров, false - скрыть
+  const [filterView, setFilterView] = useState(true); // true - показать модальное окно фильтров, false - скрыть
 
   // first-filter states
   const [modeFirst, setModeFirst] = useState(2);
