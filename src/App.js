@@ -13,11 +13,19 @@ import RegisterModal from "./components/Modals/RegisterModal";
 import { getCsrf } from "./data/Requests";
 
 const App = () => {
-  const { user, setUser, loginView, filterView, setStatus, registerView } =
-    useContext(StateContext);
+  const {
+    user,
+    setName,
+    setUser,
+    setLogin,
+    loginView,
+    filterView,
+    setStatus,
+    registerView,
+  } = useContext(StateContext);
 
   useEffect(() => {
-    getCsrf(setStatus, setUser);
+    getCsrf(setStatus, setUser, setLogin, setName);
   }, []);
 
   return (

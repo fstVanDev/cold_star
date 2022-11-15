@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getCsrf(setStatus, setUser) {
+export async function getCsrf(setStatus, setUser, setLogin, setName) {
   var config = {
     method: "get",
     url: "https://top2pro.com/sanctum/csrf-cookie",
@@ -14,14 +14,14 @@ export async function getCsrf(setStatus, setUser) {
     .then(function (response) {
       console.log(response, "csrf");
 
-      getUser(setStatus, setUser);
+      getUser(setStatus, setUser, setLogin, setName);
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-async function getUser(setStatus, setUser) {
+export async function getUser(setStatus, setUser, setLogin, setName) {
   var config = {
     method: "get",
     url: "https://top2pro.com/api/user",
@@ -35,17 +35,21 @@ async function getUser(setStatus, setUser) {
   axios(config)
     .then(function (response) {
       console.log(response);
+      if (response.status === 200) {
+        setLogin(response.data.email);
+        setName(response.data.name);
+        setUser(true);
+      }
     })
     .catch(function (error) {
-      if (error.response.status === 401) {
-        setStatus(error.response.status);
-        setUser(false);
-      }
+      setStatus(error.response.status);
+      setUser(false);
+
       console.log(error.response.status);
     });
 }
 
-export async function loginFunc(login, password, setUser) {
+export async function loginFunc(login, password, setUser, setLoginView) {
   var data = JSON.stringify({
     email: login,
     password: password,
@@ -66,6 +70,7 @@ export async function loginFunc(login, password, setUser) {
   axios(config)
     .then(function (response) {
       console.log(response);
+      setLoginView(false);
       setUser(true);
     })
     .catch(function (error) {

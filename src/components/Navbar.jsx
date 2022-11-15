@@ -60,7 +60,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={() => setRegisterView(true)}
-                  className="text-white bg-light-blue text-16 hover:bg-blue w-max h-max rounded-6 border-none px-[12px] py-[4px] mr-[15px] font-bold"
+                  className="text-main bg-light-blue text-16 hover:bg-blue w-max h-max rounded-6 border-none px-[12px] py-[4px] mr-[15px] font-bold"
                 >
                   Sign Up
                 </button>

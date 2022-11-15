@@ -7,6 +7,7 @@ export const StateProvider = ({ children }) => {
   const [user, setUser] = useState(false); // true - вошел в систему, false - не вошел в систему
   const [login, setLogin] = useState(""); // хранить email пользователя при входе
   const [password, setPassword] = useState(""); // хранить пароль пользователя при входе
+  const [name, setName] = useState(""); // хранить имя пользователя
 
   // register states
   const [registerLogin, setRegisterLogin] = useState(""); // логин при регистрации
@@ -54,6 +55,8 @@ export const StateProvider = ({ children }) => {
         setLogin,
         password,
         setPassword,
+        name,
+        setName,
 
         registerLogin,
         setRegisterLogin,

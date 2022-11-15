@@ -19,7 +19,7 @@ const LoginModal = () => {
 
   function confirmLogin() {
     if (login.length !== 0 && password.length !== null) {
-      loginFunc(login, password, setUser);
+      loginFunc(login, password, setUser, setLoginView);
     } else {
       alert("All fields cant`t be null");
     }
