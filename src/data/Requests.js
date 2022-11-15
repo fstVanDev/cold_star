@@ -125,6 +125,7 @@ export async function getCurrencies(setFiatArray, setCryptoArray) {
       Accept: "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
+    withCredentials: true,
   };
 
   axios(config)
@@ -204,6 +205,7 @@ export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
       onlyMerchants: true,
       minOrdersCount: 100,
       minFinishRate: 0.5,
+      amount: 500,
     },
   });
 
@@ -215,6 +217,7 @@ export async function getOrders(mode, fiat, crypto, tradeId, setOrders) {
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
+    withCredentials: true,
     data: data,
   };
 

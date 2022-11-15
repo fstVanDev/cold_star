@@ -36,7 +36,10 @@ const FilterModal = () => {
     setOrdersArraySecond,
     ordersArrayFirst,
     setOrdersArrayFirst,
-
+    amountFirst,
+    setAmountFirst,
+    amountSecond,
+    setAmountSecond,
     fiatIdFirst,
   } = useContext(StateContext);
 
@@ -163,6 +166,21 @@ const FilterModal = () => {
                     </button>
                   </div>
                   <div className="flex w-full justify-around h-max">
+                    <div>
+                      <p className="text-white w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
+                        Amount
+                      </p>
+
+                      <input
+                        type="text"
+                        value={amountFirst}
+                        onChange={(e) => setAmountFirst(e.target.value)}
+                        className="w-[100px] h-[38px] bg-secondary border border-1 border-light-blue 
+                        focus:border-blue focus:ring-0 focus:outline-none text-white
+                        rounded-6 text-16 font-normal px-[12px] py-[6px] 
+                        "
+                      />
+                    </div>
                     {fiatArray === null ? (
                       <p className="text-white">Wait</p>
                     ) : (
@@ -314,6 +332,22 @@ const FilterModal = () => {
                     </button>
                   </div>
                   <div className="flex w-full justify-between h-max">
+                    <div>
+                      <p className="text-white w-max h-max 2xl:mb-[8px] 2xl:text-16 font-normalplus">
+                        Amount
+                      </p>
+
+                      <input
+                        type="text"
+                        value={amountSecond}
+                        onChange={(e) => setAmountSecond(e.target.value)}
+                        className="w-[100px] h-[38px] bg-secondary border border-1 border-light-blue 
+                        focus:border-blue focus:ring-0 focus:outline-none text-white
+                        rounded-6 text-16 font-normal px-[12px] py-[6px] 
+                        "
+                      />
+                    </div>
+
                     {fiatArray === null ? (
                       <p className="text-white">Wait</p>
                     ) : (
@@ -345,30 +379,32 @@ const FilterModal = () => {
                         boo={true}
                       />
                     ) : (
-                      <div className="grid h-max w-max">
-                        <p className="text-white w-max h-max mb-[8px] 2xl:text-16 font-normalplus">
-                          Payment
-                        </p>
-                        <div className="w-[180px] h-[38px] bg-secondary rounded-6 flex justify-between">
-                          <p className="text-16 font-normal text-[#808080] w-max h-max my-auto ml-[10px]">
-                            Payment..
-                          </p>
-                          <div className="w-max h-max my-auto flex">
-                            <div className="w-[1px] bg-white h-[20px] my-auto" />
+                      <p className="text-white">Wait</p>
 
-                            <svg
-                              height="20"
-                              width="20"
-                              viewBox="0 0 20 20"
-                              aria-hidden="true"
-                              focusable="false"
-                              className="w-max h-max my-auto mx-[8px]"
-                            >
-                              <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
+                      // <div className="grid h-max w-max">
+                      //   <p className="text-white w-max h-max mb-[8px] 2xl:text-16 font-normalplus">
+                      //     Payment
+                      //   </p>
+                      //   <div className="w-[180px] h-[38px] bg-secondary rounded-6 flex justify-between">
+                      //     <p className="text-16 font-normal text-[#808080] w-max h-max my-auto ml-[10px]">
+                      //       Payment..
+                      //     </p>
+                      //     <div className="w-max h-max my-auto flex">
+                      //       <div className="w-[1px] bg-white h-[20px] my-auto" />
+
+                      //       <svg
+                      //         height="20"
+                      //         width="20"
+                      //         viewBox="0 0 20 20"
+                      //         aria-hidden="true"
+                      //         focusable="false"
+                      //         className="w-max h-max my-auto mx-[8px]"
+                      //       >
+                      //         <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
+                      //       </svg>
+                      //     </div>
+                      //   </div>
+                      // </div>
                     )}
                   </div>
 

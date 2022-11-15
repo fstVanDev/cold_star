@@ -22,7 +22,7 @@ export const StateProvider = ({ children }) => {
   const [viewSidebar, setViewSidebar] = useState(false); // true - Sidebar виден, false - скрыт
   const [loginView, setLoginView] = useState(false); // true - показать модальное окно входа, false - скрыть
   const [registerView, setRegisterView] = useState(false); // true - показать модальное окно регистрации, false - скрыть
-  const [filterView, setFilterView] = useState(false); // true - показать модальное окно фильтров, false - скрыть
+  const [filterView, setFilterView] = useState(true); // true - показать модальное окно фильтров, false - скрыть
 
   // first-filter states
   const [modeFirst, setModeFirst] = useState(2);
@@ -32,6 +32,7 @@ export const StateProvider = ({ children }) => {
   const [priceFirst, setPriceFirst] = useState(""); // цена указанная пользователем
   const [tradeFirstArray, setTradeFirstArray] = useState(null); // массив со всеми банками и способами оплаты при покупке
   const [ordersArrayFirst, setOrdersArrayFirst] = useState(null); //  массив со всеми ордерами по первому фильтру
+  const [amountFirst, setAmountFirst] = useState(null);
 
   // second-filter states
   const [modeSecond, setModeSecond] = useState(1);
@@ -41,6 +42,7 @@ export const StateProvider = ({ children }) => {
   const [priceSecond, setPriceSecond] = useState("");
   const [tradeSecondArray, setTradeSecondArray] = useState(null); // массив со всеми банками и способами оплаты при продаже
   const [ordersArraySecond, setOrdersArraySecond] = useState(null); // массив со всеми ордерами по второму фильтру
+  const [amountSecond, setAmountSecond] = useState(null);
 
   //requests
   const [fiatArray, setFiatArray] = useState(null); // массив со всеми фиатными валютами
@@ -96,6 +98,10 @@ export const StateProvider = ({ children }) => {
         setPriceFirst,
         ordersArraySecond,
         setOrdersArraySecond,
+        amountFirst,
+        setAmountFirst,
+        amountSecond,
+        setAmountSecond,
         ordersArrayFirst,
         setOrdersArrayFirst,
         fiatIdSecond,

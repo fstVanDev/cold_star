@@ -4,8 +4,14 @@ import Home from "./Home";
 import { chevron } from "../images";
 
 const Main = () => {
-  const { ordersArraySecond, ordersArrayFirst, modeSecond, modeFirst } =
-    useContext(StateContext);
+  const {
+    ordersArraySecond,
+    ordersArrayFirst,
+    modeSecond,
+    modeFirst,
+    amountFirst,
+    amountSecond,
+  } = useContext(StateContext);
 
   const [active, setActive] = useState(0);
 
