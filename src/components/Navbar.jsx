@@ -18,7 +18,8 @@ const Navbar = () => {
         <div className="w-max h-max flex">
           {navbarData.menuButtons.map((item) => (
             <a
-              href={item.href}
+              key={item.label}
+              href={item.label}
               className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
             >
               <span className="font-bold text-black text-14 leading-20 ">

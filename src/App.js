@@ -9,10 +9,10 @@ import Bottom from "./components/Bottom";
 import { getCsrf } from "./data/Requests";
 
 const App = () => {
-  const {} = useContext(StateContext);
+  const { setLogin, setName, setUser } = useContext(StateContext);
 
   useEffect(() => {
-    getCsrf();
+    getCsrf(setLogin, setName, setUser);
   }, []);
   return (
     <div className="grid bg-main">

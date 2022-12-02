@@ -17,14 +17,18 @@ const Bottom = () => {
 
           <div className="flex">
             {bottomData.blocks.map((item) => (
-              <div className="mr-[30px]">
+              <div className="mr-[30px]" key={item.label}>
                 <h2 className="w-[190px] h-max mx-auto text-green text-14 leading-18 font-normal">
                   {item.label}
                 </h2>
 
                 <div className="mt-[10px] grid">
                   {item.buttons.map((obj) => (
-                    <a href={obj.url} className="mt-[20px] w-[190px] h-max ">
+                    <a
+                      href={obj.url}
+                      className="mt-[20px] w-[190px] h-max "
+                      key={obj.text}
+                    >
                       <p className="text-18 leading-22 font-normal text-black">
                         {obj.text}
                       </p>
@@ -42,6 +46,7 @@ const Bottom = () => {
               <a
                 className="w-max h-max p-[15px] rounded-10 bg-green"
                 href={item.url}
+                key={item.alt}
               >
                 <img
                   src={item.image}

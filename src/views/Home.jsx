@@ -48,7 +48,10 @@ const Home = () => {
 
         <div className="flex justify-between h-max w-full">
           {homeData.secondBlock.blocks.map((item) => (
-            <div className="h-[284px] w-[410px] p-[30px] border border-1 border-gray bg-white rounded-30">
+            <div
+              className="h-[284px] w-[410px] p-[30px] border border-1 border-gray bg-white rounded-30"
+              key={item.label}
+            >
               <div className="flex justify-start h-max">
                 <div className="w-max h-max p-[10px] rounded-15 bg-main border border-1 border-gray my-auto">
                   <img
@@ -84,7 +87,10 @@ const Home = () => {
 
           <div className="flex justify-between w-[960px]">
             {homeData.thirdBlock.plans.map((item) => (
-              <div className="bg-white rounded-30 w-[300px] h-[460px] p-[10px]">
+              <div
+                className="bg-white rounded-30 w-[300px] h-[460px] p-[10px]"
+                key={item.label}
+              >
                 <div
                   className={`${item.color} rounded-t-20 rounded-b-4 py-[20px] h-max w-full`}
                 >
@@ -95,7 +101,10 @@ const Home = () => {
 
                 <div className="h-[250px] w-full">
                   {item.blocks.map((obj) => (
-                    <div className="grid h-max w-max  mt-[20px] pl-[20px]">
+                    <div
+                      className="grid h-max w-max  mt-[20px] pl-[20px]"
+                      key={obj.label}
+                    >
                       <div className="flex h-max w-full ">
                         <div
                           className={`${item.color} rounded-[50%] w-[14px] h-[14px] mr-[15px] my-auto`}
@@ -135,7 +144,10 @@ const Home = () => {
 
         <div className="flex justify-between w-full h-max flex-wrap">
           {homeData.fourthBlock.questions.map((item, index) => (
-            <div className="w-[630px] h-max bg-white rounded-30 mt-[30px] border border-1 border-gray p-[30px]">
+            <div
+              className="w-[630px] h-max bg-white rounded-30 mt-[30px] border border-1 border-gray p-[30px]"
+              key={index}
+            >
               <div className="flex jsutify-between w-full h-max">
                 <button
                   type="button"
