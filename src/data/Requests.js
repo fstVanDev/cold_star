@@ -35,15 +35,14 @@ export async function getUser(setLogin, setName, setUser) {
   axios(config)
     .then(function (response) {
       console.log(response, "getUser");
-      if (response.status === 200) {
-        setLogin(response.data.email);
-        setName(response.data.name);
-        setUser(true);
-      }
+
+      setLogin(response.data.email);
+      setName(response.data.name);
+      setUser(true);
     })
     .catch(function (error) {
       setUser(false);
 
-      console.log(error.response.status);
+      console.log(error.response);
     });
 }
