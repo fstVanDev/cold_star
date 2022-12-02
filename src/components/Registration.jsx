@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { StateContext } from "../context/StateProvider";
 import { showPassword } from "../images";
 
+import { Link } from "react-router-dom";
+
 const Registration = () => {
   const {
     email,
@@ -96,7 +98,7 @@ const Registration = () => {
           <button
             type="button"
             className="w-full h-max px-auto py-[14px] mt-[30px] bg-green rounded-6 text-white font-bold text-18 leading-22"
-            onCLick={() => console.log("click")}
+            onClick={() => console.log("click")}
           >
             Continue
           </button>
@@ -104,12 +106,11 @@ const Registration = () => {
             <p className="text-12 font-normal text-gray leading-17">
               Already registered?
             </p>
-            <button
-              type="button"
-              className="ml-[5px] text-green text-12 leading-17 underline"
-            >
-              Log In
-            </button>
+            <Link to={"/login"}>
+              <p className="ml-[5px] text-green text-12 leading-17 underline">
+                Log In
+              </p>
+            </Link>
           </div>
         </div>
       </div>

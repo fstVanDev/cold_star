@@ -10,9 +10,8 @@ export const StateProvider = ({ children }) => {
   const [name, setName] = useState(""); // имя пользователя
 
   // views states
-  const [loginModal, setLoginModal] = useState(true); // true - модалка входа видна, false - cкрыта
-  const [registerModal, setRegisterModal] = useState(true);
-  const [orderView, setOrderView] = useState(true); // currentOreder in Main for dropdown
+  const [accountView, setAccountView] = useState(false); //  показывает модальное окно регистрации или логина true - показать, false - скрыть
+  const [orderView, setOrderView] = useState(true); // currentOrder in Main for dropdown
   const [chain, setChain] = useState([]); //  массив со всей цепочкой филтров
 
   // data states
@@ -39,10 +38,8 @@ export const StateProvider = ({ children }) => {
         setPassword,
         name,
         setName,
-        registerModal,
-        setRegisterModal,
-        loginModal,
-        setLoginModal,
+        accountView,
+        setAccountView,
         orderView,
         setOrderView,
         chain,

@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { StateContext } from "../context/StateProvider";
 import { navbarData } from "../data/mainData";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { user, setUser } = useContext(StateContext);
+  const { user, setUser, accountView, setAccountView } =
+    useContext(StateContext);
 
   return (
     <div className="2xl:w-[1290px] mx-auto">
@@ -27,11 +29,10 @@ const Navbar = () => {
               </span>
             </a>
           ))}
-
-          {!user ? (
+          {user === false ? (
             <button
               type="button"
-              onClick={() => console.log("click login button")}
+              onClick={() => setAccountView(!accountView)}
               className="flex justify-between w-max h-max px-[15px] py-[10px] bg-green rounded-4"
             >
               <img
@@ -45,7 +46,7 @@ const Navbar = () => {
           ) : (
             <button
               type="button"
-              onClick={() => console.log("click account button")}
+              onClick={() => setAccountView(!accountView)}
               className="flex justify-between w-max h-max px-[15px] py-[10px] bg-white rounded-4 border border-1 border-gray "
             >
               <img
@@ -64,6 +65,49 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      {accountView ? (
+        !user ? (
+          <div
+            className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px] "
+            onMouseLeave={() => setAccountView(false)}
+          >
+            <Link to={"/login"}>
+              <h2 className="text-gray text-14 leading-20 mb-[10px] w-max h-max mx-auto font-bold">
+                Log In
+              </h2>
+            </Link>
+            <hr />
+            <Link to={"/registration"}>
+              <h2 className="text-gray text-14 leading-20 mt-[10px] w-max h-max mx-auto font-bold">
+                Registration
+              </h2>
+            </Link>
+          </div>
+        ) : (
+          <div
+            className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px] "
+            onMouseLeave={() => setAccountView(false)}
+          >
+            <button type="button" className="w-full h-max mb-[10px]">
+              <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
+                Account
+              </p>
+            </button>
+            <hr />
+            <button type="button" className="w-full h-max my-[10px]">
+              <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
+                Change password
+              </p>
+            </button>
+            <hr />
+            <button type="button" className="w-full h-max mt-[10px]">
+              <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
+                Log Out
+              </p>
+            </button>
+          </div>
+        )
+      ) : null}
     </div>
   );
 };
