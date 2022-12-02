@@ -10,7 +10,6 @@ import { getCsrf } from "./data/requests";
 
 const App = () => {
   const {} = useContext(StateContext);
-  const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
     getCsrf();
