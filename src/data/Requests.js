@@ -43,6 +43,6 @@ export async function getUser(setLogin, setName, setUser) {
     .catch(function (error) {
       setUser(false);
 
-      console.log(error.response);
+      console.log(error);
     });
 }
