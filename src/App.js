@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Bottom from "./components/Bottom";
 
-import { getCsrf } from "./data/requests";
+import { getCsrf } from "./data/Requests";
 
 const App = () => {
   const {} = useContext(StateContext);
