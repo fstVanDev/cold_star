@@ -24,7 +24,7 @@ const Login = () => {
               type="text"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
+              className="focus:ring-0 focus:outline-none border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
             />
           </div>
           <div className={`mt-[30px] w-full h-max grid`}>
@@ -45,7 +45,7 @@ const Login = () => {
                 type={hide ? "text" : "password"}
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className=" w-[310px] h-[40px] rounded-10 text-gray pl-[15px] "
+                className="focus:ring-0 focus:outline-none w-[310px] h-[40px] rounded-10 text-gray pl-[15px] "
               />
               <button
                 type="button"

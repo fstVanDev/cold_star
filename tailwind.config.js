@@ -19,12 +19,14 @@ module.exports = {
       textColor: {
         black: "#1F1F1F",
         gray: "#484848",
+        lightGray: "#808080",
         white: "#FFFFFF",
         orange: "#F26419",
         green: "#21C3A4",
       },
       borderColor: {
         gray: "#EEEEEE",
+        green: "#21C3A4",
       },
       borderRadius: {
         4: "4px",

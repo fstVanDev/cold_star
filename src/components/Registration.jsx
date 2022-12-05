@@ -32,7 +32,7 @@ const Registration = () => {
               type="text"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
+              className="focus:ring-0 focus:outline-none border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
             />
           </div>
           <div className="mt-[20px] w-full h-max grid">
@@ -41,7 +41,7 @@ const Registration = () => {
               type="text"
               value={name}
               onChange={(event) => setName(event.target.value)}
-              className="border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
+              className="focus:ring-0 focus:outline-none border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
             />
           </div>
           <div className="mt-[20px] w-full h-max grid">
@@ -54,7 +54,7 @@ const Registration = () => {
                 type={hide2 ? "text" : "password"}
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className=" w-[310px] h-[40px] text-gray rounded-10 pl-[15px] "
+                className="focus:ring-0 focus:outline-none w-[310px] h-[40px] text-gray rounded-10 pl-[15px] "
               />
               <button
                 type="button"
@@ -79,7 +79,7 @@ const Registration = () => {
                 type={hide ? "text" : "password"}
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className=" w-[310px] h-[40px] text-gray rounded-10 pl-[15px] "
+                className="focus:ring-0 focus:outline-none w-[310px] h-[40px] text-gray rounded-10 pl-[15px] "
               />
               <button
                 type="button"

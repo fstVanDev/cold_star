@@ -7,13 +7,6 @@ const Navbar = () => {
   const { user, setUser, accountView, setAccountView } =
     useContext(StateContext);
 
-  useEffect(() => {
-    console.log(user, "nav");
-  }, []);
-  useEffect(() => {
-    console.log(user, "nav2");
-  }, [user]);
-
   return (
     <div className="2xl:w-[1290px] mx-auto">
       <div className="flex justify-between w-full py-[15px]">

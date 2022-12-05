@@ -61,6 +61,7 @@ export async function loginFunc(email, password) {
       "Content-Type": "application/json",
     },
     data: data,
+    withCredentials: true,
   };
 
   axios(config)
@@ -88,6 +89,7 @@ export async function registerFunc(name, email, password) {
       "Content-Type": "application/json",
     },
     data: data,
+    withCredentials: true,
   };
 
   axios(config)
@@ -105,8 +107,8 @@ export async function getCurrencies(setFiat, setCrypto) {
     url: "https://top2pro.com/api/currencies/getAll",
     headers: {
       Accept: "application/json",
-      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
+    withCredentials: true,
   };
 
   axios(config)
@@ -146,10 +148,10 @@ export async function getTradeMethods(mode, fiat, crypto, setTrade) {
     withCredentials: true,
     headers: {
       Accept: "application/json",
-      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
       "Content-Type": "application/json",
     },
     data: data,
+    withCredentials: true,
   };
 
   axios(config)
