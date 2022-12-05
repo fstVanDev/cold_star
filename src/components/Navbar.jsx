@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
 import { navbarData } from "../data/mainData";
 import { Link } from "react-router-dom";
@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const { user, setUser, accountView, setAccountView } =
     useContext(StateContext);
+
+  useEffect(() => {
+    console.log(user, "nav");
+  }, []);
 
   return (
     <div className="2xl:w-[1290px] mx-auto">
@@ -21,7 +25,7 @@ const Navbar = () => {
           {navbarData.menuButtons.map((item) => (
             <a
               key={item.label}
-              href={item.label}
+              href={item.href}
               className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
             >
               <span className="font-bold text-black text-14 leading-20 ">

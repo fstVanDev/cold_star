@@ -39,6 +39,8 @@ export async function getUser(setLogin, setName, setUser) {
       setLogin(response.data.email);
       setName(response.data.name);
       setUser(true);
+
+      console.log("user");
     })
     .catch(function (error) {
       console.log(error);
