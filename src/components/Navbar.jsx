@@ -10,6 +10,9 @@ const Navbar = () => {
   useEffect(() => {
     console.log(user, "nav");
   }, []);
+  useEffect(() => {
+    console.log(user, "nav2");
+  }, [user]);
 
   return (
     <div className="2xl:w-[1290px] mx-auto">

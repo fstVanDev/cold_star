@@ -5,14 +5,14 @@ import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Bottom from "./components/Bottom";
 
-import { getCsrf } from "./data/Requests";
+import { getCsrf, getUser } from "./data/Requests";
 
 const App = () => {
-  const { setLogin, setName, setUser, token, setToken } =
-    useContext(StateContext);
+  const { setLogin, setName, setUser } = useContext(StateContext);
 
   useEffect(() => {
-    getCsrf(setLogin, setName, setUser, setToken);
+    getCsrf(setLogin, setName, setUser);
+    // getUser(setLogin, setName, setUser);
   }, []);
   return (
     <div className="grid bg-main">
