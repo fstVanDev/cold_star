@@ -36,10 +36,12 @@ export async function getUser(setLogin, setName, setUser) {
       console.log(response, "getUser");
 
       setLogin(response.data.email);
+      console.log("user1");
       setName(response.data.name);
+      console.log("user2");
       setUser(true);
 
-      console.log("user");
+      console.log("user3");
     })
     .catch(function (error) {
       console.log(error);
