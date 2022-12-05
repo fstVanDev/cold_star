@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     getCsrf(setLogin, setName, setUser);
-    // getUser(setLogin, setName, setUser);
+    getUser(setLogin, setName, setUser);
   }, []);
 
   useEffect(() => {
