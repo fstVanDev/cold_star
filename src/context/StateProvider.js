@@ -9,6 +9,8 @@ export const StateProvider = ({ children }) => {
   const [password, setPassword] = useState(""); // пароль при входе
   const [name, setName] = useState(""); // имя пользователя
 
+  const [token, setToken] = useState("");
+
   // views states
   const [accountView, setAccountView] = useState(false); //  показывает модальное окно регистрации или логина true - показать, false - скрыть
   const [orderView, setOrderView] = useState(true); // currentOrder in Main for dropdown
@@ -30,6 +32,8 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        token,
+        setToken,
         user,
         setUser,
         email,

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getCsrf(setLogin, setName, setUser) {
+export async function getCsrf(setLogin, setName, setUser, setToken) {
   var config = {
     method: "get",
     url: "https://top2pro.com/sanctum/csrf-cookie",
@@ -12,8 +12,8 @@ export async function getCsrf(setLogin, setName, setUser) {
 
   axios(config)
     .then(function (response) {
-      console.log(response, "csrf");
-
+      console.log(response.config.headers, "csrf");
+      setToken(response.config.headers);
       getUser(setLogin, setName, setUser);
     })
     .catch(function (error) {
