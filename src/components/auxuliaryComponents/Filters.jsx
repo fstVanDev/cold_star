@@ -19,30 +19,11 @@ const Filters = () => {
   const [activeFiat, setActiveFiat] = useState(false);
   const [fiatValue, setFiatValue] = useState("");
 
-  const array = [
-    { name: "KZT", continent: "Asia" },
-    { name: "USDT", continent: "South America" },
-    { name: "BUSD", continent: "Africa" },
-    { name: "DAPS", continent: "North America" },
-    { name: "KGS", continent: "Australasia" },
-    { name: "Italy", continent: "Europe" },
-    { name: "South Africa", continent: "Africa" },
-    { name: "China", continent: "Asia" },
-    { name: "Paraguay", continent: "South America" },
-    { name: "Usa", continent: "North America" },
-    { name: "France", continent: "Europe" },
-    { name: "Botswana", continent: "Africa" },
-    { name: "Spain", continent: "Europe" },
-    { name: "Senegal", continent: "Africa" },
-    { name: "Brazil", continent: "South America" },
-    { name: "Denmark", continent: "Europe" },
-    { name: "Mexico", continent: "South America" },
-    { name: "Australia", continent: "Australasia" },
-    { name: "Tanzania", continent: "Africa" },
-    { name: "Bangladesh", continent: "Asia" },
-    { name: "Portugal", continent: "Europe" },
-    { name: "Pakistan", continent: "Asia" },
-  ];
+  function handleChangeCurrentValue(setAnything, value) {
+    const arr = [];
+    arr.push(value);
+    setAnything(arr);
+  }
 
   useEffect(() => {
     console.log(fiat, "fiat");
@@ -122,7 +103,7 @@ const Filters = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          setCurrentFiat(item);
+                          handleChangeCurrentValue(setCurrentFiat, item);
                           setDefaultFiat("");
                         }}
                         className="w-full h-max text-gray test-14 font-normal my-[10px]"
@@ -135,7 +116,7 @@ const Filters = () => {
                           <button
                             type="button"
                             onClick={() => {
-                              setCurrentFiat(item);
+                              handleChangeCurrentValue(setCurrentFiat, item);
                               setDefaultFiat("");
                             }}
                             className="w-full h-max text-gray test-14 font-normal my-[10px] "
