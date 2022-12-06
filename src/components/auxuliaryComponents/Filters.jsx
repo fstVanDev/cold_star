@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import { isTemplateExpression } from "typescript";
 import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
@@ -42,6 +43,10 @@ const Filters = () => {
     { name: "Portugal", continent: "Europe" },
     { name: "Pakistan", continent: "Asia" },
   ];
+
+  useEffect(() => {
+    console.log(fiat, "fiat");
+  }, [fiat]);
 
   return (
     <div className="w-full h-max py-[30px]">
