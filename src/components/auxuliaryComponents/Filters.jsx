@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
-import { isTemplateExpression } from "typescript";
+import { isExternalModule, isTemplateExpression } from "typescript";
 import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
@@ -17,7 +17,7 @@ const Filters = () => {
   } = useContext(StateContext);
   const [defaultFiat, setDefaultFiat] = useState("USD...");
   const [activeFiat, setActiveFiat] = useState(false);
-  // const [value, setValue] = useState("");
+  const [fiatValue, setFiatValue] = useState("");
 
   const array = [
     { name: "KZT", continent: "Asia" },
@@ -100,9 +100,44 @@ const Filters = () => {
 
             {activeFiat && (
               <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
-                {fiat.map((item) => (
-                  <button>{item.name}</button>
-                ))}
+                <input
+                  type="text"
+                  placeholder="USD..."
+                  value={fiatValue}
+                  onChange={(e) => setFiatValue(e.target.value.toUpperCase())}
+                  className=""
+                />
+                {fiat.map((item) => {
+                  <>
+                    {value.length === 0 ? (
+                      <button
+                        type="button"
+                        className=""
+                        onClick={() => {
+                          setCurrentFiat(currentFiat.push(item));
+                          setDefaultFiat("");
+                        }}
+                      >
+                        {item.name}
+                      </button>
+                    ) : (
+                      <>
+                        {item.name.startsWith(fiatValue) === true ? (
+                          <button
+                            type="button"
+                            className=""
+                            onClick={() => {
+                              setCurrentFiat(currentFiat.push(item));
+                              setDefaultFiat("");
+                            }}
+                          >
+                            {item.name}
+                          </button>
+                        ) : null}
+                      </>
+                    )}
+                  </>;
+                })}
               </div>
             )}
 
