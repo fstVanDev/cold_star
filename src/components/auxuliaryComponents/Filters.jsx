@@ -86,7 +86,7 @@ const Filters = () => {
             </button>
 
             {activeFiat && (
-              <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
+              <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
                 <input
                   type="text"
                   placeholder="Enter fiat"
