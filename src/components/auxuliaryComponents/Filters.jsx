@@ -19,13 +19,11 @@ const Filters = () => {
   const [value, setValue] = useState("");
 
   const array = [
-    { name: "Belgium", continent: "Europe" },
-    { name: "India", continent: "Asia" },
-    { name: "Bolivia", continent: "South America" },
-    { name: "Ghana", continent: "Africa" },
-    { name: "Japan", continent: "Asia" },
-    { name: "Canada", continent: "North America" },
-    { name: "New Zealand", continent: "Australasia" },
+    { name: "KZT", continent: "Asia" },
+    { name: "USDT", continent: "South America" },
+    { name: "BUSD", continent: "Africa" },
+    { name: "DAPS", continent: "North America" },
+    { name: "KGS", continent: "Australasia" },
     { name: "Italy", continent: "Europe" },
     { name: "South Africa", continent: "Africa" },
     { name: "China", continent: "Asia" },
@@ -100,10 +98,13 @@ const Filters = () => {
                 <input
                   type="text"
                   placeholder="Enter fiat..."
-                  onChange={(e) => setValue(e.target.value)}
+                  value={value}
+                  onChange={(event) =>
+                    setValue(event.target.value.toUpperCase())
+                  }
                   className="focus:ring-0 focus:outline-none w-full mt-[10px] rounded-6 h-[40px] px-[8px] border border-1 border-gray focus:border-green hover:border-green "
                 />
-                {array.map((item) => (
+                {fiat.map((item) => (
                   <>
                     {value.length === 0 ? (
                       <button>{item.name}</button>
@@ -118,37 +119,6 @@ const Filters = () => {
                 ))}
               </div>
             )}
-
-            {/* 
-            {activeFiat && (
-              <>
-                {array.length > 0 ? (
-                  <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
-                    <input
-                      type={"text"}
-                      placeholder="Enter fiat..."
-                      list=""
-                      onChange={(e) => setValue(e.target.value)}
-                      className="focus:ring-0 focus:outline-none w-full mt-[10px] rounded-6 h-[40px] px-[8px] border border-1 border-gray focus:border-green hover:border-green "
-                    />
-                    <datalist id="" className="h-[300px]">
-                      {array.map((item) => (
-                        <option
-                          value={item.name}
-                          className="w-full h-max py-[5px] hover:bg-green hover:text-white text-lightGray text-14 leading-20 font-bold"
-                          onClick={() => {
-                            setDefaultFiat(item.name);
-                            setCurrentFiat(item);
-                          }}
-                        >
-                          {item.name}
-                        </option>
-                      ))}
-                    </datalist>
-                  </div>
-                ) : null}
-              </>
-            )} */}
           </div>
         </div>
       </div>
