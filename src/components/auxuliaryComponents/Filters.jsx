@@ -92,7 +92,9 @@ const Filters = () => {
                 {fiat.length > 0
                   ? defaultFiat === "USD..."
                     ? defaultFiat
-                    : currentFiat[currentFiat.length - 1].name
+                    : currentFiat.length > 0
+                    ? currentFiat[currentFiat.length - 1].name
+                    : currentFiat[0].name
                   : "Load..."}
               </p>
               <img
@@ -112,7 +114,7 @@ const Filters = () => {
                     setFiatValue(e.target.value.toUpperCase());
                     console.log(e.target.value.toUpperCase(), "fiatValue");
                   }}
-                  className="h-[32px] border mx-auto my-[10px] w-[100px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
+                  className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
                 />
                 {fiat.map((item) => (
                   <>
