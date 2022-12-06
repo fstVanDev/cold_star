@@ -105,6 +105,7 @@ const Filters = () => {
                         onClick={() => {
                           handleChangeCurrentValue(setCurrentFiat, item);
                           setDefaultFiat("");
+                          setActiveFiat(false);
                         }}
                         className="w-full h-max text-gray test-14 font-normal my-[10px]"
                       >
@@ -118,6 +119,7 @@ const Filters = () => {
                             onClick={() => {
                               handleChangeCurrentValue(setCurrentFiat, item);
                               setDefaultFiat("");
+                              setActiveFiat(false);
                             }}
                             className="w-full h-max text-gray test-14 font-normal my-[10px] "
                           >
