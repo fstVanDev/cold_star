@@ -115,20 +115,7 @@ const Filters = () => {
                   className="h-[40px] border mx-auto my-[10px]"
                 />
                 {fiat.map((item) => {
-                  <>
-                    {fiatValue.length === 0 ? (
-                      <button
-                        onClick={() => {
-                          setCurrentFiat(currentFiat.push(item));
-                          setDefaultFiat("");
-                        }}
-                      >
-                        {item.name}
-                      </button>
-                    ) : (
-                      <>{item.name.startsWith(fiatValue) ? "true" : "false"}</>
-                    )}
-                  </>;
+                  <button>{item.name}</button>;
                 })}
               </div>
             )}
