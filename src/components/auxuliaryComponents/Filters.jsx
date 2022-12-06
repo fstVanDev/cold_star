@@ -122,7 +122,7 @@ const Filters = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          setCurrentFiat(currentFiat.push(item));
+                          setCurrentFiat(item);
                           setDefaultFiat("");
                         }}
                         className="w-full h-max text-gray test-14 font-normal my-[10px]"
@@ -135,7 +135,7 @@ const Filters = () => {
                           <button
                             type="button"
                             onClick={() => {
-                              setCurrentFiat(currentFiat.push(item));
+                              setCurrentFiat(item);
                               setDefaultFiat("");
                             }}
                             className="w-full h-max text-gray test-14 font-normal my-[10px] "
