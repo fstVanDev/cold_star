@@ -92,7 +92,7 @@ const Filters = () => {
                 {fiat.length > 0
                   ? defaultFiat === "USD..."
                     ? defaultFiat
-                    : currentFiat.name
+                    : currentFiat[currentFiat.length - 1]
                   : "Load..."}
               </p>
               <img
@@ -117,35 +117,8 @@ const Filters = () => {
                 {fiat.map((item) => (
                   <>
                     {fiatValue.length === 0 ? (
-                      <button>{item.name}</button>
-                    ) : (
-                      <>
-                        {item.name.startsWith(fiatValue) === true ? (
-                          <button>{item.name}</button>
-                        ) : null}
-                      </>
-                    )}
-                  </>
-                ))}
-              </div>
-            )}
-
-            {/* {activeFiat && (
-              <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
-                <input
-                  type="text"
-                  placeholder="Enter fiat..."
-                  value={fiatValue}
-                  onChange={(e) => setFiatValue(e.target.value.toUpperCase())}
-                  className="h-[40px] border mx-auto my-[10px]"
-                />
-
-                {fiat.map((item) => {
-                  <>
-                    {fiatValue.length === 0 ? (
                       <button
                         type="button"
-                        className=""
                         onClick={() => {
                           setCurrentFiat(currentFiat.push(item));
                           setDefaultFiat("");
@@ -158,7 +131,6 @@ const Filters = () => {
                         {item.name.startsWith(fiatValue) === true ? (
                           <button
                             type="button"
-                            className=""
                             onClick={() => {
                               setCurrentFiat(currentFiat.push(item));
                               setDefaultFiat("");
@@ -169,38 +141,10 @@ const Filters = () => {
                         ) : null}
                       </>
                     )}
-                  </>;
-                })}
-              </div>
-            )} */}
-
-            {/* {activeFiat && (
-              <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
-                <input
-                  type="text"
-                  placeholder="Enter fiat..."
-                  value={currentFiat}
-                  onChange={(event) => {
-                    setCurrentFiat(event.target.value.toUpperCase());
-                    setDefaultFiat("");
-                  }}
-                  className="focus:ring-0 focus:outline-none w-full mt-[10px] rounded-6 h-[40px] px-[8px] border border-1 border-gray focus:border-green hover:border-green "
-                />
-                {fiat.map((item) => (
-                  <>
-                    {currentFiat.length === 0 ? (
-                      <button>{item.name}</button>
-                    ) : (
-                      <>
-                        {item.name.startsWith(currentFiat) === true ? (
-                          <button>{item.name}</button>
-                        ) : null}
-                      </>
-                    )}
                   </>
                 ))}
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </div>
