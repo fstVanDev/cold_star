@@ -81,18 +81,18 @@ const Filters = () => {
             <button
               type="button"
               onClick={() => setActiveFiat(!activeFiat)}
-              className={`flex justify-around h-[40px] w-[120px] my-auto text-lightGray  rounded-0 text-14 leading-20 font-normal px-[8px]
+              className={`flex justify-between h-[40px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
                  activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
                }  
                ${!activeFiat && "rounded-6"}
                `}
             >
-              <p className="w-max h-max text-gray text-14 font-bold my-auto">
+              <p className="w-max h-max text-lightGray text-14 font-normal my-auto">
                 {fiat.length > 0
                   ? defaultFiat === "USD..."
                     ? defaultFiat
-                    : currentFiat[currentFiat.length - 1]
+                    : currentFiat[currentFiat.length - 1].name
                   : "Load..."}
               </p>
               <img
@@ -106,13 +106,13 @@ const Filters = () => {
               <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
                 <input
                   type="text"
-                  placeholder="Enter fiat..."
+                  placeholder="Enter fiat"
                   value={fiatValue}
                   onChange={(e) => {
                     setFiatValue(e.target.value.toUpperCase());
                     console.log(e.target.value.toUpperCase(), "fiatValue");
                   }}
-                  className="h-[40px] border mx-auto my-[10px] w-[100px]"
+                  className="h-[32px] border mx-auto my-[10px] w-[100px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
                 />
                 {fiat.map((item) => (
                   <>
@@ -123,6 +123,7 @@ const Filters = () => {
                           setCurrentFiat(currentFiat.push(item));
                           setDefaultFiat("");
                         }}
+                        className="w-full h-max text-gray test-14 font-normal my-[10px]"
                       >
                         {item.name}
                       </button>
@@ -135,6 +136,7 @@ const Filters = () => {
                               setCurrentFiat(currentFiat.push(item));
                               setDefaultFiat("");
                             }}
+                            className="w-full h-max text-gray test-14 font-normal my-[10px] "
                           >
                             {item.name}
                           </button>
