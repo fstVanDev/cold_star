@@ -120,9 +120,9 @@ export async function getCurrencies(setFiat, setCrypto) {
 
       currencies.map((item) => {
         if (item.type === 1) {
-          crypto.push({ value: item.id, label: item.name });
+          crypto.push(item);
         } else if (item.type === 2) {
-          fiat.push({ value: item.id, label: item.name });
+          fiat.push(item);
         }
       });
       setFiat(fiat);
