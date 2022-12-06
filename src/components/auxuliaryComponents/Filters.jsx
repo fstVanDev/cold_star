@@ -115,7 +115,7 @@ const Filters = () => {
                   className="h-[40px] border mx-auto my-[10px]"
                 />
                 {fiat.map((item) => {
-                  <button>{item.name}</button>;
+                  retrun(<button>{item.name}</button>);
                 })}
               </div>
             )}
