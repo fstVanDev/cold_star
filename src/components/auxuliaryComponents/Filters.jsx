@@ -103,13 +103,13 @@ const Filters = () => {
                 <input
                   type="text"
                   placeholder="USD..."
-                  value={fiatValue}
+                  value={currentFiat}
                   onChange={(e) => setFiatValue(e.target.value.toUpperCase())}
                   className=""
                 />
                 {fiat.map((item) => {
                   <>
-                    {value.length === 0 ? (
+                    {fiatValue.length === 0 ? (
                       <button
                         type="button"
                         className=""
