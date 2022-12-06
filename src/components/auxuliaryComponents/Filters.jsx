@@ -149,7 +149,7 @@ const Filters = () => {
                 {crypto.length > 0
                   ? defaultCrypto === "USD..."
                     ? defaultCrypto
-                    : defaultCrypto.length > 0
+                    : currentCrypto.length > 0
                     ? currentCrypto[currentCrypto.length - 1].name
                     : currentCrypto[0].name
                   : "Load..."}
