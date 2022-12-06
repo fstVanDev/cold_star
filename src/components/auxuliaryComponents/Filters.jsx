@@ -112,11 +112,21 @@ const Filters = () => {
                     setFiatValue(e.target.value.toUpperCase());
                     console.log(e.target.value.toUpperCase(), "fiatValue");
                   }}
-                  className="h-[40px] border mx-auto my-[10px]"
+                  className="h-[40px] border mx-auto my-[10px] w-[100px]"
                 />
-                {fiat.map((item) => {
-                  return <button>{item.name}</button>;
-                })}
+                {fiat.map((item) => (
+                  <>
+                    {fiatValue.length === 0 ? (
+                      <button>{item.name}</button>
+                    ) : (
+                      <>
+                        {item.name.startsWith(fiatValue) === true ? (
+                          <button>{item.name}</button>
+                        ) : null}
+                      </>
+                    )}
+                  </>
+                ))}
               </div>
             )}
 
