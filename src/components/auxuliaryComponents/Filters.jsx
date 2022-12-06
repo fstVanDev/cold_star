@@ -95,6 +95,14 @@ const Filters = () => {
 
             {activeFiat && (
               <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
+                {fiat.map((item) => (
+                  <button>{item.name}</button>
+                ))}
+              </div>
+            )}
+
+            {/* {activeFiat && (
+              <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
                 <input
                   type="text"
                   placeholder="Enter fiat..."
@@ -112,33 +120,6 @@ const Filters = () => {
                     ) : (
                       <>
                         {item.name.startsWith(currentFiat) === true ? (
-                          <button>{item.name}</button>
-                        ) : null}
-                      </>
-                    )}
-                  </>
-                ))}
-              </div>
-            )}
-
-            {/* {activeFiat && (
-              <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
-                <input
-                  type="text"
-                  placeholder="Enter fiat..."
-                  value={currentFiat}
-                  onChange={(event) =>
-                    setCurrentFiat(event.target.value.toUpperCase())
-                  }
-                  className="focus:ring-0 focus:outline-none w-full mt-[10px] rounded-6 h-[40px] px-[8px] border border-1 border-gray focus:border-green hover:border-green "
-                />
-                {fiat.map((item) => (
-                  <>
-                    {value.length === 0 ? (
-                      <button>{item.name}</button>
-                    ) : (
-                      <>
-                        {item.name.startsWith(value) === true ? (
                           <button>{item.name}</button>
                         ) : null}
                       </>
