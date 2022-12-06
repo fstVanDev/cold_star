@@ -48,6 +48,10 @@ const Filters = () => {
     console.log(fiat, "fiat");
   }, [fiat]);
 
+  useEffect(() => {
+    console.log(currentFiat, "currentFiat");
+  }, [currentFiat]);
+
   return (
     <div className="w-full h-max py-[30px]">
       <div className="flex justify-between w-full h-[60px] rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
@@ -102,11 +106,12 @@ const Filters = () => {
               <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
                 <input
                   type="text"
-                  placeholder="USD..."
-                  value={currentFiat}
+                  placeholder="Enter fiat..."
+                  value={fiatValue}
                   onChange={(e) => setFiatValue(e.target.value.toUpperCase())}
-                  className=""
+                  className="h-[40px] border mx-auto my-[10px]"
                 />
+
                 {fiat.map((item) => {
                   <>
                     {fiatValue.length === 0 ? (
