@@ -16,7 +16,7 @@ const Filters = () => {
   } = useContext(StateContext);
   const [defaultFiat, setDefaultFiat] = useState("USD...");
   const [activeFiat, setActiveFiat] = useState(false);
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
 
   const array = [
     { name: "KZT", continent: "Asia" },
@@ -80,7 +80,7 @@ const Filters = () => {
                `}
             >
               <p className="w-max h-max text-gray text-14 font-bold my-auto">
-                {array.length > 0
+                {fiat.length > 0
                   ? defaultFiat === "USD..."
                     ? defaultFiat
                     : currentFiat.name
@@ -98,9 +98,37 @@ const Filters = () => {
                 <input
                   type="text"
                   placeholder="Enter fiat..."
-                  value={value}
+                  value={currentFiat}
+                  onChange={(event) => {
+                    setCurrentFiat(event.target.value.toUpperCase());
+                    setDefaultFiat("");
+                  }}
+                  className="focus:ring-0 focus:outline-none w-full mt-[10px] rounded-6 h-[40px] px-[8px] border border-1 border-gray focus:border-green hover:border-green "
+                />
+                {fiat.map((item) => (
+                  <>
+                    {currentFiat.length === 0 ? (
+                      <button>{item.name}</button>
+                    ) : (
+                      <>
+                        {item.name.startsWith(currentFiat) === true ? (
+                          <button>{item.name}</button>
+                        ) : null}
+                      </>
+                    )}
+                  </>
+                ))}
+              </div>
+            )}
+
+            {/* {activeFiat && (
+              <div className="w-full grid h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
+                <input
+                  type="text"
+                  placeholder="Enter fiat..."
+                  value={currentFiat}
                   onChange={(event) =>
-                    setValue(event.target.value.toUpperCase())
+                    setCurrentFiat(event.target.value.toUpperCase())
                   }
                   className="focus:ring-0 focus:outline-none w-full mt-[10px] rounded-6 h-[40px] px-[8px] border border-1 border-gray focus:border-green hover:border-green "
                 />
@@ -118,7 +146,7 @@ const Filters = () => {
                   </>
                 ))}
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
