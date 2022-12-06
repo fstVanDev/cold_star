@@ -56,7 +56,7 @@ const Filters = () => {
             <button
               type="button"
               onClick={() => setActiveFiat(!activeFiat)}
-              className={`flex justify-between h-full w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
+              className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
                  activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
                }  
@@ -138,7 +138,7 @@ const Filters = () => {
             <button
               type="button"
               onClick={() => setActiveCrypto(!activeCrypto)}
-              className={`flex justify-between h-full w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
+              className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
                  activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
                }  
@@ -147,7 +147,7 @@ const Filters = () => {
             >
               <p className="w-max h-max text-lightGray text-14 font-normal my-auto">
                 {crypto.length > 0
-                  ? defaultCrypto === "USD..."
+                  ? defaultCrypto === "USDT..."
                     ? defaultCrypto
                     : currentCrypto.length > 0
                     ? currentCrypto[currentCrypto.length - 1].name
