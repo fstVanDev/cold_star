@@ -161,7 +161,7 @@ const Filters = () => {
               />
             </button>
 
-            {activeFiat && (
+            {activeCrypto && (
               <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
                 <input
                   type="text"
@@ -173,7 +173,7 @@ const Filters = () => {
                   }}
                   className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
                 />
-                {fiat.map((item) => (
+                {crypto.map((item) => (
                   <>
                     {cryptoValue.length === 0 ? (
                       <button
