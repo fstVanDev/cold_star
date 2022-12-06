@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
-import { isExternalModule, isTemplateExpression } from "typescript";
 import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
@@ -16,22 +15,17 @@ const Filters = () => {
     setCurrentFiat,
   } = useContext(StateContext);
   const [defaultFiat, setDefaultFiat] = useState("USD...");
+  const [defaultCrypto, setDefaultCrypto] = useState("USDT...");
   const [activeFiat, setActiveFiat] = useState(false);
+  const [activeCrypto, setActiveCrypto] = useState(false);
   const [fiatValue, setFiatValue] = useState("");
+  const [cryptoValue, setCryptoValue] = useState("");
 
   function handleChangeCurrentValue(setAnything, value) {
     const arr = [];
     arr.push(value);
     setAnything(arr);
   }
-
-  useEffect(() => {
-    console.log(fiat, "fiat");
-  }, [fiat]);
-
-  useEffect(() => {
-    console.log(currentFiat, "currentFiat");
-  }, [currentFiat]);
 
   return (
     <div className="w-full h-max py-[30px]">
@@ -62,7 +56,7 @@ const Filters = () => {
             <button
               type="button"
               onClick={() => setActiveFiat(!activeFiat)}
-              className={`flex justify-between h-[40px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
+              className={`flex justify-between h-full w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
                  activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
                }  
@@ -120,6 +114,88 @@ const Filters = () => {
                               handleChangeCurrentValue(setCurrentFiat, item);
                               setDefaultFiat("");
                               setActiveFiat(false);
+                            }}
+                            className="w-full h-max text-gray test-14 font-normal my-[10px] "
+                          >
+                            {item.name}
+                          </button>
+                        ) : null}
+                      </>
+                    )}
+                  </>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Crypto */}
+        <div className="w-max h-full flex">
+          <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
+            Crypto
+          </h2>
+          <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6">
+            <button
+              type="button"
+              onClick={() => setActiveCrypto(!activeCrypto)}
+              className={`flex justify-between h-full w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
+               ${
+                 activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
+               }  
+               ${!activeFiat && "rounded-6"}
+               `}
+            >
+              <p className="w-max h-max text-lightGray text-14 font-normal my-auto">
+                {crypto.length > 0
+                  ? defaultCrypto === "USD..."
+                    ? defaultCrypto
+                    : defaultCrypto.length > 0
+                    ? currentCrypto[currentCrypto.length - 1].name
+                    : currentCrypto[0].name
+                  : "Load..."}
+              </p>
+              <img
+                src={chevronFilter}
+                alt="chvrn"
+                className="w-[16px] h-[16px] my-auto"
+              />
+            </button>
+
+            {activeFiat && (
+              <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
+                <input
+                  type="text"
+                  placeholder="Enter fiat"
+                  value={cryptoValue}
+                  onChange={(e) => {
+                    setCryptoValue(e.target.value.toUpperCase());
+                    console.log(e.target.value.toUpperCase(), "cryptoValue");
+                  }}
+                  className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
+                />
+                {fiat.map((item) => (
+                  <>
+                    {cryptoValue.length === 0 ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleChangeCurrentValue(setCurrentCrypto, item);
+                          setDefaultCrypto("");
+                          setActiveCrypto(false);
+                        }}
+                        className="w-full h-max text-gray test-14 font-normal my-[10px]"
+                      >
+                        {item.name}
+                      </button>
+                    ) : (
+                      <>
+                        {item.name.startsWith(cryptoValue) === true ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              handleChangeCurrentValue(setCurrentCrypto, item);
+                              setDefaultCrypto("");
+                              setActiveCrypto(false);
                             }}
                             className="w-full h-max text-gray test-14 font-normal my-[10px] "
                           >

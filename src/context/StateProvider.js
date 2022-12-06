@@ -17,13 +17,13 @@ export const StateProvider = ({ children }) => {
   // data states
   const [fiat, setFiat] = useState(Array); // массив со всеми фиатами
   const [crypto, setCrypto] = useState(Array); // массив со всеми криптовалютами
-  const [trade, setTrade] = useState([]); // массив со всеми банками
+  const [trade, setTrade] = useState(Array); // массив со всеми банками
   const [orders, setOrders] = useState([]); // массив с ордерами [{orders1}, {orders2}, {orders3}]
 
   const [userAmount, setUserAmount] = useState(""); // выбранным amount значением пользователя в фильтрах
   const [currentFiat, setCurrentFiat] = useState(Array); // массив с выбранными пользователем фиатами в фильтрах
   const [currentCrypto, setCurrentCrypto] = useState(Array); // массив с выбранными пользователем криптовалютами в фильтрах
-  const [currentTrade, setCurrentTrade] = useState([]); // масссив с выбранными пользователем банками в каждом звене цепи [{}, {}, {}]
+  const [currentTrade, setCurrentTrade] = useState(Array); // масссив с выбранными пользователем банками в каждом звене цепи [{}, {}, {}]
   const [mode, setMode] = useState([]); // массив с выбранными пользователем mode [true, false, true] true - покупка, false - продажа. исполуется в цепочке и в фильтрах
   const [currentOrders, setCurrentOrders] = useState([]); // массив с выбранными currentOrder используется в цепочке и в Main
 
