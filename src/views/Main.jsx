@@ -19,10 +19,11 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    const string = Boolean;
+    let string;
     console.log(path);
     if (user !== null) {
       string = path.startsWith(`/${user.id}`);
+      console.log(string);
       if (string === false) {
         return <Error />;
       }
