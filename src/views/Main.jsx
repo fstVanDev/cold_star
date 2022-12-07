@@ -25,12 +25,20 @@ const Main = () => {
       string = path.startsWith(`/${user.id}`);
       console.log(string);
       if (string === false) {
+        console.log(2);
         return <Error />;
       }
     } else if (user === null && path !== "/") {
+      console.log(1);
       return <Error />;
     }
   }, [path]);
+
+  useEffect(() => {
+    if (user === null) {
+      return <Error />;
+    }
+  }, []);
 
   return (
     <div className="grid bg-main">

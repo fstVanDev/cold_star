@@ -1,4 +1,4 @@
-import { useRouteError, useNavigate } from "react-router-dom";
+import { useRouteError, useNavigate, Redirect, Link } from "react-router-dom";
 
 export default function Error() {
   const error = useRouteError();
@@ -15,15 +15,12 @@ export default function Error() {
         <p className=" text-18 font-normal text-gray text-center mt-[20px]">
           <i>{error.statusText || error.message}</i>
         </p>
-        <button
-          type="button"
+        <Link
+          to={"/"}
           className="w-max h-max rounded-6 border border-1 border-gray text-gray bg-white px-[16px] py-[8px]"
-          onClick={() => {
-            navigate(-1);
-          }}
         >
-          Back
-        </button>
+          Home
+        </Link>
       </div>
     </div>
   );
