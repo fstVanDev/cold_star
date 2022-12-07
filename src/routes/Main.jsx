@@ -12,6 +12,13 @@ export const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <Error />,
+    children: [
+      {
+        path: "/id:user/filter",
+        element: <Main />,
+        errorElement: <Error />,
+      },
+    ],
   },
   {
     path: "/login",
@@ -21,11 +28,6 @@ export const router = createBrowserRouter([
   {
     path: "/registration",
     element: <Registration />,
-    errorElement: <Error />,
-  },
-  {
-    path: "/main",
-    element: <Main />,
     errorElement: <Error />,
   },
 ]);

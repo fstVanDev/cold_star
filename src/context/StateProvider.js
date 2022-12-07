@@ -4,7 +4,7 @@ export const StateContext = React.createContext();
 
 export const StateProvider = ({ children }) => {
   // user states
-  const [user, setUser] = useState(false); // true - вошел в систему, false - не вошел в систему
+  const [user, setUser] = useState(null); // true - вошел в систему, false - не вошел в систему
   const [email, setEmail] = useState(""); // email при входе
   const [password, setPassword] = useState(""); // пароль при входе
   const [name, setName] = useState(""); // имя пользователя
@@ -19,17 +19,24 @@ export const StateProvider = ({ children }) => {
   const [crypto, setCrypto] = useState(Array); // массив со всеми криптовалютами
   const [trade, setTrade] = useState(Array); // массив со всеми банками
   const [orders, setOrders] = useState([]); // массив с ордерами [{orders1}, {orders2}, {orders3}]
+  const [amount, setAmount] = useState(Array); // массив со всеми amount
 
-  const [userAmount, setUserAmount] = useState(""); // выбранным amount значением пользователя в фильтрах
-  const [currentFiat, setCurrentFiat] = useState(Array); // массив с выбранными пользователем фиатами в фильтрах
+  const [currentAmount, setCurrentAmount] = useState(""); //массив с выбранным amount значением пользователя в фильтрах
+  const [currentFiat, setCurrentFiat] = useState([
+    { id: Number, fiat: Object },
+  ]); // Объект с выбранным пользователем фиатом в фильтрах
   const [currentCrypto, setCurrentCrypto] = useState(Array); // массив с выбранными пользователем криптовалютами в фильтрах
   const [currentTrade, setCurrentTrade] = useState(Array); // масссив с выбранными пользователем банками в каждом звене цепи [{}, {}, {}]
-  const [mode, setMode] = useState([]); // массив с выбранными пользователем mode [true, false, true] true - покупка, false - продажа. исполуется в цепочке и в фильтрах
+  const [mode, setMode] = useState(Array); // массив с выбранными пользователем mode [2, 1, 2] 2 - покупка, 1 - продажа. исполуется в цепочке и в фильтрах
   const [currentOrders, setCurrentOrders] = useState([]); // массив с выбранными currentOrder используется в цепочке и в Main
 
   return (
     <StateContext.Provider
       value={{
+        amount,
+        setAmount,
+        currentAmount,
+        setCurrentAmount,
         user,
         setUser,
         email,
@@ -52,8 +59,6 @@ export const StateProvider = ({ children }) => {
         setTrade,
         orders,
         setOrders,
-        userAmount,
-        setUserAmount,
         currentFiat,
         setCurrentFiat,
         currentCrypto,

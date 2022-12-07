@@ -5,8 +5,7 @@ import { showPassword } from "../images";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { email, setEmail, password, setPassword, user, setUser } =
-    useContext(StateContext);
+  const { email, setEmail, password, setPassword } = useContext(StateContext);
 
   const [hide, setHide] = useState(false);
 

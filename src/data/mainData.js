@@ -21,7 +21,6 @@ export const navbarData = {
     alt: "logo",
   },
   menuButtons: [
-    { label: "Home", href: "#home" },
     { label: "How it works?", href: "#hitwork" },
     { label: "Plans", href: "#plans" },
     { label: "FAQs", href: "#faqs" },

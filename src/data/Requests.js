@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getCsrf(setEmail, setName, setUser) {
+export async function getCsrf(setUser) {
   var config = {
     method: "get",
     url: "https://top2pro.com/sanctum/csrf-cookie",
@@ -13,14 +13,14 @@ export async function getCsrf(setEmail, setName, setUser) {
   axios(config)
     .then(function (response) {
       console.log(response.config.headers, "csrf");
-      getUser(setEmail, setName, setUser);
+      getUser(setUser);
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-export async function getUser(setEmail, setName, setUser) {
+export async function getUser(setUser) {
   var config = {
     method: "get",
     url: "https://top2pro.com/api/user",
@@ -35,13 +35,9 @@ export async function getUser(setEmail, setName, setUser) {
     .then(function (response) {
       console.log(response.data, "getUser");
 
-      setEmail(response.data.email);
-      console.log("user1");
-      setName(response.data.name);
-      console.log("user2");
-      setUser(true);
-
-      console.log("user3");
+      // setEmail(response.data.email);
+      // setName(response.data.name);
+      setUser(response.data);
     })
     .catch(function (error) {
       console.log(error);

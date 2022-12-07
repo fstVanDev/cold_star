@@ -5,16 +5,8 @@ import { showPassword } from "../images";
 import { Link } from "react-router-dom";
 
 const Registration = () => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    name,
-    setName,
-    user,
-    setUser,
-  } = useState(StateContext);
+  const { email, setEmail, password, setPassword, name, setName } =
+    useState(StateContext);
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
 

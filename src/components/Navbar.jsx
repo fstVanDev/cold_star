@@ -13,9 +13,11 @@ const Navbar = () => {
         {navbarData.logo.image.length > 0 ? (
           <img src={navbarData.logo.image} alt={navbarData.logo.alt} />
         ) : (
-          <p className="w-max h-max my-auto font-bold text-24 leading-30 text-black">
-            TOP2PRO
-          </p>
+          <Link to={"/"}>
+            <p className="w-max h-max my-auto font-bold text-24 leading-30 text-black">
+              TOP2PRO
+            </p>
+          </Link>
         )}
         <div className="w-max h-max flex">
           {navbarData.menuButtons.map((item) => (
@@ -29,7 +31,17 @@ const Navbar = () => {
               </span>
             </a>
           ))}
-          {user === false ? (
+          {user && (
+            <Link
+              to={`/id:${user.id}/filter`}
+              className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
+            >
+              <p className="font-bold text-black text-14 leading-20 underline ">
+                To trade
+              </p>
+            </Link>
+          )}
+          {user === null ? (
             <button
               type="button"
               onClick={() => setAccountView(!accountView)}
@@ -66,7 +78,7 @@ const Navbar = () => {
         </div>
       </div>
       {accountView ? (
-        !user ? (
+        user === null ? (
           <div
             className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px] "
             onMouseLeave={() => setAccountView(false)}

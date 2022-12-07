@@ -10,6 +10,8 @@ module.exports = {
         green: "#21C3A4",
         lightGreen: "#C6F5EC",
         yellow: "#F3ECC5",
+        orange: "#F26419",
+
         violet: "#C3C6F2",
       },
       fontWeight: {
@@ -27,6 +29,7 @@ module.exports = {
       borderColor: {
         gray: "#EEEEEE",
         green: "#21C3A4",
+        orange: "#F26419",
       },
       borderRadius: {
         4: "4px",

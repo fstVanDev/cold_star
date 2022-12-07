@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StateContext } from "./context/StateProvider";
 
 import Navbar from "./components/Navbar";
@@ -8,10 +8,10 @@ import Bottom from "./components/Bottom";
 import { getCsrf } from "./data/Requests";
 
 const App = () => {
-  const { email, setEmail, setName, setUser } = useContext(StateContext);
+  const { setUser } = useContext(StateContext);
 
   useEffect(() => {
-    getCsrf(setEmail, setName, setUser);
+    getCsrf(setUser);
   }, []);
 
   return (
