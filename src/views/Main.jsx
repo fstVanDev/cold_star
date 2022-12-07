@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import Navbar from "../components/Navbar";
 import Filters from "../components/auxuliaryComponents/Filters";
 import { StateContext } from "../context/StateProvider";
-import { getCurrencies } from "../data/Requests";
+import { getCsrf, getCurrencies } from "../data/Requests";
 import { useEffect } from "react";
 
 import Error from "../routes/Error";
@@ -10,47 +10,59 @@ import Error from "../routes/Error";
 import { useReactPath } from "../hooks/useReactPath";
 
 const Main = () => {
-  const { setFiat, setCrypto, user } = useContext(StateContext);
+  const { setFiat, setCrypto, user, setUser } = useContext(StateContext);
 
   const path = useReactPath();
 
   useEffect(() => {
-    getCurrencies(setFiat, setCrypto);
-  }, []);
-
-  useEffect(() => {
-    let string;
-    console.log(path);
-    if (user !== null) {
-      string = path.startsWith(`/${user.id}`);
-      console.log(string);
-      if (string === false) {
-        console.log(2);
+    if (user === null) {
+      console.log(1);
+      getCsrf(setUser);
+      getCurrencies(setFiat, setCrypto);
+      if (user === null) {
+        console.log(3);
         return <Error />;
       }
     }
-    if (user === null) {
-      console.log(1);
-      return <Error />;
-    }
-  }, [path]);
-
-  useEffect(() => {
-    if (user === null) {
-      return <Error />;
-    }
   }, []);
 
-  return (
-    <div className="grid bg-main">
-      <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
-        <Navbar />
-      </div>
+  function getUser() {
+    console.log(1);
+    getCsrf(setUser);
+    getCurrencies(setFiat, setCrypto);
+  }
+  // useEffect(() => {
+  //   let string;
+  //   console.log(path);
+  //   if (user !== null) {
+  //     string = path.startsWith(`/${user.id}`);
+  //     console.log(string);
+  //     if (string === false) {
+  //       console.log(2);
+  //       return <Error />;
+  //     }
+  //   }
+  // }, [path]);
 
-      <div className="2xl:w-[1290px] h-max mx-auto mt-[70px]">
-        <Filters />
-      </div>
-    </div>
+  return (
+    <>
+      {user === null ? (
+        <>
+          {getUser()}
+          <Error />
+        </>
+      ) : (
+        <div className="grid bg-main">
+          <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
+            <Navbar />
+          </div>
+
+          <div className="2xl:w-[1290px] h-max mx-auto mt-[70px]">
+            <Filters />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
