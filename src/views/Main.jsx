@@ -5,12 +5,29 @@ import { StateContext } from "../context/StateProvider";
 import { getCurrencies } from "../data/Requests";
 import { useEffect } from "react";
 
+import Error from "../routes/Error";
+
+import { useReactPath } from "../hooks/useReactPath";
+
 const Main = () => {
-  const { setFiat, setCrypto } = useContext(StateContext);
+  const { setFiat, setCrypto, user } = useContext(StateContext);
+
+  const path = useReactPath();
 
   useEffect(() => {
     getCurrencies(setFiat, setCrypto);
   }, []);
+
+  useEffect(() => {
+    const string = Boolean;
+    console.log(path);
+    if (user !== null) {
+      string = path.startsWith(`/${user.id}`);
+      if (string === false) {
+        return <Error />;
+      }
+    }
+  }, [path]);
 
   return (
     <div className="grid bg-main">
