@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/id:user/filter",
+        path: "/:userId/filter",
         element: <Main />,
         errorElement: <Error />,
       },

@@ -33,7 +33,7 @@ const Navbar = () => {
           ))}
           {user && (
             <Link
-              to={`/id:${user.id}/filter`}
+              to={`/${user.id}/filter`}
               className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
             >
               <p className="font-bold text-black text-14 leading-20 underline ">
