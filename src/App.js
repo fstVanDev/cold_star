@@ -7,7 +7,6 @@ import Bottom from "./components/Bottom";
 
 import { getCsrf } from "./data/Requests";
 import Error from "./routes/Error";
-import { useReactPath } from "./hooks/useReactPath";
 
 const App = () => {
   const { setUser, user } = useContext(StateContext);
