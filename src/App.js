@@ -26,7 +26,7 @@ const App = () => {
         return <Error />;
       }
     }
-  }, [window.location]);
+  }, [window.location.pathname]);
 
   return (
     <div className="grid bg-main">
