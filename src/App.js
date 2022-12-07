@@ -19,6 +19,9 @@ const App = () => {
     console.log(window.location.pathname);
 
     if (user !== null) {
+      console.log(user);
+      console.log(user.id);
+
       if (window.location.pathname.startsWith(`/${user.id}`) === false) {
         return <Error />;
       }
