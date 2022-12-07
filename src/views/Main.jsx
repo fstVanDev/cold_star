@@ -28,7 +28,8 @@ const Main = () => {
         console.log(2);
         return <Error />;
       }
-    } else if (user === null && path !== "/") {
+    }
+    if (user === null) {
       console.log(1);
       return <Error />;
     }
