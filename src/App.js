@@ -18,11 +18,10 @@ const App = () => {
   useEffect(() => {
     console.log(window.location.pathname);
 
-    if (
-      user !== null &&
-      window.location.pathname.startsWith(`/${user.id}`) === false
-    ) {
-      return <Error />;
+    if (user !== null) {
+      if (window.location.pathname.startsWith(`/${user.id}`) === false) {
+        return <Error />;
+      }
     }
   }, [window.location]);
 
