@@ -27,7 +27,7 @@ const Main = () => {
       if (string === false) {
         return <Error />;
       }
-    } else if (user === null && window.location !== "https://app.top2pro.com") {
+    } else if (user === null && path !== "/") {
       return <Error />;
     }
   }, [path]);
