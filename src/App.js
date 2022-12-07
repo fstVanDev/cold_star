@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { StateContext } from "./context/StateProvider";
 
 import Navbar from "./components/Navbar";
@@ -7,26 +7,28 @@ import Bottom from "./components/Bottom";
 
 import { getCsrf } from "./data/Requests";
 import Error from "./routes/Error";
+import { useReactPath } from "./hooks/useReactPath";
+import { id } from "ethers/lib/utils";
 
 const App = () => {
   const { setUser, user } = useContext(StateContext);
+
+  const path = useReactPath();
 
   useEffect(() => {
     getCsrf(setUser);
   }, []);
 
   useEffect(() => {
-    console.log(window.location.pathname);
-
+    const string = Boolean;
+    console.log(path);
     if (user !== null) {
-      console.log(user);
-      console.log(user.id);
-
-      if (window.location.pathname.startsWith(`/${user.id}`) === false) {
+      string = path.startsWith(`/${user.id}`);
+      if (string === false) {
         return <Error />;
       }
     }
-  }, [window.location.pathname]);
+  }, [path]);
 
   return (
     <div className="grid bg-main">
