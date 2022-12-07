@@ -8,12 +8,25 @@ import Bottom from "./components/Bottom";
 import { getCsrf } from "./data/Requests";
 import Error from "./routes/Error";
 
+import { useReactPath } from "./hooks/useReactPath";
+
 const App = () => {
   const { setUser, user } = useContext(StateContext);
+  const path = useReactPath();
 
   useEffect(() => {
     getCsrf(setUser);
+
+    if (user === null && path !== "/") {
+      console.log(window.location, path);
+      console.log(12);
+      return <Error />;
+    }
   }, []);
+
+  // useEffect(() => {
+  //   console.log(1);
+  // }, []);
 
   return (
     <div className="grid bg-main">
