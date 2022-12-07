@@ -6,13 +6,22 @@ import Home from "./views/Home";
 import Bottom from "./components/Bottom";
 
 import { getCsrf } from "./data/Requests";
+import Error from "./routes/Error";
 
 const App = () => {
-  const { setUser } = useContext(StateContext);
+  const { setUser, user } = useContext(StateContext);
 
   useEffect(() => {
     getCsrf(setUser);
   }, []);
+
+  useEffect(() => {
+    console.log(window.location.pathname);
+
+    if (window.location.pathname.startsWith(`/${user.id}`) === false) {
+      return <Error />;
+    }
+  }, [window.location]);
 
   return (
     <div className="grid bg-main">
