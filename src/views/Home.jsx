@@ -1,10 +1,7 @@
 import React, { useContext, useState } from "react";
-// import { StateContext } from "../context/StateProvider";
 import { homeData } from "../data/mainData";
 
 const Home = () => {
-  // const {} = useContext(StateContext);
-
   const [initialQuestion, setInititalQuestion] = useState(null);
 
   return (

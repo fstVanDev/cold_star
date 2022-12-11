@@ -3,7 +3,6 @@ import { useRouteError, useNavigate, Redirect, Link } from "react-router-dom";
 export default function Error() {
   const error = useRouteError();
   const navigate = useNavigate();
-  console.error(error);
 
   return (
     <div id="error-page" className="w-screen h-screen flex mx-auto my-auto">

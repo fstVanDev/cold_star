@@ -2,49 +2,51 @@ import React, { useContext, useState } from "react";
 import { StateContext } from "../../../context/StateProvider";
 import { chevronFilter } from "../../../images";
 
-const FiatDropdown = () => {
-  const { fiat, currentFiat, setCurrentFiat } = useContext(StateContext);
+const CryptoDrowdown = () => {
+  const { crypto, currentCrypto, setCurrentCrypto } = useContext(StateContext);
 
-  const [defaultFiat, setDefaultFiat] = useState("USD...");
-  const [activeFiat, setActiveFiat] = useState(false);
-  const [fiatValue, setFiatValue] = useState("");
-  const [usersFiat, setUsersFiat] = useState(Array);
+  const [defaultCrypto, setDefaultCrypto] = useState("USDT...");
+  const [activeCrypto, setActiveCrypto] = useState(false);
+  const [cryptoValue, setCryptoValue] = useState("");
+  const [usersCrypto, setUsersCrypto] = useState(Array);
 
   function handleChangeCurrentValue(anything, setAnything, value) {
     const arr = anything;
     arr.push(value);
     setAnything(arr);
 
-    console.log(arr, "usersFiat");
+    console.log(arr, "usersCrypto");
   }
 
   return (
     <div className="w-max h-full flex">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
-        Fiat
+        Crypto
       </h2>
 
       <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6">
         <button
           type="button"
-          onClick={fiat.length > 0 ? () => setActiveFiat(!activeFiat) : null}
+          onClick={
+            crypto.length > 0 ? () => setActiveCrypto(!activeCrypto) : null
+          }
           className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
-                 activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
+                 activeCrypto && "rounded-b-0 border-b border-b-1 border-b-gray"
                }  
-               ${!activeFiat && "rounded-6"}
+               ${!activeCrypto && "rounded-6"}
                `}
         >
           <p className="w-max h-max text-lightGray text-12 leading-14 font-normal my-auto">
-            {fiat.length > 0
-              ? defaultFiat === "USD..."
-                ? defaultFiat
-                : currentFiat.length > 0
-                ? currentFiat[currentFiat.length - 1].name
-                : currentFiat[0].name
+            {crypto.length > 0
+              ? defaultCrypto === "USDT..."
+                ? defaultCrypto
+                : currentCrypto.length > 0
+                ? currentCrypto[currentCrypto.length - 1].name
+                : currentCrypto[0].name
               : "Load..."}
           </p>
-          {fiat.length > 0 ? (
+          {crypto.length > 0 ? (
             <img
               src={chevronFilter}
               alt="chvrn"
@@ -53,28 +55,32 @@ const FiatDropdown = () => {
           ) : null}
         </button>
 
-        {activeFiat && (
+        {activeCrypto && (
           <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
             <input
               type="text"
               placeholder="Search..."
-              value={fiatValue}
+              value={cryptoValue}
               onChange={(e) => {
-                setFiatValue(e.target.value.toUpperCase());
-                console.log(e.target.value.toUpperCase(), "fiatValue");
+                setCryptoValue(e.target.value.toUpperCase());
+                console.log(e.target.value.toUpperCase(), "cryptoValue");
               }}
               className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
             />
-            {fiat.map((item) => (
+            {crypto.map((item) => (
               <>
-                {fiatValue.length === 0 ? (
+                {cryptoValue.length === 0 ? (
                   <button
                     type="button"
                     onClick={() => {
-                      handleChangeCurrentValue(usersFiat, setUsersFiat, item);
-                      setDefaultFiat("");
-                      setFiatValue("");
-                      setActiveFiat(false);
+                      handleChangeCurrentValue(
+                        usersCrypto,
+                        setUsersCrypto,
+                        item
+                      );
+                      setDefaultCrypto("");
+                      setCryptoValue("");
+                      setActiveCrypto(false);
                     }}
                     className="w-full h-max text-gray test-14 font-normal my-[10px]"
                   >
@@ -82,14 +88,14 @@ const FiatDropdown = () => {
                   </button>
                 ) : (
                   <>
-                    {item.name.startsWith(fiatValue) === true ? (
+                    {item.name.startsWith(cryptoValue) === true ? (
                       <button
                         type="button"
                         onClick={() => {
-                          handleChangeCurrentValue(setCurrentFiat, item);
-                          setDefaultFiat("");
-                          setFiatValue("");
-                          setActiveFiat(false);
+                          handleChangeCurrentValue(setCurrentCrypto, item);
+                          setDefaultCrypto("");
+                          setCryptoValue("");
+                          setActiveCrypto(false);
                         }}
                         className="w-full h-max text-gray test-14 font-normal my-[10px] "
                       >
@@ -107,4 +113,4 @@ const FiatDropdown = () => {
   );
 };
 
-export default FiatDropdown;
+export default CryptoDrowdown;

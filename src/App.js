@@ -16,12 +16,11 @@ const App = () => {
 
   useEffect(() => {
     getCsrf(setUser);
-
-    if (user === null && path !== "/") {
-      console.log(window.location, path);
-      console.log(12);
-      return <Error />;
-    }
+    // if (user === null && path !== "/") {
+    //   console.log(window.location, path);
+    //   console.log(12);
+    //   return <Error />;
+    // }
   }, []);
 
   return (

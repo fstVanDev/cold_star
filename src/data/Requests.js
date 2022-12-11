@@ -34,9 +34,6 @@ export async function getUser(setUser) {
   axios(config)
     .then(function (response) {
       console.log(response.data, "getUser");
-
-      // setEmail(response.data.email);
-      // setName(response.data.name);
       setUser(response.data);
     })
     .catch(function (error) {
