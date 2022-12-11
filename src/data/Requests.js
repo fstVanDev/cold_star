@@ -126,11 +126,16 @@ export async function getCurrencies(setFiat, setCrypto) {
     });
 }
 
-export async function getTradeMethods(mode, fiat, crypto, setTrade) {
+export async function getTradeMethods(
+  mode,
+  currentFiat,
+  currentCrypto,
+  setTrade
+) {
   var data = JSON.stringify({
     filter: {
-      fiat: fiat.value,
-      asset: crypto.value,
+      fiat: currentFiat.id,
+      asset: currentCrypto.id,
       type: mode,
     },
   });
@@ -152,11 +157,11 @@ export async function getTradeMethods(mode, fiat, crypto, setTrade) {
       console.log(response.data.data, "getTradeMethods");
       const methods = response.data.data;
       const arr = [];
-      methods.map((item) => {
-        arr.push({ value: item.id, label: item.name });
-      });
+      // methods.map((item) => {
+      //   arr.push(item);
+      // });
 
-      setTrade(arr);
+      setTrade(response.data.data);
     })
     .catch(function (error) {
       console.log(error);
