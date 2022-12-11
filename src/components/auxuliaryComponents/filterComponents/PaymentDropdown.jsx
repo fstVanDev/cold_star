@@ -74,7 +74,11 @@ const PaymentDropdown = () => {
                   type={"checkbox"}
                   checked={
                     usersPayment.length !== 0
-                      ? item.id === usersPayment[usersPayment - 1].id
+                      ? usersPayment.length === 0
+                        ? item.id === usersPayment[0]
+                          ? true
+                          : false
+                        : item.id === usersPayment[usersPayment - 1].id
                         ? true
                         : false
                       : false
