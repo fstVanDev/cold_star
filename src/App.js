@@ -1,26 +1,26 @@
 import React, { useContext, useEffect } from "react";
 import { StateContext } from "./context/StateProvider";
-
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Bottom from "./components/Bottom";
+import { getCsrf, getCurrencies } from "./data/Requests";
 
-import { getCsrf } from "./data/Requests";
-import Error from "./routes/Error";
-
-import { useReactPath } from "./hooks/useReactPath";
+// import Error from "./routes/Error";
+// import { useReactPath } from "./hooks/useReactPath";
 
 const App = () => {
-  const { setUser, user } = useContext(StateContext);
-  const path = useReactPath();
+  const { setUser, user, setFiat, setCrypto, fiat, crypto } =
+    useContext(StateContext);
+  // const path = useReactPath();
 
   useEffect(() => {
-    getCsrf(setUser);
-    // if (user === null && path !== "/") {
-    //   console.log(window.location, path);
-    //   console.log(12);
-    //   return <Error />;
-    // }
+    if (user === null) {
+      getCsrf(setUser);
+    }
+
+    if (fiat.length === 0 || crypto.length === 0) {
+      getCurrencies(setFiat, setCrypto);
+    }
   }, []);
 
   return (
