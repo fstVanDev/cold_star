@@ -8,12 +8,12 @@ import PaymentDropdown from "./filterComponents/PaymentDropdown";
 import { getTradeMethods } from "../../data/Requests";
 
 const Filters = () => {
-  const { mode, currentFiat, currentCrypto, setTrade } =
+  const { mode, currentFiat, currentCrypto, setPayment } =
     useContext(StateContext);
 
   useEffect(() => {
     if (currentCrypto !== null && currentFiat !== null) {
-      getTradeMethods(mode, currentFiat, currentCrypto, setTrade);
+      getTradeMethods(mode, currentFiat, currentCrypto, setPayment);
     }
   }, [currentFiat, currentCrypto]);
 

@@ -17,7 +17,7 @@ export const StateProvider = ({ children }) => {
   // data states
   const [fiat, setFiat] = useState(Array); // массив со всеми фиатами
   const [crypto, setCrypto] = useState(Array); // массив со всеми криптовалютами
-  const [payment, setPayment] = useState(Array); // массив со всеми банками
+  const [payment, setPayment] = useState(null); // массив со всеми банками
   const [orders, setOrders] = useState(Array); // массив с ордерами [{orders1}, {orders2}, {orders3}]
   const [amount, setAmount] = useState(""); // выбранный польхователем amount
 
