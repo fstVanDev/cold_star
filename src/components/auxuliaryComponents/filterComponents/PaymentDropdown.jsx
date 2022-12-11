@@ -24,14 +24,14 @@ const PaymentDropdown = () => {
         Payment
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6">
+      <div className="w-[160px] h-max min-h-[40px] border border-1 border-gray rounded-6">
         <button
           type="button"
           onClick={() => {
             setActivePayment(!activePayment);
             console.log("active block payment", activePayment);
           }}
-          className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
+          className={`flex justify-between h-[38px] w-[160px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
                  activePayment &&
                  "rounded-b-0 border-b border-b-1 border-b-gray"
@@ -59,7 +59,7 @@ const PaymentDropdown = () => {
             {payment.map((item) => (
               <button
                 type="button"
-                className="w-max h-max my-[10px] flex justify-between"
+                className="w-full h-max my-[10px] flex justify-around"
                 onClick={() => {
                   handleChangeCurrentValue(usersPayment, setUsersPayment, item);
                   console.log(usersPayment, "banks chossen user");
