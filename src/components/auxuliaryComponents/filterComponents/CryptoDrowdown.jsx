@@ -41,9 +41,9 @@ const CryptoDrowdown = () => {
             {crypto.length > 0
               ? defaultCrypto === "USDT..."
                 ? defaultCrypto
-                : currentCrypto.length > 0
-                ? currentCrypto[currentCrypto.length - 1].name
-                : currentCrypto[0].name
+                : usersCrypto.length > 0
+                ? usersCrypto[usersCrypto.length - 1].name
+                : usersCrypto[0].name
               : "Load..."}
           </p>
           {crypto.length > 0 ? (
@@ -92,7 +92,11 @@ const CryptoDrowdown = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          handleChangeCurrentValue(setCurrentCrypto, item);
+                          handleChangeCurrentValue(
+                            usersCrypto,
+                            setUsersCrypto,
+                            item
+                          );
                           setDefaultCrypto("");
                           setCryptoValue("");
                           setActiveCrypto(false);

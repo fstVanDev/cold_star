@@ -39,9 +39,9 @@ const FiatDropdown = () => {
             {fiat.length > 0
               ? defaultFiat === "USD..."
                 ? defaultFiat
-                : currentFiat.length > 0
-                ? currentFiat[currentFiat.length - 1].name
-                : currentFiat[0].name
+                : usersFiat.length > 0
+                ? usersFiat[usersFiat.length - 1].name
+                : usersFiat[0].name
               : "Load..."}
           </p>
           {fiat.length > 0 ? (
@@ -86,7 +86,11 @@ const FiatDropdown = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          handleChangeCurrentValue(setCurrentFiat, item);
+                          handleChangeCurrentValue(
+                            usersFiat,
+                            setUsersFiat,
+                            item
+                          );
                           setDefaultFiat("");
                           setFiatValue("");
                           setActiveFiat(false);
