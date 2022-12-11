@@ -41,7 +41,7 @@ const PaymentDropdown = () => {
         >
           <p className="w-max h-max text-lightGray text-12 leading-14 mx-auto font-normal my-auto">
             {payment !== null
-              ? usersPayment.length > 0
+              ? usersPayment.length < 0
                 ? defaultPayment
                 : "Change methods..."
               : "First enter fiat and crypto"}
@@ -70,7 +70,16 @@ const PaymentDropdown = () => {
                 <p className="w-full h-max text-gray test-14 font-normal my-auto">
                   {item.name}
                 </p>
-                <input type={"checkbox"} />
+                <input
+                  type={"checkbox"}
+                  checked={
+                    usersPayment.length !== 0
+                      ? item.id === usersPayment[usersPayment - 1].id
+                        ? true
+                        : false
+                      : false
+                  }
+                />
               </button>
             ))}
           </div>
