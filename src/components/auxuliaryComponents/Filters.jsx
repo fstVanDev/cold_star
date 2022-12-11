@@ -6,6 +6,8 @@ import Amount from "./filterComponents/Amount";
 import FiatDropdown from "./filterComponents/FiatDropdown";
 import PaymentDropdown from "./filterComponents/PaymentDropdown";
 import { getTradeMethods } from "../../data/Requests";
+import RegionDropdown from "./filterComponents/RegionDropdown";
+import Refresh from "./filterComponents/Refresh";
 
 const Filters = () => {
   const { mode, currentFiat, currentCrypto, setPayment } =
@@ -34,6 +36,12 @@ const Filters = () => {
 
         {/* Payment */}
         <PaymentDropdown />
+
+        {/* Region */}
+        <RegionDropdown />
+
+        {/* Refresh */}
+        <Refresh />
       </div>
     </div>
   );

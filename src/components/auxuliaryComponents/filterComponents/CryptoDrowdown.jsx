@@ -15,7 +15,7 @@ const CryptoDrowdown = () => {
     arr.push(value);
     setAnything(arr);
 
-    console.log(arr, "usersCrypto");
+    console.log(arr, "usersCrypto, only single-object in currentCrypto");
   }
 
   return (

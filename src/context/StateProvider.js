@@ -24,7 +24,7 @@ export const StateProvider = ({ children }) => {
   // const [currentAmount, setCurrentAmount] = useState(""); //массив с выбранным amount значением пользователя в фильтрах
   const [currentFiat, setCurrentFiat] = useState(null); // Объект с выбранным пользователем фиатом в фильтрах
   const [currentCrypto, setCurrentCrypto] = useState(null); // массив с выбранными пользователем криптовалютами в фильтрах
-  const [currentPayment, setCurrentPayment] = useState(Array); // масссив с выбранными пользователем банками в каждом звене цепи [{}, {}, {}]
+  const [currentPayment, setCurrentPayment] = useState(null); // масссив с выбранными пользователем банками в каждом звене цепи [{}, {}, {}]
   const [mode, setMode] = useState(true); // массив с выбранными пользователем mode [2, 1, 2] 2 - покупка, 1 - продажа. исполуется в цепочке и в фильтрах
   const [currentOrders, setCurrentOrders] = useState(Array); // массив с выбранными currentOrder используется в цепочке и в Main
 

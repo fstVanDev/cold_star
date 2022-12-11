@@ -11,7 +11,6 @@ module.exports = {
         lightGreen: "#C6F5EC",
         yellow: "#F3ECC5",
         orange: "#F26419",
-
         violet: "#C3C6F2",
       },
       fontWeight: {

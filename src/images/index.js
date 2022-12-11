@@ -16,3 +16,5 @@ export { default as discord } from "./discord.svg";
 export { default as showPassword } from "./showPassword.svg";
 export { default as home } from "./home.svg";
 export { default as chevronFilter } from "./chevronFilter.svg";
+
+export { default as refresh } from "./refresh.svg";

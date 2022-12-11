@@ -15,7 +15,7 @@ const FiatDropdown = () => {
     arr.push(value);
     setAnything(arr);
 
-    console.log(arr, "usersFiat");
+    console.log(arr, "usersFiat, only single-object in currentFiat");
   }
 
   return (

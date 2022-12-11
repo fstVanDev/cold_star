@@ -167,3 +167,65 @@ export async function getTradeMethods(
       console.log(error);
     });
 }
+
+export async function getOrders(
+  mode,
+  currentFiat,
+  currentCrypto,
+  currentPayment,
+  amount,
+  setOrders
+) {
+  let type;
+  if (mode === true) {
+    type = 2;
+  } else {
+    type = 1;
+  }
+
+  let amont;
+  if (amount.length === 0) {
+    amont = 500;
+  } else {
+    amont = Number(amount);
+  }
+
+  let methods = [];
+  currentPayment.map((item) => {
+    methods.push(item.id);
+  });
+
+  var data = JSON.stringify({
+    page: 1,
+    perPage: 10,
+    filter: {
+      type: type,
+      fiat: currentFiat.id,
+      asset: currentCrypto.id,
+      tradeMethods: methods,
+      onlyMerchants: true,
+      minOrdersCount: 100,
+      minFinishRate: 0.5,
+      amount: amont,
+    },
+  });
+
+  var config = {
+    method: "post",
+    url: "localhost/api/orders/search",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    data: data,
+    withCredentials: true,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response.data, "orders");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

@@ -14,8 +14,8 @@ const PaymentDropdown = () => {
     let arr = anything;
     arr.push(value);
     setAnything(arr);
-
-    console.log(arr, "usersPayment");
+    setCurrentPayment(arr);
+    console.log(arr, "usersPayment, setCurrentPayment");
   }
 
   return (
@@ -39,7 +39,7 @@ const PaymentDropdown = () => {
                ${!activePayment && "rounded-6"}
                `}
         >
-          <div className="w-max h-max  mx-auto font-normal my-auto flex overflow-x-auto">
+          <div className="w-max h-max  mx-auto font-normal my-auto flex overflow-x-auto text-12 leading-14 ">
             {payment !== null
               ? usersPayment.length === 0
                 ? defaultPayment
