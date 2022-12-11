@@ -8,10 +8,15 @@ const PaymentDropdown = () => {
 
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
   const [activePayment, setActivePayment] = useState(false);
-  const [usersPayment, setUsersPayment] = useState(Array);
+  const [usersPayment, setUsersPayment] = useState(null);
 
   function handleChangeCurrentValue(anything, setAnything, value) {
-    const arr = anything;
+    let arr;
+    if (anything === null) {
+      arr = [];
+    } else {
+      arr = anything;
+    }
     arr.push(value);
     setAnything(arr);
 
@@ -41,7 +46,7 @@ const PaymentDropdown = () => {
         >
           <p className="w-max h-max text-lightGray text-12 leading-14 mx-auto font-normal my-auto">
             {payment !== null
-              ? usersPayment.length < 0
+              ? usersPayment === null
                 ? defaultPayment
                 : "Change methods..."
               : "First enter fiat and crypto"}
@@ -73,8 +78,8 @@ const PaymentDropdown = () => {
                 <input
                   type={"checkbox"}
                   checked={
-                    usersPayment.length !== 0
-                      ? usersPayment.length === 0
+                    usersPayment !== null
+                      ? usersPayment.length === 1
                         ? item.id === usersPayment[0]
                           ? true
                           : false
