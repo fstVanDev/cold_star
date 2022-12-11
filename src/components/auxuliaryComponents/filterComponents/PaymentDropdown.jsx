@@ -39,11 +39,15 @@ const PaymentDropdown = () => {
                ${!activePayment && "rounded-6"}
                `}
         >
-          <div className="w-max h-max text-lightGray text-12 leading-14 mx-auto font-normal my-auto flex overflow-x-auto">
+          <div className="w-max h-max  mx-auto font-normal my-auto flex overflow-x-auto">
             {payment !== null
               ? usersPayment.length === 0
                 ? defaultPayment
-                : usersPayment.map((item) => <p>{`${item.name}, `}</p>)
+                : usersPayment.map((item) => (
+                    <p className="w-max h-max my-auto text-lightGray text-12 leading-14">{`${
+                      item.name
+                    },${" "}`}</p>
+                  ))
               : "First enter fiat and crypto"}
           </div>
           {payment !== null ? (
