@@ -212,7 +212,7 @@ export async function getOrders(
 
   var config = {
     method: "post",
-    url: "localhost/api/orders/search",
+    url: "https://top2pro.com/api/orders/search",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
