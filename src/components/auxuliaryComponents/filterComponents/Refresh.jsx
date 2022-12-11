@@ -18,7 +18,7 @@ const Refresh = () => {
     <button
       className="w-max h-full flex border border-1 border-orange rounded-10 "
       type="button"
-      onCLick={() => {
+      onClick={() => {
         console.log(1);
         if (
           currentFiat !== null &&
