@@ -12,9 +12,9 @@ const Filters = () => {
     useContext(StateContext);
 
   useEffect(() => {
-    if (currentCrypto !== null && currentFiat !== null) {
-      getTradeMethods(mode, currentFiat, currentCrypto, setTrade);
-    }
+    // if (currentCrypto !== null && currentFiat !== null) {
+    getTradeMethods(mode, currentFiat, currentCrypto, setTrade);
+    // }
   }, [currentFiat, currentCrypto]);
 
   return (
