@@ -39,13 +39,13 @@ const PaymentDropdown = () => {
                ${!activePayment && "rounded-6"}
                `}
         >
-          <p className="w-max h-max text-lightGray text-12 leading-14 mx-auto font-normal my-auto">
+          <div className="w-max h-max text-lightGray text-12 leading-14 mx-auto font-normal my-auto flex overflow-x-auto">
             {payment !== null
               ? usersPayment.length === 0
                 ? defaultPayment
-                : "Change methods..."
+                : usersPayment.map((item) => <p>{`${item.name}, `}</p>)
               : "First enter fiat and crypto"}
-          </p>
+          </div>
           {payment !== null ? (
             <img
               src={chevronFilter}
@@ -70,7 +70,7 @@ const PaymentDropdown = () => {
                 <p className="w-full h-max text-gray test-14 font-normal my-auto">
                   {item.name}
                 </p>
-                <input
+                {/* <input
                   type={"checkbox"}
                   checked={
                     usersPayment.length > 0
@@ -83,7 +83,7 @@ const PaymentDropdown = () => {
                         : false
                       : false
                   }
-                />
+                /> */}
               </button>
             ))}
           </div>
