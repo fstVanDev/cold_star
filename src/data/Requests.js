@@ -223,7 +223,8 @@ export async function getOrders(
 
   axios(config)
     .then(function (response) {
-      console.log(response.data, "orders");
+      console.log(response.data.data, "orders");
+      setOrders(response.data.data);
     })
     .catch(function (error) {
       console.log(error);
