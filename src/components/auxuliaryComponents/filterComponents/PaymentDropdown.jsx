@@ -83,7 +83,7 @@ const PaymentDropdown = () => {
                         ? item.id === usersPayment[0]
                           ? true
                           : false
-                        : item.id === usersPayment[usersPayment - 1].id
+                        : item.id === usersPayment[usersPayment.length - 1].id
                         ? true
                         : false
                       : false
