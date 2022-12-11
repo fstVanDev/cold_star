@@ -78,6 +78,8 @@ const CryptoDrowdown = () => {
                         setUsersCrypto,
                         item
                       );
+                      setCurrentCrypto(item);
+                      console.log(item);
                       setDefaultCrypto("");
                       setCryptoValue("");
                       setActiveCrypto(false);
@@ -98,6 +100,8 @@ const CryptoDrowdown = () => {
                             item
                           );
                           setDefaultCrypto("");
+                          setCurrentCrypto(item);
+                          console.log(item);
                           setCryptoValue("");
                           setActiveCrypto(false);
                         }}
