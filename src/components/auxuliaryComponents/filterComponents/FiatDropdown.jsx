@@ -72,7 +72,7 @@ const FiatDropdown = () => {
                     type="button"
                     onClick={() => {
                       setCurrentFiat(item);
-                      // handleChangeCurrentValue(usersFiat, setUsersFiat, item);
+                      handleChangeCurrentValue(usersFiat, setUsersFiat, item);
                       setDefaultFiat("");
                       setFiatValue("");
                       setActiveFiat(false);
@@ -88,11 +88,11 @@ const FiatDropdown = () => {
                         type="button"
                         onClick={() => {
                           setCurrentFiat(item);
-                          // handleChangeCurrentValue(
-                          //   usersFiat,
-                          //   setUsersFiat,
-                          //   item
-                          // );
+                          handleChangeCurrentValue(
+                            usersFiat,
+                            setUsersFiat,
+                            item
+                          );
                           setDefaultFiat("");
                           setFiatValue("");
                           setActiveFiat(false);
