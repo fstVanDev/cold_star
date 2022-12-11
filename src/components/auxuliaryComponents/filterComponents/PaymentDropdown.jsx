@@ -8,15 +8,10 @@ const PaymentDropdown = () => {
 
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
   const [activePayment, setActivePayment] = useState(false);
-  const [usersPayment, setUsersPayment] = useState(null);
+  const [usersPayment, setUsersPayment] = useState(Array);
 
   function handleChangeCurrentValue(anything, setAnything, value) {
-    let arr;
-    if (anything === null) {
-      arr = [];
-    } else {
-      arr = anything;
-    }
+    let arr = anything;
     arr.push(value);
     setAnything(arr);
 
@@ -45,13 +40,13 @@ const PaymentDropdown = () => {
                `}
         >
           <p className="w-max h-max text-lightGray text-12 leading-14 mx-auto font-normal my-auto">
-            {payment !== null
+            {payment.length > 0
               ? usersPayment === null
                 ? defaultPayment
                 : "Change methods..."
               : "First enter fiat and crypto"}
           </p>
-          {payment !== null ? (
+          {payment.length > 0 ? (
             <img
               src={chevronFilter}
               alt="chvrn"
@@ -99,56 +94,3 @@ const PaymentDropdown = () => {
 };
 
 export default PaymentDropdown;
-
-{
-  /* <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6">
-        <button
-          type="button"
-          onClick={
-            payment.length > 0 ? () => setActivePayment(!activePayment) : null
-          }
-          className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
-               ${
-                 activePayment &&
-                 "rounded-b-0 border-b border-b-1 border-b-gray"
-               }  
-               ${!activePayment && "rounded-6"}
-               `}
-        >
-          <p className="w-max h-max text-lightGray text-12 leading-14 mx-auto font-normal my-auto">
-            {payment.length > 0
-              ? defaultPayment === "Bank..."
-                ? defaultPayment
-                : currentPayment.length > 0
-                ? currentPayment[currentPayment.length - 1].name
-                : currentPayment[0].name
-              : "Enter fiat and crypto first..."}
-          </p>
-          {payment.length > 0 ? (
-            <img
-              src={chevronFilter}
-              alt="chvrn"
-              className="w-[16px] h-[16px] my-auto"
-            />
-          ) : null}
-        </button>
-
-        {activePayment && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
-            {payment.map((item) => (
-              <button
-                type="button"
-                onClick={() => {
-                  handleChangeCurrentValue(setCurrentPayment, item);
-                  setDefaultPayment("");
-                  setActivePayment(false);
-                }}
-                className="w-full h-max text-gray test-14 font-normal my-[10px]"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>*/
-}
