@@ -26,7 +26,7 @@ const DefaultChain = () => {
           <p
             className={`${
               mode ? "text-green" : "text-orange"
-            } text-14 font-normal ml-[9px]  mt-auto`}
+            } text-16 font-normal ml-[9px]  mt-auto`}
           >
             {amount.length === 0 ? "Default (500)" : amount}
           </p>
@@ -38,7 +38,7 @@ const DefaultChain = () => {
           <p
             className={`${
               mode ? "text-green" : "text-orange"
-            } text-14 font-normal ml-[9px]  mt-auto`}
+            } text-16 font-normal ml-[9px]  mt-auto`}
           >
             {currentFiat !== null ? currentFiat.name : "Choose fiat"}
           </p>
@@ -50,7 +50,7 @@ const DefaultChain = () => {
           <p
             className={`${
               mode ? "text-green" : "text-orange"
-            } text-14 font-normal ml-[9px] mt-auto`}
+            } text-16 font-normal ml-[9px] mt-auto`}
           >
             {currentCrypto !== null ? currentCrypto.name : "Choose crypto"}
           </p>
@@ -62,7 +62,7 @@ const DefaultChain = () => {
           <div
             className={`${
               mode ? "text-green" : "text-orange"
-            } text-12 font-normal ml-[9px] leading-14 grid mt-auto`}
+            } text-16 font-normal ml-[9px] leading-14 grid mt-auto`}
           >
             {currentPayment !== null
               ? currentPayment.map((item) => <p>{item.name},</p>)

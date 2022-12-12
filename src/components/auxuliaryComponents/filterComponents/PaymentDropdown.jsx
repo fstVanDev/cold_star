@@ -59,7 +59,7 @@ const PaymentDropdown = () => {
           ) : null}
         </button>
         {activePayment && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px]">
+          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] z-5">
             {payment.map((item) => (
               <button
                 type="button"
