@@ -2,9 +2,20 @@ import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Filters from "../components/auxuliaryComponents/Filters";
 import { StateContext } from "../context/StateProvider";
+import ChainBlock from "../components/auxuliaryComponents/OrdersBlock/ChainBlock";
+import Orders from "../components/auxuliaryComponents/OrdersBlock/Orders";
 
 const Main = () => {
   const { setFiat, setCrypto, user, setUser } = useContext(StateContext);
+
+  const bar = [
+    { value: "Мethod", width: "max" },
+    { value: "Advertisers (Completion rate)", width: "min-w-[180px]" },
+    { value: "Price", width: "min-w-[95px]" },
+    { value: "Limit/Available", width: "min-w-[190px]" },
+    { value: "Payment", width: "min-w-[100px]" },
+    { value: "Your Fees", width: "min-w-[60px]" },
+  ];
 
   return (
     <div className="grid bg-main">
@@ -12,8 +23,24 @@ const Main = () => {
         <Navbar />
       </div>
 
-      <div className="2xl:w-[1290px] h-max mx-auto mt-[70px]">
+      <div className="2xl:w-[1290px] h-max mx-auto mt-[70px] mb-[30px]">
         <Filters />
+
+        <div className="flex 2xl:w-[1290px] h-full bg-main justify-between">
+          <div className="2xl:w-[1070px] h-max grid">
+            <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between ">
+              {bar.map((item) => (
+                <p
+                  className={`font-normal text-lightGray text-12 leading-16 ${item.width}`}
+                >
+                  {item.value}
+                </p>
+              ))}
+            </div>
+            {Orders.length === null ? null : <Orders />}
+          </div>
+          <ChainBlock />
+        </div>
       </div>
     </div>
   );

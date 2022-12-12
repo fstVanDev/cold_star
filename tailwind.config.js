@@ -31,6 +31,7 @@ module.exports = {
         orange: "#F26419",
       },
       borderRadius: {
+        2: "2px",
         4: "4px",
         6: "6px",
         10: "10px",
@@ -48,6 +49,7 @@ module.exports = {
       },
       lineHeight: {
         14: "14px",
+        16: "16px",
         17: "17px",
         20: "20px",
         22: "22px",

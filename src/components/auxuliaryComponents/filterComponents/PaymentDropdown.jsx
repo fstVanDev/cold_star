@@ -44,7 +44,7 @@ const PaymentDropdown = () => {
               ? usersPayment.length === 0
                 ? defaultPayment
                 : usersPayment.map((item) => (
-                    <p className="w-max h-max my-auto text-lightGray text-12 leading-14">{`${
+                    <p className="w-max h-max my-auto text-lightGray text-12 leading-14 mx-[5px]">{`${
                       item.name
                     },${" "}`}</p>
                   ))

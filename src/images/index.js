@@ -18,3 +18,4 @@ export { default as home } from "./home.svg";
 export { default as chevronFilter } from "./chevronFilter.svg";
 
 export { default as refresh } from "./refresh.svg";
+export { default as plusOrders } from "./plusOrders.svg";
