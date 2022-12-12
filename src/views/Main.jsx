@@ -6,7 +6,8 @@ import ChainBlock from "../components/auxuliaryComponents/OrdersBlock/ChainBlock
 import Orders from "../components/auxuliaryComponents/OrdersBlock/Orders";
 
 const Main = () => {
-  const { setFiat, setCrypto, user, setUser } = useContext(StateContext);
+  const { setFiat, setCrypto, user, setUser, orders } =
+    useContext(StateContext);
 
   const bar = [
     { value: "Мethod", width: "max" },
@@ -37,7 +38,7 @@ const Main = () => {
                 </p>
               ))}
             </div>
-            {Orders.length === null ? null : <Orders />}
+            {orders.length === null ? null : <Orders />}
           </div>
           <ChainBlock />
         </div>
