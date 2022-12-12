@@ -7,7 +7,7 @@ const Chain = () => {
 
   return (
     <div className="w-full h-max grid">
-      {orders.length === 0 ? null : <DefaultChain />}
+      {/* {orders.length === 0 ? null : <DefaultChain />} */}
     </div>
   );
 };

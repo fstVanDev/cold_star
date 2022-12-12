@@ -8,7 +8,7 @@ const Orders = () => {
   return (
     <>
       {orders.map((item, index) => (
-        <div className="w-full h-[88px] flex justify-between bg-white rounded-20 py-[20px] px-[30px] mb-[10px]">
+        <div className="w-full h-[88px] flex justify-between bg-white rounded-20 py-[12px] px-[30px] mb-[10px]">
           {/* Mode */}
           <div
             className={`${
@@ -61,7 +61,7 @@ const Orders = () => {
             </div>
           </div>
           {/* Payment */}
-          <div className="h-full my-auto overflow-y-auto w-[120px]">
+          <div className="h-full my-auto overflow-y-auto w-[150px]">
             {item.trade_methods.map((obj) => (
               <div className="w-max h-max my-auto flex bg-yellow rounded-2 px-[12px] py-[4px] mb-[5px] mx-auto">
                 <p className="text-orange font-normal text-12 leading-16 w-max">
@@ -77,6 +77,19 @@ const Orders = () => {
               Please add second chain to see fee
             </p>
           </div>
+
+          {/* Button */}
+          <button
+            type="button"
+            onClick={() => console.log("plus orders click button")}
+            className="w-[50px] h-full bg-main border border-1 border-gray rounded-6 my-auto flex"
+          >
+            <img
+              src={plusOrders}
+              alt="plus"
+              className="w-[20px] h-[20px] m-auto "
+            />
+          </button>
         </div>
       ))}
     </>
