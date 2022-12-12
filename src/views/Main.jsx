@@ -10,7 +10,7 @@ const Main = () => {
     useContext(StateContext);
 
   const bar = [
-    { value: "Мethod", width: "max" },
+    { value: "Мethod", width: "w-max" },
     { value: "Advertisers (Completion rate)", width: "min-w-[180px]" },
     { value: "Price", width: "min-w-[95px]" },
     { value: "Limit/Available", width: "min-w-[190px]" },
@@ -26,13 +26,12 @@ const Main = () => {
 
       <div className="2xl:w-[1290px] h-max mx-auto mt-[70px] mb-[30px]">
         <Filters />
-
         <div className="flex 2xl:w-[1290px] h-full bg-main justify-between">
           <div className="2xl:w-[1070px] h-max grid">
-            <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between ">
+            <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
               {bar.map((item) => (
                 <p
-                  className={`font-normal text-lightGray text-12 leading-16 ${item.width}`}
+                  className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
                 >
                   {item.value}
                 </p>

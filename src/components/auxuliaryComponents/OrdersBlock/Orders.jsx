@@ -63,7 +63,7 @@ const Orders = () => {
           {/* Payment */}
           <div className="flex h-max my-auto overflow-x-scroll w-[120px]">
             {item.trade_methods.map((obj) => (
-              <div className="w-max h-max flex bg-yellow rounded-2 px-[12px] py-[4px] mr-[2px]">
+              <div className="w-max h-[24px] flex bg-yellow rounded-2 px-[12px] py-[4px] mr-[2px]">
                 <p className="text-orange font-normal text-12 leading-16 ">
                   {obj.name}
                 </p>
@@ -73,7 +73,7 @@ const Orders = () => {
 
           {/* Fees */}
           <div className="max-w-[120px] h-max flex my-auto">
-            <p className="text-green text-10 leading-14 font-normal text-center">
+            <p className="text-green text-10 leading-17 font-normal text-center">
               Please add second chain to see fee
             </p>
           </div>

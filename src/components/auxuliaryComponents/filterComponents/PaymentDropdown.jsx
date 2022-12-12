@@ -3,7 +3,7 @@ import { StateContext } from "../../../context/StateProvider";
 import { chevronFilter } from "../../../images";
 
 const PaymentDropdown = () => {
-  const { payment, currentPayment, setCurrentPayment } =
+  const { payment, currentFiat, currentCrypto, setCurrentPayment } =
     useContext(StateContext);
 
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
@@ -28,7 +28,9 @@ const PaymentDropdown = () => {
         <button
           type="button"
           onClick={() => {
-            setActivePayment(!activePayment);
+            if (currentCrypto !== null && currentFiat !== null) {
+              setActivePayment(!activePayment);
+            }
             console.log("active block payment", activePayment);
           }}
           className={`flex justify-between h-[38px] w-[160px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
