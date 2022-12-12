@@ -27,7 +27,9 @@ const Orders = () => {
             <div className="flex w-max h-max my-auto text-12 leading-16 font-normal text-gray">
               <p>
                 {`${item.trade_user.month_orders_count} orders  /  
-                ${Number(item.trade_user.month_finish_rate) * 100}% completion`}
+                ${
+                  Number(item.trade_user.month_finish_rate).toFixed(1) * 100
+                }% completion`}
               </p>
             </div>
           </div>
