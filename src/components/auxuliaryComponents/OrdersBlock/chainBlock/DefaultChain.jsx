@@ -65,7 +65,7 @@ const DefaultChain = () => {
             } text-12 font-normal ml-[9px] leading-14 grid mt-auto`}
           >
             {currentPayment !== null
-              ? currentCrypto.map((item) => <p>{item.name},</p>)
+              ? currentPayment.map((item) => <p>{item.name},</p>)
               : "Choose payment methods"}
           </div>
         </div>
