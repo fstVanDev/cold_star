@@ -23,12 +23,10 @@ const Main = () => {
       <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
         <Navbar />
       </div>
-      <div className="mt-[70px] h-max z-2 bg-main">
-        <Filters />
-      </div>
+      <Filters />
 
       <div className="2xl:w-[1290px] h-[100vh]">
-        <div className="h-max mx-auto mb-[30px]">
+        <div className="h-max mx-auto ">
           {orders.length === 0 ? null : (
             <>
               <div className="flex h-full bg-main justify-between">
