@@ -23,23 +23,31 @@ const Main = () => {
       <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
         <Navbar />
       </div>
-
-      <div className="2xl:w-[1290px] h-max mx-auto mt-[70px] mb-[30px]">
+      <div className="mt-[70px]">
         <Filters />
-        <div className="flex 2xl:w-[1290px] h-full bg-main justify-between">
-          <div className="2xl:w-[1070px] h-max grid">
-            <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
-              {bar.map((item) => (
-                <p
-                  className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
-                >
-                  {item.value}
-                </p>
-              ))}
-            </div>
-            {orders.length === null ? null : <Orders />}
-          </div>
-          <ChainBlock />
+      </div>
+
+      <div className="2xl:w-[1290px] h-[100vh]">
+        <div className="h-max mx-auto mb-[30px]">
+          {orders.length === 0 ? null : (
+            <>
+              <div className="flex h-full bg-main justify-between">
+                <div className="2xl:w-[1070px] h-max grid">
+                  <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
+                    {bar.map((item) => (
+                      <p
+                        className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
+                      >
+                        {item.value}
+                      </p>
+                    ))}
+                  </div>
+                  <Orders />
+                </div>
+                <ChainBlock />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
