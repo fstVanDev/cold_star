@@ -24,29 +24,27 @@ const Main = () => {
         <Navbar />
       </div>
 
-      <div className="2xl:w-[1290px] h-[100vh] mx-auto">
-        <div className="h-max">
-          <Filters />
-          {orders.length === 0 ? null : (
-            <>
-              <div className="flex h-full bg-main justify-between">
-                <div className="2xl:w-[1070px] h-max grid">
-                  <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
-                    {bar.map((item) => (
-                      <p
-                        className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
-                      >
-                        {item.value}
-                      </p>
-                    ))}
-                  </div>
-                  <Orders />
+      <div className="2xl:w-[1290px] h-max mx-auto">
+        <Filters />
+        {orders.length === 0 ? null : (
+          <>
+            <div className="flex h-full bg-main justify-between">
+              <div className="2xl:w-[1070px] h-max grid">
+                <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
+                  {bar.map((item) => (
+                    <p
+                      className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
+                    >
+                      {item.value}
+                    </p>
+                  ))}
                 </div>
-                <ChainBlock />
+                <Orders />
               </div>
-            </>
-          )}
-        </div>
+              <ChainBlock />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

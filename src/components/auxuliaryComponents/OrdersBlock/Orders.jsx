@@ -61,10 +61,10 @@ const Orders = () => {
             </div>
           </div>
           {/* Payment */}
-          <div className="flex h-max my-auto overflow-x-scroll w-[120px]">
+          <div className="h-full my-auto overflow-y-auto w-[120px]">
             {item.trade_methods.map((obj) => (
-              <div className="w-max h-[24px] flex bg-yellow rounded-2 px-[12px] py-[4px] mr-[2px]">
-                <p className="text-orange font-normal text-12 leading-16 ">
+              <div className="w-max h-max my-auto flex bg-yellow rounded-2 px-[12px] py-[4px] mb-[5px] mx-auto">
+                <p className="text-orange font-normal text-12 leading-16 w-max">
                   {obj.name}
                 </p>
               </div>
