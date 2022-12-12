@@ -19,7 +19,7 @@ const Main = () => {
   ];
 
   return (
-    <div className="grid bg-main">
+    <div className="grid bg-main min-h-[100vh]">
       <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
         <Navbar />
       </div>

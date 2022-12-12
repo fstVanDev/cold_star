@@ -24,7 +24,7 @@ const CryptoDrowdown = () => {
         Crypto
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6">
+      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative">
         <button
           type="button"
           onClick={
@@ -56,7 +56,7 @@ const CryptoDrowdown = () => {
         </button>
 
         {activeCrypto && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] z-5">
+          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] relative">
             <input
               type="text"
               placeholder="Search..."

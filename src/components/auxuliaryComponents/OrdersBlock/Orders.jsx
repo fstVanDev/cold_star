@@ -82,7 +82,7 @@ const Orders = () => {
           <button
             type="button"
             onClick={() => console.log("plus orders click button")}
-            className="w-[50px] h-full bg-main border border-1 border-gray rounded-6 my-auto flex"
+            className="w-[50px] h-[50px] bg-main border border-1 border-gray rounded-6 my-auto flex"
           >
             <img
               src={plusOrders}

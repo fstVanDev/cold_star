@@ -24,7 +24,7 @@ const PaymentDropdown = () => {
         Payment
       </h2>
 
-      <div className="w-[160px] h-max min-h-[40px] border border-1 border-gray rounded-6">
+      <div className="w-[160px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative">
         <button
           type="button"
           onClick={() => {
@@ -61,7 +61,7 @@ const PaymentDropdown = () => {
           ) : null}
         </button>
         {activePayment && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] z-5">
+          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] relative">
             {payment.map((item) => (
               <button
                 type="button"
@@ -76,20 +76,6 @@ const PaymentDropdown = () => {
                 <p className="w-full h-max text-gray test-14 font-normal my-auto">
                   {item.name}
                 </p>
-                {/* <input
-                  type={"checkbox"}
-                  checked={
-                    usersPayment.length > 0
-                      ? usersPayment.length === 1
-                        ? item.id === usersPayment[0]
-                          ? true
-                          : false
-                        : item.id === usersPayment[usersPayment.length - 1].id
-                        ? true
-                        : false
-                      : false
-                  }
-                /> */}
               </button>
             ))}
           </div>
