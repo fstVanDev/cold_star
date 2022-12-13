@@ -7,7 +7,7 @@ export const StateProvider = ({ children }) => {
   const [tradeView, setTradeView] = useState(false);
   const [loginView, setLoginView] = useState(false);
   const [registrationView, setRegistrationView] = useState(false);
-  const [filterView, setFilterView] = useState(true);
+  const [filterView, setFilterView] = useState(false);
   const [email, setEmail] = useState(""); // email при входе
   const [password, setPassword] = useState(""); // пароль при входе
   const [name, setName] = useState(""); // имя пользователя

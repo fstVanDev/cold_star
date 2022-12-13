@@ -29,15 +29,15 @@ const App = () => {
       </div>
       {loginView && <Login />}
       {registrationView && <Registration />}
-      {/* {!tradeView ? (
+      {!tradeView ? (
         <>{loginView || registrationView ? null : <Home />}</>
       ) : (
         <>
           <Main />
         </>
-      )} */}
+      )}
 
-      <Main />
+      {/* <Main /> */}
       <Bottom />
     </div>
   );

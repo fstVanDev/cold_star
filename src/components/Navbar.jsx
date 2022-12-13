@@ -15,6 +15,7 @@ const Navbar = () => {
     registrationView,
     setRegistrationView,
     setTradeView,
+    setFilterView,
   } = useContext(StateContext);
 
   return (
@@ -26,6 +27,7 @@ const Navbar = () => {
             setLoginView(false);
             setRegistrationView(false);
             setTradeView(false);
+            setFilterView(false);
           }}
           className="w-max h-max my-auto"
         >
