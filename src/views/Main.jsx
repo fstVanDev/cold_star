@@ -3,6 +3,7 @@ import Filter from "../components/filter/Filter";
 import { StateContext } from "../context/StateProvider";
 import Chain from "../components/chain/Chain";
 import Orders from "../components/orders/Orders";
+import FilterView from "../components/filter/FilterView";
 
 const Main = () => {
   const {
@@ -59,17 +60,17 @@ const Main = () => {
   }, [currentCrypto, currentFiat, currentPayment, mode, amount, orders]);
 
   return (
-    <div className="grid bg-main min-h-[100vh]">
+    <div
+      className={`grid ${
+        filterView === false ? "" : "bg-opacity-50 bg-[#1F1F1F]"
+      } min-h-[100vh]`}
+    >
       <div className="2xl:w-[1290px] h-max mx-auto">
-        <Filter />
+        {filterView === true ? <FilterView /> : <Filter />}
 
         {orders.length === 0 ? null : (
           <>
-            <div
-              className={`flex h-full  justify-between ${
-                filterView === false ? "bg-main" : "bg-opacity-60 bg-[#1F1F1F]"
-              }`}
-            >
+            <div className="flex h-full justify-between bg-main">
               <div className="2xl:w-[1070px] h-max grid">
                 <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
                   {globalId !== 1 ? (

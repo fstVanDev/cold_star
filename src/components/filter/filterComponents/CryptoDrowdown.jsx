@@ -1,10 +1,7 @@
-import React, { useContext, useState } from "react";
-import { StateContext } from "../../../context/StateProvider";
+import React, { useState } from "react";
 import { chevronFilter } from "../../../images";
 
-const CryptoDrowdown = () => {
-  const { crypto, currentCrypto, setCurrentCrypto } = useContext(StateContext);
-
+const CryptoDrowdown = ({ crypto, setCurrentCrypto }) => {
   const [defaultCrypto, setDefaultCrypto] = useState("USDT...");
   const [activeCrypto, setActiveCrypto] = useState(false);
   const [cryptoValue, setCryptoValue] = useState("");

@@ -1,10 +1,7 @@
-import React, { useContext, useState } from "react";
-import { StateContext } from "../../../context/StateProvider";
+import React, { useState } from "react";
 import { chevronFilter } from "../../../images";
 
-const FiatDropdown = () => {
-  const { fiat, currentFiat, setCurrentFiat } = useContext(StateContext);
-
+const FiatDropdown = ({ fiat, setCurrentFiat }) => {
   const [defaultFiat, setDefaultFiat] = useState("USD...");
   const [activeFiat, setActiveFiat] = useState(false);
   const [fiatValue, setFiatValue] = useState("");

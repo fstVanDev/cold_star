@@ -1,19 +1,16 @@
-import React, { useContext, useEffect } from "react";
-import { StateContext } from "../../../context/StateProvider";
+import React from "react";
 import { getOrders } from "../../../data/Requests";
 import { refresh } from "../../../images";
 
-const Refresh = () => {
-  const {
-    currentCrypto,
-    currentFiat,
-    setOrders,
-    amount,
-    currentPayment,
-    orders,
-    mode,
-  } = useContext(StateContext);
-
+const Refresh = ({
+  currentCrypto,
+  currentFiat,
+  setOrders,
+  amount,
+  currentPayment,
+  orders,
+  mode,
+}) => {
   return (
     <button
       className="w-max h-full flex border border-1 border-orange rounded-10 "

@@ -10,6 +10,7 @@ import { getCsrf, getCurrencies } from "./data/Requests";
 
 const App = () => {
   const {
+    filterView,
     tradeView,
     loginView,
     registrationView,
@@ -23,22 +24,26 @@ const App = () => {
   }, []);
 
   return (
-    <div className="grid bg-main">
+    <div
+      className={`grid relative ${
+        filterView === false ? "bg-main" : "bg-opacity-50 bg-[#1F1F1F]"
+      }`}
+    >
       <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
         <Navbar />
       </div>
       {loginView && <Login />}
       {registrationView && <Registration />}
-      {!tradeView ? (
-        <>{loginView || registrationView ? null : <Home />}</>
+      {/* {!tradeView ? (
+        <>{loginView || registrationView ? null : <><Home /> <Bottom /> </>}</>
       ) : (
         <>
           <Main />
+           <Bottom />
         </>
-      )}
+      )} */}
 
-      {/* <Main /> */}
-      <Bottom />
+      <Main />
     </div>
   );
 };

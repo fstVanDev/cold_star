@@ -1,9 +1,6 @@
-import React, { useContext, useState } from "react";
-import { StateContext } from "../../../context/StateProvider";
+import React from "react";
 
-const Mode = () => {
-  const { mode, setMode } = useContext(StateContext);
-
+const Mode = ({ mode, setMode }) => {
   return (
     <div className="w-max h-full flex">
       <div className="w-[120px] h-max h-[32px] border border-1 border-gray rounded-6 my-auto flex justify-between">

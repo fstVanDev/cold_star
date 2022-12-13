@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import { StateContext } from "../../../context/StateProvider";
 import { chevronFilter } from "../../../images";
 
-const PaymentDropdown = () => {
-  const { payment, currentFiat, currentCrypto, setCurrentPayment } =
-    useContext(StateContext);
-
+const PaymentDropdown = ({
+  payment,
+  currentFiat,
+  currentCrypto,
+  setCurrentPayment,
+}) => {
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
   const [activePayment, setActivePayment] = useState(false);
   const [usersPayment, setUsersPayment] = useState(Array);

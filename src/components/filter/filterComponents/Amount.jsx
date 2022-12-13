@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
 import { StateContext } from "../../../context/StateProvider";
 
-const Amount = () => {
-  const { amount, setAmount } = useContext(StateContext);
-
+const Amount = ({ amount, setAmount }) => {
   return (
     <div className="w-max h-full flex">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
