@@ -27,18 +27,17 @@ const App = () => {
       <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
         <Navbar />
       </div>
-
       {loginView && <Login />}
       {registrationView && <Registration />}
-
-      {!tradeView ? (
+      {/* {!tradeView ? (
         <>{loginView || registrationView ? null : <Home />}</>
       ) : (
         <>
           <Main />
         </>
-      )}
-      {/* <Main /> */}
+      )} */}
+
+      <Main />
       <Bottom />
     </div>
   );

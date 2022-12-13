@@ -10,8 +10,14 @@ import RegionDropdown from "./filterComponents/RegionDropdown";
 import Refresh from "./filterComponents/Refresh";
 
 const Filter = () => {
-  const { mode, currentFiat, currentCrypto, setPayment } =
-    useContext(StateContext);
+  const {
+    mode,
+    currentFiat,
+    currentCrypto,
+    setPayment,
+    filterView,
+    setFilterView,
+  } = useContext(StateContext);
 
   useEffect(() => {
     if (currentCrypto !== null && currentFiat !== null) {

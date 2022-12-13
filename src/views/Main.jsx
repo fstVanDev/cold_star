@@ -14,6 +14,8 @@ const Main = () => {
     orders,
     setGlobalId,
     globalId,
+    filterView,
+    setFilterView,
   } = useContext(StateContext);
 
   const barDefault = [
@@ -22,6 +24,7 @@ const Main = () => {
     { value: "Price", width: "w-[80px]" },
     { value: "Limit/Available", width: "w-[185px]" },
     { value: "Payment", width: "w-[150px]" },
+    { value: "", width: "w-[120px]" },
   ];
 
   const bar = [
@@ -59,9 +62,14 @@ const Main = () => {
     <div className="grid bg-main min-h-[100vh]">
       <div className="2xl:w-[1290px] h-max mx-auto">
         <Filter />
+
         {orders.length === 0 ? null : (
           <>
-            <div className="flex h-full bg-main justify-between">
+            <div
+              className={`flex h-full  justify-between ${
+                filterView === false ? "bg-main" : "bg-opacity-60 bg-[#1F1F1F]"
+              }`}
+            >
               <div className="2xl:w-[1070px] h-max grid">
                 <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
                   {globalId !== 1 ? (
