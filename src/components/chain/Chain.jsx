@@ -1,17 +1,17 @@
 import React, { useContext, usaState, useEffect } from "react";
-import Chain from "./chainBlock/Chain";
-import { StateContext } from "../../../context/StateProvider";
+import ChainBlock from "./chainBlock/ChainBlock";
+import { StateContext } from "../../context/StateProvider";
 import AddNewChainButton from "./chainBlock/AddNewChainButton";
 
-const ChainBlock = () => {
+const Chain = () => {
   const {} = useContext(StateContext);
 
   return (
     <div className="2xl:w-[190px] h-max">
       <AddNewChainButton />
-      <Chain />
+      <ChainBlock />
     </div>
   );
 };
 
-export default ChainBlock;
+export default Chain;

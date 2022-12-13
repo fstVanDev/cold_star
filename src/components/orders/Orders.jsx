@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import { StateContext } from "../../../context/StateProvider";
-import { plusOrders } from "../../../images";
+import { StateContext } from "../../context/StateProvider";
+import { plusOrders } from "../../images";
 
 const Orders = () => {
   const { mode, orders, currentFiat, currentCrypto } = useContext(StateContext);

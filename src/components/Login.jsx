@@ -2,10 +2,15 @@ import React, { useContext, useState } from "react";
 import { StateContext } from "../context/StateProvider";
 import { showPassword } from "../images";
 
-import { Link } from "react-router-dom";
-
 const Login = () => {
-  const { email, setEmail, password, setPassword } = useContext(StateContext);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    setLoginView,
+    setRegistrationView,
+  } = useContext(StateContext);
 
   const [hide, setHide] = useState(false);
 
@@ -71,11 +76,17 @@ const Login = () => {
             <p className="text-12 font-normal text-gray leading-17">
               No account?
             </p>
-            <Link to={"/registration"}>
+            <button
+              type="button"
+              onClick={() => {
+                setLoginView(false);
+                setRegistrationView(true);
+              }}
+            >
               <p className="ml-[5px] text-green text-12 leading-17 underline">
                 Create
               </p>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

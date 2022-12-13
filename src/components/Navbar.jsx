@@ -1,24 +1,39 @@
 import React, { useContext, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
 import { navbarData } from "../data/mainData";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { user, setUser, accountView, setAccountView } =
-    useContext(StateContext);
+  const {
+    user,
+    setUser,
+    accountView,
+    setAccountView,
+    tradeView,
+    loginView,
+    setLoginView,
+    registrationView,
+    setRegistrationView,
+    setTradeView,
+  } = useContext(StateContext);
 
   return (
     <div className="2xl:w-[1290px] mx-auto">
       <div className="flex justify-between w-full py-[15px]">
-        {navbarData.logo.image.length > 0 ? (
-          <img src={navbarData.logo.image} alt={navbarData.logo.alt} />
-        ) : (
-          <Link to={"/"}>
-            <p className="w-max h-max my-auto font-bold text-24 leading-30 text-black">
-              TOP2PRO
-            </p>
-          </Link>
-        )}
+        <button
+          type="button"
+          onClick={() => {
+            setLoginView(false);
+            setRegistrationView(false);
+            setTradeView(false);
+          }}
+          className="w-max h-max my-auto"
+        >
+          <p className="w-max h-max my-auto font-bold text-24 leading-30 text-black">
+            TOP2PRO
+          </p>
+        </button>
+
         <div className="w-max h-max flex">
           {navbarData.menuButtons.map((item) => (
             <a
@@ -32,15 +47,21 @@ const Navbar = () => {
             </a>
           ))}
           {user && (
-            <Link
-              to={`/${user.id}/main`}
+            <button
+              type="button"
+              onClick={() => {
+                setLoginView(false);
+                setRegistrationView(false);
+                setTradeView(true);
+              }}
               className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
             >
               <p className="font-bold text-black text-14 leading-20 underline ">
-                To trade
+                To Trade
               </p>
-            </Link>
+            </button>
           )}
+
           {user === null ? (
             <button
               type="button"
@@ -83,17 +104,33 @@ const Navbar = () => {
             className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px] "
             onMouseLeave={() => setAccountView(false)}
           >
-            <Link to={"/login"}>
+            <button
+              type="button"
+              className="w-full h-max mx-auto"
+              onClick={() => {
+                setRegistrationView(false);
+                setTradeView(false);
+                setLoginView(true);
+              }}
+            >
               <h2 className="text-gray text-14 leading-20 mb-[10px] w-max h-max mx-auto font-bold">
                 Log In
               </h2>
-            </Link>
+            </button>
             <hr />
-            <Link to={"/registration"}>
+            <button
+              type="button"
+              className="w-full h-max m-auto"
+              onClick={() => {
+                setTradeView(false);
+                setLoginView(false);
+                setRegistrationView(true);
+              }}
+            >
               <h2 className="text-gray text-14 leading-20 mt-[10px] w-max h-max mx-auto font-bold">
                 Registration
               </h2>
-            </Link>
+            </button>
           </div>
         ) : (
           <div

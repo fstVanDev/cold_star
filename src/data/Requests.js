@@ -155,11 +155,6 @@ export async function getTradeMethods(
   axios(config)
     .then(function (response) {
       console.log(response.data.data, "getTradeMethods");
-      const methods = response.data.data;
-      const arr = [];
-      // methods.map((item) => {
-      //   arr.push(item);
-      // });
 
       setTrade(response.data.data);
     })

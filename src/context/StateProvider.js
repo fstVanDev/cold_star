@@ -3,8 +3,13 @@ import React, { useState } from "react";
 export const StateContext = React.createContext();
 
 export const StateProvider = ({ children }) => {
+  const [user, setUser] = useState(null); // object - вошел, null - не вошел
+  const [tradeView, setTradeView] = useState(false);
+  const [loginView, setLoginView] = useState(false);
+  const [registrationView, setRegistrationView] = useState(false);
+
   // user states
-  const [user, setUser] = useState(null); // true - вошел в систему, false - не вошел в систему
+  // const [user, setUser] = useState(null); // true - вошел в систему, false - не вошел в систему
   const [email, setEmail] = useState(""); // email при входе
   const [password, setPassword] = useState(""); // пароль при входе
   const [name, setName] = useState(""); // имя пользователя
@@ -15,6 +20,9 @@ export const StateProvider = ({ children }) => {
   const [chain, setChain] = useState([]); //  массив со всей цепочкой филтров
 
   // data states
+  const [globalId, setGlobalId] = useState(1); // для записи в local storage
+  const [currentId, setCurrentId] = useState(0); // для получения из local storage
+
   const [fiat, setFiat] = useState(Array); // массив со всеми фиатами
   const [crypto, setCrypto] = useState(Array); // массив со всеми криптовалютами
   const [payment, setPayment] = useState(null); // массив со всеми банками
@@ -31,6 +39,17 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        tradeView,
+        setTradeView,
+        loginView,
+        setLoginView,
+        registrationView,
+        setRegistrationView,
+
+        globalId,
+        setGlobalId,
+        currentId,
+        setCurrentId,
         amount,
         setAmount,
         // currentAmount,

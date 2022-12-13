@@ -9,7 +9,7 @@ import { getTradeMethods } from "../../data/Requests";
 import RegionDropdown from "./filterComponents/RegionDropdown";
 import Refresh from "./filterComponents/Refresh";
 
-const Filters = () => {
+const Filter = () => {
   const { mode, currentFiat, currentCrypto, setPayment } =
     useContext(StateContext);
 
@@ -47,4 +47,4 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+export default Filter;

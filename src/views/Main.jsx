@@ -1,21 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Filters from "../components/auxuliaryComponents/Filters";
+import Filter from "../components/filter/Filter";
 import { StateContext } from "../context/StateProvider";
-import ChainBlock from "../components/auxuliaryComponents/OrdersBlock/ChainBlock";
-import Orders from "../components/auxuliaryComponents/OrdersBlock/Orders";
+import Chain from "../components/chain/Chain";
+import Orders from "../components/orders/Orders";
 
 const Main = () => {
-  const {
-    currentCrypto,
-    currentFiat,
-    currentPayment,
-    mode,
-    amount,
-    fiat,
-    crypto,
-    orders,
-  } = useContext(StateContext);
+  const { currentCrypto, currentFiat, currentPayment, mode, amount, orders } =
+    useContext(StateContext);
 
   useEffect(() => {
     console.log("!!!!!!!!!!!!!!!!!!");
@@ -24,20 +15,9 @@ const Main = () => {
     console.log(currentPayment, "currentPayment");
     console.log(mode, "mode true2-buy, sell1-false");
     console.log(amount, 'amount ""default500 ');
-    console.log(crypto, "crypto");
-    console.log(fiat, "fiat");
     console.log(orders, "orders");
     console.log("!!!!!!!!!!!!!!!!!!");
-  }, [
-    currentCrypto,
-    currentFiat,
-    currentPayment,
-    mode,
-    amount,
-    orders,
-    fiat,
-    crypto,
-  ]);
+  }, [currentCrypto, currentFiat, currentPayment, mode, amount, orders]);
 
   const bar = [
     { value: "Мethod", width: "w-max" },
@@ -50,12 +30,8 @@ const Main = () => {
 
   return (
     <div className="grid bg-main min-h-[100vh]">
-      <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
-        <Navbar />
-      </div>
-
       <div className="2xl:w-[1290px] h-max mx-auto">
-        <Filters />
+        <Filter />
         {orders.length === 0 ? null : (
           <>
             <div className="flex h-full bg-main justify-between">
@@ -71,7 +47,7 @@ const Main = () => {
                 </div>
                 <Orders />
               </div>
-              <ChainBlock />
+              <Chain />
             </div>
           </>
         )}

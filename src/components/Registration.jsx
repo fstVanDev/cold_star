@@ -2,11 +2,18 @@ import React, { useContext, useState } from "react";
 import { StateContext } from "../context/StateProvider";
 import { showPassword } from "../images";
 
-import { Link } from "react-router-dom";
-
 const Registration = () => {
-  const { email, setEmail, password, setPassword, name, setName } =
-    useState(StateContext);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    name,
+    setName,
+    setLoginView,
+    setRegistrationView,
+  } = useContext(StateContext);
+
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
 
@@ -98,11 +105,17 @@ const Registration = () => {
             <p className="text-12 font-normal text-gray leading-17">
               Already registered?
             </p>
-            <Link to={"/login"}>
+            <button
+              type="button"
+              onClick={() => {
+                setLoginView(true);
+                setRegistrationView(false);
+              }}
+            >
               <p className="ml-[5px] text-green text-12 leading-17 underline">
                 Log In
               </p>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

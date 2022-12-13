@@ -16,10 +16,6 @@ import {
 } from "../images";
 
 export const navbarData = {
-  logo: {
-    image: "",
-    alt: "logo",
-  },
   menuButtons: [
     { label: "How it works?", href: "#hitwork" },
     { label: "Plans", href: "#plans" },

@@ -1,34 +1,38 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StateContext } from "./context/StateProvider";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
 import Bottom from "./components/Bottom";
+import Login from "./components/Login";
+import Registration from "./components/Registration";
+import Main from "./views/Main.jsx";
 import { getCsrf, getCurrencies } from "./data/Requests";
 
-// import Error from "./routes/Error";
-// import { useReactPath } from "./hooks/useReactPath";
-
 const App = () => {
-  const { setUser, user, setFiat, setCrypto, fiat, crypto } =
+  const { tradeView, loginView, registrationView, setUser } =
     useContext(StateContext);
-  // const path = useReactPath();
 
-  useEffect(() => {
-    if (user === null) {
-      getCsrf(setUser);
-    }
-
-    if (fiat.length === 0 || crypto.length === 0) {
-      getCurrencies(setFiat, setCrypto);
-    }
-  }, []);
+  // useEffect(() => {
+  //   getCsrf(setUser);
+  // }, []);
 
   return (
     <div className="grid bg-main">
       <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
         <Navbar />
       </div>
-      <Home />
+
+      {loginView && <Login />}
+      {registrationView && <Registration />}
+      {/* 
+      {!tradeView ? (
+        <>{loginView || registrationView ? null : <Home />}</>
+      ) : (
+        <>
+          <Main />
+        </>
+      )} */}
+      <Main />
       <Bottom />
     </div>
   );
