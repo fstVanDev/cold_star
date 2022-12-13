@@ -12,9 +12,9 @@ const App = () => {
   const { tradeView, loginView, registrationView, setUser } =
     useContext(StateContext);
 
-  // useEffect(() => {
-  //   getCsrf(setUser);
-  // }, []);
+  useEffect(() => {
+    getCsrf(setUser);
+  }, []);
 
   return (
     <div className="grid bg-main">
