@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StateContext } from "../../../context/StateProvider";
 
 const AddNewChainButton = () => {
+  const { globalId, setGlobalId } = useContext(StateContext);
+
   return (
     <button
       type="button"

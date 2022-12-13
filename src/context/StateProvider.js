@@ -7,12 +7,12 @@ export const StateProvider = ({ children }) => {
   const [tradeView, setTradeView] = useState(false);
   const [loginView, setLoginView] = useState(false);
   const [registrationView, setRegistrationView] = useState(false);
-
-  // user states
-  // const [user, setUser] = useState(null); // true - вошел в систему, false - не вошел в систему
+  const [filterView, setFilterView] = useState(false);
   const [email, setEmail] = useState(""); // email при входе
   const [password, setPassword] = useState(""); // пароль при входе
   const [name, setName] = useState(""); // имя пользователя
+  const [globalId, setGlobalId] = useState(1); // для записи в local storage
+  const [currentId, setCurrentId] = useState(0); // для получения из local storage
 
   // views states
   const [accountView, setAccountView] = useState(false); //  показывает модальное окно регистрации или логина true - показать, false - скрыть
@@ -20,8 +20,6 @@ export const StateProvider = ({ children }) => {
   const [chain, setChain] = useState([]); //  массив со всей цепочкой филтров
 
   // data states
-  const [globalId, setGlobalId] = useState(1); // для записи в local storage
-  const [currentId, setCurrentId] = useState(0); // для получения из local storage
 
   const [fiat, setFiat] = useState(Array); // массив со всеми фиатами
   const [crypto, setCrypto] = useState(Array); // массив со всеми криптовалютами
@@ -45,9 +43,11 @@ export const StateProvider = ({ children }) => {
         setLoginView,
         registrationView,
         setRegistrationView,
-
+        filterView,
+        setFilterView,
         globalId,
         setGlobalId,
+
         currentId,
         setCurrentId,
         amount,
