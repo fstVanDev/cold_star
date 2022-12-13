@@ -51,7 +51,7 @@ const Main = () => {
       };
       const storage = window.localStorage;
 
-      storage.setItem(`${globalId}`, localObject);
+      storage.setItem(`${globalId}`, JSON.stringify(localObject));
     }
   }, [currentCrypto, currentFiat, currentPayment, mode, amount, orders]);
 

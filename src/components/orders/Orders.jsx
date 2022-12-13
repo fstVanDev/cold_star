@@ -3,7 +3,8 @@ import { StateContext } from "../../context/StateProvider";
 import { plusOrders } from "../../images";
 
 const Orders = () => {
-  const { mode, orders, currentFiat, currentCrypto } = useContext(StateContext);
+  const { mode, orders, currentFiat, currentCrypto, globalId } =
+    useContext(StateContext);
 
   return (
     <>
@@ -79,25 +80,38 @@ const Orders = () => {
             </div>
           </div>
 
-          {/* Fees */}
-          <div className="max-w-[120px] h-max flex my-auto">
-            <p className="text-green text-10 leading-17 font-normal text-center">
-              Please add second chain to see fee
-            </p>
-          </div>
+          {globalId === 1 ? (
+            <>
+              {/* Fees */}
+              <div className="max-w-[120px] h-max flex my-auto">
+                <p className="text-green text-10 leading-17 font-normal text-center">
+                  Please add second chain to see fee
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Fees */}
+              <div className="max-w-[120px] h-max flex my-auto">
+                <p className="text-green text-10 leading-17 font-normal text-center">
+                  1.12%
+                </p>
+              </div>
 
-          {/* Button */}
-          <button
-            type="button"
-            onClick={() => console.log("plus orders click button")}
-            className="w-[50px] h-[50px] bg-main border border-1 border-gray rounded-6 my-auto flex"
-          >
-            <img
-              src={plusOrders}
-              alt="plus"
-              className="w-[20px] h-[20px] m-auto "
-            />
-          </button>
+              {/* Button */}
+              <button
+                type="button"
+                onClick={() => console.log("plus orders click button")}
+                className="w-[50px] h-[50px] bg-main border border-1 border-gray rounded-6 my-auto flex"
+              >
+                <img
+                  src={plusOrders}
+                  alt="plus"
+                  className="w-[20px] h-[20px] m-auto "
+                />
+              </button>
+            </>
+          )}
         </div>
       ))}
     </>
