@@ -34,16 +34,22 @@ const App = () => {
       </div>
       {loginView && <Login />}
       {registrationView && <Registration />}
-      {/* {!tradeView ? (
-        <>{loginView || registrationView ? null : <><Home /> <Bottom /> </>}</>
+      {!tradeView ? (
+        <>
+          {loginView || registrationView ? null : (
+            <>
+              <Home /> <Bottom />{" "}
+            </>
+          )}
+        </>
       ) : (
         <>
           <Main />
-           <Bottom />
+          <Bottom />
         </>
-      )} */}
+      )}
 
-      <Main />
+      {/* <Main /> */}
     </div>
   );
 };
