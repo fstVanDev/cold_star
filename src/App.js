@@ -9,11 +9,17 @@ import Main from "./views/Main.jsx";
 import { getCsrf, getCurrencies } from "./data/Requests";
 
 const App = () => {
-  const { tradeView, loginView, registrationView, setUser } =
-    useContext(StateContext);
+  const {
+    tradeView,
+    loginView,
+    registrationView,
+    setUser,
+    setFiat,
+    setCrypto,
+  } = useContext(StateContext);
 
   useEffect(() => {
-    getCsrf(setUser);
+    getCsrf(setUser, setFiat, setCrypto);
   }, []);
 
   return (

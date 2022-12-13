@@ -8,16 +8,16 @@ const Main = () => {
   const { currentCrypto, currentFiat, currentPayment, mode, amount, orders } =
     useContext(StateContext);
 
-  useEffect(() => {
-    console.log("!!!!!!!!!!!!!!!!!!");
-    console.log(currentCrypto, "currentCrypto");
-    console.log(currentFiat, "currentFiat");
-    console.log(currentPayment, "currentPayment");
-    console.log(mode, "mode true2-buy, sell1-false");
-    console.log(amount, 'amount ""default500 ');
-    console.log(orders, "orders");
-    console.log("!!!!!!!!!!!!!!!!!!");
-  }, [currentCrypto, currentFiat, currentPayment, mode, amount, orders]);
+  // useEffect(() => {
+  //   console.log("!!!!!!!!!!!!!!!!!!");
+  //   console.log(currentCrypto, "currentCrypto");
+  //   console.log(currentFiat, "currentFiat");
+  //   console.log(currentPayment, "currentPayment");
+  //   console.log(mode, "mode true2-buy, sell1-false");
+  //   console.log(amount, 'amount ""default500 ');
+  //   console.log(orders, "orders");
+  //   console.log("!!!!!!!!!!!!!!!!!!");
+  // }, [currentCrypto, currentFiat, currentPayment, mode, amount, orders]);
 
   const bar = [
     { value: "Мethod", width: "w-max" },
