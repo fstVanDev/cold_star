@@ -63,14 +63,20 @@ const Orders = () => {
             </div>
           </div>
           {/* Payment */}
-          <div className="h-full my-auto overflow-y-auto w-[150px]">
-            {item.trade_methods.map((obj) => (
-              <div className="w-max h-max my-auto flex bg-yellow rounded-2 px-[12px] py-[4px] mb-[5px] mx-auto">
-                <p className="text-orange font-normal text-12 leading-16 w-max">
-                  {obj.name}
-                </p>
-              </div>
-            ))}
+          <div className="h-full my-auto overflow-y-auto w-[170px]">
+            <div className="w-max h-max my-auto">
+              {item.trade_methods.map((obj) => (
+                <div
+                  className={`w-max h-max my-auto flex bg-yellow rounded-2 px-[12px] ${
+                    item.trade_methods.length === 1 ? "my-auto" : "mb-[5px]"
+                  } py-[4px] mx-auto`}
+                >
+                  <p className="text-orange font-normal text-12 leading-16 w-max">
+                    {obj.name}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Fees */}

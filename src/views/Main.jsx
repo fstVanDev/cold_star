@@ -6,16 +6,46 @@ import ChainBlock from "../components/auxuliaryComponents/OrdersBlock/ChainBlock
 import Orders from "../components/auxuliaryComponents/OrdersBlock/Orders";
 
 const Main = () => {
-  const { setFiat, setCrypto, user, setUser, orders } =
-    useContext(StateContext);
+  const {
+    currentCrypto,
+    currentFiat,
+    currentPayment,
+    mode,
+    amount,
+    fiat,
+    crypto,
+    orders,
+  } = useContext(StateContext);
+
+  useEffect(() => {
+    console.log("!!!!!!!!!!!!!!!!!!");
+    console.log(currentCrypto, "currentCrypto");
+    console.log(currentFiat, "currentFiat");
+    console.log(currentPayment, "currentPayment");
+    console.log(mode, "mode true2-buy, sell1-false");
+    console.log(amount, 'amount ""default500 ');
+    console.log(crypto, "crypto");
+    console.log(fiat, "fiat");
+    console.log(orders, "orders");
+    console.log("!!!!!!!!!!!!!!!!!!");
+  }, [
+    currentCrypto,
+    currentFiat,
+    currentPayment,
+    mode,
+    amount,
+    orders,
+    fiat,
+    crypto,
+  ]);
 
   const bar = [
     { value: "Мethod", width: "w-max" },
-    { value: "Advertisers (Completion rate)", width: "min-w-[180px]" },
-    { value: "Price", width: "min-w-[95px]" },
-    { value: "Limit/Available", width: "min-w-[190px]" },
-    { value: "Payment", width: "min-w-[100px]" },
-    { value: "Your Fees", width: "min-w-[60px]" },
+    { value: "Advertisers (Completion rate)", width: "w-[170px]" },
+    { value: "Price", width: "w-[80px]" },
+    { value: "Limit/Available", width: "w-[185px]" },
+    { value: "Payment", width: "w-[150px]" },
+    { value: "Your Fees", width: "w-[120px]" },
   ];
 
   return (

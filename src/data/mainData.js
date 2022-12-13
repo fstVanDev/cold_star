@@ -195,3 +195,12 @@ export const bottomData = {
   ],
   text3: "Copyright © 2022",
 };
+
+export const localObject = {
+  mode: Boolean,
+  amount: Number,
+  defaultAmount: 500,
+  fiat: Object,
+  crypto: Object,
+  payments: Array,
+};
