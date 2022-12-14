@@ -20,6 +20,7 @@ const App = () => {
   } = useContext(StateContext);
 
   useEffect(() => {
+    window.localStorage.clear();
     getCsrf(setUser, setFiat, setCrypto);
   }, []);
 
