@@ -69,7 +69,7 @@ const FilterView = () => {
   ]);
 
   return (
-    <div className="2xl:w-[1290px] mx-auto h-max py-[30px] mb-[30px]">
+    <div className="2xl:w-[1290px] mx-auto h-max py-[30px] mt-[70px] mb-[30px]">
       <div className="flex justify-between w-full h-[60px] rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
         {/* Mode  */}
         <Mode mode={localMode} setMode={setLocalMode} />

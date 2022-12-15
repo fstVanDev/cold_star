@@ -19,7 +19,7 @@ const Navbar = () => {
   } = useContext(StateContext);
 
   return (
-    <div className="2xl:w-[1290px] mx-auto">
+    <div className="2xl:w-[1290px] mx-auto relative">
       <div className="flex justify-between w-full py-[15px]">
         <button
           type="button"
