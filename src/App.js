@@ -34,11 +34,6 @@ const App = () => {
     >
       <div className="fixed w-[100vw] h-[70px] z-2 bg-main border-b border-b-1 border-b-gray">
         <Navbar />
-        {!tradeView ? null : (
-          <div className="2xl:w-[1290px] h-max mx-auto">
-            {filterView === true ? <FilterView /> : <Filter />}
-          </div>
-        )}
       </div>
       {loginView && <Login />}
       {registrationView && <Registration />}

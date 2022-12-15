@@ -15,6 +15,7 @@ const Main = () => {
     orders,
     setGlobalId,
     globalId,
+    tradeView,
     filterView,
     setFilterView,
   } = useContext(StateContext);
@@ -66,6 +67,11 @@ const Main = () => {
         filterView === false ? "" : "bg-opacity-50 bg-[#1F1F1F]"
       } min-h-[100vh]`}
     >
+      {!tradeView ? null : (
+        <div className="2xl:w-[1290px] h-max mx-auto">
+          {filterView === true ? <FilterView /> : <Filter />}
+        </div>
+      )}
       {orders.length === 0 ? null : (
         <>
           <div className="flex h-full justify-between bg-main">
