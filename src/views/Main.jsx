@@ -64,7 +64,7 @@ const Main = () => {
   return (
     <div
       className={`grid ${
-        filterView === false ? "" : "bg-opacity-50 bg-[#1F1F1F]"
+        filterView === false ? null : "bg-opacity-50 bg-[#1F1F1F]"
       } min-h-[100vh]`}
     >
       {!tradeView ? null : (
