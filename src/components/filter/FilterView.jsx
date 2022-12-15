@@ -56,7 +56,7 @@ const FilterView = () => {
       };
       const storage = window.localStorage;
       setGlobalId(globalId + 1);
-      console.lofg(2222222);
+      console.log(2222222);
       storage.setItem(`${globalId}`, JSON.stringify(localObject));
     }
   }, [
