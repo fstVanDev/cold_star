@@ -22,7 +22,7 @@ export const useSetLocalStorage = ({
     orders: orders,
   };
 
-  if (storage.length === 0) {
-    storage.setItem(`${globalId}`);
-  }
+  // if (storage.length === 0) {
+  //   storage.setItem(`${globalId}`);
+  // }
 };

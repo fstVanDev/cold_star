@@ -16,13 +16,11 @@ const Refresh = ({
       className="w-max h-full flex border border-1 border-orange rounded-10 "
       type="button"
       onClick={() => {
-        console.log(1);
         if (
           currentFiat !== null &&
           currentCrypto !== null &&
           currentPayment !== null
         ) {
-          console.log(2);
           getOrders(
             mode,
             currentFiat,

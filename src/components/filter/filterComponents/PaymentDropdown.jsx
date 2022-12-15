@@ -33,7 +33,6 @@ const PaymentDropdown = ({
             if (currentCrypto !== null && currentFiat !== null) {
               setActivePayment(!activePayment);
             }
-            console.log("active block payment", activePayment);
           }}
           className={`flex justify-between h-[38px] w-[160px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
@@ -72,7 +71,6 @@ const PaymentDropdown = ({
                   handleChangeCurrentValue(usersPayment, setUsersPayment, item);
                   console.log(usersPayment, "banks chossen user");
                   setDefaultPayment("");
-                  //   setActivePayment(false);
                 }}
               >
                 <p className="w-full h-max text-gray test-14 font-normal my-auto">

@@ -56,6 +56,7 @@ const Main = () => {
       const storage = window.localStorage;
 
       storage.setItem(`${globalId}`, JSON.stringify(localObject));
+      console.log(111111);
     }
   }, [currentCrypto, currentFiat, currentPayment, mode, amount, orders]);
 
@@ -65,43 +66,39 @@ const Main = () => {
         filterView === false ? "" : "bg-opacity-50 bg-[#1F1F1F]"
       } min-h-[100vh]`}
     >
-      <div className="2xl:w-[1290px] h-max mx-auto">
-        {filterView === true ? <FilterView /> : <Filter />}
-
-        {orders.length === 0 ? null : (
-          <>
-            <div className="flex h-full justify-between bg-main">
-              <div className="2xl:w-[1070px] h-max grid">
-                <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
-                  {globalId !== 1 ? (
-                    <>
-                      {bar.map((item) => (
-                        <p
-                          className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
-                        >
-                          {item.value}
-                        </p>
-                      ))}
-                    </>
-                  ) : (
-                    <>
-                      {barDefault.map((item) => (
-                        <p
-                          className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
-                        >
-                          {item.value}
-                        </p>
-                      ))}
-                    </>
-                  )}
-                </div>
-                <Orders />
+      {orders.length === 0 ? null : (
+        <>
+          <div className="flex h-full justify-between bg-main">
+            <div className="2xl:w-[1070px] h-max grid">
+              <div className=" pl-[30px] pr-[126px] h-max mb-[14px] flex justify-between z-1">
+                {globalId !== 1 ? (
+                  <>
+                    {bar.map((item) => (
+                      <p
+                        className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
+                      >
+                        {item.value}
+                      </p>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    {barDefault.map((item) => (
+                      <p
+                        className={`font-normal text-lightGray text-12 leading-16 ${item.width} z-1`}
+                      >
+                        {item.value}
+                      </p>
+                    ))}
+                  </>
+                )}
               </div>
-              <Chain />
+              <Orders />
             </div>
-          </>
-        )}
-      </div>
+            <Chain />
+          </div>
+        </>
+      )}
     </div>
   );
 };

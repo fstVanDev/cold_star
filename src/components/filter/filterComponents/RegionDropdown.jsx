@@ -15,7 +15,6 @@ const RegionDropdown = () => {
         <button
           onClick={() => {
             setActiveRegion(!activeRegion);
-            console.log(activeRegion, "activeRegion");
           }}
           type="button"
           className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]

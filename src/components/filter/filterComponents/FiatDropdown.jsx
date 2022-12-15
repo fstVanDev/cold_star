@@ -58,7 +58,6 @@ const FiatDropdown = ({ fiat, setCurrentFiat }) => {
               value={fiatValue}
               onChange={(e) => {
                 setFiatValue(e.target.value.toUpperCase());
-                console.log(e.target.value.toUpperCase(), "fiatValue");
               }}
               className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
             />
@@ -69,7 +68,7 @@ const FiatDropdown = ({ fiat, setCurrentFiat }) => {
                     type="button"
                     onClick={() => {
                       setCurrentFiat(item);
-                      console.log(item);
+
                       handleChangeCurrentValue(usersFiat, setUsersFiat, item);
                       setDefaultFiat("");
                       setFiatValue("");
@@ -86,7 +85,7 @@ const FiatDropdown = ({ fiat, setCurrentFiat }) => {
                         type="button"
                         onClick={() => {
                           setCurrentFiat(item);
-                          console.log(item);
+
                           handleChangeCurrentValue(
                             usersFiat,
                             setUsersFiat,
