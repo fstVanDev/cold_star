@@ -5,7 +5,7 @@ const Home = () => {
   const [initialQuestion, setInititalQuestion] = useState(null);
 
   return (
-    <div className="mt-[70px]">
+    <div className="pt-[100px] bg-main">
       {/* first-block */}
       <div
         className="flex flex-start w-full h-[386px] border border-1 border-gray rounded-30 bg-white pt-[60px] px-[60px] 2xl:w-[1290px] mx-auto"
@@ -132,7 +132,7 @@ const Home = () => {
 
       {/* fourth-block */}
       <div
-        className=" w-full h-[584px] 2xl:w-[1290px] mx-auto py-[60px]"
+        className="w-full h-[584px] 2xl:w-[1290px] mx-auto py-[60px] "
         id="faqs"
       >
         <h1 className="w-max h-max font-bold text-32 leading-40 text-black">

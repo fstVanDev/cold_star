@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { StateContext } from "../../../context/StateProvider";
-import { chevronFilter } from "../../../images";
+import { chevronFilter } from "../../images";
 
 const RegionDropdown = () => {
-  const {} = useContext(StateContext);
   const [activeRegion, setActiveRegion] = useState(false);
 
   return (

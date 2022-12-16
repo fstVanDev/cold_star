@@ -42,59 +42,6 @@ export async function getUser(setUser, setFiat, setCrypto) {
     });
 }
 
-export async function loginFunc(email, password) {
-  var data = JSON.stringify({
-    email: email,
-    password: password,
-  });
-
-  var config = {
-    method: "post",
-    url: "https://top2pro.com/login",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: data,
-    withCredentials: true,
-  };
-
-  axios(config)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-
-export async function registerFunc(name, email, password) {
-  var data = JSON.stringify({
-    name: name,
-    email: email,
-    password: password,
-    password_confiramtion: password,
-    validation: "k32nf91mss2",
-  });
-
-  var config = {
-    method: "post",
-    url: "https://top2pro.com/register",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: data,
-    withCredentials: true,
-  };
-
-  axios(config)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-
 export async function getCurrencies(setFiat, setCrypto) {
   var config = {
     method: "get",
@@ -131,13 +78,20 @@ export async function getTradeMethods(
   mode,
   currentFiat,
   currentCrypto,
-  setTrade
+  setPayment
 ) {
+  let type;
+  if (mode === true) {
+    type = 2;
+  } else {
+    type = 1;
+  }
+
   var data = JSON.stringify({
     filter: {
       fiat: currentFiat.id,
       asset: currentCrypto.id,
-      type: mode,
+      type: type,
     },
   });
 
@@ -155,9 +109,9 @@ export async function getTradeMethods(
 
   axios(config)
     .then(function (response) {
-      console.log(response.data.data, "getTradeMethods");
+      console.log(response.data.data, "currentOrders");
 
-      setTrade(response.data.data);
+      setPayment(response.data.data);
     })
     .catch(function (error) {
       console.log(error);
@@ -166,10 +120,10 @@ export async function getTradeMethods(
 
 export async function getOrders(
   mode,
+  amount,
   currentFiat,
   currentCrypto,
   currentPayment,
-  amount,
   setOrders
 ) {
   let type;
@@ -221,6 +175,59 @@ export async function getOrders(
     .then(function (response) {
       console.log(response.data.data, "orders");
       setOrders(response.data.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+export async function loginFunc(email, password) {
+  var data = JSON.stringify({
+    email: email,
+    password: password,
+  });
+
+  var config = {
+    method: "post",
+    url: "https://top2pro.com/login",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+    withCredentials: true,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+export async function registerFunc(name, email, password) {
+  var data = JSON.stringify({
+    name: name,
+    email: email,
+    password: password,
+    password_confiramtion: password,
+    validation: "k32nf91mss2",
+  });
+
+  var config = {
+    method: "post",
+    url: "https://top2pro.com/register",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+    withCredentials: true,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);

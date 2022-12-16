@@ -19,3 +19,4 @@ export { default as chevronFilter } from "./chevronFilter.svg";
 
 export { default as refresh } from "./refresh.svg";
 export { default as plusOrders } from "./plusOrders.svg";
+export { default as close } from "./close.svg";

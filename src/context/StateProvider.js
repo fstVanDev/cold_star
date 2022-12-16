@@ -4,56 +4,45 @@ export const StateContext = React.createContext();
 
 export const StateProvider = ({ children }) => {
   const [user, setUser] = useState(null); // object - вошел, null - не вошел
-  const [tradeView, setTradeView] = useState(false);
-  const [loginView, setLoginView] = useState(false);
-  const [registrationView, setRegistrationView] = useState(false);
-  const [filterView, setFilterView] = useState(false);
+
   const [email, setEmail] = useState(""); // email при входе
   const [password, setPassword] = useState(""); // пароль при входе
   const [name, setName] = useState(""); // имя пользователя
-  const [globalId, setGlobalId] = useState(1); // для записи в local storage
-  const [currentId, setCurrentId] = useState(0); // для получения из local storage
 
-  // views states
-  const [accountView, setAccountView] = useState(false); //  показывает модальное окно регистрации или логина true - показать, false - скрыть
-  const [orderView, setOrderView] = useState(true); // currentOrder in Main for dropdown
-  const [chain, setChain] = useState([]); //  массив со всей цепочкой филтров
+  const [mode, setMode] = useState(true);
+  const [fiat, setFiat] = useState(null);
+  const [crypto, setCrypto] = useState(null);
+  const [payment, setPayment] = useState(null);
 
-  // data states
+  const [currentMode, setCurrentModee] = useState(true);
+  const [currentAmount, setCurrentAmount] = useState("");
+  const [currentFiat, setCurrentFiat] = useState(null);
+  const [currentCrypto, setCurrentCrypto] = useState(null);
+  const [currentPayment, setCurrentPayment] = useState(null);
+  const [currentOrders, setCurrentOrders] = useState(null);
 
-  const [fiat, setFiat] = useState(Array); // массив со всеми фиатами
-  const [crypto, setCrypto] = useState(Array); // массив со всеми криптовалютами
-  const [payment, setPayment] = useState(null); // массив со всеми банками
-  const [orders, setOrders] = useState(Array); // массив с ордерами [{orders1}, {orders2}, {orders3}]
-  const [amount, setAmount] = useState(""); // выбранный польхователем amount
+  const [globalId, setGlobalId] = useState(0);
+  const [currentId, setCurrentId] = useState(0);
 
-  // const [currentAmount, setCurrentAmount] = useState(""); //массив с выбранным amount значением пользователя в фильтрах
-  const [currentFiat, setCurrentFiat] = useState(null); // Объект с выбранным пользователем фиатом в фильтрах
-  const [currentCrypto, setCurrentCrypto] = useState(null); // массив с выбранными пользователем криптовалютами в фильтрах
-  const [currentPayment, setCurrentPayment] = useState(null); // масссив с выбранными пользователем банками в каждом звене цепи [{}, {}, {}]
-  const [mode, setMode] = useState(true); // массив с выбранными пользователем mode [2, 1, 2] 2 - покупка, 1 - продажа. исполуется в цепочке и в фильтрах
-  const [currentOrders, setCurrentOrders] = useState(Array); // массив с выбранными currentOrder используется в цепочке и в Main
+  const [newFilterView, setNewFilterView] = useState(false);
+  const [config, setConfig] = useState(null);
 
   return (
     <StateContext.Provider
       value={{
-        tradeView,
-        setTradeView,
-        loginView,
-        setLoginView,
-        registrationView,
-        setRegistrationView,
-        filterView,
-        setFilterView,
+        config,
+        setConfig,
+        newFilterView,
+        setNewFilterView,
         globalId,
         setGlobalId,
-
+        currentAmount,
+        setCurrentAmount,
         currentId,
         setCurrentId,
-        amount,
-        setAmount,
-        // currentAmount,
-        // setCurrentAmount,
+
+        currentMode,
+        setCurrentModee,
         user,
         setUser,
         email,
@@ -62,20 +51,14 @@ export const StateProvider = ({ children }) => {
         setPassword,
         name,
         setName,
-        accountView,
-        setAccountView,
-        orderView,
-        setOrderView,
-        chain,
-        setChain,
+
         fiat,
         setFiat,
         crypto,
         setCrypto,
         payment,
         setPayment,
-        orders,
-        setOrders,
+
         currentFiat,
         setCurrentFiat,
         currentCrypto,

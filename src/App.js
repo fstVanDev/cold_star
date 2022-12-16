@@ -1,57 +1,47 @@
-import React, { useContext, useEffect, useState } from "react";
-import { StateContext } from "./context/StateProvider";
+import React, { useContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./views/Home";
+import Main from "./views/Main";
+import Login from "./views/Login";
+import Registration from "./views/Registration";
 import Bottom from "./components/Bottom";
-import Login from "./components/Login";
-import Registration from "./components/Registration";
-import Main from "./views/Main.jsx";
-import { getCsrf, getCurrencies } from "./data/Requests";
-import FilterView from "./components/filter/FilterView";
-import Filter from "./components/filter/Filter";
+import FilterModal from "./components/FilterModal";
+
+import { Route, Switch, Redirect } from "react-router-dom";
+import { StateContext } from "./context/StateProvider";
+import { getCsrf } from "./data/Requests";
 
 const App = () => {
-  const {
-    filterView,
-    tradeView,
-    loginView,
-    registrationView,
-    setUser,
-    setFiat,
-    setCrypto,
-  } = useContext(StateContext);
+  const { user, setUser, setFiat, setCrypto, newFilterView, setNewFilterView } =
+    useContext(StateContext);
 
+  // csrf -> user -> fiat/crypto
   useEffect(() => {
-    getCsrf(setUser, setFiat, setCrypto);
+    window.localStorage.clear();
+    // getCsrf(setUser, setFiat, setCrypto);
   }, []);
 
   return (
-    <div
-      className={`grid relative ${
-        filterView === false ? "bg-main" : "bg-opacity-50 bg-[#1F1F1F]"
-      }`}
-    >
-      <div className="fixed w-[100vw] h-[70px] z-200 bg-main border-b border-b-1 border-b-gray">
-        <Navbar />
-      </div>
-      {loginView && <Login />}
-      {registrationView && <Registration />}
-      {!tradeView ? (
-        <>
-          {loginView || registrationView ? null : (
-            <>
-              <Home /> <Bottom />{" "}
-            </>
-          )}
-        </>
-      ) : (
-        <>
-          <Main />
-          <Bottom />
-        </>
-      )}
+    <div>
+      <Navbar />
 
-      {/* <Main /> */}
+      <Switch>
+        <Route path="/" exact render={() => <Home />} />
+        <Route path={"/registration"} render={() => <Registration />} />
+        <Route path={"/login"} render={() => <Login />} />
+
+        {/* {user !== null && (
+          <Route
+            path={`/${user.name}-${user.id}/toTrade`}
+            render={() => <Main />}
+          />
+        )} */}
+
+        <Route path={`/:id/toTrade`} render={() => <Main />} />
+
+        <Redirect to={"/"} />
+      </Switch>
+      <Bottom />
     </div>
   );
 };

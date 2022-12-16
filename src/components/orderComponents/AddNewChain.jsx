@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
-import { StateContext } from "../../../context/StateProvider";
+import { StateContext } from "../../context/StateProvider";
 
-const AddNewChainButton = () => {
-  const { globalId, setGlobalId, filterView, setFilterView } =
-    useContext(StateContext);
+const AddNewChain = () => {
+  const { setNewFilterView, setGlobalId, globalId } = useContext(StateContext);
 
   return (
     <button
       type="button"
       className="w-full h-[54px] rounded-10 border-dashed border-2 border-green mb-[30px]"
       onClick={() => {
-        setFilterView(true);
+        setNewFilterView(true);
+        setGlobalId(globalId + 1);
         console.log("Add new Filter, click button");
       }}
     >
@@ -23,4 +23,4 @@ const AddNewChainButton = () => {
   );
 };
 
-export default AddNewChainButton;
+export default AddNewChain;
