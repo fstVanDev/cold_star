@@ -109,7 +109,7 @@ export async function getTradeMethods(
 
   axios(config)
     .then(function (response) {
-      console.log(response.data.data, "currentOrders");
+      console.log(response.data.data, "payment");
 
       setPayment(response.data.data);
     })
