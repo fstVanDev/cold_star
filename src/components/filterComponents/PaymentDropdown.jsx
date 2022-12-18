@@ -18,7 +18,7 @@ const PaymentDropdown = ({
     if (arr !== null) {
       const fount = arr.find((item) => item === value);
       console.log(fount);
-      if (fount !== undefined) {
+      if (fount === undefined) {
         console.log(fount);
         arr.push(value);
         setAnything(arr);
