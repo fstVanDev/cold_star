@@ -16,20 +16,19 @@ const PaymentDropdown = ({
     let arr = anything;
 
     if (arr !== null) {
-      const fount = arr.find((item) => item === value);
-      if (fount === undefined) {
-        console.log(fount);
-        arr.push(value);
-        setAnything(arr);
-        setCurrentPayment(arr);
-        console.log(arr, "currentPayment");
-      } else {
-        console.log(fount);
-        arr.splice(index, 1);
-        setAnything(arr);
-        setCurrentPayment(arr);
-        console.log(arr, "currentPayment");
-      }
+      arr.map((item, index) => {
+        if (JSON.stringify(item) === JSON.stringify(value)) {
+          arr.splice(index, 1);
+          setAnything(arr);
+          setCurrentPayment(arr);
+          console.log(arr, "currentPayment");
+        } else {
+          arr.push(value);
+          setAnything(arr);
+          setCurrentPayment(arr);
+          console.log(arr, "currentPayment");
+        }
+      });
     } else {
       arr = [];
       arr.push(value);
@@ -256,18 +255,22 @@ const PaymentDropdown = ({
                `}
         >
           <div className="w-max h-[38px] mx-auto font-normal my-auto flex overflow-x-auto text-12 leading-14 ">
-            {payment !== null
-              ? usersPayment === null
-                ? defaultPayment
-                : usersPayment.map((item) => (
-                    <p
-                      className="w-max max-h-[38px] my-auto text-lightGray text-12 leading-14 mx-[5px]"
-                      key={item.id}
-                    >
-                      {item.name},
-                    </p>
-                  ))
-              : "First enter fiat and crypto"}
+            {payment !== null ? (
+              usersPayment === null ? (
+                <p className="w-max h-max my-auto">{defaultPayment}</p>
+              ) : (
+                usersPayment.map((item) => (
+                  <p
+                    className="w-max max-h-[38px] my-auto text-lightGray text-12 leading-14 mx-[5px]"
+                    key={item.id}
+                  >
+                    {item.name},
+                  </p>
+                ))
+              )
+            ) : (
+              <p className="w-max h-max my-auto">First enter fiat and crypto</p>
+            )}
           </div>
           {payment !== null ? (
             <img
