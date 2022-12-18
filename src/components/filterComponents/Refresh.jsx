@@ -30,6 +30,7 @@ const Refresh = ({
             currentAmount,
             currentFiat,
             currentCrypto,
+            currentPayment,
             setCurrentOrders
           );
           const localObject = {

@@ -12,7 +12,7 @@ const PaymentDropdown = ({
   const [activePayment, setActivePayment] = useState(false);
   const [usersPayment, setUsersPayment] = useState(null);
 
-  function handleChangeCurrentValue(anything, setAnything, value, index) {
+  function handleChangeCurrentValue(anything, setAnything, value) {
     let arr = anything;
 
     if (arr !== null) {
@@ -261,7 +261,7 @@ const PaymentDropdown = ({
               ) : (
                 usersPayment.map((item) => (
                   <p
-                    className="w-max max-h-[38px] my-auto text-lightGray text-12 leading-14 mx-[5px]"
+                    className="w-max max-h-[18px] my-auto text-lightGray text-12 leading-14 mx-[5px]"
                     key={item.id}
                   >
                     {item.name},
@@ -282,18 +282,13 @@ const PaymentDropdown = ({
         </button>
         {activePayment && (
           <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] relative">
-            {payment.map((item, index) => (
+            {payment.map((item) => (
               <button
                 key={item.id}
                 type="button"
                 className="w-full h-max my-[10px] flex justify-around"
                 onClick={() => {
-                  handleChangeCurrentValue(
-                    usersPayment,
-                    setUsersPayment,
-                    item,
-                    index
-                  );
+                  handleChangeCurrentValue(usersPayment, setUsersPayment, item);
                 }}
               >
                 <p className="w-full h-max text-gray test-14 font-normal my-auto">
