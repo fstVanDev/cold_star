@@ -22,19 +22,20 @@ const PaymentDropdown = ({
         arr.push(value);
         setAnything(arr);
         setCurrentPayment(arr);
+        console.log(arr, "currentPayment");
       } else {
         arr.slice(index, 1);
         setAnything(arr);
         setCurrentPayment(arr);
+        console.log(arr, "currentPayment");
       }
     } else {
       arr = [];
       arr.push(value);
       setAnything(arr);
       setCurrentPayment(arr);
+      console.log(arr, "currentPayment");
     }
-
-    console.log(arr, "currentPayment");
   }
 
   useEffect(() => {
@@ -262,7 +263,7 @@ const PaymentDropdown = ({
                       className="w-max h-max my-auto text-lightGray text-12 leading-14 mx-[5px]"
                       key={item.id}
                     >
-                      ${item.name},
+                      {item.name},
                     </p>
                   ))
               : "First enter fiat and crypto"}
