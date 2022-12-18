@@ -34,6 +34,8 @@ const Filter = () => {
     payment,
     setPayment,
     setCurrentOrders,
+    secondaryOrders,
+    setSecondaryOrders,
   } = useContext(StateContext);
 
   useEffect(() => {
@@ -86,6 +88,8 @@ const Filter = () => {
           setConfig={setConfig}
           setNewFilterView={setNewFilterView}
           setCurrentOrders={setCurrentOrders}
+          secondaryOrders={secondaryOrders}
+          setSecondaryOrders={setSecondaryOrders}
         />
       </div>
       {newFilterView && (

@@ -11,6 +11,8 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
       setDefaultFiat("USD...");
       setFiatValue("");
       console.log("effect on currentFiat");
+    } else {
+      setDefaultFiat(currentFiat.name);
     }
   }, [currentFiat]);
 

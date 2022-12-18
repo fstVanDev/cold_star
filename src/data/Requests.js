@@ -173,7 +173,7 @@ export async function getOrders(
 
   axios(config)
     .then(function (response) {
-      console.log(response.data.data, "currentOrders");
+      console.log(response.data.data, "Orders");
       setOrders(response.data.data);
     })
     .catch(function (error) {

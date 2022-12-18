@@ -6,14 +6,8 @@ import Top from "./orderComponents/Top";
 import SecondaryOrders from "./SecondaryOrders";
 
 const Orders = () => {
-  const {
-    mode,
-    orders,
-    currentFiat,
-    currentCrypto,
-    globalId,
-    setCurrentOrders,
-  } = useContext(StateContext);
+  const { mode, currentOrders, globalId, setCurrentOrders, secondaryOrders } =
+    useContext(StateContext);
 
   const [fee, setFee] = useState(0);
   const [active, setActive] = useState(false);
@@ -1048,14 +1042,10 @@ const Orders = () => {
     },
   ];
 
-  useEffect(() => {
-    setCurrentOrders(data);
-  }, []);
-
   return (
     <div className="2xl:w-[1290px] mx-auto">
       <Top />
-      {data.map((item, index) => (
+      {currentOrders.map((item, index) => (
         <div className="w-max h-max mb-[10px] rounded-20">
           <div
             className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
@@ -1136,7 +1126,7 @@ const Orders = () => {
               </div>
             </div>
 
-            {globalId === null ? (
+            {globalId > 0 ? (
               <>
                 {/* Fees */}
                 <div className="max-w-[120px] h-max flex my-auto">
@@ -1176,10 +1166,13 @@ const Orders = () => {
               </>
             )}
           </div>
-
-          {index === currentIndex && active === true ? (
-            <SecondaryOrders />
-          ) : null}
+          {secondaryOrders !== null && (
+            <>
+              {index === currentIndex && active === true ? (
+                <SecondaryOrders />
+              ) : null}
+            </>
+          )}
         </div>
       ))}
     </div>

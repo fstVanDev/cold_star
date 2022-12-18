@@ -14,6 +14,8 @@ const Refresh = ({
   setConfig,
   setNewFilterView,
   setCurrentOrders,
+  secondaryOrders,
+  setSecondaryOrders,
 }) => {
   return (
     <button
@@ -42,6 +44,7 @@ const Refresh = ({
             crypto: currentCrypto,
             payments: currentPayment,
             orders: currentOrders,
+            secondaryOrders: secondaryOrders === null ? null : secondaryOrders,
           };
 
           if (config === null) {
@@ -83,7 +86,7 @@ const Refresh = ({
       }}
     >
       <div className="h-full w-full rounded-10 p-[10px]">
-        {currentOrders !== null ? (
+        {currentOrders === null ? (
           <p
             type="button"
             className="w-max h-max text-orange text-12 font-normal leading-17"

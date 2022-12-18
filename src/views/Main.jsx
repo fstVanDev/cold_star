@@ -6,7 +6,8 @@ import FilterModal from "../components/FilterModal";
 import { StateContext } from "../context/StateProvider";
 
 const Main = () => {
-  const { config, setConfig, globalId } = useContext(StateContext);
+  const { config, setConfig, globalId, currentOrders } =
+    useContext(StateContext);
 
   // useEffect(() => {
   //   console.log(localStorage);
@@ -25,10 +26,12 @@ const Main = () => {
     <div className="pt-[70px] min-h-[100vh] bg-main">
       <Filter />
       <FilterModal />
-      <div className="2xl:w-[1290px] mx-auto flex justify-between">
-        <Orders />
-        <Chain />
-      </div>
+      {currentOrders !== null && (
+        <div className="2xl:w-[1290px] mx-auto flex justify-between">
+          <Orders />
+          <Chain />
+        </div>
+      )}
     </div>
   );
 };

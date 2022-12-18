@@ -10,6 +10,8 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
     if (currentCrypto === null) {
       setDefaultCrypto("USDT...");
       setCryptoValue("");
+    } else {
+      setDefaultCrypto(currentCrypto.name);
     }
   }, [currentCrypto]);
 
