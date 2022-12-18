@@ -17,7 +17,6 @@ const PaymentDropdown = ({
 
     if (arr !== null) {
       const fount = arr.find((item) => item === value);
-      console.log(fount);
       if (fount === undefined) {
         console.log(fount);
         arr.push(value);
@@ -26,7 +25,7 @@ const PaymentDropdown = ({
         console.log(arr, "currentPayment");
       } else {
         console.log(fount);
-        arr.slice(index, 1);
+        arr.splice(index, 1);
         setAnything(arr);
         setCurrentPayment(arr);
         console.log(arr, "currentPayment");
@@ -256,13 +255,13 @@ const PaymentDropdown = ({
                ${!activePayment && "rounded-6"}
                `}
         >
-          <div className="w-max h-max  mx-auto font-normal my-auto flex overflow-x-auto text-12 leading-14 ">
+          <div className="w-max h-[38px] mx-auto font-normal my-auto flex overflow-x-auto text-12 leading-14 ">
             {payment !== null
               ? usersPayment === null
                 ? defaultPayment
                 : usersPayment.map((item) => (
                     <p
-                      className="w-max h-max my-auto text-lightGray text-12 leading-14 mx-[5px]"
+                      className="w-max max-h-[38px] my-auto text-lightGray text-12 leading-14 mx-[5px]"
                       key={item.id}
                     >
                       {item.name},
