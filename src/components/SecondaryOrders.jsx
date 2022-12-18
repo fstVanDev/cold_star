@@ -1,23 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
 import { plusOrders } from "../images";
-import { ordersChevron } from "../images";
-import Top from "./orderComponents/Top";
-import SecondaryOrders from "./SecondaryOrders";
 
-const Orders = () => {
-  const {
-    mode,
-    orders,
-    currentFiat,
-    currentCrypto,
-    globalId,
-    setCurrentOrders,
-  } = useContext(StateContext);
-
-  const [fee, setFee] = useState(0);
-  const [active, setActive] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(null);
+const SecondaryOrders = () => {
+  const { mode, globalId, setCurrentOrders } = useContext(StateContext);
 
   const data = [
     {
@@ -1048,105 +1034,91 @@ const Orders = () => {
     },
   ];
 
-  useEffect(() => {
-    setCurrentOrders(data);
-  }, []);
+  const [fee, setFee] = useState(0);
 
   return (
-    <div className="2xl:w-[1290px] mx-auto">
-      <Top />
-      {data.map((item, index) => (
-        <div className="w-max h-max mb-[10px] rounded-20">
-          <div
-            className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
-              index === currentIndex && active === true
-                ? "rounded-t-20"
-                : " rounded-20"
-            } `}
-            key={index}
-          >
-            {/* Mode */}
-            <div
-              className={`${
-                mode ? "bg-green" : "bg-orange"
-              } w-max h-max rounded-2 my-auto px-[12px] py-[4px]`}
-            >
-              <p className="text-white font-normal text-12 leading-16">
-                {mode ? "Buy" : "Sell"}
-              </p>
-            </div>
-            {/* Name */}
-            <div className="grid w-max h-max my-auto">
-              <p className="text-14 leading-20 font-bold text-black mb-[6px]">
-                {item.trade_user.name}
-              </p>
-              <div className="flex w-max h-max my-auto text-12 leading-16 font-normal text-gray">
-                <p>
-                  {`${item.trade_user.month_orders_count} orders  /  
+    <div className="bg-white px-[10px] rounded-b-20 pb-[10px]">
+      <div className="bg-main rounded-15">
+        {data.map((item, index) => (
+          <>
+            <div className="w-max h-max " key={index}>
+              <div
+                className="2xl:w-[1050px] h-[88px] flex justify-between py-[12px] px-[20px]"
+                key={index}
+              >
+                {/* Mode */}
+                <div
+                  className={`${
+                    mode ? "bg-green" : "bg-orange"
+                  } w-max h-max rounded-2 my-auto px-[12px] py-[4px]`}
+                >
+                  <p className="text-white font-normal text-12 leading-16">
+                    {mode ? "Buy" : "Sell"}
+                  </p>
+                </div>
+                {/* Name */}
+                <div className="grid w-max h-max my-auto">
+                  <p className="text-14 leading-20 font-bold text-black mb-[6px]">
+                    {item.trade_user.name}
+                  </p>
+                  <div className="flex w-max h-max my-auto text-12 leading-16 font-normal text-gray">
+                    <p>
+                      {`${item.trade_user.month_orders_count} orders  /  
                 ${
                   Number(item.trade_user.month_finish_rate).toFixed(1) * 100
                 }% completion`}
-                </p>
-              </div>
-            </div>
-            {/* Price */}
-            <div className="flex w-max h-max my-auto">
-              <p className="text-black text-18 font-bold leading-24">
-                {item.price}
-              </p>
-              <p className="text-lightGray text-14 leading-20 font-bold w-max h-max mt-auto ml-[5px]">
-                {item.fiat.name}
-              </p>
-            </div>
-            {/* Available */}
-            <div className="grid w-max h-max my-auto">
-              <div className="flex w-max h-max ">
-                <p className="text-lightGray text-normal text-12 leading-16 my-auto">
-                  Available
-                </p>
-                <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
-                  {`${item.amount} ${" "} ${item.asset.name}`}
-                </p>
-              </div>
-              <div className="flex w-max h-max mt-[6px]">
-                <p className="text-lightGray text-normal text-12 leading-16 my-auto">
-                  Limit
-                </p>
-                <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
-                  {`${item.min_trans_amount} ${" "} -  
-                ${" "} ${item.max_trans_amount} ${" "} ${item.fiat.name}`}
-                </p>
-              </div>
-            </div>
-            {/* Payment */}
-            <div className="h-full my-auto grid py-auto overflow-y-auto w-[170px]">
-              <div className="w-max h-max grid m-auto">
-                {item.trade_methods.map((obj, index) => (
-                  <div
-                    key={index}
-                    className={`w-max h-max content-center bg-yellow rounded-2 px-[12px] ${
-                      item.trade_methods.length === 1 ? "my-auto" : "mb-[5px]"
-                    } py-[4px] mx-auto`}
-                  >
-                    <p className="text-orange font-normal text-12 leading-16 w-max">
-                      {obj.name}
                     </p>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {globalId === null ? (
-              <>
-                {/* Fees */}
-                <div className="max-w-[120px] h-max flex my-auto">
-                  <p className="text-green text-10 leading-17 font-normal text-center">
-                    Please add second chain to see fee
+                </div>
+                {/* Price */}
+                <div className="flex w-max h-max my-auto">
+                  <p className="text-black text-18 font-bold leading-24">
+                    {item.price}
+                  </p>
+                  <p className="text-lightGray text-14 leading-20 font-bold w-max h-max mt-auto ml-[5px]">
+                    {item.fiat.name}
                   </p>
                 </div>
-              </>
-            ) : (
-              <>
+                {/* Available */}
+                <div className="grid w-max h-max my-auto">
+                  <div className="flex w-max h-max ">
+                    <p className="text-lightGray text-normal text-12 leading-16 my-auto">
+                      Available
+                    </p>
+                    <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
+                      {`${item.amount} ${" "} ${item.asset.name}`}
+                    </p>
+                  </div>
+                  <div className="flex w-max h-max mt-[6px]">
+                    <p className="text-lightGray text-normal text-12 leading-16 my-auto">
+                      Limit
+                    </p>
+                    <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
+                      {`${item.min_trans_amount} ${" "} -  
+                ${" "} ${item.max_trans_amount} ${" "} ${item.fiat.name}`}
+                    </p>
+                  </div>
+                </div>
+                {/* Payment */}
+                <div className="h-full my-auto grid py-auto overflow-y-auto w-[170px]">
+                  <div className="w-max h-max grid m-auto">
+                    {item.trade_methods.map((obj, index) => (
+                      <div
+                        key={index}
+                        className={`w-max h-max content-center bg-yellow rounded-2 px-[12px] ${
+                          item.trade_methods.length === 1
+                            ? "my-auto"
+                            : "mb-[5px]"
+                        } py-[4px] mx-auto`}
+                      >
+                        <p className="text-orange font-normal text-12 leading-16 w-max">
+                          {obj.name}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Fees */}
                 <div className="max-w-[120px] h-max flex my-auto">
                   <p className="text-green text-18 leading-24 font-bold text-center">
@@ -1158,32 +1130,26 @@ const Orders = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    setCurrentIndex(index);
-                    setActive(!active);
+                    console.log("click");
                   }}
-                  className="w-[50px] h-[50px] bg-main border border-1 border-gray rounded-6 my-auto flex"
+                  className="w-[50px] h-[50px] bg-white border border-1 border-gray rounded-6 my-auto flex"
                 >
                   <img
-                    src={
-                      index === currentIndex && active === true
-                        ? ordersChevron
-                        : plusOrders
-                    }
+                    src={plusOrders}
                     alt="plus"
                     className="w-[20px] h-[20px] m-auto "
                   />
                 </button>
-              </>
+              </div>
+            </div>
+            {data.length - 1 === index ? null : (
+              <div className="2xl:w-[1010px] h-[1px] bg-secondary mx-auto" />
             )}
-          </div>
-
-          {index === currentIndex && active === true ? (
-            <SecondaryOrders />
-          ) : null}
-        </div>
-      ))}
+          </>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Orders;
+export default SecondaryOrders;

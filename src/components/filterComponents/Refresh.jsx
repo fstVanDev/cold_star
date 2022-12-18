@@ -13,17 +13,25 @@ const Refresh = ({
   config,
   setConfig,
   setNewFilterView,
+  setCurrentOrders,
 }) => {
   return (
     <button
       className="w-max h-full flex border border-1 border-orange rounded-10 "
       type="button"
-      onClick={() => {
+      onClick={async () => {
         if (
           currentFiat !== null &&
           currentCrypto !== null &&
           currentPayment !== null
         ) {
+          await getOrders(
+            mode,
+            currentAmount,
+            currentFiat,
+            currentCrypto,
+            setCurrentOrders
+          );
           const localObject = {
             id: globalId,
             mode: mode,
@@ -55,18 +63,22 @@ const Refresh = ({
                     ];
                   };
                   arr = insert(arr, index, localObject);
-                  setConfig(arr);
+                  return setConfig(arr);
                 }
               } else {
                 if (arr.length - 1 !== globalId) {
                   arr.push(localObject);
-                  setConfig(arr);
+                  return setConfig(arr);
                 }
               }
             });
           }
+          setNewFilterView(false);
+        } else {
+          alert(
+            "To receive orders, fiat, crypto and payment fields must be filled! Please check data..."
+          );
         }
-        setNewFilterView(false);
       }}
     >
       <div className="h-full w-full rounded-10 p-[10px]">

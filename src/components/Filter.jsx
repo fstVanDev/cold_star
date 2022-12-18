@@ -20,7 +20,6 @@ const Filter = () => {
     fiat,
     setCurrentFiat,
     crypto,
-    payment,
     globalId,
     setGlobalId,
     currentOrders,
@@ -32,7 +31,16 @@ const Filter = () => {
     setNewFilterView,
     config,
     setConfig,
+    payment,
+    setPayment,
+    setCurrentOrders,
   } = useContext(StateContext);
+
+  useEffect(() => {
+    if (currentCrypto !== null && currentFiat !== null) {
+      getTradeMethods(mode, currentFiat, currentCrypto, setPayment);
+    }
+  }, [currentCrypto, currentFiat]);
 
   useEffect(() => {
     console.log(config);
@@ -42,16 +50,25 @@ const Filter = () => {
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">
       <div className="flex justify-between w-full h-[60px] rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
         <Mode mode={mode} setMode={setMode} />
-
         <Amount amount={currentAmount} setCurrentAmount={setCurrentAmount} />
-        <FiatDropdown fiat={fiat} setCurrentFiat={setCurrentFiat} />
 
-        <CryptoDropdown crypto={crypto} setCurrentCrypto={setCurrentCrypto} />
+        <FiatDropdown
+          fiat={fiat}
+          setCurrentFiat={setCurrentFiat}
+          currentFiat={currentFiat}
+        />
+
+        <CryptoDropdown
+          crypto={crypto}
+          setCurrentCrypto={setCurrentCrypto}
+          currentCrypto={currentCrypto}
+        />
 
         <PaymentDropdown
           payment={payment}
           currentFiat={currentFiat}
           currentCrypto={currentCrypto}
+          currentPayment={currentPayment}
           setCurrentPayment={setCurrentPayment}
         />
 
@@ -68,6 +85,7 @@ const Filter = () => {
           config={config}
           setConfig={setConfig}
           setNewFilterView={setNewFilterView}
+          setCurrentOrders={setCurrentOrders}
         />
       </div>
       {newFilterView && (

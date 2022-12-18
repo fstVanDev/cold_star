@@ -29,19 +29,19 @@ const Navbar = () => {
                 </span>
               </a>
             ))}
-            {/* {user && ( */}
-            <NavLink
-              to={{
-                // pathname: `/${user.name}-${user.id}/toTrade`,
-                pathname: "/:id/toTrade",
-              }}
-              className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
-            >
-              <p className="font-bold text-black text-14 leading-20 underline ">
-                To Trade
-              </p>
-            </NavLink>
-            {/* )} */}
+            {user && (
+              <NavLink
+                to={{
+                  pathname: `/${user.name}-${user.id}/toTrade`,
+                  // pathname: "/:id/toTrade",
+                }}
+                className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
+              >
+                <p className="font-bold text-black text-14 leading-20 underline ">
+                  To Trade
+                </p>
+              </NavLink>
+            )}
             {user === null ? (
               <button
                 type="button"
@@ -59,7 +59,7 @@ const Navbar = () => {
             ) : (
               <button
                 type="button"
-                onClick={() => console.log("")}
+                onClick={() => console.log("mono click")}
                 className="flex justify-between w-max h-max px-[15px] py-[10px] bg-white rounded-4 border border-1 border-gray "
               >
                 <img

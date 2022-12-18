@@ -20,6 +20,7 @@ export const StateProvider = ({ children }) => {
   const [currentCrypto, setCurrentCrypto] = useState(null);
   const [currentPayment, setCurrentPayment] = useState(null);
   const [currentOrders, setCurrentOrders] = useState(null);
+  const [currentOrder, setCurrentOrder] = useState(null);
 
   const [globalId, setGlobalId] = useState(0);
   const [currentId, setCurrentId] = useState(0);
@@ -30,6 +31,8 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        currentOrder,
+        setCurrentOrder,
         config,
         setConfig,
         newFilterView,

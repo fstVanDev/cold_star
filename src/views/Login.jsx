@@ -2,16 +2,10 @@ import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { StateContext } from "../context/StateProvider";
 import { showPassword } from "../images";
+import { loginFunc } from "../data/Requests";
 
 const Login = () => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    setLoginView,
-    setRegistrationView,
-  } = useContext(StateContext);
+  const { email, setEmail, password, setPassword } = useContext(StateContext);
 
   const [hide, setHide] = useState(false);
 
@@ -28,7 +22,10 @@ const Login = () => {
             <input
               type="text"
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event) => {
+                console.log(event.target.value, "email");
+                setEmail(event.target.value);
+              }}
               className="focus:ring-0 focus:outline-none border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
             />
           </div>
@@ -49,7 +46,10 @@ const Login = () => {
               <input
                 type={hide ? "text" : "password"}
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) => {
+                  console.log(event.target.value, "password");
+                  setPassword(event.target.value);
+                }}
                 className="focus:ring-0 focus:outline-none w-[310px] h-[40px] rounded-10 text-gray pl-[15px] "
               />
               <button
@@ -69,7 +69,14 @@ const Login = () => {
           <button
             type="button"
             className="w-full h-max px-auto py-[14px] mt-[30px] bg-green rounded-6 text-white font-bold text-18 leading-22"
-            onClick={() => console.log("click")}
+            onClick={() => {
+              if (email.length !== 0 && password.length !== 0) {
+                console.log("login func");
+                loginFunc(email, password);
+              } else {
+                alert("Something wrong! Please check your data...");
+              }
+            }}
           >
             Continue
           </button>

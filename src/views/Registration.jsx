@@ -2,21 +2,15 @@ import React, { useContext, useState } from "react";
 import { StateContext } from "../context/StateProvider";
 import { showPassword } from "../images";
 import { NavLink } from "react-router-dom";
+import { registerFunc } from "../data/Requests";
 
 const Registration = () => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    name,
-    setName,
-    setLoginView,
-    setRegistrationView,
-  } = useContext(StateContext);
+  const { email, setEmail, password, setPassword, name, setName } =
+    useContext(StateContext);
 
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
+  const [confirm, setConfirm] = useState("");
 
   return (
     <div className="bg-main">
@@ -31,7 +25,10 @@ const Registration = () => {
             <input
               type="text"
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event) => {
+                console.log(event.target.value, "email");
+                setEmail(event.target.value);
+              }}
               className="focus:ring-0 focus:outline-none border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
             />
           </div>
@@ -40,7 +37,10 @@ const Registration = () => {
             <input
               type="text"
               value={name}
-              onChange={(event) => setName(event.target.value)}
+              onChange={(event) => {
+                console.log(event.target.value, "name");
+                setName(event.target.value);
+              }}
               className="focus:ring-0 focus:outline-none border border-1 border-gray rounded-10 w-full h-[40px] text-gray pl-[15px] mt-[10px]"
             />
           </div>
@@ -53,7 +53,10 @@ const Registration = () => {
               <input
                 type={hide2 ? "text" : "password"}
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) => {
+                  console.log(event.target.value, "password");
+                  setPassword(event.target.value);
+                }}
                 className="focus:ring-0 focus:outline-none w-[310px] h-[40px] text-gray rounded-10 pl-[15px] "
               />
               <button
@@ -78,7 +81,10 @@ const Registration = () => {
               <input
                 type={hide ? "text" : "password"}
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) => {
+                  console.log(event.target.value, "confirm password");
+                  setConfirm(event.target.value);
+                }}
                 className="focus:ring-0 focus:outline-none w-[310px] h-[40px] text-gray rounded-10 pl-[15px] "
               />
               <button
@@ -98,7 +104,20 @@ const Registration = () => {
           <button
             type="button"
             className="w-full h-max px-auto py-[14px] mt-[30px] bg-green rounded-6 text-white font-bold text-18 leading-22"
-            onClick={() => console.log("click")}
+            onClick={() => {
+              if (
+                confirm === password &&
+                confirm.length !== 0 &&
+                password.length !== 0 &&
+                name.length !== 0 &&
+                email.length !== 0
+              ) {
+                registerFunc(name, email, password, confirm);
+                console.log("register button");
+              } else {
+                alert("Something wrong! Please check your data...");
+              }
+            }}
           >
             Continue
           </button>

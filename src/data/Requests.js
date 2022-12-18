@@ -173,7 +173,7 @@ export async function getOrders(
 
   axios(config)
     .then(function (response) {
-      console.log(response.data.data, "orders");
+      console.log(response.data.data, "currentOrders");
       setOrders(response.data.data);
     })
     .catch(function (error) {
@@ -206,12 +206,12 @@ export async function loginFunc(email, password) {
     });
 }
 
-export async function registerFunc(name, email, password) {
+export async function registerFunc(name, email, password, confirm) {
   var data = JSON.stringify({
     name: name,
     email: email,
     password: password,
-    password_confiramtion: password,
+    password_confiramtion: confirm,
     validation: "k32nf91mss2",
   });
 

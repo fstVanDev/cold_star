@@ -7,7 +7,7 @@ const AddNewChain = () => {
   return (
     <button
       type="button"
-      className="w-full h-[54px] rounded-10 border-dashed border-2 border-green mb-[30px]"
+      className="w-full h-[54px] rounded-10 border-dashed border-2 border-green"
       onClick={() => {
         setNewFilterView(true);
         setGlobalId(globalId + 1);
