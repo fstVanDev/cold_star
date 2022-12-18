@@ -15,14 +15,20 @@ const PaymentDropdown = ({
   function handleChangeCurrentValue(anything, setAnything, value, index) {
     let arr = anything;
 
-    const fount = arr.find((item) => item === value);
+    if (arr !== null) {
+      const fount = arr.find((item) => item === value);
 
-    if (fount !== undefined) {
-      arr.push(value);
-      setAnything(arr);
-      setCurrentPayment(arr);
+      if (fount !== undefined) {
+        arr.push(value);
+        setAnything(arr);
+        setCurrentPayment(arr);
+      } else {
+        arr.slice(index, 1);
+        setAnything(arr);
+        setCurrentPayment(arr);
+      }
     } else {
-      arr.slice(index, 1);
+      arr.push(value);
       setAnything(arr);
       setCurrentPayment(arr);
     }
