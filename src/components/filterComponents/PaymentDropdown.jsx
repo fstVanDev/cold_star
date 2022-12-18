@@ -28,6 +28,7 @@ const PaymentDropdown = ({
         setCurrentPayment(arr);
       }
     } else {
+      arr = [];
       arr.push(value);
       setAnything(arr);
       setCurrentPayment(arr);
