@@ -17,13 +17,15 @@ const PaymentDropdown = ({
 
     if (arr !== null) {
       const fount = arr.find((item) => item === value);
-
+      console.log(fount);
       if (fount !== undefined) {
+        console.log(fount);
         arr.push(value);
         setAnything(arr);
         setCurrentPayment(arr);
         console.log(arr, "currentPayment");
       } else {
+        console.log(fount);
         arr.slice(index, 1);
         setAnything(arr);
         setCurrentPayment(arr);
