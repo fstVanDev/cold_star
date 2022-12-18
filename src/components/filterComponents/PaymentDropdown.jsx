@@ -247,16 +247,22 @@ const PaymentDropdown = ({
                `}
         >
           <div className="w-max h-max  mx-auto font-normal my-auto flex overflow-x-auto text-12 leading-14 ">
-            {payment !== null
-              ? usersPayment.length === 0
-                ? defaultPayment
-                : usersPayment.map((item) => (
+            {payment !== null ? (
+              usersPayment.length === 0 ? (
+                defaultPayment
+              ) : (
+                <>
+                  {usersPayment.map((item) => (
                     <p
                       className="w-max h-max my-auto text-lightGray text-12 leading-14 mx-[5px]"
                       key={item.id}
                     >{`${item.name},${" "}`}</p>
-                  ))
-              : "First enter fiat and crypto"}
+                  ))}
+                </>
+              )
+            ) : (
+              "First enter fiat and crypto"
+            )}
           </div>
           {payment !== null ? (
             <img
