@@ -1180,24 +1180,26 @@ const SecondaryOrders = () => {
 
                           let arr = config;
 
-                          arr.map((item, index) => {
+                          arr.map((obj, index) => {
                             if (
-                              item.id === globalId &&
+                              obj.id === globalId &&
                               arr[arr.length - 1] !== globalId
                             ) {
                               if (
-                                JSON.stringify(item) !==
+                                JSON.stringify(obj) !==
                                 JSON.stringify(localObject)
                               ) {
-                                arr.splice(index, 1);
-                                const insert = function (array, indexi, obj) {
-                                  return [
-                                    ...array.slice(0, indexi),
-                                    obj,
-                                    ...array.slice(indexi),
-                                  ];
-                                };
-                                arr = insert(arr, index, localObject);
+                                obj.currentOrder = order;
+                                console.log(obj.currentOrder);
+                                // arr.splice(index, 1);fix5
+                                // const insert = function (array, indexi, obj) {
+                                //   return [
+                                //     ...array.slice(0, indexi),
+                                //     obj,
+                                //     ...array.slice(indexi),
+                                //   ];
+                                // };
+                                // arr = insert(arr, index, localObject);
                                 console.log(arr);
                                 setConfig(arr);
                               }
