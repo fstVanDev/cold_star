@@ -1166,13 +1166,13 @@ const Orders = () => {
               </>
             )}
           </div>
-          {/* {secondaryOrders !== null && ( */}
-          <>
-            {index === currentIndex && active === true ? (
-              <SecondaryOrders />
-            ) : null}
-          </>
-          {/* )} */}
+          {secondaryOrders !== null && (
+            <>
+              {index === currentIndex && active === true ? (
+                <SecondaryOrders />
+              ) : null}
+            </>
+          )}
         </div>
       ))}
     </div>

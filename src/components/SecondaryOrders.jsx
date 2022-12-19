@@ -4,12 +4,15 @@ import { plusOrders } from "../images";
 
 const SecondaryOrders = () => {
   const {
-    mode,
     globalId,
     currentId,
     config,
+    secondaryMode,
+    setSecondaryMode,
     setCurrentOrders,
     setCurrentOrder,
+    secondaryOrders,
+    setSecondaryOrders,
   } = useContext(StateContext);
 
   const data = [
@@ -1047,7 +1050,7 @@ const SecondaryOrders = () => {
   return (
     <div className="bg-white px-[10px] rounded-b-20 pb-[10px]">
       <div className="bg-main rounded-15">
-        {data.map((item, index) => (
+        {secondaryOrders.map((item, index) => (
           <>
             <div className="w-max h-max " key={index}>
               <div
@@ -1057,11 +1060,11 @@ const SecondaryOrders = () => {
                 {/* Mode */}
                 <div
                   className={`${
-                    mode ? "bg-green" : "bg-orange"
+                    secondaryMode ? "bg-green" : "bg-orange"
                   } w-max h-max rounded-2 my-auto px-[12px] py-[4px]`}
                 >
                   <p className="text-white font-normal text-12 leading-16">
-                    {mode ? "Buy" : "Sell"}
+                    {secondaryMode ? "Buy" : "Sell"}
                   </p>
                 </div>
                 {/* Name */}
@@ -1160,7 +1163,7 @@ const SecondaryOrders = () => {
                 </button>
               </div>
             </div>
-            {data.length - 1 === index ? null : (
+            {secondaryOrders.length - 1 === index ? null : (
               <div className="2xl:w-[1010px] h-[1px] bg-secondary mx-auto" />
             )}
           </>

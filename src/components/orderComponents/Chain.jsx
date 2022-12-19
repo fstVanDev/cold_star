@@ -10,6 +10,8 @@ const Chain = () => {
     config,
     currentOrder,
     setCurrentOrder,
+    secondaryMode,
+    setSecondaryMode,
     setMode,
     setCurrentAmount,
     setCurrentId,
@@ -17,6 +19,15 @@ const Chain = () => {
     setCurrentCrypto,
     setCurrentPayment,
     setCurrentOrders,
+    globalId,
+    secondaryAmount,
+    setSecondaryAmount,
+    secondaryFiat,
+    setSecondaryFiat,
+    secondaryCrypto,
+    setSecondaryCrypto,
+    secondaryPayment,
+    setSecondaryPayment,
   } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
@@ -33,20 +44,52 @@ const Chain = () => {
                   <div className="h-[30px] bg-green w-[2px] mx-auto" />
                   <div
                     onClick={() => {
-                      console.log(index, "currentId");
                       setCurrentId(index);
-                      setMode(config[index].mode);
+                      console.log(index, "currentId");
 
-                      if (config[index].defaultAmount === true) {
-                        setCurrentAmount(Number(500));
+                      if (config.length === 1) {
+                        setMode(config[0].mode);
+
+                        if (config[0].defaultAmount === true) {
+                          setCurrentAmount(Number(500));
+                        } else {
+                          setCurrentAmount(Number(config[0].amount));
+                        }
+
+                        setCurrentFiat(config[0].fiat);
+                        setCurrentCrypto(config[0].crypto);
+                        setCurrentPayment(config[0].payments);
+                        setCurrentOrders(config[0].orders);
                       } else {
-                        setCurrentAmount(Number(config[index].amount));
-                      }
+                        console.log(index - 1, "index - 1");
+                        setMode(config[index - 1].mode);
 
-                      setCurrentFiat(config[index].fiat);
-                      setCurrentCrypto(config[index].crypto);
-                      setCurrentPayment(config[index].payments);
-                      setCurrentOrders(config[index].orders);
+                        if (config[index - 1].defaultAmount === true) {
+                          setCurrentAmount(Number(500));
+                        } else {
+                          setCurrentAmount(Number(config[index - 1].amount));
+                        }
+
+                        setCurrentFiat(config[index - 1].fiat);
+                        setCurrentCrypto(config[index - 1].crypto);
+                        setCurrentPayment(config[index - 1].payments);
+                        setCurrentOrders(config[index - 1].orders);
+
+                        console.log(index, "index");
+                        setSecondaryMode(config[index].mode);
+                        setSecondaryPayment(config[index].payment);
+
+                        if (config[index].defaultAmount === true) {
+                          setCurrentAmount(Number(500));
+                        } else {
+                          setCurrentAmount(Number(config[index].amount));
+                        }
+
+                        setSecondaryFiat(config[index].fiat);
+                        setSecondaryCrypto(config[index].crypto);
+                        setCurrentPayment(config[index].payments);
+                        setCurrentOrders(config[index].orders);
+                      }
                     }}
                     className="w-[190px] h-[93px] border border-2 border-green rounded-15 bg-white p-[15px] flex justify-between"
                   >
