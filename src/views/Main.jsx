@@ -16,9 +16,7 @@ const Main = () => {
   } = useContext(StateContext);
 
   useEffect(() => {
-    if (config !== null) {
-      console.log(config);
-    }
+    console.log(config);
   }, [config]);
 
   return (

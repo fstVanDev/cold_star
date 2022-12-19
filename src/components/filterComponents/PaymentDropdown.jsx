@@ -38,11 +38,10 @@ const PaymentDropdown = ({
     }
   }
 
-  // useEffect(() => {
-  //   if (currentPayment === null) {
-  //     setUsersPayment(null);
-  //   }
-  // }, [currentPayment]);
+  useEffect(() => {
+    setCurrentPayment(null);
+    setUsersPayment(null);
+  }, []);
 
   // const data = [
   //   {

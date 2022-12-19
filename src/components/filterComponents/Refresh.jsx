@@ -65,12 +65,12 @@ const Refresh = () => {
                   };
                   arr = insert(arr, index, localObject);
 
-                  return setConfig(arr);
+                  setConfig(arr);
                 }
               } else {
                 if (arr.length - 1 !== globalId) {
                   arr.push(localObject);
-                  return setConfig(arr);
+                  setConfig(arr);
                 }
               }
             });
