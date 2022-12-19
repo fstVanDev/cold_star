@@ -1244,7 +1244,7 @@ const Orders = () => {
 
                         <button
                           type="button"
-                          className="max-w-[120px] h-max flex my-auto"
+                          className="w-[50px] h-[50px] border border-1 border-gray bg-main my-auto rounded-6 flex"
                           onClick={() => {
                             setCurrentIndex(index);
                             setActive(!active);
@@ -1256,6 +1256,8 @@ const Orders = () => {
                                 ? ordersChevron
                                 : plusOrders
                             }
+                            alt="pls"
+                            className="w-[12px] h-[12px] my-auto mx-auto"
                           />
                         </button>
                       </div>
