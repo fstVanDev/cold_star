@@ -86,7 +86,7 @@ const Refresh = ({
               "To receive orders, fiat, crypto and payment fields must be filled! Please check data..."
             );
           }
-        }, 2000);
+        }, 2500);
       }}
     >
       <div className="h-full w-full rounded-10 p-[10px]">
