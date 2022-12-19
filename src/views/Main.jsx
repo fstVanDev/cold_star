@@ -23,7 +23,7 @@ const Main = () => {
     <div className="pt-[70px] min-h-[100vh] bg-main">
       <Filter />
       <FilterModal />
-      {currentOrders !== null && (
+      {ordersView === true && (
         <div className="2xl:w-[1290px] mx-auto flex justify-between">
           <Orders />
           <Chain />

@@ -1053,6 +1053,7 @@ const Orders = () => {
     <>
       {ordersView === true ? (
         <div className="2xl:w-[1290px] mx-auto">
+          {console.log(config, "from órders")}
           <Top />
 
           {config !== null && (
