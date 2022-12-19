@@ -32,7 +32,7 @@ const Refresh = () => {
           currentCrypto !== null &&
           currentPayment !== null
         ) {
-          setOrdersView(true);
+          // setOrdersView(true);
           const localObject = {
             id: globalId,
             mode: mode,
