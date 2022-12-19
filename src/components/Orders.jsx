@@ -1061,7 +1061,7 @@ const Orders = () => {
               {console.log(config[0], "from órdersasssss")}
               {console.log(typeof config, "from órdersaaa")}
 
-              {config[0].orders.map((item) => (
+              {config[0].orders.map((item, index) => (
                 <div className="w-max h-max mb-[10px] rounded-20">
                   <div
                     className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
