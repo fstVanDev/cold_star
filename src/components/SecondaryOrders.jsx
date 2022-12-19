@@ -1043,7 +1043,7 @@ const SecondaryOrders = () => {
           <div className="bg-main rounded-15">
             {config[config.length - 1].orders.map((item, index) => (
               <>
-                <div className="w-max h-max " key={index}>
+                <div className="w-max h-max" key={index}>
                   <div
                     className="2xl:w-[1050px] h-[88px] flex justify-between py-[12px] px-[20px]"
                     key={index}
