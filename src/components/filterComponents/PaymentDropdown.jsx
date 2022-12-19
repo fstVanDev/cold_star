@@ -14,21 +14,26 @@ const PaymentDropdown = ({
 
   function handleChangeCurrentValue(anything, setAnything, value) {
     let arr = anything;
+    let ind = null;
 
     if (arr !== null) {
       arr.map((item, index) => {
-        if (JSON.stringify(item.id) === JSON.stringify(value.id)) {
-          arr.splice(index, 1);
-          setAnything(arr);
-          setCurrentPayment(arr);
-          console.log(arr, "currentPayment");
-        } else {
-          arr.push(value);
-          setAnything(arr);
-          setCurrentPayment(arr);
-          console.log(arr, "currentPayment");
+        // const found = arr.includes(value.id);
+        if (item.id === value.id) {
+          ind = index;
         }
       });
+
+      if (ind === null) {
+        setAnything(arr);
+        setCurrentPayment(arr);
+        console.log(arr, "currentPayment");
+      } else {
+        arr.splice(ind, 1);
+        setAnything(arr);
+        setCurrentPayment(arr);
+        console.log(arr, "currentPayment");
+      }
     } else {
       arr = [];
       arr.push(value);
