@@ -1158,63 +1158,63 @@ const SecondaryOrders = () => {
                       onClick={() => {
                         setCurrentOrder(item);
                         setACtiveIndex(index);
-                        if (
-                          currentFiat !== null &&
-                          currentCrypto !== null &&
-                          currentPayment !== null
-                        ) {
-                          setOrdersView(true);
-                          const localObject = {
-                            id: globalId,
-                            mode: mode,
-                            amount: currentAmount,
-                            defaultAmount:
-                              currentAmount.length === 0 ? false : true,
-                            fiat: currentFiat,
-                            crypto: currentCrypto,
-                            payments: currentPayment,
-                            orders: currentOrders,
-                            currentOrder: currentOrder,
-                          };
+                        config[globalId].currentOrder = item;
+                        // if (
+                        //   currentFiat !== null &&
+                        //   currentCrypto !== null &&
+                        //   currentPayment !== null
+                        // ) {
+                        //   const localObject = {
+                        //     id: globalId,
+                        //     mode: mode,
+                        //     amount: currentAmount,
+                        //     defaultAmount:
+                        //       currentAmount.length === 0 ? false : true,
+                        //     fiat: currentFiat,
+                        //     crypto: currentCrypto,
+                        //     payments: currentPayment,
+                        //     orders: currentOrders,
+                        //     currentOrder: item,
+                        //   };
 
-                          if (config === null) {
-                            const arr = [];
-                            arr.push(localObject);
+                        //   if (config === null) {
+                        //     const arr = [];
+                        //     arr.push(localObject);
 
-                            setConfig(arr);
-                          } else {
-                            let arr = config;
+                        //     setConfig(arr);
+                        //   } else {
+                        //     let arr = config;
 
-                            arr.map((item, index) => {
-                              if (
-                                item.id === globalId &&
-                                arr[arr.length - 1] !== globalId
-                              ) {
-                                if (
-                                  JSON.stringify(item) !==
-                                  JSON.stringify(localObject)
-                                ) {
-                                  arr.splice(index, 1);
-                                  const insert = function (array, indexi, obj) {
-                                    return [
-                                      ...array.slice(0, indexi),
-                                      obj,
-                                      ...array.slice(indexi),
-                                    ];
-                                  };
-                                  arr = insert(arr, index, localObject);
+                        //     arr.map((item, index) => {
+                        //       if (
+                        //         item.id === globalId &&
+                        //         arr[arr.length - 1] !== globalId
+                        //       ) {
+                        //         if (
+                        //           JSON.stringify(item) !==
+                        //           JSON.stringify(localObject)
+                        //         ) {
+                        //           arr.splice(index, 1);
+                        //           const insert = function (array, indexi, obj) {
+                        //             return [
+                        //               ...array.slice(0, indexi),
+                        //               obj,
+                        //               ...array.slice(indexi),
+                        //             ];
+                        //           };
+                        //           arr = insert(arr, index, localObject);
 
-                                  setConfig(arr);
-                                }
-                              } else {
-                                if (arr.length - 1 !== globalId) {
-                                  arr.push(localObject);
-                                  setConfig(arr);
-                                }
-                              }
-                            });
-                          }
-                        }
+                        //           setConfig(arr);
+                        //         }
+                        //       } else {
+                        //         if (arr.length - 1 !== globalId) {
+                        //           arr.push(localObject);
+                        //           setConfig(arr);
+                        //         }
+                        //       }
+                        //     });
+                        //   }
+                        // }
                       }}
                     >
                       <img
