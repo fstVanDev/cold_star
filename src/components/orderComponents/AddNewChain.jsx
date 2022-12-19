@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const AddNewChain = () => {
-  const { setNewFilterView, setGlobalId, globalId, config } =
+  const { setNewFilterView, setGlobalId, globalId, config, setCurrentOrder } =
     useContext(StateContext);
 
   return (
@@ -12,6 +12,7 @@ const AddNewChain = () => {
       onClick={() => {
         setNewFilterView(true);
         setGlobalId(globalId + 1);
+        setCurrentOrder(null);
         console.log("Add new Filter, click button");
       }}
     >
