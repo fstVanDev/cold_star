@@ -1178,43 +1178,37 @@ const SecondaryOrders = () => {
                             currentOrder: order === null ? item : order,
                           };
 
-                          if (config === null) {
-                            const arr = [];
-                            arr.push(localObject);
+                          let arr = config;
 
-                            setConfig(arr);
-                          } else {
-                            let arr = config;
-
-                            arr.map((item, index) => {
+                          arr.map((item, index) => {
+                            if (
+                              item.id === globalId &&
+                              arr[arr.length - 1] !== globalId
+                            ) {
                               if (
-                                item.id === globalId &&
-                                arr[arr.length - 1] !== globalId
+                                JSON.stringify(item) !==
+                                JSON.stringify(localObject)
                               ) {
-                                if (
-                                  JSON.stringify(item) !==
-                                  JSON.stringify(localObject)
-                                ) {
-                                  arr.splice(index, 1);
-                                  const insert = function (array, indexi, obj) {
-                                    return [
-                                      ...array.slice(0, indexi),
-                                      obj,
-                                      ...array.slice(indexi),
-                                    ];
-                                  };
-                                  arr = insert(arr, index, localObject);
-
-                                  setConfig(arr);
-                                }
-                              } else {
-                                if (arr.length - 1 !== globalId) {
-                                  arr.push(localObject);
-                                  setConfig(arr);
-                                }
+                                arr.splice(index, 1);
+                                const insert = function (array, indexi, obj) {
+                                  return [
+                                    ...array.slice(0, indexi),
+                                    obj,
+                                    ...array.slice(indexi),
+                                  ];
+                                };
+                                arr = insert(arr, index, localObject);
+                                console.log(arr);
+                                setConfig(arr);
                               }
-                            });
-                          }
+                            } else {
+                              if (arr.length - 1 !== globalId) {
+                                arr.push(localObject);
+                                setConfig(arr);
+                                console.log(arr);
+                              }
+                            }
+                          });
                         }
                       }}
                     >
