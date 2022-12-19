@@ -17,7 +17,7 @@ const PaymentDropdown = ({
 
     if (arr !== null) {
       arr.map((item, index) => {
-        if (JSON.stringify(item) === JSON.stringify(value)) {
+        if (JSON.stringify(item.id) === JSON.stringify(value.id)) {
           arr.splice(index, 1);
           setAnything(arr);
           setCurrentPayment(arr);
