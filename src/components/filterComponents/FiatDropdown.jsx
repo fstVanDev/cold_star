@@ -12,6 +12,14 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
   //   setFiatValue("");
   // }, []);
 
+  useEffect(() => {
+    if (currentCrypto !== null) {
+      setDefaultFiat(currentFiat.name);
+      setFiatValue("");
+      setActiveFiat(false);
+    }
+  }, [currentFiat]);
+
   return (
     <div className="w-max h-full flex ">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
