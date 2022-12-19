@@ -1165,41 +1165,39 @@ const SecondaryOrders = () => {
                           currentCrypto !== null &&
                           currentPayment !== null
                         ) {
-                          // const localObject = {
-                          //   id: globalId,
-                          //   mode: mode,
-                          //   amount: currentAmount,
-                          //   defaultAmount:
-                          //     currentAmount.length === 0 ? false : true,
-                          //   fiat: currentFiat,
-                          //   crypto: currentCrypto,
-                          //   payments: currentPayment,
-                          //   orders: currentOrders,
-                          //   currentOrder: order === null ? item : order,
-                          // };
+                          const localObject = {
+                            id: globalId,
+                            mode: mode,
+                            amount: currentAmount,
+                            defaultAmount:
+                              currentAmount.length === 0 ? false : true,
+                            fiat: currentFiat,
+                            crypto: currentCrypto,
+                            payments: currentPayment,
+                            orders: currentOrders,
+                            currentOrder: order === null ? item : order,
+                          };
 
                           let arr = config;
 
-                          arr.map((obj, index) => {
+                          arr.map((item, index) => {
                             if (
-                              obj.id === globalId &&
+                              item.id === globalId &&
                               arr[arr.length - 1] !== globalId
                             ) {
                               if (
-                                JSON.stringify(obj.setCurrentOrder) !==
-                                JSON.stringify(item)
+                                JSON.stringify(item) !==
+                                JSON.stringify(localObject)
                               ) {
-                                obj.currentOrder = order;
-                                console.log(obj.currentOrder, order);
-                                // arr.splice(index, 1);fix5
-                                // const insert = function (array, indexi, obj) {
-                                //   return [
-                                //     ...array.slice(0, indexi),
-                                //     obj,
-                                //     ...array.slice(indexi),
-                                //   ];
-                                // };
-                                // arr = insert(arr, index, localObject);
+                                arr.splice(index, 1);
+                                const insert = function (array, indexi, obj) {
+                                  return [
+                                    ...array.slice(0, indexi),
+                                    obj,
+                                    ...array.slice(indexi),
+                                  ];
+                                };
+                                arr = insert(arr, index, localObject);
                                 console.log(arr);
                                 setConfig(arr);
                               }
