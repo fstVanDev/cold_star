@@ -1063,7 +1063,7 @@ const Orders = () => {
 
               {config.map((item, index) => {
                 // <div>{JSON.stringify(item.asset.name)}</div>;
-                <div>{JSON.stringify(item.asset.name)}</div>;
+                <div>{JSON.stringify(item)}</div>;
 
                 // <div className="w-max h-max mb-[10px] rounded-20">
                 //   <div
