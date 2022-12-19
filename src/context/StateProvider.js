@@ -15,6 +15,8 @@ export const StateProvider = ({ children }) => {
   const [crypto, setCrypto] = useState(null);
   const [payment, setPayment] = useState(null);
 
+  const [ordersView, setOrdersView] = useState(false);
+
   // const [currentMode, setCurrentMode] = useState(true);
   const [currentAmount, setCurrentAmount] = useState("");
   const [secondaryAmount, setSecondaryAmount] = useState("");
@@ -38,6 +40,8 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        ordersView,
+        setOrdersView,
         secondaryAmount,
         setSecondaryAmount,
         secondaryFiat,

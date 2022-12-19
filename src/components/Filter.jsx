@@ -9,6 +9,7 @@ import { close } from "../images";
 import PaymentDropdown from "./filterComponents/PaymentDropdown";
 import { getTradeMethods } from "../data/Requests";
 import Refresh from "./filterComponents/Refresh";
+import { getOrders } from "../data/Requests";
 
 const Filter = () => {
   const {
@@ -47,6 +48,19 @@ const Filter = () => {
   useEffect(() => {
     console.log(config);
   }, [config]);
+
+  useEffect(() => {
+    if (currentPayment !== null) {
+      getOrders(
+        mode,
+        currentAmount,
+        currentFiat,
+        currentCrypto,
+        currentPayment,
+        setCurrentOrders
+      );
+    }
+  }, [currentPayment]);
 
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">
