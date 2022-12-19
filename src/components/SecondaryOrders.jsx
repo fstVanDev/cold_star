@@ -1200,12 +1200,6 @@ const SecondaryOrders = () => {
                                 arr = insert(arr, index, localObject);
                                 console.log(arr);
                                 setConfig(arr);
-                              } else {
-                                if (arr.length - 1 !== globalId) {
-                                  arr.push(localObject);
-                                  setConfig(arr);
-                                  console.log(arr);
-                                }
                               }
                             }
                           });
