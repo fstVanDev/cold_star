@@ -1061,7 +1061,7 @@ const Orders = () => {
               {console.log(config, "from órders")}
 
               {config[0].orders.map((item, index) => {
-                <div>{item.crypto.name}</div>;
+                <div>{item.asset.name}</div>;
 
                 // <div className="w-max h-max mb-[10px] rounded-20">
                 //   <div
