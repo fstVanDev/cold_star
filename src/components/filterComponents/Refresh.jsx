@@ -20,6 +20,7 @@ const Refresh = () => {
     setSecondaryOrders,
     ordersView,
     setOrdersView,
+    currentOrder,
   } = useContext(StateContext);
 
   return (
@@ -42,6 +43,7 @@ const Refresh = () => {
             crypto: currentCrypto,
             payments: currentPayment,
             orders: currentOrders,
+            currentOrder: currentOrder,
           };
 
           if (config === null) {
