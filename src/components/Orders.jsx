@@ -1053,11 +1053,13 @@ const Orders = () => {
     <>
       {ordersView === true ? (
         <div className="2xl:w-[1290px] mx-auto">
-          {console.log(config, "from órders")}
           <Top />
+          {console.log(config, "from órders1212")}
 
           {config.length === 1 ? (
             <>
+              {console.log(config, "from órders")}
+
               {config[0].orders.map((item, index) => {
                 <div className="w-max h-max mb-[10px] rounded-20">
                   <div
