@@ -1175,25 +1175,25 @@ const SecondaryOrders = () => {
                             crypto: currentCrypto,
                             payments: currentPayment,
                             orders: currentOrders,
-                            currentOrder: order === null ? item : order,
+                            currentOrder: item,
                           };
 
                           let arr = config;
 
-                          arr.map((item, index) => {
+                          arr.map((obj, index) => {
                             if (
-                              item.id === globalId &&
+                              obj.id === globalId &&
                               arr[arr.length - 1] !== globalId
                             ) {
                               if (
-                                JSON.stringify(item) !==
+                                JSON.stringify(obj) !==
                                 JSON.stringify(localObject)
                               ) {
                                 arr.splice(index, 1);
-                                const insert = function (array, indexi, obj) {
+                                const insert = function (array, indexi, obje) {
                                   return [
                                     ...array.slice(0, indexi),
-                                    obj,
+                                    obje,
                                     ...array.slice(indexi),
                                   ];
                                 };
