@@ -76,21 +76,7 @@ const Filter = () => {
 
         <RegionDropdown />
 
-        <Refresh
-          mode={mode}
-          currentAmount={currentAmount}
-          currentFiat={currentFiat}
-          currentCrypto={currentCrypto}
-          currentPayment={currentPayment}
-          currentOrders={currentOrders}
-          globalId={globalId}
-          config={config}
-          setConfig={setConfig}
-          setNewFilterView={setNewFilterView}
-          setCurrentOrders={setCurrentOrders}
-          secondaryOrders={secondaryOrders}
-          setSecondaryOrders={setSecondaryOrders}
-        />
+        <Refresh />
       </div>
       {newFilterView && (
         <button

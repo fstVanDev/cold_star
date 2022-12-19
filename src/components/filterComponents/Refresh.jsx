@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StateContext } from "../../context/StateProvider";
 import { getOrders } from "../../data/Requests";
 import { refresh } from "../../images";
 
-const Refresh = ({
-  mode,
-  currentAmount,
-  currentFiat,
-  currentCrypto,
-  currentPayment,
-  currentOrders,
-  globalId,
-  config,
-  setConfig,
-  setNewFilterView,
-  setCurrentOrders,
-  secondaryOrders,
-  setSecondaryOrders,
-}) => {
+const Refresh = () => {
+  const {
+    mode,
+    currentAmount,
+    currentFiat,
+    currentCrypto,
+    currentPayment,
+    currentOrders,
+    globalId,
+    config,
+    setConfig,
+    setNewFilterView,
+    setCurrentOrders,
+    secondaryOrders,
+    setSecondaryOrders,
+  } = useContext(StateContext);
+
   return (
     <button
       className="w-max h-full flex border border-1 border-orange rounded-10 "
