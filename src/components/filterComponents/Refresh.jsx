@@ -33,6 +33,7 @@ const Refresh = () => {
           currentCrypto !== null &&
           currentPayment !== null
         ) {
+          setOrdersView(true);
           const localObject = {
             id: globalId,
             mode: mode,
@@ -65,13 +66,12 @@ const Refresh = () => {
                     ];
                   };
                   arr = insert(arr, index, localObject);
-                  setOrdersView(true);
+
                   return setConfig(arr);
                 }
               } else {
                 if (arr.length - 1 !== globalId) {
                   arr.push(localObject);
-                  setOrdersView(true);
                   return setConfig(arr);
                 }
               }
