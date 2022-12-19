@@ -13,7 +13,7 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
   // }, []);
 
   useEffect(() => {
-    if (currentCrypto !== null) {
+    if (currentFiat !== null) {
       setDefaultFiat(currentFiat.name);
       setFiatValue("");
       setActiveFiat(false);
