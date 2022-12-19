@@ -1157,11 +1157,7 @@ const Orders = () => {
             <>
               {config !== null && config.length > 1 ? (
                 <>
-                  {console.log(config[config.length - 2], "333333333")}
-                  {config[config.length - 2].orders.map((item, index) => {
-                    {
-                      console.log(config[config.length - 2], "44444444");
-                    }
+                  {config[config.length - 2].orders.map((item, index) => (
                     <div className="w-max h-max mb-[10px] rounded-20">
                       <div
                         className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
@@ -1250,8 +1246,8 @@ const Orders = () => {
                       {index === currentIndex && active === true ? (
                         <SecondaryOrders />
                       ) : null}
-                    </div>;
-                  })}
+                    </div>
+                  ))}
                 </>
               ) : null}
             </>
