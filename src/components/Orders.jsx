@@ -1058,7 +1058,8 @@ const Orders = () => {
 
           {config !== null && config.length === 1 ? (
             <>
-              {console.log(config, "from órders")}
+              {console.log(config[0], "from órdersasssss")}
+              {console.log(config[0].orders, "from órdersaaa")}
 
               {config[0].orders.map((item, index) => {
                 <div>{item.asset.name}</div>;
