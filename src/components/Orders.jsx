@@ -1241,6 +1241,23 @@ const Orders = () => {
                             ))}
                           </div>
                         </div>
+
+                        <button
+                          type="button"
+                          className="max-w-[120px] h-max flex my-auto"
+                          onClick={() => {
+                            setCurrentIndex(index);
+                            setActive(!active);
+                          }}
+                        >
+                          <img
+                            src={
+                              index === currentIndex && active === true
+                                ? ordersChevron
+                                : plusOrders
+                            }
+                          />
+                        </button>
                       </div>
 
                       {index === currentIndex && active === true ? (
