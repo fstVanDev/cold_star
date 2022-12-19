@@ -15,7 +15,7 @@ const Chain = () => {
     <div className="2xl:w-[190px] h-max">
       <AddNewChain />
 
-      {config !== null && config.length >= 2 ? (
+      {config !== null ? (
         <>
           {config.map((item) => {
             if (item.currentOrder === null) {
@@ -27,7 +27,7 @@ const Chain = () => {
 
                   <div className="w-[190px] h-[93px] border border-2 border-green rounded-15 bg-white p-[15px] flex justify-between">
                     <div className="w-max h-full">
-                      <p className="font-bold text-14 leading-20 text-gray">
+                      <p className="font-bold text-10 leading-14 text-gray">
                         {item.currentOrder.trade_user.name}
                       </p>
                       <div className="w-max h-max flex">
