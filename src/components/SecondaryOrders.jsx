@@ -1165,18 +1165,18 @@ const SecondaryOrders = () => {
                           currentCrypto !== null &&
                           currentPayment !== null
                         ) {
-                          const localObject = {
-                            id: globalId,
-                            mode: mode,
-                            amount: currentAmount,
-                            defaultAmount:
-                              currentAmount.length === 0 ? false : true,
-                            fiat: currentFiat,
-                            crypto: currentCrypto,
-                            payments: currentPayment,
-                            orders: currentOrders,
-                            currentOrder: order === null ? item : order,
-                          };
+                          // const localObject = {
+                          //   id: globalId,
+                          //   mode: mode,
+                          //   amount: currentAmount,
+                          //   defaultAmount:
+                          //     currentAmount.length === 0 ? false : true,
+                          //   fiat: currentFiat,
+                          //   crypto: currentCrypto,
+                          //   payments: currentPayment,
+                          //   orders: currentOrders,
+                          //   currentOrder: order === null ? item : order,
+                          // };
 
                           let arr = config;
 
@@ -1186,11 +1186,11 @@ const SecondaryOrders = () => {
                               arr[arr.length - 1] !== globalId
                             ) {
                               if (
-                                JSON.stringify(obj) !==
-                                JSON.stringify(localObject)
+                                JSON.stringify(obj.setCurrentOrder) !==
+                                JSON.stringify(item)
                               ) {
                                 obj.currentOrder = order;
-                                console.log(obj.currentOrder);
+                                console.log(obj.currentOrder, order);
                                 // arr.splice(index, 1);fix5
                                 // const insert = function (array, indexi, obj) {
                                 //   return [
