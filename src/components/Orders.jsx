@@ -20,6 +20,10 @@ const Orders = () => {
   const [active, setActive] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(null);
 
+  useEffect(() => {
+    console.log(config);
+  }, [config]);
+
   const data = [
     {
       id: 476584,
@@ -1054,13 +1058,9 @@ const Orders = () => {
       {ordersView === true ? (
         <div className="2xl:w-[1290px] mx-auto">
           <Top />
-          {console.log(config, "from órders1212")}
 
           {config !== null && config.length === 1 ? (
             <>
-              {console.log(config[0], "from órdersasssss")}
-              {console.log(typeof config, "from órdersaaa")}
-
               {config[0].orders.map((item, index) => (
                 <div className="w-max h-max mb-[10px] rounded-20">
                   <div
