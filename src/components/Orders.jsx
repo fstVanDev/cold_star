@@ -13,6 +13,7 @@ const Orders = () => {
     setCurrentOrders,
     secondaryOrders,
     config,
+    ordersView,
   } = useContext(StateContext);
 
   const [fee, setFee] = useState(0);
@@ -1049,202 +1050,209 @@ const Orders = () => {
   ];
 
   return (
-    <div className="2xl:w-[1290px] mx-auto">
-      <Top />
+    <>
+      {ordersView === true ? (
+        <div className="2xl:w-[1290px] mx-auto">
+          <Top />
 
-      {config !== null ||
-        (config.length !== 0 && (
-          <>
-            {config.length === 1 ? (
-              <>
-                {config[0].orders.map((item, index) => {
-                  <div className="w-max h-max mb-[10px] rounded-20">
-                    <div
-                      className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
-                        index === currentIndex && active === true
-                          ? "rounded-t-20"
-                          : " rounded-20"
-                      } `}
-                      key={index}
-                    >
-                      {/* Mode */}
+          {config !== null && (
+            <>
+              {config.length === 1 ? (
+                <>
+                  {config[0].orders.map((item, index) => {
+                    <div className="w-max h-max mb-[10px] rounded-20">
                       <div
-                        className={`${
-                          item.type === 2 ? "bg-green" : "bg-orange"
-                        } w-max h-max rounded-2 my-auto px-[12px] py-[4px]`}
+                        className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
+                          index === currentIndex && active === true
+                            ? "rounded-t-20"
+                            : " rounded-20"
+                        } `}
+                        key={index}
                       >
-                        <p className="text-white font-normal text-12 leading-16">
-                          {item.type === 2 ? "Buy" : "Sell"}
-                        </p>
-                      </div>
-                      {/* Name */}
-                      <div className="grid w-max h-max my-auto">
-                        <p className="text-14 leading-20 font-bold text-black mb-[6px]">
-                          {item.trade_user.name}
-                        </p>
-                        <div className="flex w-max h-max my-auto text-12 leading-16 font-normal text-gray">
-                          <p>
-                            {`${item.trade_user.month_orders_count} orders  /  
+                        {/* Mode */}
+                        <div
+                          className={`${
+                            item.type === 2 ? "bg-green" : "bg-orange"
+                          } w-max h-max rounded-2 my-auto px-[12px] py-[4px]`}
+                        >
+                          <p className="text-white font-normal text-12 leading-16">
+                            {item.type === 2 ? "Buy" : "Sell"}
+                          </p>
+                        </div>
+                        {/* Name */}
+                        <div className="grid w-max h-max my-auto">
+                          <p className="text-14 leading-20 font-bold text-black mb-[6px]">
+                            {item.trade_user.name}
+                          </p>
+                          <div className="flex w-max h-max my-auto text-12 leading-16 font-normal text-gray">
+                            <p>
+                              {`${
+                                item.trade_user.month_orders_count
+                              } orders  /  
                 ${
                   Number(item.trade_user.month_finish_rate).toFixed(2) * 100
                 }% completion`}
+                            </p>
+                          </div>
+                        </div>
+                        {/* Price */}
+                        <div className="flex w-max h-max my-auto">
+                          <p className="text-black text-18 font-bold leading-24">
+                            {item.price}
+                          </p>
+                          <p className="text-lightGray text-14 leading-20 font-bold w-max h-max mt-auto ml-[5px]">
+                            {item.fiat.name}
                           </p>
                         </div>
-                      </div>
-                      {/* Price */}
-                      <div className="flex w-max h-max my-auto">
-                        <p className="text-black text-18 font-bold leading-24">
-                          {item.price}
-                        </p>
-                        <p className="text-lightGray text-14 leading-20 font-bold w-max h-max mt-auto ml-[5px]">
-                          {item.fiat.name}
-                        </p>
-                      </div>
-                      {/* Available */}
-                      <div className="grid w-max h-max my-auto">
-                        <div className="flex w-max h-max ">
-                          <p className="text-lightGray text-normal text-12 leading-16 my-auto">
-                            Available
-                          </p>
-                          <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
-                            {`${item.amount} ${" "} ${item.asset.name}`}
-                          </p>
-                        </div>
-                        <div className="flex w-max h-max mt-[6px]">
-                          <p className="text-lightGray text-normal text-12 leading-16 my-auto">
-                            Limit
-                          </p>
-                          <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
-                            {`${item.min_trans_amount} ${" "} -  
+                        {/* Available */}
+                        <div className="grid w-max h-max my-auto">
+                          <div className="flex w-max h-max ">
+                            <p className="text-lightGray text-normal text-12 leading-16 my-auto">
+                              Available
+                            </p>
+                            <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
+                              {`${item.amount} ${" "} ${item.asset.name}`}
+                            </p>
+                          </div>
+                          <div className="flex w-max h-max mt-[6px]">
+                            <p className="text-lightGray text-normal text-12 leading-16 my-auto">
+                              Limit
+                            </p>
+                            <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
+                              {`${item.min_trans_amount} ${" "} -  
                 ${" "} ${item.max_trans_amount} ${" "} ${item.fiat.name}`}
+                            </p>
+                          </div>
+                        </div>
+                        {/* Payment */}
+                        <div className="h-full my-auto grid py-auto overflow-y-auto w-[170px]">
+                          <div className="w-max h-max grid m-auto">
+                            {item.trade_methods.map((obj, index) => (
+                              <div
+                                key={index}
+                                className={`w-max h-max content-center bg-yellow rounded-2 px-[12px] ${
+                                  item.trade_methods.length === 1
+                                    ? "my-auto"
+                                    : "mb-[5px]"
+                                } py-[4px] mx-auto`}
+                              >
+                                <p className="text-orange font-normal text-12 leading-16 w-max">
+                                  {obj.name}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="max-w-[120px] h-max flex my-auto">
+                          <p className="text-green text-10 leading-17 font-normal text-center">
+                            Please add second chain to see fee
                           </p>
                         </div>
                       </div>
-                      {/* Payment */}
-                      <div className="h-full my-auto grid py-auto overflow-y-auto w-[170px]">
-                        <div className="w-max h-max grid m-auto">
-                          {item.trade_methods.map((obj, index) => (
-                            <div
-                              key={index}
-                              className={`w-max h-max content-center bg-yellow rounded-2 px-[12px] ${
-                                item.trade_methods.length === 1
-                                  ? "my-auto"
-                                  : "mb-[5px]"
-                              } py-[4px] mx-auto`}
-                            >
-                              <p className="text-orange font-normal text-12 leading-16 w-max">
-                                {obj.name}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="max-w-[120px] h-max flex my-auto">
-                        <p className="text-green text-10 leading-17 font-normal text-center">
-                          Please add second chain to see fee
-                        </p>
-                      </div>
-                    </div>
-                  </div>;
-                })}
-              </>
-            ) : (
-              <>
-                {config[config.length - 2].map((item, index) => {
-                  <div className="w-max h-max mb-[10px] rounded-20">
-                    <div
-                      className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
-                        index === currentIndex && active === true
-                          ? "rounded-t-20"
-                          : " rounded-20"
-                      } `}
-                      key={index}
-                    >
-                      {/* Mode */}
+                    </div>;
+                  })}
+                </>
+              ) : (
+                <>
+                  {config[config.length - 2].map((item, index) => {
+                    <div className="w-max h-max mb-[10px] rounded-20">
                       <div
-                        className={`${
-                          item.type === 2 ? "bg-green" : "bg-orange"
-                        } w-max h-max rounded-2 my-auto px-[12px] py-[4px]`}
+                        className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
+                          index === currentIndex && active === true
+                            ? "rounded-t-20"
+                            : " rounded-20"
+                        } `}
+                        key={index}
                       >
-                        <p className="text-white font-normal text-12 leading-16">
-                          {item.type === 2 ? "Buy" : "Sell"}
-                        </p>
-                      </div>
-                      {/* Name */}
-                      <div className="grid w-max h-max my-auto">
-                        <p className="text-14 leading-20 font-bold text-black mb-[6px]">
-                          {item.trade_user.name}
-                        </p>
-                        <div className="flex w-max h-max my-auto text-12 leading-16 font-normal text-gray">
-                          <p>
-                            {`${item.trade_user.month_orders_count} orders  /  
+                        {/* Mode */}
+                        <div
+                          className={`${
+                            item.type === 2 ? "bg-green" : "bg-orange"
+                          } w-max h-max rounded-2 my-auto px-[12px] py-[4px]`}
+                        >
+                          <p className="text-white font-normal text-12 leading-16">
+                            {item.type === 2 ? "Buy" : "Sell"}
+                          </p>
+                        </div>
+                        {/* Name */}
+                        <div className="grid w-max h-max my-auto">
+                          <p className="text-14 leading-20 font-bold text-black mb-[6px]">
+                            {item.trade_user.name}
+                          </p>
+                          <div className="flex w-max h-max my-auto text-12 leading-16 font-normal text-gray">
+                            <p>
+                              {`${
+                                item.trade_user.month_orders_count
+                              } orders  /  
                 ${
                   Number(item.trade_user.month_finish_rate).toFixed(2) * 100
                 }% completion`}
+                            </p>
+                          </div>
+                        </div>
+                        {/* Price */}
+                        <div className="flex w-max h-max my-auto">
+                          <p className="text-black text-18 font-bold leading-24">
+                            {item.price}
+                          </p>
+                          <p className="text-lightGray text-14 leading-20 font-bold w-max h-max mt-auto ml-[5px]">
+                            {item.fiat.name}
                           </p>
                         </div>
-                      </div>
-                      {/* Price */}
-                      <div className="flex w-max h-max my-auto">
-                        <p className="text-black text-18 font-bold leading-24">
-                          {item.price}
-                        </p>
-                        <p className="text-lightGray text-14 leading-20 font-bold w-max h-max mt-auto ml-[5px]">
-                          {item.fiat.name}
-                        </p>
-                      </div>
-                      {/* Available */}
-                      <div className="grid w-max h-max my-auto">
-                        <div className="flex w-max h-max ">
-                          <p className="text-lightGray text-normal text-12 leading-16 my-auto">
-                            Available
-                          </p>
-                          <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
-                            {`${item.amount} ${" "} ${item.asset.name}`}
-                          </p>
-                        </div>
-                        <div className="flex w-max h-max mt-[6px]">
-                          <p className="text-lightGray text-normal text-12 leading-16 my-auto">
-                            Limit
-                          </p>
-                          <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
-                            {`${item.min_trans_amount} ${" "} -  
+                        {/* Available */}
+                        <div className="grid w-max h-max my-auto">
+                          <div className="flex w-max h-max ">
+                            <p className="text-lightGray text-normal text-12 leading-16 my-auto">
+                              Available
+                            </p>
+                            <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
+                              {`${item.amount} ${" "} ${item.asset.name}`}
+                            </p>
+                          </div>
+                          <div className="flex w-max h-max mt-[6px]">
+                            <p className="text-lightGray text-normal text-12 leading-16 my-auto">
+                              Limit
+                            </p>
+                            <p className="text-14 leading-20 font-normal w-max h-max my-auto ml-[10px]">
+                              {`${item.min_trans_amount} ${" "} -  
                 ${" "} ${item.max_trans_amount} ${" "} ${item.fiat.name}`}
-                          </p>
+                            </p>
+                          </div>
+                        </div>
+                        {/* Payment */}
+                        <div className="h-full my-auto grid py-auto overflow-y-auto w-[170px]">
+                          <div className="w-max h-max grid m-auto">
+                            {item.trade_methods.map((obj, index) => (
+                              <div
+                                key={index}
+                                className={`w-max h-max content-center bg-yellow rounded-2 px-[12px] ${
+                                  item.trade_methods.length === 1
+                                    ? "my-auto"
+                                    : "mb-[5px]"
+                                } py-[4px] mx-auto`}
+                              >
+                                <p className="text-orange font-normal text-12 leading-16 w-max">
+                                  {obj.name}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                      {/* Payment */}
-                      <div className="h-full my-auto grid py-auto overflow-y-auto w-[170px]">
-                        <div className="w-max h-max grid m-auto">
-                          {item.trade_methods.map((obj, index) => (
-                            <div
-                              key={index}
-                              className={`w-max h-max content-center bg-yellow rounded-2 px-[12px] ${
-                                item.trade_methods.length === 1
-                                  ? "my-auto"
-                                  : "mb-[5px]"
-                              } py-[4px] mx-auto`}
-                            >
-                              <p className="text-orange font-normal text-12 leading-16 w-max">
-                                {obj.name}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
 
-                    {index === currentIndex && active === true ? (
-                      <SecondaryOrders />
-                    ) : null}
-                  </div>;
-                })}
-              </>
-            )}
-          </>
-        ))}
-    </div>
+                      {index === currentIndex && active === true ? (
+                        <SecondaryOrders />
+                      ) : null}
+                    </div>;
+                  })}
+                </>
+              )}
+            </>
+          )}
+        </div>
+      ) : null}
+    </>
   );
 };
 
