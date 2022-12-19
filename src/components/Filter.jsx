@@ -93,9 +93,6 @@ const Filter = () => {
 
         <PaymentDropdown
           payment={payment}
-          currentFiat={currentFiat}
-          currentCrypto={currentCrypto}
-          currentPayment={currentPayment}
           setCurrentPayment={setCurrentPayment}
         />
 

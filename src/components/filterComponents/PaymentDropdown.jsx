@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
+import { getOrders } from "../../data/Requests";
 
-const PaymentDropdown = ({
-  payment,
-  currentFiat,
-  currentCrypto,
-  currentPayment,
-  setCurrentPayment,
-}) => {
+const PaymentDropdown = ({ payment, setCurrentPayment }) => {
+  const {
+    mode,
+    currentAmount,
+    currentFiat,
+    currentCrypto,
+    currentPayment,
+    setCurrentOrders,
+  } = useContext(StateContext);
+
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
   const [activePayment, setActivePayment] = useState(false);
   const [usersPayment, setUsersPayment] = useState(null);
@@ -29,10 +34,26 @@ const PaymentDropdown = ({
         setAnything(arr);
         setCurrentPayment(arr);
         console.log(arr, "currentPayment");
+        getOrders(
+          mode,
+          currentAmount,
+          currentFiat,
+          currentCrypto,
+          currentPayment,
+          setCurrentOrders
+        );
       } else {
         arr.splice(ind, 1);
         setAnything(arr);
         setCurrentPayment(arr);
+        getOrders(
+          mode,
+          currentAmount,
+          currentFiat,
+          currentCrypto,
+          currentPayment,
+          setCurrentOrders
+        );
         console.log(arr, "currentPayment");
       }
     } else {
