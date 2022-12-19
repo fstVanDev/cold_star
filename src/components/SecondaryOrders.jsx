@@ -3,7 +3,14 @@ import { StateContext } from "../context/StateProvider";
 import { plusOrders } from "../images";
 
 const SecondaryOrders = () => {
-  const { mode, globalId, setCurrentOrders } = useContext(StateContext);
+  const {
+    mode,
+    globalId,
+    currentId,
+    config,
+    setCurrentOrders,
+    setCurrentOrder,
+  } = useContext(StateContext);
 
   const data = [
     {
@@ -1034,6 +1041,7 @@ const SecondaryOrders = () => {
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(null);
   const [fee, setFee] = useState(0);
 
   return (
@@ -1130,9 +1138,19 @@ const SecondaryOrders = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    console.log("click");
+                    if (activeIndex === index) {
+                      setActiveIndex(null);
+                      setCurrentOrder(null);
+                      console.log(null, "currentOrder!!!");
+                    } else {
+                      setActiveIndex(index);
+                      setCurrentOrder(item);
+                      console.log(item, "currentOrder!!!");
+                    }
                   }}
-                  className="w-[50px] h-[50px] bg-white border border-1 border-gray rounded-6 my-auto flex"
+                  className={`w-[50px] h-[50px] bg-white border border-1 ${
+                    activeIndex === index ? "border-green" : "border-gray"
+                  } rounded-6 my-auto flex`}
                 >
                   <img
                     src={plusOrders}

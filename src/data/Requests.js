@@ -124,7 +124,7 @@ export async function getOrders(
   currentFiat,
   currentCrypto,
   currentPayment,
-  setOrders
+  setCurrentOrders
 ) {
   let type;
   if (mode === true) {
@@ -174,7 +174,7 @@ export async function getOrders(
   axios(config)
     .then(function (response) {
       console.log(response.data.data, "Orders");
-      setOrders(response.data.data);
+      setCurrentOrders(response.data.data);
     })
     .catch(function (error) {
       console.log(error);

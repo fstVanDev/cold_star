@@ -14,7 +14,7 @@ export const StateProvider = ({ children }) => {
   const [crypto, setCrypto] = useState(null);
   const [payment, setPayment] = useState(null);
 
-  const [currentMode, setCurrentModee] = useState(true);
+  // const [currentMode, setCurrentMode] = useState(true);
   const [currentAmount, setCurrentAmount] = useState("");
   const [currentFiat, setCurrentFiat] = useState(null);
   const [currentCrypto, setCurrentCrypto] = useState(null);
@@ -46,8 +46,8 @@ export const StateProvider = ({ children }) => {
         setCurrentId,
         secondaryOrders,
         setSecondaryOrders,
-        currentMode,
-        setCurrentModee,
+        // currentMode,
+        // setCurrentMode,
         user,
         setUser,
         email,
