@@ -89,10 +89,16 @@ const Refresh = () => {
             type="button"
             className="w-max h-max text-orange text-12 font-normal leading-17"
           >
-            Apply
+            {globalId}
           </p>
         ) : (
-          <img src={refresh} alt="refresh" />
+          // <img src={refresh} alt="refresh" />
+          <p
+            type="button"
+            className="w-max h-max text-orange text-12 font-normal leading-17"
+          >
+            {globalId}
+          </p>
         )}
       </div>
     </button>
