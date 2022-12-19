@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useEffect } from "react";
+import { StateContext } from "../../context/StateProvider";
 
 const Amount = ({ currentAmount, setCurrentAmount }) => {
+  const { config, globalId } = useContext(StateContext);
+
   return (
     <div className="w-max h-full flex">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">

@@ -45,22 +45,29 @@ const Filter = () => {
     }
   }, [currentCrypto, currentFiat]);
 
-  useEffect(() => {
-    console.log(config);
-  }, [config]);
+  // useEffect(() => {
+  //   if (config !== null && config.length === globalId) {
+  //     setMode(true);
+  //     setCurrentAmount("");
+  //     setCurrentFiat(null);
+  //     setCurrentCrypto(null);
+  //     setCurrentPayment(null);
+  //     setCurrentOrders(null);
+  //   }
+  // }, [config, globalId]);
 
-  useEffect(() => {
-    if (currentPayment !== null) {
-      getOrders(
-        mode,
-        currentAmount,
-        currentFiat,
-        currentCrypto,
-        currentPayment,
-        setCurrentOrders
-      );
-    }
-  }, [currentPayment]);
+  // useEffect(() => {
+  //   if (currentPayment !== null) {
+  //     getOrders(
+  //       mode,
+  //       currentAmount,
+  //       currentFiat,
+  //       currentCrypto,
+  //       currentPayment,
+  //       setCurrentOrders
+  //     );
+  //   }
+  // }, [currentPayment]);
 
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">

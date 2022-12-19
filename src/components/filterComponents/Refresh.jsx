@@ -27,7 +27,6 @@ const Refresh = () => {
       className="w-max h-full flex border border-1 border-orange rounded-10 "
       type="button"
       onClick={() => {
-        // window.setTimeout(function () {
         if (
           currentFiat !== null &&
           currentCrypto !== null &&
@@ -43,7 +42,6 @@ const Refresh = () => {
             crypto: currentCrypto,
             payments: currentPayment,
             orders: currentOrders,
-            secondaryOrders: secondaryOrders === null ? null : secondaryOrders,
           };
 
           if (config === null) {
@@ -83,7 +81,6 @@ const Refresh = () => {
             "To receive orders, fiat, crypto and payment fields must be filled! Please check data..."
           );
         }
-        // }, 2500);
       }}
     >
       <div className="h-full w-full rounded-10 p-[10px]">
