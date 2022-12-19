@@ -25,6 +25,7 @@ const PaymentDropdown = ({
       });
 
       if (ind === null) {
+        arr.push(value);
         setAnything(arr);
         setCurrentPayment(arr);
         console.log(arr, "currentPayment");
