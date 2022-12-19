@@ -11,7 +11,7 @@ const AddNewChain = () => {
       className="w-full h-[54px] rounded-10 border-dashed border-2 border-green"
       onClick={() => {
         setNewFilterView(true);
-        setGlobalId(config.length + 1);
+        setGlobalId(globalId + 1);
         console.log("Add new Filter, click button");
       }}
     >
