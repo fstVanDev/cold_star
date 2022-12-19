@@ -12,6 +12,14 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
   //   setCryptoValue("");
   // }, []);
 
+  useEffect(() => {
+    if (currentCrypto !== null) {
+      setDefaultCrypto(currentCrypto.name);
+      setCryptoValue("");
+      setActiveCrypto(false);
+    }
+  }, [currentCrypto]);
+
   // const data = [
   //   {
   //     id: 1,
