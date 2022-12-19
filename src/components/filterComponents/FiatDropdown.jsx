@@ -6,11 +6,11 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
   const [activeFiat, setActiveFiat] = useState(false);
   const [fiatValue, setFiatValue] = useState("");
 
-  useEffect(() => {
-    setCurrentFiat(null);
-    setDefaultFiat("USD...");
-    setFiatValue("");
-  }, []);
+  // useEffect(() => {
+  //   setCurrentFiat(null);
+  //   setDefaultFiat("USD...");
+  //   setFiatValue("");
+  // }, []);
 
   return (
     <div className="w-max h-full flex ">

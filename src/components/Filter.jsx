@@ -40,8 +40,10 @@ const Filter = () => {
   } = useContext(StateContext);
 
   useEffect(() => {
+    console.log("!!!!!!!!!!!!!!!!!");
     if (currentCrypto !== null && currentFiat !== null) {
       getTradeMethods(mode, currentFiat, currentCrypto, setPayment);
+      console.log("1111111111");
     }
   }, [currentCrypto, currentFiat]);
 
@@ -57,6 +59,7 @@ const Filter = () => {
   // }, [config, globalId]);
 
   useEffect(() => {
+    console.log("!!!!!!!!!!!!!!!!!!!!");
     if (currentPayment !== null) {
       getOrders(
         mode,
@@ -66,6 +69,7 @@ const Filter = () => {
         currentPayment,
         setCurrentOrders
       );
+      console.log("2222222222222");
     }
   }, [currentPayment]);
 

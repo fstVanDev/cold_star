@@ -5,9 +5,9 @@ import { StateContext } from "../../context/StateProvider";
 const Amount = ({ currentAmount, setCurrentAmount }) => {
   const { config, globalId } = useContext(StateContext);
 
-  useEffect(() => {
-    setCurrentAmount("");
-  }, []);
+  // useEffect(() => {
+  //   setCurrentAmount("");
+  // }, []);
 
   return (
     <div className="w-max h-full flex">

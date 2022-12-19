@@ -6,12 +6,11 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
   const [activeCrypto, setActiveCrypto] = useState(false);
   const [cryptoValue, setCryptoValue] = useState("");
 
-
-  useEffect(() => {
-    setCurrentCrypto(null);
-    setDefaultCrypto("USDT...");
-    setCryptoValue("");
-  }, []);
+  // useEffect(() => {
+  //   setCurrentCrypto(null);
+  //   setDefaultCrypto("USDT...");
+  //   setCryptoValue("");
+  // }, []);
 
   // const data = [
   //   {
