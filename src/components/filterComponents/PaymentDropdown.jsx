@@ -39,8 +39,8 @@ const PaymentDropdown = ({
   }
 
   useEffect(() => {
-    if (currentPayment !== null) {
-      setUsersPayment(currentPayment);
+    if (currentPayment === null) {
+      setUsersPayment(null);
     }
   }, [currentPayment]);
 
@@ -261,7 +261,7 @@ const PaymentDropdown = ({
               ) : (
                 usersPayment.map((item) => (
                   <p
-                    className="min-w-[22px] max-h-[18px] my-auto text-lightGray text-12 leading-14 mx-[5px]"
+                    className="w-max max-h-[18px] my-auto text-lightGray text-12 leading-14 mx-[5px]"
                     key={item.id}
                   >
                     {item.name},

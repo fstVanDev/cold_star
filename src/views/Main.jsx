@@ -9,6 +9,19 @@ const Main = () => {
   const { config, setConfig, globalId, currentOrders } =
     useContext(StateContext);
 
+  // useEffect(() => {
+  //   console.log(localStorage);
+  //   if (window.localStorage.length !== 0) {
+  //     const storage = window.localStorage;
+  //     const arr = [];
+
+  //     const localData = JSON.parse(storage.getItem(`${globalId}`));
+
+  //     console.log(localData);
+  //     setConfig(localData);
+  //   }
+  // }, [window.localStorage]);
+
   return (
     <div className="pt-[70px] min-h-[100vh] bg-main">
       <Filter />

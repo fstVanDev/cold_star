@@ -8,7 +8,6 @@ import RegionDropdown from "./filterComponents/RegionDropdown";
 import { close } from "../images";
 import PaymentDropdown from "./filterComponents/PaymentDropdown";
 import { getTradeMethods } from "../data/Requests";
-import { getOrders } from "../data/Requests";
 import Refresh from "./filterComponents/Refresh";
 
 const Filter = () => {
@@ -36,8 +35,6 @@ const Filter = () => {
     setPayment,
     setCurrentOrders,
     secondaryOrders,
-    currentOrder,
-    setCurrentOrder,
     setSecondaryOrders,
   } = useContext(StateContext);
 
@@ -46,19 +43,6 @@ const Filter = () => {
       getTradeMethods(mode, currentFiat, currentCrypto, setPayment);
     }
   }, [currentCrypto, currentFiat]);
-
-  useEffect(() => {
-    if (currentPayment !== null) {
-      getOrders(
-        mode,
-        currentAmount,
-        currentFiat,
-        currentCrypto,
-        currentPayment,
-        setCurrentOrders
-      );
-    }
-  }, [currentPayment]);
 
   useEffect(() => {
     console.log(config);
@@ -105,8 +89,7 @@ const Filter = () => {
           setNewFilterView={setNewFilterView}
           setCurrentOrders={setCurrentOrders}
           secondaryOrders={secondaryOrders}
-          currentOrder={currentOrder}
-          setCurrentOrder={setCurrentOrder}
+          setSecondaryOrders={setSecondaryOrders}
         />
       </div>
       {newFilterView && (
