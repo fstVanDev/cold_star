@@ -72,12 +72,12 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
     }
   }, [payment]);
 
-  useEffect(() => {
-    if (currentPayment !== null) {
-      setActivePayment(false);
-      setUsersPayment(currentPayment);
-    }
-  }, [currentPayment]);
+  // useEffect(() => {
+  //   if (currentPayment !== null) {
+  //     setActivePayment(false);
+  //     setUsersPayment(currentPayment);
+  //   }
+  // }, [currentPayment]);
 
   // const data = [
   //   {
