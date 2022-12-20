@@ -192,13 +192,10 @@ export const bottomData = {
   text3: "Copyright © 2022",
 };
 
-export const feeFunction = (rate, rate2, price, price2) => {
-  console.log(rate, rate2, price, price2);
+export const feeFunction = (rate, rate2, price, price2, setFee) => {
   var realRate = rate2 / rate;
-  console.log(realRate, "realRate");
   var resultRate = price2 / price;
-  console.log(resultRate, "resultRate");
   var fee = Math.round((resultRate / realRate - 1) * 10000) / 100;
-  console.log(typeof fee, Number(fee), fee, "fee");
+  setFee(fee);
   return Number(fee);
 };

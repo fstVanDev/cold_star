@@ -39,7 +39,7 @@ const Chain = () => {
                         </p>
                       </div>
                       <p className="text-green font-bold text-18 leading-24 w-max h-max mt-[5px]">
-                        +fee%
+                        {item.currentFee !== null ? item.currentFee : "-"}%
                       </p>
                     </div>
 
