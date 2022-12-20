@@ -120,7 +120,7 @@ const SecondaryOrders = ({ price2 }) => {
                           Number(config[config.length - 1].fiat.rates[0].rate),
                           Number(price2),
                           Number(item.price)
-                        ).then((result) => setFee(result))}
+                        )}
                         %
                       </p>
                     </div>
@@ -152,7 +152,7 @@ const SecondaryOrders = ({ price2 }) => {
                             payments: currentPayment,
                             orders: currentOrders,
                             currentOrder: item,
-                            currentFee: fee,
+                            // currentFee: fee,
                           };
 
                           let arr = config;

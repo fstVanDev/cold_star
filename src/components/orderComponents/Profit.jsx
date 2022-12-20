@@ -8,23 +8,23 @@ const Profit = () => {
 
   const [profit, setProfit] = useState(0);
 
-  const getFee = () => {
-    let num = 0;
-    config.map((item) => {
-      if (item.currentFee !== null) {
-        num += Number(item.currentFee);
-        console.log(num, Number(item.currentFee));
-      }
-    });
-    console.log(num);
-    setProfit(num);
-  };
+  // const getFee = () => {
+  //   let num = 0;
+  //   config.map((item) => {
+  //     if (item.currentFee !== null) {
+  //       num += Number(item.currentFee);
+  //       console.log(num, Number(item.currentFee));
+  //     }
+  //   });
+  //   console.log(num);
+  //   setProfit(num);
+  // };
 
-  useEffect(() => {
-    if (config !== null && config.length >= 2) {
-      getFee();
-    }
-  }, [config]);
+  // useEffect(() => {
+  //   if (config !== null && config.length >= 2) {
+  //     getFee();
+  //   }
+  // }, [config]);
 
   return (
     <div className="w-full h-[60px] bg-green rounded-15 mt-[30px] flex justify-between px-[15px] py-[18px]">
