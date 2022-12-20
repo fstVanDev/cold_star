@@ -204,7 +204,13 @@ const Orders = () => {
                         <button
                           type="button"
                           className="w-[50px] h-[50px] border border-1 border-gray bg-main my-auto rounded-6 flex"
-                          onClick={() => setCurrentIndex(index)}
+                          onClick={() => {
+                            if (index === currentIndex) {
+                              setCurrentIndex(null);
+                            } else {
+                              setCurrentIndex(index);
+                            }
+                          }}
                         >
                           <img
                             src={

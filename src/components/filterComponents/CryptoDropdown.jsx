@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { chevronFilter } from "../../images";
 
 const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
-  const [defaultCrypto, setDefaultCrypto] = useState("USDT...");
+  const [defaultCrypto, setDefaultCrypto] = useState("Enter...");
   const [activeCrypto, setActiveCrypto] = useState(false);
   const [cryptoValue, setCryptoValue] = useState("");
 
@@ -12,13 +12,14 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
   //   setCryptoValue("");
   // }, []);
 
-  useEffect(() => {
-    if (currentCrypto !== null) {
-      setDefaultCrypto(currentCrypto.name);
-      setCryptoValue("");
-      setActiveCrypto(false);
-    }
-  }, [currentCrypto]);
+  //   useEffect(() => {
+  //     if(currentCrypto !== null) {
+  //  setDefaultCrypto(currentCrypto.name);
+  //  setCryptoValue("");
+  //  setActiveCrypto(false);
+  //     }
+
+  //   }, [currentCrypto]);
 
   // const data = [
   //   {
