@@ -260,6 +260,7 @@ export async function logout(setUser) {
     .then(function (response) {
       console.log(response.data, "logout");
       setUser(null);
+      window.location.reload();
     })
     .catch(function (error) {
       console.log(error);

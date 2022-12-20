@@ -19,12 +19,6 @@ const App = () => {
     getCsrf(setUser, setFiat, setCrypto);
   }, []);
 
-  useEffect(() => {
-    if (user === null) {
-      window.location.reload();
-    }
-  }, [user]);
-
   return (
     <div>
       <Navbar />
