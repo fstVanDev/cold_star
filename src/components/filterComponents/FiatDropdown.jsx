@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { chevronFilter } from "../../images";
 
 const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
-  const [defaultFiat, setDefaultFiat] = useState("USD...");
+  const [defaultFiat, setDefaultFiat] = useState("Enter...");
   const [activeFiat, setActiveFiat] = useState(false);
   const [fiatValue, setFiatValue] = useState("");
 
@@ -14,7 +14,7 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
 
   useEffect(() => {
     if (currentFiat !== null) {
-      setDefaultFiat(currentFiat.name);
+      setDefaultFiat("Enter...");
       setFiatValue("");
       setActiveFiat(false);
     }
