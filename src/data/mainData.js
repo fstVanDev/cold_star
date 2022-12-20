@@ -192,9 +192,9 @@ export const bottomData = {
   text3: "Copyright © 2022",
 };
 
-export const feeFunction = (rate, rate2, price, price2, setFee) => {
+export const feeFunction = (rate, rate2, price, price2) => {
   var realRate = rate2 / rate;
   var resultRate = price2 / price;
   var fee = Math.round((resultRate / realRate - 1) * 10000) / 100;
-  setFee(Number(fee));
+  return Number(fee);
 };

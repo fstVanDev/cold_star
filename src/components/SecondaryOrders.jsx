@@ -119,9 +119,8 @@ const SecondaryOrders = ({ price2 }) => {
                           Number(config[config.length - 2].fiat.rates[0].rate),
                           Number(config[config.length - 1].fiat.rates[0].rate),
                           Number(price2),
-                          Number(item.price),
-                          setFee
-                        )}
+                          Number(item.price)
+                        ).then((result) => setFee(result))}
                         %
                       </p>
                     </div>
