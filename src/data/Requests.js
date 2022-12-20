@@ -36,6 +36,9 @@ export async function getUser(setUser, setFiat, setCrypto) {
       console.log(response.data, "getUser");
       setUser(response.data);
       getCurrencies(setFiat, setCrypto);
+      if (window.location.href !== "https://app.top2pro.com/") {
+        window.location.href = "https://app.top2pro.com/";
+      }
     })
     .catch(function (error) {
       console.log(error);
@@ -181,7 +184,7 @@ export async function getOrders(
     });
 }
 
-export async function loginFunc(email, password) {
+export async function loginFunc(email, password, setUser, setFiat, setCrypto) {
   var data = JSON.stringify({
     email: email,
     password: password,
@@ -200,13 +203,25 @@ export async function loginFunc(email, password) {
   axios(config)
     .then(function (response) {
       console.log(response);
+      getUser(setUser, setFiat, setCrypto);
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-export async function registerFunc(name, email, password, confirm) {
+export async function registerFunc(
+  name,
+  email,
+  password,
+  confirm,
+  setUser,
+  setFiat,
+  setCrypto,
+  setUser,
+  setFiat,
+  setCrypto
+) {
   var data = JSON.stringify({
     name: name,
     email: email,
@@ -228,6 +243,26 @@ export async function registerFunc(name, email, password, confirm) {
   axios(config)
     .then(function (response) {
       console.log(response.data);
+      loginFunc(email, password, setUser, setFiat, setCrypto);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+export async function logout(setUser) {
+  var config = {
+    method: "post",
+    url: "https://top2pro.com/logout",
+    headers: {
+      Accept: "application/json",
+    },
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(response.data, "logout");
+      setUser(null);
     })
     .catch(function (error) {
       console.log(error);

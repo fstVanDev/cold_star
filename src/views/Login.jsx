@@ -5,7 +5,15 @@ import { showPassword } from "../images";
 import { loginFunc } from "../data/Requests";
 
 const Login = () => {
-  const { email, setEmail, password, setPassword } = useContext(StateContext);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    setUser,
+    setFiat,
+    setCrypto,
+  } = useContext(StateContext);
 
   const [hide, setHide] = useState(false);
 
@@ -72,7 +80,7 @@ const Login = () => {
             onClick={() => {
               if (email.length !== 0 && password.length !== 0) {
                 console.log("login func");
-                loginFunc(email, password);
+                loginFunc(email, password, setUser, setFiat, setCrypto);
               } else {
                 alert("Something wrong! Please check your data...");
               }

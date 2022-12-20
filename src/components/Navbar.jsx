@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import { StateContext } from "../context/StateProvider";
 import { navbarData } from "../data/mainData";
 import { NavLink } from "react-router-dom";
+import { logout } from "../data/Requests";
 
 const Navbar = () => {
-  const { user } = useContext(StateContext);
+  const { user, setUser } = useContext(StateContext);
   const [accountView, setAccountView] = useState(false);
 
   return (
@@ -128,7 +129,11 @@ const Navbar = () => {
                 </p>
               </button>
               <hr />
-              <button type="button" className="w-full h-max mt-[10px]">
+              <button
+                type="button"
+                className="w-full h-max mt-[10px]"
+                onClick={() => logout(setUser)}
+              >
                 <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
                   Выйти
                 </p>

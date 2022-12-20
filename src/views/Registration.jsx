@@ -5,8 +5,17 @@ import { NavLink } from "react-router-dom";
 import { registerFunc } from "../data/Requests";
 
 const Registration = () => {
-  const { email, setEmail, password, setPassword, name, setName } =
-    useContext(StateContext);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    name,
+    setName,
+    setUser,
+    setFiat,
+    setCrypto,
+  } = useContext(StateContext);
 
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
@@ -112,7 +121,15 @@ const Registration = () => {
                 name.length !== 0 &&
                 email.length !== 0
               ) {
-                registerFunc(name, email, password, confirm);
+                registerFunc(
+                  name,
+                  email,
+                  password,
+                  confirm,
+                  setUser,
+                  setFiat,
+                  setCrypto
+                );
                 console.log("register button");
               } else {
                 alert("Something wrong! Please check your data...");
