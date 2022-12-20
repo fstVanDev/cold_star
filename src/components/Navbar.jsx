@@ -46,7 +46,13 @@ const Navbar = () => {
             {user === null ? (
               <button
                 type="button"
-                onClick={() => setAccountView(!accountView)}
+                onClick={() => {
+                  if (accountView === true) {
+                    setAccountView(false);
+                  } else {
+                    setAccountView(true);
+                  }
+                }}
                 className="flex justify-between w-max h-max px-[15px] py-[10px] bg-green rounded-4"
               >
                 <img
@@ -79,7 +85,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        {accountView ? (
+        {accountView === true ? (
           user === null ? (
             <div
               className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px] "
