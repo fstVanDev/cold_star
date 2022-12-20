@@ -13,12 +13,12 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
   // }, []);
 
   useEffect(() => {
-    if (currentFiat !== null) {
+    if (fiat !== null) {
       setDefaultFiat("Enter...");
       setFiatValue("");
       setActiveFiat(false);
     }
-  }, [currentFiat]);
+  }, [fiat]);
 
   return (
     <div className="w-max h-full flex ">

@@ -13,7 +13,7 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
   // }, []);
 
   useEffect(() => {
-    if (currentCrypto !== null) {
+    if (crypto !== null) {
       setDefaultCrypto("Enter...");
       setCryptoValue("");
       setActiveCrypto(false);
