@@ -1263,7 +1263,7 @@ const Orders = () => {
                       </div>
 
                       {index === currentIndex && active === true ? (
-                        <SecondaryOrders />
+                        <SecondaryOrders price2={item.price} />
                       ) : null}
                     </div>
                   ))}

@@ -5,6 +5,7 @@ import Main from "./views/Main";
 import Login from "./views/Login";
 import Registration from "./views/Registration";
 import Bottom from "./components/Bottom";
+import Favourites from "./views/Favourites";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 import { StateContext } from "./context/StateProvider";
@@ -29,11 +30,18 @@ const App = () => {
 
         {user !== null && (
           <Route
+            path={`/${user.name}-${user.id}/favourites`}
+            render={() => <Favourites />}
+          />
+        )}
+        {user !== null && (
+          <Route
             path={`/${user.name}-${user.id}/toTrade`}
             render={() => <Main />}
           />
         )}
 
+        {/* <Route path={`/favourites`} render={() => <Favourites />} /> */}
         {/* <Route path={`/:id/toTrade`} render={() => <Main />} /> */}
 
         <Redirect to={"/"} />

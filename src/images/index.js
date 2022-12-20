@@ -23,3 +23,6 @@ export { default as close } from "./close.svg";
 export { default as ordersChevron } from "./ordersChevron.svg";
 export { default as star } from "./star.svg";
 export { default as favouriteStar } from "./favouriteStar.svg";
+export { default as accountBanner } from "./accountBanner.svg";
+export { default as videoInstruction } from "./videoInstruction.svg";
+export { default as kztFlag } from "./kztFlag.svg";

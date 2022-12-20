@@ -111,21 +111,26 @@ const Navbar = () => {
               className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px] "
               onMouseLeave={() => setAccountView(false)}
             >
-              <button type="button" className="w-full h-max mb-[10px]">
-                <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
-                  Account
+              <NavLink
+                to={{
+                  pathname: `/${user.name}-${user.id}/favourites`,
+                }}
+                className="w-full h-max mb-[10px]"
+              >
+                <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto">
+                  Личный кабинет
                 </p>
-              </button>
+              </NavLink>
               <hr />
               <button type="button" className="w-full h-max my-[10px]">
                 <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
-                  Change password
+                  Настройки
                 </p>
               </button>
               <hr />
               <button type="button" className="w-full h-max mt-[10px]">
                 <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
-                  Log Out
+                  Выйти
                 </p>
               </button>
             </div>

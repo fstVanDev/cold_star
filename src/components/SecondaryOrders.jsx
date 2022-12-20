@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
 import { plusOrders } from "../images";
+import { feeFunction } from "../data/mainData";
 
-const SecondaryOrders = () => {
+const SecondaryOrders = ({ price2 }) => {
   const {
     mode,
     currentAmount,
@@ -1144,7 +1145,13 @@ const SecondaryOrders = () => {
                     {/* Fees */}
                     <div className="max-w-[120px] h-max flex my-auto">
                       <p className="text-green text-18 leading-24 font-bold text-center">
-                        {fee}%
+                        {feeFunction(
+                          Number(config[config.length - 2].fiat.rates[0].rate),
+                          Number(config[config.length - 1].fiat.rates[0].rate),
+                          Number(item.price),
+                          Number(price2)
+                        )}
+                        %
                       </p>
                     </div>
 
