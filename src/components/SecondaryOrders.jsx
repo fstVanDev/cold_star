@@ -1148,8 +1148,8 @@ const SecondaryOrders = ({ price2 }) => {
                         {feeFunction(
                           Number(config[config.length - 2].fiat.rates[0].rate),
                           Number(config[config.length - 1].fiat.rates[0].rate),
-                          Number(item.price),
-                          Number(price2)
+                          Number(price2),
+                          Number(item.price)
                         )}
                         %
                       </p>
