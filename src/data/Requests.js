@@ -217,9 +217,6 @@ export async function registerFunc(
   confirm,
   setUser,
   setFiat,
-  setCrypto,
-  setUser,
-  setFiat,
   setCrypto
 ) {
   var data = JSON.stringify({
