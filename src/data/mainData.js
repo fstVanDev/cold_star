@@ -196,6 +196,5 @@ export const feeFunction = (rate, rate2, price, price2, setFee) => {
   var realRate = rate2 / rate;
   var resultRate = price2 / price;
   var fee = Math.round((resultRate / realRate - 1) * 10000) / 100;
-  setFee(fee);
-  return Number(fee);
+  setFee(Number(fee));
 };

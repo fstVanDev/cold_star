@@ -6,15 +6,7 @@ import Top from "./orderComponents/Top";
 import SecondaryOrders from "./SecondaryOrders";
 
 const Orders = () => {
-  const {
-    mode,
-    currentOrders,
-    globalId,
-    setCurrentOrders,
-    secondaryOrders,
-    config,
-    ordersView,
-  } = useContext(StateContext);
+  const { config, ordersView } = useContext(StateContext);
 
   const [currentIndex, setCurrentIndex] = useState(null);
 
@@ -212,9 +204,7 @@ const Orders = () => {
                         <button
                           type="button"
                           className="w-[50px] h-[50px] border border-1 border-gray bg-main my-auto rounded-6 flex"
-                          onClick={() => {
-                            setCurrentIndex(index);
-                          }}
+                          onClick={() => setCurrentIndex(index)}
                         >
                           <img
                             src={
