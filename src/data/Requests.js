@@ -254,6 +254,7 @@ export async function logout(setUser) {
     headers: {
       Accept: "application/json",
     },
+    withCredentials: true,
   };
 
   axios(config)
