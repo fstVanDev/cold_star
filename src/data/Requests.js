@@ -242,7 +242,7 @@ export async function registerFunc(
   axios(config)
     .then(function (response) {
       console.log(response.data);
-      loginFunc(email, password, setUser, setFiat, setCrypto);
+      getUser(setUser, setFiat, setCrypto);
     })
     .catch(function (error) {
       console.log(error);
