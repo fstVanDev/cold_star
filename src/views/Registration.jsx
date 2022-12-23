@@ -89,7 +89,7 @@ const Registration = () => {
             <div className="border border-1 border-gray rounded-10 mt-[10px]">
               <input
                 type={hide ? "text" : "password"}
-                value={password}
+                value={confirm}
                 onChange={(event) => {
                   console.log(event.target.value, "confirm password");
                   setConfirm(event.target.value);
