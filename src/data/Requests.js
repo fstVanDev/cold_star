@@ -223,7 +223,7 @@ export async function registerFunc(
     name: name,
     email: email,
     password: password,
-    password_confiramtion: confirm,
+    password_confirmation: confirm,
     validation: "k32nf91mss2",
   });
 
