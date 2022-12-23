@@ -23,7 +23,7 @@ export async function getCsrf(setUser, setFiat, setCrypto) {
 export async function getUser(setUser, setFiat, setCrypto) {
   var config = {
     method: "get",
-    url: "https://top2pro.com/api/user",
+    url: "https://app.top2pro.com/api/user",
     headers: {
       Accept: "application/json",
       "X-Requested-With": "XMLHttpRequest",
@@ -48,7 +48,7 @@ export async function getUser(setUser, setFiat, setCrypto) {
 export async function getCurrencies(setFiat, setCrypto) {
   var config = {
     method: "get",
-    url: "https://top2pro.com/api/currencies/getAll",
+    url: "https://app.top2pro.com/api/currencies/getAll",
     headers: {
       Accept: "application/json",
     },
@@ -100,7 +100,7 @@ export async function getTradeMethods(
 
   var config = {
     method: "post",
-    url: "https://top2pro.com/api/trade-methods/search",
+    url: "https://app.top2pro.com/api/trade-methods/search",
     withCredentials: true,
     headers: {
       Accept: "application/json",
@@ -165,7 +165,7 @@ export async function getOrders(
 
   var config = {
     method: "post",
-    url: "https://top2pro.com/api/orders/search",
+    url: "https://app.top2pro.com/api/orders/search",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -192,7 +192,7 @@ export async function loginFunc(email, password, setUser, setFiat, setCrypto) {
 
   var config = {
     method: "post",
-    url: "https://top2pro.com/login",
+    url: "https://app.top2pro.com/login",
     headers: {
       "Content-Type": "application/json",
     },
@@ -229,7 +229,7 @@ export async function registerFunc(
 
   var config = {
     method: "post",
-    url: "https://top2pro.com/register",
+    url: "https://app.top2pro.com/register",
     headers: {
       "Content-Type": "application/json",
     },
@@ -250,7 +250,7 @@ export async function registerFunc(
 export async function logout(setUser) {
   var config = {
     method: "post",
-    url: "https://top2pro.com/logout",
+    url: "https://app.top2pro.com/logout",
     headers: {
       Accept: "application/json",
     },
