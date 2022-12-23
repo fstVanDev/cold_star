@@ -195,6 +195,7 @@ export async function loginFunc(email, password, setUser, setFiat, setCrypto) {
     url: "https://app.top2pro.com/login",
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json",
     },
     data: data,
     withCredentials: true,
@@ -232,6 +233,7 @@ export async function registerFunc(
     url: "https://app.top2pro.com/register",
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json",
     },
     data: data,
     withCredentials: true,
