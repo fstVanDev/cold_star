@@ -36,8 +36,8 @@ export async function getUser(setUser, setFiat, setCrypto) {
       console.log(response.data, "getUser");
       setUser(response.data);
       getCurrencies(setFiat, setCrypto);
-      if (window.location.href !== "https://app.top2pro.com/") {
-        window.location.href = "https://app.top2pro.com/";
+      if (window.location.href !== "https://top2pro.com/") {
+        window.location.href = "https://top2pro.com/";
       }
     })
     .catch(function (error) {
