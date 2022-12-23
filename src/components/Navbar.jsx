@@ -115,19 +115,21 @@ const Navbar = () => {
             </div>
           ) : (
             <div
-              className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px] "
+              className="w-[200px] h-max border border-1 border-gray bg-main ml-auto rounded-10 p-[20px]"
               onMouseLeave={() => setAccountView(false)}
             >
-              <NavLink
-                to={{
-                  pathname: `/${user.name}-${user.id}/favourites`,
-                }}
-                className="w-full h-max mb-[10px]"
-              >
-                <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto">
-                  Личный кабинет
-                </p>
-              </NavLink>
+              <div className="w-full h-max my-[10px]">
+                <NavLink
+                  to={{
+                    pathname: `/${user.name}-${user.id}/favourites`,
+                    // pathname: `//favourites`,
+                  }}
+                >
+                  <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto">
+                    Личный кабинет
+                  </p>
+                </NavLink>
+              </div>
               <hr />
               <button type="button" className="w-full h-max my-[10px]">
                 <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto ">
