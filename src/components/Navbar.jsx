@@ -66,7 +66,13 @@ const Navbar = () => {
             ) : (
               <button
                 type="button"
-                onClick={() => console.log("mono click")}
+                onClick={() => {
+                  if (accountView === true) {
+                    setAccountView(false);
+                  } else {
+                    setAccountView(true);
+                  }
+                }}
                 className="flex justify-between w-max h-max px-[15px] py-[10px] bg-white rounded-4 border border-1 border-gray "
               >
                 <img
