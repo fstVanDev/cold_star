@@ -25,7 +25,7 @@ const Refresh = () => {
 
   return (
     <button
-      className="w-max h-full flex border border-1 border-orange rounded-10 "
+      className="w-max h-full flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
         if (

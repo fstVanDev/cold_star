@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StateContext } from "../context/StateProvider";
 import CryptoDropdown from "./filterComponents/CryptoDropdown";
 import Mode from "./filterComponents/Mode";
 import Amount from "./filterComponents/Amount";
 import FiatDropdown from "./filterComponents/FiatDropdown";
 import RegionDropdown from "./filterComponents/RegionDropdown";
-import { close } from "../images";
+import { close, ordersChevron } from "../images";
 import PaymentDropdown from "./filterComponents/PaymentDropdown";
 import { getTradeMethods } from "../data/Requests";
 import Refresh from "./filterComponents/Refresh";
@@ -41,6 +41,8 @@ const Filter = () => {
     makerProcent,
     setMakerProcent,
   } = useContext(StateContext);
+
+  const [addition, setAddition] = useState(false);
 
   useEffect(() => {
     if (currentCrypto !== null && currentFiat !== null) {
@@ -88,10 +90,28 @@ const Filter = () => {
           <RegionDropdown />
 
           <Refresh />
+
+          <button
+            type="button"
+            className="flex border border-1 border-gray rounded-4 p-[10px]"
+            onClick={() => setAddition(!addition)}
+          >
+            <img
+              src={ordersChevron}
+              alt="chrn"
+              className={`w-full h-full ${
+                addition === true ? "rotate-180" : ""
+              }`}
+            />
+          </button>
         </div>
-        <div className="flex justify-between w-full h-[60px] px-[120px]">
-          <MakerTaker />
-        </div>
+        {addition === true && (
+          <div className="flex justify-between w-full h-[60px] px-[120px]">
+            <div className="w-full h-full rounded-10 bg-main border border-1 border-gray">
+              <MakerTaker />
+            </div>
+          </div>
+        )}
       </div>
       {newFilterView && (
         <button

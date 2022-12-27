@@ -6,7 +6,7 @@ const MakerTaker = () => {
 
   return (
     <div className="w-max h-full flex">
-      <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
+      <h2 className="w-[78px] h-max text-center my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
         Maker/Taker %
       </h2>
       <input
