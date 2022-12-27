@@ -28,6 +28,7 @@ export const StateProvider = ({ children }) => {
   const [secondaryPayment, setSecondaryPayment] = useState(null);
   const [currentOrders, setCurrentOrders] = useState(null);
   const [secondaryOrders, setSecondaryOrders] = useState(null);
+  const [makerProcent, setMakerProcent] = useState("");
 
   const [currentOrder, setCurrentOrder] = useState(null);
 
@@ -40,6 +41,8 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        makerProcent,
+        setMakerProcent,
         ordersView,
         setOrdersView,
         secondaryAmount,

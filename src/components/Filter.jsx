@@ -10,6 +10,7 @@ import PaymentDropdown from "./filterComponents/PaymentDropdown";
 import { getTradeMethods } from "../data/Requests";
 import Refresh from "./filterComponents/Refresh";
 import { getOrders } from "../data/Requests";
+import MakerTaker from "./filterComponents/MakerTaker";
 
 const Filter = () => {
   const {
@@ -37,6 +38,8 @@ const Filter = () => {
     setCurrentOrders,
     secondaryOrders,
     setSecondaryOrders,
+    makerProcent,
+    setMakerProcent,
   } = useContext(StateContext);
 
   useEffect(() => {
@@ -44,17 +47,6 @@ const Filter = () => {
       getTradeMethods(mode, currentFiat, currentCrypto, setPayment);
     }
   }, [currentCrypto, currentFiat]);
-
-  // useEffect(() => {
-  //   if (config !== null && config.length === globalId) {
-  //     setMode(true);
-  //     setCurrentAmount("");
-  //     setCurrentFiat(null);
-  //     setCurrentCrypto(null);
-  //     setCurrentPayment(null);
-  //     setCurrentOrders(null);
-  //   }
-  // }, [config, globalId]);
 
   useEffect(() => {
     if (currentPayment !== null) {
@@ -71,30 +63,35 @@ const Filter = () => {
 
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">
-      <div className="flex justify-between w-full h-[60px] rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
-        <Mode mode={mode} setMode={setMode} />
-        <Amount amount={currentAmount} setCurrentAmount={setCurrentAmount} />
+      <div className="grid h-max w-full rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
+        <div className="flex justify-between w-full h-[60px]">
+          <Mode mode={mode} setMode={setMode} />
+          <Amount amount={currentAmount} setCurrentAmount={setCurrentAmount} />
 
-        <FiatDropdown
-          fiat={fiat}
-          setCurrentFiat={setCurrentFiat}
-          currentFiat={currentFiat}
-        />
+          <FiatDropdown
+            fiat={fiat}
+            setCurrentFiat={setCurrentFiat}
+            currentFiat={currentFiat}
+          />
 
-        <CryptoDropdown
-          crypto={crypto}
-          setCurrentCrypto={setCurrentCrypto}
-          currentCrypto={currentCrypto}
-        />
+          <CryptoDropdown
+            crypto={crypto}
+            setCurrentCrypto={setCurrentCrypto}
+            currentCrypto={currentCrypto}
+          />
 
-        <PaymentDropdown
-          payment={payment}
-          setCurrentPayment={setCurrentPayment}
-        />
+          <PaymentDropdown
+            payment={payment}
+            setCurrentPayment={setCurrentPayment}
+          />
 
-        <RegionDropdown />
+          <RegionDropdown />
 
-        <Refresh />
+          <Refresh />
+        </div>
+        <div className="flex justify-between w-full h-[60px] px-[120px]">
+          <MakerTaker />
+        </div>
       </div>
       {newFilterView && (
         <button
