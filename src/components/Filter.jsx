@@ -93,21 +93,22 @@ const Filter = () => {
 
           <button
             type="button"
-            className="flex border border-1 border-gray rounded-4 p-[10px]"
+            className="flex border border-1 border-gray rounded-4 p-[10px] h-max my-auto
+            "
             onClick={() => setAddition(!addition)}
           >
             <img
               src={ordersChevron}
               alt="chrn"
-              className={`w-full h-full ${
+              className={`w-[12px] h-[15px] ${
                 addition === true ? "rotate-180" : ""
               }`}
             />
           </button>
         </div>
         {addition === true && (
-          <div className="flex justify-between w-full h-[60px] px-[120px]">
-            <div className="w-full h-full rounded-10 bg-main border border-1 border-gray">
+          <div className=" w-full h-[60px]">
+            <div className="w-full h-full rounded-10 flex justify-around bg-main border border-1 border-gray">
               <MakerTaker />
             </div>
           </div>

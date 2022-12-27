@@ -9,7 +9,7 @@ const RegionDropdown = () => {
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
         Region
       </h2>
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6">
+      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 my-auto">
         <button
           onClick={() => {
             setActiveRegion(!activeRegion);

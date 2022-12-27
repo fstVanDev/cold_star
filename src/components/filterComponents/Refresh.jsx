@@ -25,7 +25,7 @@ const Refresh = () => {
 
   return (
     <button
-      className="w-max h-full flex border border-1 border-orange rounded-4"
+      className="w-max h-max my-auto flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
         if (
@@ -84,8 +84,9 @@ const Refresh = () => {
           );
         }
       }}
+      sa
     >
-      <div className="h-full w-full rounded-10 p-[10px]">
+      <div className="h-max w-full rounded-10 p-[10px]">
         <img src={refresh} alt="refresh" />
       </div>
     </button>
