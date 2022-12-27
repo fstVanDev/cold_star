@@ -6,11 +6,11 @@ const MakerTaker = () => {
 
   return (
     <div className="w-max h-full flex">
-      <div>
-        <h2 className="w-max h-max text-center my-auto text-12 leading-16 font-normal text-lightGray mr-[15px]">
+      <div className="mr-[15px] my-auto">
+        <h2 className="w-max h-max text-center my-auto text-12 leading-16 font-normal text-lightGray mx-auto">
           Maker/Taker %
         </h2>
-        <p className="w-max h-max text-center my-auto text-10 leading-16 font-normal text-lightGray">
+        <p className="w-max h-max text-center my-auto text-10 leading-16 font-normal text-lightGray mx-auto">
           {" "}
           (0.1% default)
         </p>

@@ -66,8 +66,9 @@ const Filter = () => {
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">
       <div className="grid h-max w-full rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
-        <div className="flex justify-between w-full h-[60px]">
+        <div className="flex justify-around w-full h-[60px]">
           <Mode mode={mode} setMode={setMode} />
+
           <Amount amount={currentAmount} setCurrentAmount={setCurrentAmount} />
 
           <FiatDropdown
@@ -87,29 +88,30 @@ const Filter = () => {
             setCurrentPayment={setCurrentPayment}
           />
 
-          <RegionDropdown />
+          <div className="flex justify-between w-max px-[5px]">
+            <Refresh />
 
-          <Refresh />
-
-          <button
-            type="button"
-            className="flex border border-1 border-gray rounded-4 p-[10px] h-max my-auto
+            <button
+              type="button"
+              className="flex border border-1 border-gray rounded-4 p-[10px] h-max my-auto
             "
-            onClick={() => setAddition(!addition)}
-          >
-            <img
-              src={ordersChevron}
-              alt="chrn"
-              className={`w-[12px] h-[15px] ${
-                addition === true ? "rotate-180" : ""
-              }`}
-            />
-          </button>
+              onClick={() => setAddition(!addition)}
+            >
+              <img
+                src={ordersChevron}
+                alt="chrn"
+                className={`w-[12px] h-[15px] ${
+                  addition === true ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          </div>
         </div>
         {addition === true && (
           <div className=" w-full h-[60px]">
             <div className="w-full h-full rounded-10 flex justify-around bg-main border border-1 border-gray">
               <MakerTaker />
+              <RegionDropdown />
             </div>
           </div>
         )}
