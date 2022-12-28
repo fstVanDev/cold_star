@@ -108,7 +108,7 @@ const Filter = () => {
           </div>
         </div>
         {addition === true && (
-          <div className=" w-full h-[60px]">
+          <div className="mt-[10px] w-full h-[60px]">
             <div className="w-full h-full rounded-10 flex justify-around bg-main border border-1 border-gray">
               <MakerTaker />
               <RegionDropdown />

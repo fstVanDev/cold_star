@@ -139,12 +139,12 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
           ) : null}
         </button>
         {activePayment && (
-          <div className="w-[250px] h-[180px] overflow-scroll bg-white rounded-b-6 relative border border-1 border-gray border-t-0">
+          <div className="w-[250px] h-[180px] overflow-scroll bg-white border border-t-0 border-gray rounded-b-6 ">
             {payment.map((item) => (
               <button
                 key={item.id}
                 type="button"
-                className="w-full h-max my-[10px] flex justify-around"
+                className="w-[250px] h-max my-[6px] flex justify-around"
                 onClick={() => {
                   handleChangeCurrentValue(usersPayment, setUsersPayment, item);
                 }}
