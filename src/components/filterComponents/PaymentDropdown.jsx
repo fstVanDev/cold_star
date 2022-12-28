@@ -85,7 +85,15 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
         Payment
       </h2>
 
-      <div className="w-[250px] h-max min-h-[38px] border border-1 border-gray rounded-6 relative my-auto mt-[10px]">
+      <div
+        className={`w-[250px] h-full relative my-auto 
+               ${
+                 activePayment &&
+                 " border-b border-b-1 border-b-gray rounded-t-6"
+               }  
+               ${!activePayment && "rounded-6 border border-1 border-gray"}
+      `}
+      >
         <button
           type="button"
           onClick={() => {
@@ -93,7 +101,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
               setActivePayment(!activePayment);
             }
           }}
-          className={`flex min-h-[38px] w-[250px] justify-between my-auto text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
+          className={`flex  w-[250px] justify-between text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
                ${
                  activePayment &&
                  "rounded-b-0 border-b border-b-1 border-b-gray"
@@ -101,7 +109,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
                ${!activePayment && "rounded-6"}
                `}
         >
-          <div className="w-max max-h-[38px] flex flex-wrap my-auto rounded-0 text-14 leading-14 font-normal py-[6px]">
+          <div className="w-max flex flex-wrap my-auto rounded-0 text-14 leading-14 font-normal ">
             {payment !== null ? (
               usersPayment === null ? (
                 <p className="w-max h-max my-auto text-lightGray">
