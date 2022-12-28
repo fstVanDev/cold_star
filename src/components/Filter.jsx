@@ -88,9 +88,7 @@ const Filter = () => {
             setCurrentPayment={setCurrentPayment}
           />
 
-          <div className="flex justify-between w-max px-[5px]">
-            <Refresh />
-
+          <div className="flex justify-between w-[100px] px-[5px]">
             <button
               type="button"
               className="flex border border-1 border-gray rounded-4 p-[10px] h-max my-auto
@@ -105,6 +103,8 @@ const Filter = () => {
                 }`}
               />
             </button>
+
+            <Refresh />
           </div>
         </div>
         {addition === true && (
