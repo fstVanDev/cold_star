@@ -124,6 +124,10 @@ const SecondaryOrders = ({ price2 }) => {
                           fiatRate,
                           Number(price2)
                           // Number(item.price),
+                          // Number(config[config.length - 2].fiat.rates[0].rate),
+                          // Number(config[config.length - 1].fiat.rates[0].rate),
+                          // Number(price2),
+                          // Number(item.price)
                         )}
                         %
                       </p>

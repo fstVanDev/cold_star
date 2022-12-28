@@ -40,9 +40,13 @@ export const StateProvider = ({ children }) => {
   const [newFilterView, setNewFilterView] = useState(false);
   const [config, setConfig] = useState(null);
 
+  const [totalProfit, setTotalProfit] = useState([]);
+
   return (
     <StateContext.Provider
       value={{
+        totalProfit,
+        setTotalProfit,
         fiatRate,
         setFiatRate,
         makerProcent,

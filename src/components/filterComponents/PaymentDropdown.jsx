@@ -152,7 +152,6 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
                 >
                   {item.name}
                 </label>
-                {usersPayment}
                 <input
                   type="checkbox"
                   className="my-auto"
