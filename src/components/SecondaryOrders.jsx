@@ -32,7 +32,7 @@ const SecondaryOrders = ({ price2 }) => {
   const [activeIndex, setACtiveIndex] = useState(null);
 
   useEffect(() => {
-    console.glo(fee);
+    console.log(fee);
   }, [fee]);
 
   return (
