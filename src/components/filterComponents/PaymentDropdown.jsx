@@ -87,10 +87,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
 
       <div
         className={`w-[250px] h-full relative my-auto 
-               ${
-                 activePayment &&
-                 " border-b border-b-1 border-b-gray rounded-t-6"
-               }  
+               ${activePayment && " border border-1 border-gray rounded-t-6"}  
                ${!activePayment && "rounded-6 border border-1 border-gray"}
       `}
       >
