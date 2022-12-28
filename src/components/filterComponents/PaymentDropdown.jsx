@@ -99,10 +99,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
             }
           }}
           className={`flex h-full w-[250px] justify-between text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
-               ${
-                 activePayment &&
-                 "rounded-b-0 border-b border-b-1 border-b-gray"
-               }  
+               ${activePayment && "rounded-b-0"}  
                ${!activePayment && "rounded-6"}
                `}
         >
@@ -142,7 +139,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
           ) : null}
         </button>
         {activePayment && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 relative">
+          <div className="w-[250px] h-[180px] overflow-scroll bg-white rounded-b-6 relative border border-1 border-gray border-t-0">
             {payment.map((item) => (
               <button
                 key={item.id}
