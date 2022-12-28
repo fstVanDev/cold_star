@@ -143,19 +143,26 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
         </button>
         {activePayment && (
           <div className="w-full h-[180px] overflow-scroll bg-white border border-1 border-t-0 border-gray rounded-b-6 ">
-            {payment.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className="w-[248px] h-max my-[6px] flex justify-around"
-                onClick={() => {
-                  handleChangeCurrentValue(usersPayment, setUsersPayment, item);
-                }}
-              >
-                <p className="w-full h-max text-gray test-14 font-normal my-auto">
-                  {item.name}
-                </p>
-              </button>
+            {payment.map((item, index) => (
+              <div className="w-full h-max flex justify-between">
+                <button
+                  key={item.id}
+                  type="button"
+                  className="w-max h-max my-[6px] flex justify-around"
+                  onClick={() => {
+                    handleChangeCurrentValue(
+                      usersPayment,
+                      setUsersPayment,
+                      item
+                    );
+                  }}
+                >
+                  <p className="w-max h-max text-gray test-14 font-normal my-auto">
+                    {item.name}
+                  </p>
+                  <input type="checkbox" className="" value={item} />
+                </button>
+              </div>
             ))}
           </div>
         )}
