@@ -225,7 +225,10 @@ const Orders = () => {
                       </div>
 
                       {index === currentIndex ? (
-                        <SecondaryOrders price2={item.price} />
+                        <>
+                          <div className="w-full h-[1px] bg-green" />
+                          <SecondaryOrders price2={item.price} />
+                        </>
                       ) : null}
                     </div>
                   ))}

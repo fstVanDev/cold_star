@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
-import { plusOrders } from "../images";
+import { chevronFilter, plusOrders } from "../images";
 import { feeFunction } from "../data/mainData";
 
 const SecondaryOrders = ({ price2 }) => {
@@ -22,18 +22,24 @@ const SecondaryOrders = ({ price2 }) => {
     setCurrentOrder,
     setOrdersView,
     currentOrder,
+    totalProfit,
+    setTotalProfit,
     fiatRate,
     makerProcent,
   } = useContext(StateContext);
 
-  const [fee, setFee] = useState(null);
+  const [fee, setFee] = useState([]);
   const [activeIndex, setACtiveIndex] = useState(null);
+
+  useEffect(() => {
+    console.glo(fee);
+  }, [fee]);
 
   return (
     <>
       {config.length >= 2 && (
         <div className="bg-white px-[10px] rounded-b-20 pb-[10px]">
-          <div className="bg-main rounded-15">
+          <div className="bg-[#c5c5c5] rounded-15">
             {config[config.length - 1].orders.map((item, index) => (
               <>
                 <div className="w-max h-max" key={index}>
@@ -123,7 +129,10 @@ const SecondaryOrders = ({ price2 }) => {
                           Number(config[config.length - 1].fiat.rates[0].rate),
                           fiatRate,
                           // Number(price2)
-                          Number(item.price)
+                          Number(item.price),
+                          totalProfit,
+                          setTotalProfit,
+                          setFee
                           // Number(config[config.length - 2].fiat.rates[0].rate),
                           // Number(config[config.length - 1].fiat.rates[0].rate),
                           // Number(price2),
@@ -142,6 +151,19 @@ const SecondaryOrders = ({ price2 }) => {
                           : "border-gray bg-white"
                       } rounded-6 my-auto flex`}
                       onClick={() => {
+                        // var array = [];
+                        // if (totalProfit.length === 0) {
+                        //   console.log(totalProfit);
+                        //   array.push(result);
+                        //   setTotalProfit(arr);
+                        // } else {
+                        //     console.log(totalProfit);
+                        //   if (totalProfit[index - 1] !== result) {
+                        //     totalProfit[index - 1] = result;
+                        //     setTotalProfit(totalProfit);
+                        //   }
+                        // }
+
                         setCurrentOrder(item);
                         setACtiveIndex(index);
                         if (

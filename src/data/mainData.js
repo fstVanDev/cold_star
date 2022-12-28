@@ -192,16 +192,26 @@ export const bottomData = {
   text3: "Copyright © 2022",
 };
 
-export const feeFunction = (makerProcent, fiat, fiatRate, asset) => {
+export const feeFunction = (
+  makerProcent,
+  fiat,
+  fiatRate,
+  asset,
+  fee,
+  setFee
+) => {
   var rate;
   if (fiatRate.length === 0) {
     rate = fiat;
   } else {
     rate = fiatRate;
   }
+  var arr = fee;
 
   var maker = makerProcent.length === 0 ? 0.1 : makerProcent;
   var result = (asset / (rate + rate * maker) - 1) * 100;
+  arr.push(result);
+  setFee(arr);
 
   return Number(result).toFixed(4);
 };
