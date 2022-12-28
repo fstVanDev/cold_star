@@ -26,14 +26,13 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
         Fiat
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative my-auto">
+      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative my-auto mt-[10px]">
         <button
           type="button"
           onClick={fiat.length > 0 ? () => setActiveFiat(!activeFiat) : null}
           className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
-                 activeFiat &&
-                 "rounded-b-0 border-b border-b-1 border-b-gray my-[10px]"
+                 activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
                }  
                ${!activeFiat && "rounded-6"}
                `}

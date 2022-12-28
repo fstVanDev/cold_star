@@ -85,7 +85,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
         Payment
       </h2>
 
-      <div className="w-[220px] h-max min-h-[38px] border border-1 border-gray rounded-6 relative my-auto">
+      <div className="w-[250px] h-max min-h-[38px] border border-1 border-gray rounded-6 relative my-auto mt-[10px]">
         <button
           type="button"
           onClick={() => {
@@ -93,7 +93,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
               setActivePayment(!activePayment);
             }
           }}
-          className={`flex h-[38px] w-[250px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
+          className={`flex min-h-[38px] w-[250px] justify-between my-auto text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
                ${
                  activePayment &&
                  "rounded-b-0 border-b border-b-1 border-b-gray"
@@ -110,11 +110,13 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
               ) : (
                 usersPayment.map((item) => (
                   <div
-                    className={`w-max h-max px-[2px] flex py-[2px] rounded-4 border border-1 border-[${item.color}]`}
+                    className={`w-max h-max px-[2px] flex py-[2px] rounded-4 border border-1`}
+                    style={{ borderColor: item.color }}
                     key={item.id}
                   >
                     <p
-                      className={`w-max max-h-[14px] my-auto text-10 text-[${item.color}]`}
+                      className={`w-max max-h-[14px] my-auto text-10`}
+                      style={{ color: item.color }}
                     >
                       {item.name}
                     </p>

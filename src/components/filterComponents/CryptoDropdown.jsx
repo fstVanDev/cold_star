@@ -1383,7 +1383,7 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
         Crypto
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 my-auto">
+      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 my-auto mt-[10px]">
         <button
           type="button"
           onClick={
