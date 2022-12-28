@@ -87,7 +87,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
 
       <div
         className={`w-[250px] h-full relative my-auto 
-               ${activePayment && " border border-1 border-gray rounded-t-6"}  
+               ${activePayment && "rounded-t-6"}  
                ${!activePayment && "rounded-6 border border-1 border-gray"}
       `}
       >
@@ -106,7 +106,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
                ${!activePayment && "rounded-6"}
                `}
         >
-          <div className="w-max flex flex-wrap my-auto mx-auto rounded-0 text-14 leading-14 font-normal mr-[2px]">
+          <div className="w-max flex flex-wrap my-auto rounded-0 text-14 leading-14 font-normal mr-[2px]">
             {payment !== null ? (
               usersPayment === null ? (
                 <p className="w-max h-max my-auto text-lightGray">
