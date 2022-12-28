@@ -22,6 +22,8 @@ const SecondaryOrders = ({ price2 }) => {
     setCurrentOrder,
     setOrdersView,
     currentOrder,
+    fiatRate,
+    makerProcent,
   } = useContext(StateContext);
 
   const [fee, setFee] = useState(null);
@@ -116,10 +118,12 @@ const SecondaryOrders = ({ price2 }) => {
                     <div className="max-w-[120px] h-max flex my-auto">
                       <p className="text-green text-18 leading-24 font-bold text-center">
                         {feeFunction(
-                          Number(config[config.length - 2].fiat.rates[0].rate),
+                          makerProcent,
+                          // Number(config[config.length - 2].fiat.rates[0].rate),
                           Number(config[config.length - 1].fiat.rates[0].rate),
-                          Number(price2),
-                          Number(item.price)
+                          fiatRate,
+                          Number(price2)
+                          // Number(item.price),
                         )}
                         %
                       </p>

@@ -28,10 +28,11 @@ export const StateProvider = ({ children }) => {
   const [secondaryPayment, setSecondaryPayment] = useState(null);
   const [currentOrders, setCurrentOrders] = useState(null);
   const [secondaryOrders, setSecondaryOrders] = useState(null);
+
   const [makerProcent, setMakerProcent] = useState("");
 
   const [currentOrder, setCurrentOrder] = useState(null);
-  const [fiatRate, setFiatRate] = useState(0);
+  const [fiatRate, setFiatRate] = useState("");
 
   const [globalId, setGlobalId] = useState(0);
   const [currentId, setCurrentId] = useState(0);
