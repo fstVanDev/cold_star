@@ -101,7 +101,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
               setActivePayment(!activePayment);
             }
           }}
-          className={`flex  w-[250px] justify-between text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
+          className={`flex h-full w-[250px] justify-between text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
                ${
                  activePayment &&
                  "rounded-b-0 border-b border-b-1 border-b-gray"
@@ -109,7 +109,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
                ${!activePayment && "rounded-6"}
                `}
         >
-          <div className="w-max flex flex-wrap my-auto rounded-0 text-14 leading-14 font-normal ">
+          <div className="w-max flex flex-wrap my-auto mx-auto rounded-0 text-14 leading-14 font-normal ">
             {payment !== null ? (
               usersPayment === null ? (
                 <p className="w-max h-max my-auto text-lightGray">
