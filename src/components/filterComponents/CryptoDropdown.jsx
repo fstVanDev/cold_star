@@ -1380,7 +1380,7 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
   return (
     <div className="w-max h-full flex">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
-        Crypto
+        Asset
       </h2>
 
       <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 my-auto mt-[10px]">
@@ -1410,16 +1410,6 @@ const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
 
         {activeCrypto && (
           <div className="w-full h-max bg-white rounded-b-6">
-            {/* <input
-              type="text"
-              placeholder="Search..."
-              value={cryptoValue}
-              onChange={(e) => {
-                setCryptoValue(e.target.value.toUpperCase());
-                console.log(e.target.value.toUpperCase(), "cryptoValue");
-              }}
-              className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
-            /> */}
             {crypto.map((item) => (
               <div key={item.code}>
                 {cryptoValue.length === 0 ? (

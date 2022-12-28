@@ -99,11 +99,14 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
             }
           }}
           className={`flex h-full w-[250px] justify-between text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
-               ${activePayment && "rounded-b-0"}  
+               ${
+                 activePayment &&
+                 "rounded-b-0  border border-1 border-gray rounded-t-6"
+               }  
                ${!activePayment && "rounded-6"}
                `}
         >
-          <div className="w-max flex flex-wrap my-auto mx-auto rounded-0 text-14 leading-14 font-normal ">
+          <div className="w-max flex flex-wrap my-auto mx-auto rounded-0 text-14 leading-14 font-normal mr-[2px]">
             {payment !== null ? (
               usersPayment === null ? (
                 <p className="w-max h-max my-auto text-lightGray">
@@ -112,7 +115,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
               ) : (
                 usersPayment.map((item) => (
                   <div
-                    className={`w-max h-max px-[2px] flex py-[2px] rounded-4 border border-1`}
+                    className={`w-max h-max px-[1px] flex py-[1px] rounded-4 border border-1`}
                     style={{ borderColor: item.color }}
                     key={item.id}
                   >
@@ -139,12 +142,12 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
           ) : null}
         </button>
         {activePayment && (
-          <div className="w-[250px] h-[180px] overflow-scroll bg-white border border-t-0 border-gray rounded-b-6 ">
+          <div className="w-full h-[180px] overflow-scroll bg-white border border-1 border-gray rounded-b-6 ">
             {payment.map((item) => (
               <button
                 key={item.id}
                 type="button"
-                className="w-[250px] h-max my-[6px] flex justify-around"
+                className="w-[248px] h-max my-[6px] flex justify-around"
                 onClick={() => {
                   handleChangeCurrentValue(usersPayment, setUsersPayment, item);
                 }}

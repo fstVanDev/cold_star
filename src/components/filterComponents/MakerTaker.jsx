@@ -18,7 +18,7 @@ const MakerTaker = () => {
 
       <input
         type="number"
-        className="min-h-[40px] w-[140px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
+        className="min-h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
         placeholder="0.1%"
         value={makerProcent}
         onChange={(e) => {

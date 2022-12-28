@@ -31,6 +31,7 @@ export const StateProvider = ({ children }) => {
   const [makerProcent, setMakerProcent] = useState("");
 
   const [currentOrder, setCurrentOrder] = useState(null);
+  const [fiatRate, setFiatRate] = useState(0);
 
   const [globalId, setGlobalId] = useState(0);
   const [currentId, setCurrentId] = useState(0);
@@ -41,6 +42,8 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        fiatRate,
+        setFiatRate,
         makerProcent,
         setMakerProcent,
         ordersView,

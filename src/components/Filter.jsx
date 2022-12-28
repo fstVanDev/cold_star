@@ -11,6 +11,7 @@ import { getTradeMethods } from "../data/Requests";
 import Refresh from "./filterComponents/Refresh";
 import { getOrders } from "../data/Requests";
 import MakerTaker from "./filterComponents/MakerTaker";
+import CustomFiatRate from "./filterComponents/CustomFiatRate";
 
 const Filter = () => {
   const {
@@ -111,6 +112,7 @@ const Filter = () => {
           <div className="mt-[10px] w-full h-[60px]">
             <div className="w-full h-full rounded-10 flex justify-around bg-main border border-1 border-gray">
               <MakerTaker />
+              <CustomFiatRate />
               <RegionDropdown />
             </div>
           </div>
