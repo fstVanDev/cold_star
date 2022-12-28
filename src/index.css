@@ -12,3 +12,9 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+input[type=checkbox] {
+    background-color: #21C3A4;
+    width: 20px;
+    height: 20px;
+}
