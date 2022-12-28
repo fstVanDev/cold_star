@@ -32,7 +32,8 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
           onClick={fiat.length > 0 ? () => setActiveFiat(!activeFiat) : null}
           className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
-                 activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
+                 activeFiat &&
+                 "rounded-b-0 border-b border-b-1 border-b-gray my-[10px]"
                }  
                ${!activeFiat && "rounded-6"}
                `}
@@ -50,16 +51,18 @@ const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
         </button>
 
         {activeFiat && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={fiatValue}
-              onChange={(e) => {
-                setFiatValue(e.target.value.toUpperCase());
-              }}
-              className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
-            />
+          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6  relative">
+            <div className="w-full h-max px-[10px]">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={fiatValue}
+                onChange={(e) => {
+                  setFiatValue(e.target.value.toUpperCase());
+                }}
+                className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
+              />
+            </div>
             {fiat.map((item) => (
               <div key={item.code}>
                 {fiatValue.length === 0 ? (
