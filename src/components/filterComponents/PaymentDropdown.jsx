@@ -272,7 +272,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
         Payment
       </h2>
 
-      <div className="min-w-[160px] w-max h-max min-h-[40px] border border-1 border-gray rounded-6 relative my-auto">
+      <div className="w-[220px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative my-auto">
         <button
           type="button"
           onClick={() => {
@@ -281,7 +281,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
               setActivePayment(!activePayment);
             }
           }}
-          className={`flex justify-between h-[38px] min-w-[160px] w-max my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
+          className={`flex justify-between h-[38px] w-[220px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
                ${
                  activePayment &&
                  "rounded-b-0 border-b border-b-1 border-b-gray"
@@ -293,16 +293,16 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
             {payment !== null ? (
               usersPayment === null ? (
                 <p className="w-max h-max my-auto text-lightGray">
-                  {usersPayment}
+                  {defaultPayment}
                 </p>
               ) : (
                 usersPayment.map((item) => (
                   <div
-                    className={`w-max h-max px-[2px] flex py-[2px] rounded-2 border border-1 border-${item.color}`}
+                    className={`w-max h-max px-[2px] flex py-[2px] flex-row flex-wrap rounded-2 border border-1 border-${item.color}`}
                     key={item.id}
                   >
                     <p
-                      className={`w-max max-h-[14px] my-auto text-10 mx-[5px] text-${item.color}`}
+                      className={`w-max max-h-[14px] my-auto text-10 text-${item.color}`}
                     >
                       {item.name}
                     </p>
@@ -341,7 +341,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
           ) : null}
         </button>
         {activePayment && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 px-[10px] relative">
+          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 relative">
             {payment.map((item) => (
               <button
                 key={item.id}
