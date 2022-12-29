@@ -40,7 +40,7 @@ const Orders = () => {
         {orders.map((item, index) => (
           <div className="w-max h-max mb-[10px] rounded-20">
             <div
-              className={`2xl:w-[1070px] h-[88px] flex justify-between bg-white py-[12px] px-[30px] ${
+              className={`2xl:w-[1070px] h-max flex justify-between bg-white py-[12px] px-[30px] ${
                 index === currentIndex ? "rounded-t-20" : " rounded-20"
               }`}
               key={index}
@@ -106,10 +106,12 @@ const Orders = () => {
                 <div className="w-full h-max flex flex-wrap my-auto mx-auto">
                   {item.trade_methods.map((obj, index) => (
                     <div
-                      className={`border border-1 border-[${obj.color}] w-max h-max rounded-2 px-[5px] py-[4px] mx-[2px] my-[2px]`}
+                      className={`border border-1 w-max h-max rounded-2 px-[5px] py-[4px] mx-[2px] my-[2px]`}
+                      style={{ borderColor: item.color }}
                     >
                       <p
-                        className={`text-[${obj.color}] text-12 leading-14 w-max font-normal`}
+                        className={`text-12 leading-14 w-max font-normal`}
+                        style={{ color: item.color }}
                       >
                         {obj.name}
                       </p>
