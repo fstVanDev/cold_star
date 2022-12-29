@@ -121,22 +121,11 @@ const PaymentDropdown = () => {
                     ? usersPayment[0].name + "..."
                     : usersPayment[0].name}
                 </p>
-                // usersPayment.map((item) => (
-                // <div
-                //   className={`w-max h-max px-[1px] flex py-[1px] rounded-4 border border-1`}
-                //   style={{ borderColor: item.color }}
-                //   key={item.id}
-                // >
-                //   <p
-                //     className={`w-max max-h-[14px] my-auto text-10`}
-                //     style={{ color: item.color }}
-                //   >
-                //     {item.name}
-                //   </p>
-                // </div>
               )
             ) : (
-              <p className="w-max h-max my-auto">Enter fiat and crypto</p>
+              <p className="w-max h-max my-auto text-14 leading-20 font-normal">
+                Enter fiat and crypto
+              </p>
             )}
           </div>
 
@@ -154,12 +143,12 @@ const PaymentDropdown = () => {
               <div className="border-b border-b-1 border-b-gray pb-[5px] w-full h-max">
                 {usersPayment.map((item, index) => (
                   <div
-                    className="w-full h-max flex justify-around my-[6px] px-[12px]"
+                    className="w-full h-max flex justify-around my-[10px]"
                     key={index}
                   >
                     <label
                       for={index}
-                      className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14"
+                      className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14 text-left"
                     >
                       {item.name}
                     </label>
@@ -168,13 +157,11 @@ const PaymentDropdown = () => {
                       className="my-auto"
                       checked
                       id={index}
-                      onClick={() =>
-                        handleChangeCurrentValue(
-                          usersPayment,
-                          setUsersPayment,
-                          item
-                        )
-                      }
+                      onClick={() => {
+                        var arr = usersPayment;
+                        arr.splice(index, 1);
+                        setUsersPayment(arr);
+                      }}
                     />
                   </div>
                 ))}
@@ -183,12 +170,12 @@ const PaymentDropdown = () => {
             {payment.map((item) => (
               <button
                 type="button"
-                className="w-full h-max flex justify-around my-[6px] px-[12px]"
+                className="w-full h-max flex justify-around my-[10px]"
                 onClick={() =>
                   handleChangeCurrentValue(usersPayment, setUsersPayment, item)
                 }
               >
-                <p className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14">
+                <p className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14 text-left">
                   {item.name}
                 </p>
               </button>

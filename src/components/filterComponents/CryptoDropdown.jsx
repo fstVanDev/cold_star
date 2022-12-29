@@ -1377,11 +1377,15 @@ const CryptoDrowdown = () => {
 
   return (
     <div className="w-max h-full flex my-auto">
-      <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
+      <h2 className="w-max h-max my-auto text-12 leading-16 font-normal text-lightGray mr-[15px]">
         Asset
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 my-auto">
+      <div
+        className={`w-[120px] h-[40px] border border-1 border-gray ${
+          activeCrypto ? "rounded-b-0 roudned-t-6" : "rounded-6"
+        } rounded-6  my-auto`}
+      >
         <button
           type="button"
           onClick={
@@ -1407,7 +1411,7 @@ const CryptoDrowdown = () => {
         </button>
 
         {activeCrypto && (
-          <div className="w-full h-max bg-white rounded-b-6">
+          <div className="w-full h-max bg-white rounded-b-6 border border-1 border-1-gray relative">
             {crypto.map((item) => (
               <div key={item.code}>
                 {cryptoValue.length === 0 ? (

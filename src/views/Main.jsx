@@ -7,7 +7,7 @@ import { StateContext } from "../context/StateProvider";
 import { useEffect } from "react";
 
 const Main = () => {
-  const { config } = useContext(StateContext);
+  const { config, orders } = useContext(StateContext);
 
   useEffect(() => {
     if (config !== null) {
@@ -20,10 +20,12 @@ const Main = () => {
       <Filter />
       <FilterModal />
 
-      <div className="2xl:w-[1290px] mx-auto flex justify-between">
-        <Orders />
-        <Chain />
-      </div>
+      {orders !== null && (
+        <div className="2xl:w-[1290px] mx-auto flex justify-between">
+          <Orders />
+          <Chain />
+        </div>
+      )}
     </div>
   );
 };

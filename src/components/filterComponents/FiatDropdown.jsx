@@ -23,7 +23,11 @@ const FiatDropdown = () => {
         Fiat
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative my-auto">
+      <div
+        className={`w-[120px] h-[40px] border border-1 border-gray rounded-6 ${
+          activeFiat && "rounded-b-0"
+        } relative my-auto`}
+      >
         <button
           type="button"
           onClick={fiat.length > 0 ? () => setActiveFiat(!activeFiat) : null}
@@ -47,7 +51,7 @@ const FiatDropdown = () => {
         </button>
 
         {activeFiat && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6  relative">
+          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 relative border border-1 border-gray">
             <div className="w-full h-max px-[10px]">
               <input
                 type="text"
