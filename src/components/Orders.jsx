@@ -39,6 +39,7 @@ const Orders = () => {
     const prof = Number(profit.firstChild.nodeValue);
     console.log(prof, "orders");
     setFee(prof);
+    console.log(config);
   }
 
   useEffect(() => {
