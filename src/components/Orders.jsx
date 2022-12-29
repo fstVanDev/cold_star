@@ -37,11 +37,11 @@ const Orders = () => {
   function getOutFee(index) {
     console.log(index, `${index}profit1`);
     const profit = document.getElementById(`${index}profit1`);
-    console.log(profit.attributes.value.value);
-    // console.log(profit.target.value);
-    const prof = (config[config.length - 1].currentFee = Number(
-      profit.attributes.value.value
-    ));
+    console.log(profit, "attr");
+    // console.log(profit.attributes.value.value, "attributes");
+    // const prof = (config[config.length - 1].currentFee = Number(
+    //   profit.attributes.value.value
+    // ));
 
     setFee(prof);
   }
