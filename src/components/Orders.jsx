@@ -149,9 +149,35 @@ const Orders = () => {
                       </div>
                     </div>
 
-                    <div className="max-w-[120px] h-max flex my-auto">
+                    {/* <div className="max-w-[120px] h-max flex my-auto">
                       <p className="text-green text-10 leading-17 font-normal text-center">
                         Please add second chain to see profit
+                      </p>
+                    </div> */}
+                    <div className="max-w-[120px] h-max flex my-auto">
+                      <p
+                        className="text-green text-18 leading-24 font-bold text-center"
+                        id={`${index}profit1`}
+                        value={feeFunction(
+                          makerProcent,
+                          Number(currentFiat.rates[0].rate),
+                          // Number(
+                          //   config[config.length - 2].fiat.rates[0].rate
+                          // ),
+                          fiatRate,
+                          Number(item.price)
+                        )}
+                      >
+                        {feeFunction(
+                          makerProcent,
+                          Number(currentFiat.rates[0].rate),
+                          // Number(
+                          //   config[config.length - 2].fiat.rates[0].rate
+                          // ),
+                          fiatRate,
+                          Number(item.price)
+                        )}{" "}
+                        %
                       </p>
                     </div>
                   </div>
