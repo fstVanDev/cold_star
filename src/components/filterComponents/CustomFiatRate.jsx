@@ -20,8 +20,12 @@ const CustomFiatRate = () => {
         }
         value={fiatRate}
         onChange={(e) => {
-          setFiatRate(Number(e.target.value));
-          console.log(Number(e.target.value), "CustomFiatRate");
+          if (e.target.value === "") {
+            setFiatRate(Number(currentFiat.rates[0].rate).toFixed(2));
+          } else {
+            setFiatRate(Number(e.target.value));
+            console.log(Number(e.target.value), "CustomFiatRate");
+          }
         }}
       />
     </div>

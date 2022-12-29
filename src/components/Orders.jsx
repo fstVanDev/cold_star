@@ -5,37 +5,28 @@ import Top from "./orderComponents/Top";
 import { feeFunction } from "../data/mainData";
 
 const Orders = () => {
-  const { orders, makerProcent, fiatRate, currentFiat } =
-    useContext(StateContext);
+  const {
+    orders,
+    makerProcent,
+    fiatRate,
+    currentFiat,
+    currentFee,
+    setCurrentFee,
+    config,
+    setConfig,
+  } = useContext(StateContext);
 
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [fee, setFee] = useState(null);
 
   useEffect(() => {
-    if (fee !== null) {
-      console.log(fee);
+    if (currentFee !== null) {
+      console.log(currentFee);
     }
-  }, [fee]);
-
-  // const [fee, setFee] = useState(0);
-  // const getOutFee = (index, item) => {
-  //   const profit = document.getElementById(`${index}profit1`);
-  //   console.log(profit);
-  //   const prof = Number(profit.firstChild.nodeValue);
-
-  //   console.log(prof, "orders");
-  //   setFee(prof);
-  //   var array = config;
-  //   array[array.length - 2].currentFee = prof;
-  //   array[array.length - 2].currentOrder = item;
-  //   console.log(array);
-  //   setConfig(array);
-  // };
+  }, [currentFee]);
 
   return (
     <div className="2xl:w-[1290px] mx-auto">
       <Top />
-
       <>
         {orders.map((item, index) => (
           <div className="w-max h-max mb-[10px] rounded-20">
@@ -143,7 +134,7 @@ const Orders = () => {
                 } rounded-6 my-auto flex`}
                 onClick={() => {
                   setCurrentIndex(index);
-                  setFee(
+                  setCurrentFee(
                     feeFunction(
                       makerProcent,
                       Number(currentFiat.rates[0].rate),
@@ -151,9 +142,7 @@ const Orders = () => {
                       Number(item.price)
                     )
                   );
-                  console.log(
-                    "кнопка для пеереброса профита в конфиг, пока disabled"
-                  );
+                  console.log("кнопка записывает сurrentProfit");
                 }}
               >
                 <img

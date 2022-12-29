@@ -5,21 +5,17 @@ import { refresh } from "../../images";
 const Refresh = () => {
   const {
     mode,
-    currentAmount,
+    amount,
     currentFiat,
     currentCrypto,
     currentPayment,
-    currentOrders,
+    orders,
     globalId,
     config,
     setConfig,
     setNewFilterView,
-    setCurrentOrders,
-    secondaryOrders,
-    setSecondaryOrders,
-    ordersView,
-    setOrdersView,
     currentOrder,
+    setOrdersView,
   } = useContext(StateContext);
 
   return (
@@ -27,64 +23,60 @@ const Refresh = () => {
       className="w-max h-max my-auto flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
-        if (
-          currentFiat !== null &&
-          currentCrypto !== null &&
-          currentPayment !== null
-        ) {
-          setOrdersView(true);
-          const localObject = {
-            id: globalId,
-            mode: mode,
-            amount: currentAmount,
-            defaultAmount: currentAmount.length === 0 ? false : true,
-            fiat: currentFiat,
-            crypto: currentCrypto,
-            payments: currentPayment,
-            orders: currentOrders,
-            currentOrder: currentOrder,
-            currentFee: 0,
-          };
+        setOrdersView(true);
+        // if (
+        //   currentFiat !== null &&
+        //   currentCrypto !== null &&
+        //   currentPayment !== null
+        // ) {
 
-          if (config === null) {
-            const arr = [];
-            arr.push(localObject);
+        //   const localObject = {
+        //     id: globalId,
+        //     mode: mode,
+        //     amount: amount,
+        //     defaultAmount: amount.length === 0 ? false : true,
+        //     fiat: currentFiat,
+        //     crypto: currentCrypto,
+        //     payments: currentPayment,
+        //     orders: orders,
+        //     currentOrder: currentOrder,
+        //     currentFee: 0,
+        //   };
 
-            setConfig(arr);
-          } else {
-            let arr = config;
+        //   if (config === null) {
+        //     const arr = [];
+        //     arr.push(localObject);
 
-            arr.map((item, index) => {
-              if (item.id === globalId && arr[arr.length - 1] !== globalId) {
-                if (JSON.stringify(item) !== JSON.stringify(localObject)) {
-                  arr.splice(index, 1);
-                  const insert = function (array, indexi, obj) {
-                    return [
-                      ...array.slice(0, indexi),
-                      obj,
-                      ...array.slice(indexi),
-                    ];
-                  };
-                  arr = insert(arr, index, localObject);
+        //     setConfig(arr);
+        //   } else {
+        //     let arr = config;
 
-                  setConfig(arr);
-                }
-              } else {
-                if (arr.length - 1 !== globalId) {
-                  arr.push(localObject);
-                  setConfig(arr);
-                }
-              }
-            });
-          }
-          setNewFilterView(false);
-        } else {
-          alert(
-            "To receive orders, fiat, crypto and payment fields must be filled! Please check data..."
-          );
-        }
+        //     arr.map((item, index) => {
+        //       if (item.id === globalId && arr[arr.length - 1] !== globalId) {
+        //         if (JSON.stringify(item) !== JSON.stringify(localObject)) {
+        //           arr.splice(index, 1);
+        //           const insert = function (array, indexi, obj) {
+        //             return [
+        //               ...array.slice(0, indexi),
+        //               obj,
+        //               ...array.slice(indexi),
+        //             ];
+        //           };
+        //           arr = insert(arr, index, localObject);
+
+        //           setConfig(arr);
+        //         }
+        //       } else {
+        //         if (arr.length - 1 !== globalId) {
+        //           arr.push(localObject);
+        //           setConfig(arr);
+        //         }
+        //       }
+        //     });
+        //   }
+        //   setNewFilterView(false);
+        // }
       }}
-      sa
     >
       <div className="h-max w-full rounded-10 p-[10px]">
         <img src={refresh} alt="refresh" />

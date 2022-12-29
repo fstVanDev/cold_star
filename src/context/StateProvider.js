@@ -26,9 +26,12 @@ export const StateProvider = ({ children }) => {
   const [currentFiat, setCurrentFiat] = useState(null);
   const [currentCrypto, setCurrentCrypto] = useState(null);
   const [currentPayment, setCurrentPayment] = useState(null);
+  const [currentOrder, setCurrentOrder] = useState(null);
+  const [currentFee, setCurrentFee] = useState(null);
 
   // visibleStates
   const [newFilterView, setNewFilterView] = useState(false);
+  const [ordersView, setOrdersView] = useState(false);
 
   // const [secondaryMode, setSecondaryMode] = useState(true);
   // const [ordersView, setOrdersView] = useState(false);
@@ -92,6 +95,10 @@ export const StateProvider = ({ children }) => {
         setMakerProcent,
         amount,
         setAmount,
+        currentFee,
+        setCurrentFee,
+        currentOrder,
+        setCurrentOrder,
 
         currentFiat,
         setCurrentFiat,
@@ -102,6 +109,8 @@ export const StateProvider = ({ children }) => {
 
         newFilterView,
         setNewFilterView,
+        ordersView,
+        setOrdersView,
       }}
     >
       {children}
