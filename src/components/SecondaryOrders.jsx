@@ -34,9 +34,11 @@ const SecondaryOrders = ({ price2 }) => {
   function getOutFee(index) {
     console.log(index, ` ${index}profit`);
     const profit = document.getElementById(`${index}profit`);
-    console.log(profit);
+    console.log(profit.attributes.value.value);
     // console.log(profit.target.value);
-    // config[config.length - 1].currentFee = profit.value;
+    config[config.length - 1].currentFee = Number(
+      profit.attributes.value.value
+    );
   }
 
   useEffect(() => {
