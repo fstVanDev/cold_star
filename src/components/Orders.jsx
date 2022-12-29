@@ -12,6 +12,13 @@ const Orders = () => {
 
   useEffect(() => {
     console.log(config);
+
+    if (
+      config[config.length - 1].currentFee !== null ||
+      config[config.length - 1].currentFee !== undefined
+    ) {
+      console.log(config[config.length - 1].currentFee);
+    }
   }, [config]);
 
   return (

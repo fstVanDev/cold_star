@@ -15,10 +15,6 @@ const Main = () => {
     setOrdersView,
   } = useContext(StateContext);
 
-  useEffect(() => {
-    console.log(config);
-  }, [config]);
-
   return (
     <div className="pt-[70px] min-h-[100vh] bg-main">
       <Filter />
