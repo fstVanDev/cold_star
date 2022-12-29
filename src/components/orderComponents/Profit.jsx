@@ -8,22 +8,22 @@ const Profit = () => {
 
   const [profit, setProfit] = useState(0);
 
-  useEffect(() => {
-    if (config !== null && config.length >= 2) {
-      console.log(config, "totalConfig");
-      var arr = [];
-      config.map((item) => {
-        arr.push(item.currentFee);
-      });
-      console.log(arr, "total");
-      var sum = 0;
-      for (var i = 0; i < arr.length; i++) {
-        sum += arr[i];
-      }
+  // useEffect(() => {
+  //   if (config !== null && config.length >= 2) {
+  //     console.log(config, "totalConfig");
+  //     var arr = [];
+  //     config.map((item) => {
+  //       arr.push(item.currentFee);
+  //     });
+  //     console.log(arr, "total");
+  //     var sum = 0;
+  //     for (var i = 0; i < arr.length; i++) {
+  //       sum += arr[i];
+  //     }
 
-      console.log(sum, "totalSum");
-    }
-  }, [config]);
+  //     console.log(sum, "totalSum");
+  //   }
+  // }, [config]);
 
   return (
     <div className="w-full h-[60px] bg-green rounded-15 mt-[30px] flex justify-between">
