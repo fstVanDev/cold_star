@@ -28,7 +28,7 @@ const SecondaryOrders = ({ price2 }) => {
     makerProcent,
   } = useContext(StateContext);
 
-  const [fee, setFee] = useState([]);
+  const [fee, setFee] = useState(0);
   const [activeIndex, setACtiveIndex] = useState(null);
 
   function getOutFee(index) {
