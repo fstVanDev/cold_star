@@ -17,13 +17,13 @@ const PaymentDropdown = () => {
 
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
   const [activePayment, setActivePayment] = useState(false);
-  const [usersPayment, setUsersPayment] = useState([]);
+  const [usersPayment, setUsersPayment] = useState(null);
 
   function handleChangeCurrentValue(anything, setAnything, value) {
     let arr = anything;
     let ind = null;
 
-    if (arr.length !== 0) {
+    if (arr !== null) {
       arr.map((item, index) => {
         if (item.id === value.id) {
           ind = index;
@@ -110,13 +110,13 @@ const PaymentDropdown = () => {
         >
           <div className="w-max flex flex-wrap my-auto rounded-0 text-14 leading-14 font-normal mr-[2px]">
             {payment !== null ? (
-              usersPayment.length === 0 ? (
+              usersPayment === null ? (
                 <p className="w-max h-max my-auto text-lightGray">
                   {defaultPayment}
                 </p>
               ) : (
                 <p className="text-14 leading-20 font-normal text-lightGray w-max h-max my-auto">
-                  {usersPayment.length >= 1
+                  {usersPayment !== null && usersPayment.length >= 1
                     ? usersPayment[0].name + "..."
                     : usersPayment[0].name}
                 </p>
@@ -138,7 +138,7 @@ const PaymentDropdown = () => {
         </button>
         {activePayment && (
           <div className="w-full h-[180px] overflow-scroll bg-white border border-1 border-t-0 border-gray rounded-b-6 ">
-            {usersPayment.length > 0 && (
+            {usersPayment !== null && usersPayment.length > 0 && (
               <div className="border-b border-b-1 border-b-gray pb-[5px] w-full h-max">
                 {usersPayment.map((item, index) => (
                   <div
