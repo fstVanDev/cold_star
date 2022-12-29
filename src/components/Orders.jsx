@@ -41,7 +41,7 @@ const Orders = () => {
 
     console.log(prof, "orders");
     setFee(prof);
-    config[config.length - 1].currentFee = prof;
+    config[config.length - 2].currentFee = prof;
     console.log(config);
   }
 
