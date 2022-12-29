@@ -152,15 +152,15 @@ const SecondaryOrders = ({ price2 }) => {
                           setTotalProfit(array);
                         } else {
                           if (totalProfit.length - 1 !== config.length) {
-                            arr = totalProfit;
-                            arr.push(fee[ind]);
-                            setTotalProfit(arr);
+                            array = totalProfit;
+                            array.push(fee[ind]);
+                            setTotalProfit(array);
                           } else if (
                             totalProfit.length - 1 === config.length &&
                             totalProfit[totalProfit.length - 1] !== fee[ind]
                           ) {
-                            arr = totalProfit;
-                            arr[arr.length - 1] = fee[ind];
+                            array = totalProfit;
+                            array[array.length - 1] = fee[ind];
                           }
                         }
 
