@@ -44,7 +44,7 @@ const Refresh = () => {
             payments: currentPayment,
             orders: currentOrders,
             currentOrder: currentOrder,
-            currentFee: Number,
+            currentFee: 0,
           };
 
           if (config === null) {

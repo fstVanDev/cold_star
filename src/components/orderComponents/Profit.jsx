@@ -26,6 +26,22 @@ const Profit = () => {
   //   }
   // }, [config]);
 
+  function getTotalProfit() {
+    arr = [];
+    config.map((item) => {
+      if (item.currentFee !== 0) {
+        arr.push(item.currentFee);
+      }
+    });
+
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+
+    setProfit(sum);
+  }
+
   return (
     <div className="w-full h-[60px] bg-green rounded-15 mt-[30px] flex justify-between px-[15px] py-[18px]">
       <p className="text-white font-normal text-12 leading-16 my-auto">
