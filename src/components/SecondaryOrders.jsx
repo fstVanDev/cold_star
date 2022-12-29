@@ -180,7 +180,7 @@ const SecondaryOrders = ({ price2 }) => {
                             payments: currentPayment,
                             orders: currentOrders,
                             currentOrder: item,
-                            // currentFee: fee,
+                            currentFee: Number,
                           };
 
                           let arr = config;
