@@ -237,24 +237,42 @@ const Orders = () => {
                           </div>
                         </div>
 
+                        {config.length - 1 >= 2 && (
+                          <div className="max-w-[120px] h-max flex my-auto">
+                            <p
+                              className="text-green text-18 leading-24 font-bold text-center"
+                              id={index + "profit1"}
+                              value={feeFunction(
+                                makerProcent,
+                                Number(
+                                  config[config.length - 2].fiat.rates[0].rate
+                                ),
+                                fiatRate,
+                                Number(item.price)
+                              )}
+                            >
+                              {feeFunction(
+                                makerProcent,
+                                Number(
+                                  config[config.length - 2].fiat.rates[0].rate
+                                ),
+                                fiatRate,
+                                Number(item.price)
+                              )}
+                              %
+                            </p>
+                          </div>
+                        )}
+
                         <button
                           type="button"
-                          id={index + "profit1"}
-                          value={feeFunction(
-                            makerProcent,
-                            Number(
-                              config[config.length - 2].fiat.rates[0].rate
-                            ),
-                            fiatRate,
-                            Number(item.price)
-                          )}
                           className="w-[50px] h-[50px] border border-1 border-gray bg-main my-auto rounded-6 flex"
                           onClick={() => {
                             if (index === currentIndex) {
                               setCurrentIndex(null);
                             } else {
                               setCurrentIndex(index);
-
+                              getOutFee(index);
                               feeFunction(
                                 makerProcent,
                                 Number(
