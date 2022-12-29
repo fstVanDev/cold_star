@@ -39,11 +39,11 @@ const Profit = () => {
       sum += arr[i];
     }
 
-    return sum;
+    return sum.toFixed(4);
   }
 
   return (
-    <div className="w-full h-[60px] bg-green rounded-15 mt-[30px] flex justify-between px-[15px] py-[18px]">
+    <div className="w-full h-[60px] bg-green rounded-15 mt-[30px] flex justify-between">
       <p className="text-white font-normal text-12 leading-16 my-auto">
         Total Profit
       </p>
