@@ -196,22 +196,29 @@ export const feeFunction = (
   makerProcent,
   fiat,
   fiatRate,
-  asset
-  // fee,
-  // setFee
+  asset,
+  fiatLast,
+  assetLast,
+  config
 ) => {
+  var rateLast;
+  if (fiatRate.length === 0) {
+    rateLast = fiatLast;
+  } else {
+    rateLast = fiatRate;
+  }
+  var makerLast = makerProcent.length === 0 ? 0.1 : makerProcent;
+  var resultLast = (assetLast / (rateLast + rateLast * makerLast) - 1) * 100;
+  config[config.length - 2].currentFiat = resultLast;
+
   var rate;
   if (fiatRate.length === 0) {
     rate = fiat;
   } else {
     rate = fiatRate;
   }
-
   var maker = makerProcent.length === 0 ? 0.1 : makerProcent;
   var result = (asset / (rate + rate * maker) - 1) * 100;
-  // arr.push(result.toFixed(4));
-  // setFee(arr);
-  // console.log(arr, "fee");
 
   return Number(result).toFixed(4);
 };

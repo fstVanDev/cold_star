@@ -105,7 +105,7 @@ const Orders = () => {
 
                     <div className="max-w-[120px] h-max flex my-auto">
                       <p className="text-green text-10 leading-17 font-normal text-center">
-                        Please add second chain to see fee
+                        Please add second chain to see profit
                       </p>
                     </div>
                   </div>
