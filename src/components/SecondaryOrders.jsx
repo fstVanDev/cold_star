@@ -169,7 +169,8 @@ const SecondaryOrders = ({ price2 }) => {
                         if (
                           currentFiat !== null &&
                           currentCrypto !== null &&
-                          currentPayment !== null
+                          currentPayment !== null &&
+                          fee !== 0
                         ) {
                           const localObject = {
                             id: globalId,
