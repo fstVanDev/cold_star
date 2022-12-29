@@ -31,6 +31,10 @@ const SecondaryOrders = ({ price2 }) => {
   const [fee, setFee] = useState([]);
   const [activeIndex, setACtiveIndex] = useState(null);
 
+  useEffect(() => {
+    console.log(totalProfit);
+  }, [totalProfit]);
+
   return (
     <>
       {config.length >= 2 && (
@@ -121,19 +125,11 @@ const SecondaryOrders = ({ price2 }) => {
                       <p className="text-green text-18 leading-24 font-bold text-center">
                         {feeFunction(
                           makerProcent,
-                          // Number(config[config.length - 2].fiat.rates[0].rate),
                           Number(config[config.length - 1].fiat.rates[0].rate),
                           fiatRate,
-                          // Number(price2)
                           Number(item.price),
-                          totalProfit,
-                          setTotalProfit,
                           fee,
                           setFee
-                          // Number(config[config.length - 2].fiat.rates[0].rate),
-                          // Number(config[config.length - 1].fiat.rates[0].rate),
-                          // Number(price2),
-                          // Number(item.price)
                         )}
                         %
                       </p>
@@ -148,18 +144,25 @@ const SecondaryOrders = ({ price2 }) => {
                           : "border-gray bg-white"
                       } rounded-6 my-auto flex`}
                       onClick={() => {
-                        // var array = [];
-                        // if (totalProfit.length === 0) {
-                        //   console.log(totalProfit);
-                        //   array.push(result);
-                        //   setTotalProfit(arr);
-                        // } else {
-                        //     console.log(totalProfit);
-                        //   if (totalProfit[index - 1] !== result) {
-                        //     totalProfit[index - 1] = result;
-                        //     setTotalProfit(totalProfit);
-                        //   }
-                        // }
+                        var array = [];
+                        var ind = index;
+
+                        if (totalProfit.length === 0) {
+                          array.push(fee[ind]);
+                          setTotalProfit(array);
+                        } else {
+                          if (totalProfit.length - 1 !== config.length) {
+                            arr = totalProfit;
+                            arr.push(fee[ind]);
+                            setTotalProfit(arr);
+                          } else if (
+                            totalProfit.length - 1 === config.length &&
+                            totalProfit[totalProfit.length - 1] !== fee[ind]
+                          ) {
+                            arr = totalProfit;
+                            arr[arr.length - 1] = fee[ind];
+                          }
+                        }
 
                         setCurrentOrder(item);
                         setACtiveIndex(index);
