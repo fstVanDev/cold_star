@@ -124,11 +124,12 @@ const SecondaryOrders = ({ price2 }) => {
                     <div className="max-w-[120px] h-max flex my-auto">
                       <p className="text-green text-18 leading-24 font-bold text-center">
                         {feeFunction(
+                          makerProcent,
                           Number(config[config.length - 1].fiat.rates[0].rate),
                           fiatRate,
-                          Number(item.price),
-                          fee,
-                          setFee
+                          Number(item.price)
+                          // fee,
+                          // setFee
                         )}
                         %
                       </p>
