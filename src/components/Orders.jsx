@@ -41,7 +41,23 @@ const Orders = () => {
     ));
     console.log(prof, "orders");
     setFee(prof);
-    config[config.length - 2].currentFee = prof;
+
+    var array = config;
+    const localObject = {
+      id: globalId,
+      mode: mode,
+      amount: currentAmount,
+      defaultAmount: currentAmount.length === 0 ? false : true,
+      fiat: currentFiat,
+      crypto: currentCrypto,
+      payments: currentPayment,
+      orders: currentOrders,
+      currentOrder: item,
+      currentFee: prof,
+    };
+
+    array[array.length - 2] = localObject;
+    setConfig(array);
   }
 
   useEffect(() => {
