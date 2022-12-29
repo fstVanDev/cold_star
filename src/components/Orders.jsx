@@ -34,7 +34,7 @@ const Orders = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [fee, setFee] = useState(0);
 
-  function getOutFee(index) {
+  function getOutFee(item, index) {
     const profit = document.getElementById(`${index}profit1`);
     const prof = Number(profit.firstChild.nodeValue);
     console.log(prof, "orders");
@@ -306,7 +306,7 @@ const Orders = () => {
                               setCurrentIndex(null);
                             } else {
                               setCurrentIndex(index);
-                              getOutFee(index);
+                              getOutFee(item, index);
                             }
                           }}
                         >
