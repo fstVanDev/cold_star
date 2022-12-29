@@ -37,9 +37,9 @@ const Orders = () => {
   function getOutFee(index) {
     console.log(index, `${index}profit1`);
     const profit = document.getElementById(`${index}profit1`);
-    console.log(profit, "attributes");
+    console.log(profit.firstChild.nodeValue, "attributes");
     const prof = (config[config.length - 2].currentFee = Number(
-      profit.attributes.value.value
+      profit.firstChild.nodeValue
     ));
 
     setFee(prof);
@@ -236,7 +236,7 @@ const Orders = () => {
                           </div>
                         </div>
 
-                        {config.length - 2 >= 1 && (
+                        {config.length - 1 >= 1 && (
                           <div className="max-w-[120px] h-max flex my-auto">
                             <p
                               className="text-green text-18 leading-24 font-bold text-center"
