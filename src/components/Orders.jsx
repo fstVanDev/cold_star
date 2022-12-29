@@ -60,23 +60,23 @@ const Orders = () => {
 
       let arr = config;
 
-      // arr[arr.length - 2] = localObject;
-      // console.log(111);
-      // setConfig(arr);
+      arr[arr.length - 2] = localObject;
+      console.log(111);
+      setConfig(arr);
 
-      arr.map((obj, index) => {
-        if (obj.id === globalId && arr[arr.length - 2] !== globalId) {
-          if (JSON.stringify(obj) !== JSON.stringify(localObject)) {
-            arr.splice(index, 1);
-            const insert = function (array, indexi, obje) {
-              return [...array.slice(0, indexi), obje, ...array.slice(indexi)];
-            };
-            arr = insert(arr, index, localObject);
-            console.log(arr);
-            setConfig(arr);
-          }
-        }
-      });
+      // arr.map((obj, index) => {
+      //   if (obj.id === globalId && arr[arr.length - 2] !== globalId) {
+      //     if (JSON.stringify(obj) !== JSON.stringify(localObject)) {
+      //       arr.splice(index, 1);
+      //       const insert = function (array, indexi, obje) {
+      //         return [...array.slice(0, indexi), obje, ...array.slice(indexi)];
+      //       };
+      //       arr = insert(arr, index, localObject);
+      //       console.log(arr);
+      //       setConfig(arr);
+      //     }
+      //   }
+      // });
     }
   }
 
