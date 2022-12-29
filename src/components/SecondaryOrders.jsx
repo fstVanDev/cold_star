@@ -33,7 +33,7 @@ const SecondaryOrders = ({ price2 }) => {
 
   function getOutFee(index) {
     const profit = document.getElementById(`${index}profit`);
-    console.log(profit.value);
+    console.log(profit.target.value);
     // config[config.length - 1].currentFee = profit.value;
   }
 
@@ -131,6 +131,12 @@ const SecondaryOrders = ({ price2 }) => {
                       <p
                         className="text-green text-18 leading-24 font-bold text-center"
                         id={index + "profit"}
+                        value={feeFunction(
+                          makerProcent,
+                          Number(config[config.length - 1].fiat.rates[0].rate),
+                          fiatRate,
+                          Number(item.price)
+                        )}
                       >
                         {feeFunction(
                           makerProcent,
