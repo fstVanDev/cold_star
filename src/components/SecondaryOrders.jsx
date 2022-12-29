@@ -32,10 +32,7 @@ const SecondaryOrders = ({ price2 }) => {
   const [activeIndex, setACtiveIndex] = useState(null);
 
   function getOutFee(index) {
-    console.log(index, `${index}profit`);
     const profit = document.getElementById(`${index}profit`);
-    console.log(profit.attributes.value.value);
-    // console.log(profit.target.value);
     const prof = (config[config.length - 1].currentFee = Number(
       profit.attributes.value.value
     ));

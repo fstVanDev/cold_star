@@ -35,14 +35,13 @@ const Orders = () => {
   const [fee, setFee] = useState(0);
 
   function getOutFee(index) {
-    console.log(index, `${index}profit1`);
     const profit = document.getElementById(`${index}profit1`);
-    console.log(profit.firstChild.nodeValue, "attributes");
     const prof = (config[config.length - 2].currentFee = Number(
       profit.firstChild.nodeValue
     ));
     console.log(prof, "orders");
     setFee(prof);
+    config[config.length - 2].currentFee = prof;
   }
 
   useEffect(() => {
