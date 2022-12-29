@@ -41,9 +41,10 @@ const Orders = () => {
 
     console.log(prof, "orders");
     setFee(prof);
-    config[config.length - 2].currentFee = prof;
-    console.log(config);
-    setConfig(config);
+    var array = config;
+    array[array.length - 2].currentFee = prof;
+    console.log(array);
+    setConfig(array);
   };
 
   useEffect(() => {
