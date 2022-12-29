@@ -52,14 +52,14 @@ const Filter = () => {
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">
       <div className="grid h-max w-full rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
-        <div className="flex justify-around w-full h-[120px]">
+        <div className="flex justify-around w-full h-[60px]">
           <Mode />
           <Amount />
           <FiatDropdown />
           <CryptoDropdown />
           <PaymentDropdown />
           <Refresh />
-          <div className="mt-[10px] w-full">
+          <div className="mt-[10px] w-full h-[60px]">
             <MakerTaker />
             <CustomFiatRate />
             <RegionDropdown />
