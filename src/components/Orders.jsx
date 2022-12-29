@@ -37,8 +37,8 @@ const Orders = () => {
   function getOutFee(index) {
     const profit = document.getElementById(`${index}profit1`);
     console.log(profit);
-    // const prof = Number(profit.firstChild.nodeValue);
-    const prof = Number(profit.attributes.value.value);
+    const prof = Number(profit.firstChild.nodeValue);
+    // const prof = Number(profit.attributes.value.value);
 
     console.log(prof, "orders");
     setFee(prof);
