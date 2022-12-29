@@ -166,53 +166,60 @@ const SecondaryOrders = ({ price2 }) => {
                         getOutFee(index);
                         setCurrentOrder(item);
                         setACtiveIndex(index);
-                        if (
-                          currentFiat !== null &&
-                          currentCrypto !== null &&
-                          currentPayment !== null &&
-                          fee !== 0
-                        ) {
-                          const localObject = {
-                            id: globalId,
-                            mode: mode,
-                            amount: currentAmount,
-                            defaultAmount:
-                              currentAmount.length === 0 ? false : true,
-                            fiat: currentFiat,
-                            crypto: currentCrypto,
-                            payments: currentPayment,
-                            orders: currentOrders,
-                            currentOrder: item,
-                            currentFee: fee,
-                          };
-
-                          let arr = config;
-
-                          arr.map((obj, index) => {
-                            if (
-                              obj.id === globalId &&
-                              arr[arr.length - 1] !== globalId
-                            ) {
-                              if (
-                                JSON.stringify(obj) !==
-                                JSON.stringify(localObject)
-                              ) {
-                                arr.splice(index, 1);
-                                const insert = function (array, indexi, obje) {
-                                  return [
-                                    ...array.slice(0, indexi),
-                                    obje,
-                                    ...array.slice(indexi),
-                                  ];
-                                };
-                                arr = insert(arr, index, localObject);
-                                console.log(arr);
-                                setConfig(arr);
-                                console.log(3333);
-                              }
-                            }
-                          });
+                        if (config[config.length - 1].currentFee !== fee) {
+                          console.log("bot equal fee");
+                          config[config.length - 1].currentFee = fee;
+                        } else {
+                          console.log("equal fee");
                         }
+
+                        // if (
+                        //   currentFiat !== null &&
+                        //   currentCrypto !== null &&
+                        //   currentPayment !== null &&
+                        //   fee !== 0
+                        // ) {
+                        //   const localObject = {
+                        //     id: globalId,
+                        //     mode: mode,
+                        //     amount: currentAmount,
+                        //     defaultAmount:
+                        //       currentAmount.length === 0 ? false : true,
+                        //     fiat: currentFiat,
+                        //     crypto: currentCrypto,
+                        //     payments: currentPayment,
+                        //     orders: currentOrders,
+                        //     currentOrder: item,
+                        //     currentFee: fee,
+                        //   };
+
+                        //   let arr = config;
+
+                        //   arr.map((obj, index) => {
+                        //     if (
+                        //       obj.id === globalId &&
+                        //       arr[arr.length - 1] !== globalId
+                        //     ) {
+                        //       if (
+                        //         JSON.stringify(obj) !==
+                        //         JSON.stringify(localObject)
+                        //       ) {
+                        //         arr.splice(index, 1);
+                        //         const insert = function (array, indexi, obje) {
+                        //           return [
+                        //             ...array.slice(0, indexi),
+                        //             obje,
+                        //             ...array.slice(indexi),
+                        //           ];
+                        //         };
+                        //         arr = insert(arr, index, localObject);
+                        //         console.log(arr);
+                        //         setConfig(arr);
+                        //         console.log(3333);
+                        //       }
+                        //     }
+                        //   });
+                        // }
                       }}
                     >
                       <img
