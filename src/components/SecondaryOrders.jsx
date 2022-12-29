@@ -31,14 +31,14 @@ const SecondaryOrders = ({ price2 }) => {
   const [fee, setFee] = useState(0);
   const [activeIndex, setACtiveIndex] = useState(null);
 
-  function getOutFee(index, config) {
+  function getOutFee(index, config, setConfig) {
     const profit = document.getElementById(`${index}profit`);
     const prof = Number(profit.attributes.value.value);
     console.log(prof, "secondaryOrders");
     setFee(prof);
     config[config.length - 1].currentFee = prof;
     console.log(config);
-    return config;
+    setConfig(config);
   }
 
   return (
@@ -157,7 +157,7 @@ const SecondaryOrders = ({ price2 }) => {
                           : "border-gray bg-white"
                       } rounded-6 my-auto flex`}
                       onClick={() => {
-                        getOutFee(index, config);
+                        getOutFee(index, config, setConfig);
                         setCurrentOrder(item);
                         setACtiveIndex(index);
                         // if (
