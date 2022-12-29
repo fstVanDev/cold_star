@@ -34,7 +34,7 @@ const Orders = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [fee, setFee] = useState(0);
 
-  function getOutFee(index, config, setConfig) {
+  const getOutFee = (index) => {
     const profit = document.getElementById(`${index}profit1`);
     console.log(profit);
     const prof = Number(profit.firstChild.nodeValue);
@@ -44,7 +44,7 @@ const Orders = () => {
     config[config.length - 2].currentFee = prof;
     console.log(config);
     setConfig(config);
-  }
+  };
 
   useEffect(() => {
     console.log(config);
@@ -270,7 +270,7 @@ const Orders = () => {
                               setCurrentIndex(null);
                             } else {
                               setCurrentIndex(index);
-                              getOutFee(index, config, setConfig);
+                              getOutFee(index);
 
                               //  if (
                               //    currentFiat !== null &&
