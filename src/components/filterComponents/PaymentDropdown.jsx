@@ -3,7 +3,7 @@ import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 import { getOrders } from "../../data/Requests";
 
-const PaymentDropdown = ({ payment, setCurrentPayment }) => {
+const PaymentDropdown = () => {
   const {
     mode,
     currentAmount,
@@ -11,6 +11,8 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
     currentCrypto,
     currentPayment,
     setCurrentOrders,
+    payment,
+    setCurrentPayment,
   } = useContext(StateContext);
 
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
@@ -81,13 +83,13 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
   }, [currentPayment]);
 
   return (
-    <div className="w-max h-full flex">
+    <div className="w-max h-[40px] flex">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
         Payment
       </h2>
 
       <div
-        className={`w-[250px] h-full relative my-auto 
+        className={`w-[140px] h-[40px] relative my-auto 
                ${activePayment && "rounded-t-6"}  
                ${!activePayment && "rounded-6 border border-1 border-gray"}
       `}
@@ -99,7 +101,7 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
               setActivePayment(!activePayment);
             }
           }}
-          className={`flex h-full w-[250px] justify-between text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
+          className={`flex h-full w-[140px] justify-between text-lightGray rounded-0 text-14 leading-20 font-normal pr-[12px] pl-[6px]
                ${
                  activePayment &&
                  "rounded-b-0  border border-1 border-gray rounded-t-6"
@@ -114,20 +116,24 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
                   {defaultPayment}
                 </p>
               ) : (
-                usersPayment.map((item) => (
-                  <div
-                    className={`w-max h-max px-[1px] flex py-[1px] rounded-4 border border-1`}
-                    style={{ borderColor: item.color }}
-                    key={item.id}
-                  >
-                    <p
-                      className={`w-max max-h-[14px] my-auto text-10`}
-                      style={{ color: item.color }}
-                    >
-                      {item.name}
-                    </p>
-                  </div>
-                ))
+                <p className="text-14 leading-20 font-normal text-lightGray w-max h-max my-auto">
+                  {usersPayment.length >= 2
+                    ? usersPayment[0].name + "..."
+                    : usersPayment[0].name}
+                </p>
+                // usersPayment.map((item) => (
+                // <div
+                //   className={`w-max h-max px-[1px] flex py-[1px] rounded-4 border border-1`}
+                //   style={{ borderColor: item.color }}
+                //   key={item.id}
+                // >
+                //   <p
+                //     className={`w-max max-h-[14px] my-auto text-10`}
+                //     style={{ color: item.color }}
+                //   >
+                //     {item.name}
+                //   </p>
+                // </div>
               )
             ) : (
               <p className="w-max h-max my-auto">First enter fiat and crypto</p>
@@ -144,27 +150,48 @@ const PaymentDropdown = ({ payment, setCurrentPayment }) => {
         </button>
         {activePayment && (
           <div className="w-full h-[180px] overflow-scroll bg-white border border-1 border-t-0 border-gray rounded-b-6 ">
-            {payment.map((item, index) => (
-              <div className="w-full h-max flex justify-around my-[6px] px-[12px]">
-                <label
-                  for={index}
-                  className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14"
-                >
-                  {item.name}
-                </label>
-                <input
-                  type="checkbox"
-                  className="my-auto"
-                  id={index}
-                  onClick={() =>
-                    handleChangeCurrentValue(
-                      usersPayment,
-                      setUsersPayment,
-                      item
-                    )
-                  }
-                />
+            {usersPayment !== null && usersPayment.length > 0 && (
+              <div className="border-b border-b-1 border-b-gray pb-[5px] w-full h-max">
+                {usersPayment.map((item, index) => (
+                  <div
+                    className="w-full h-max flex justify-around my-[6px] px-[12px]"
+                    key={index}
+                  >
+                    <label
+                      for={index}
+                      className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14"
+                    >
+                      {item.name}
+                    </label>
+                    <input
+                      type="checkbox"
+                      className="my-auto"
+                      checked
+                      id={index}
+                      onClick={() =>
+                        handleChangeCurrentValue(
+                          usersPayment,
+                          setUsersPayment,
+                          item
+                        )
+                      }
+                    />
+                  </div>
+                ))}
               </div>
+            )}
+            {payment.map((item) => (
+              <button
+                type="button"
+                className="w-full h-max flex justify-around my-[6px] px-[12px]"
+                onClick={() =>
+                  handleChangeCurrentValue(usersPayment, setUsersPayment, item)
+                }
+              >
+                <p className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14">
+                  {item.name}
+                </p>
+              </button>
             ))}
           </div>
         )}

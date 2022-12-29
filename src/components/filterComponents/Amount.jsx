@@ -1,13 +1,8 @@
 import React, { useContext } from "react";
-import { useEffect } from "react";
 import { StateContext } from "../../context/StateProvider";
 
-const Amount = ({ currentAmount, setCurrentAmount }) => {
-  const { config, globalId } = useContext(StateContext);
-
-  // useEffect(() => {
-  //   setCurrentAmount("");
-  // }, []);
+const Amount = () => {
+  const { amount, setAmount } = useContext(StateContext);
 
   return (
     <div className="w-max h-full flex">
@@ -16,12 +11,12 @@ const Amount = ({ currentAmount, setCurrentAmount }) => {
       </h2>
       <input
         type="text"
-        className="min-h-[40px] w-[120px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
+        className="h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
         placeholder="Enter amount"
-        value={currentAmount}
+        value={amount}
         onChange={(e) => {
-          setCurrentAmount(Number(e.target.value));
-          console.log(Number(e.target.value), "currentAmount");
+          setAmount(Number(e.target.value));
+          console.log(Number(e.target.value), "amount");
         }}
       />
     </div>

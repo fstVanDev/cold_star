@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StateContext } from "../../context/StateProvider";
 
-const Mode = ({ mode, setMode }) => {
+const Mode = () => {
+  const { mode, setMode } = useContext(StateContext);
+
   return (
     <div className="w-max h-full flex">
       <div className="w-[120px] h-max h-[32px] border border-1 border-gray rounded-6 my-auto flex justify-between">
@@ -25,7 +28,6 @@ const Mode = ({ mode, setMode }) => {
         <button
           type="button"
           onClick={() => {
-            console.log("sell mode-false-1");
             setMode(false);
           }}
           className={`w-1/2 h-full border border-1 ${

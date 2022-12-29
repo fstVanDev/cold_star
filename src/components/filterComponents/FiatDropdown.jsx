@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
-const FiatDropdown = ({ fiat, setCurrentFiat, currentFiat }) => {
+const FiatDropdown = () => {
+  const { fiat, setCurrentFiat } = useContext(StateContext);
+
   const [defaultFiat, setDefaultFiat] = useState("Enter...");
   const [activeFiat, setActiveFiat] = useState(false);
   const [fiatValue, setFiatValue] = useState("");
-
-  // useEffect(() => {
-  //   setCurrentFiat(null);
-  //   setDefaultFiat("USD...");
-  //   setFiatValue("");
-  // }, []);
 
   useEffect(() => {
     if (fiat !== null) {

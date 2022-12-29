@@ -19,28 +19,13 @@ const Filter = () => {
     mode,
     currentFiat,
     currentCrypto,
-    setMode,
-    fiat,
-    setCurrentFiat,
-    crypto,
     globalId,
     setGlobalId,
-    currentOrders,
     currentAmount,
-    setCurrentAmount,
-    setCurrentPayment,
-    setCurrentCrypto,
     newFilterView,
     setNewFilterView,
-    config,
-    setConfig,
-    payment,
+    setOrders,
     setPayment,
-    setCurrentOrders,
-    secondaryOrders,
-    setSecondaryOrders,
-    makerProcent,
-    setMakerProcent,
   } = useContext(StateContext);
 
   const [addition, setAddition] = useState(false);
@@ -59,7 +44,7 @@ const Filter = () => {
         currentFiat,
         currentCrypto,
         currentPayment,
-        setCurrentOrders
+        setOrders
       );
     }
   }, [currentPayment]);
@@ -67,56 +52,19 @@ const Filter = () => {
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">
       <div className="grid h-max w-full rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
-        <div className="flex justify-around w-full h-[60px]">
-          <Mode mode={mode} setMode={setMode} />
-
-          <Amount amount={currentAmount} setCurrentAmount={setCurrentAmount} />
-
-          <FiatDropdown
-            fiat={fiat}
-            setCurrentFiat={setCurrentFiat}
-            currentFiat={currentFiat}
-          />
-
-          <CryptoDropdown
-            crypto={crypto}
-            setCurrentCrypto={setCurrentCrypto}
-            currentCrypto={currentCrypto}
-          />
-
-          <PaymentDropdown
-            payment={payment}
-            setCurrentPayment={setCurrentPayment}
-          />
-
-          <div className="flex justify-between w-[100px] px-[5px]">
-            <button
-              type="button"
-              className="flex border border-1 border-gray rounded-4 p-[10px] h-max my-auto
-            "
-              onClick={() => setAddition(!addition)}
-            >
-              <img
-                src={ordersChevron}
-                alt="chrn"
-                className={`w-[12px] h-[15px] ${
-                  addition === true ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            <Refresh />
+        <div className="flex justify-around w-full h-[120px]">
+          <Mode />
+          <Amount />
+          <FiatDropdown />
+          <CryptoDropdown />
+          <PaymentDropdown />
+          <Refresh />
+          <div className="mt-[10px] w-full">
+            <MakerTaker />
+            <CustomFiatRate />
+            <RegionDropdown />
           </div>
         </div>
-        {addition === true && (
-          <div className="mt-[10px] w-full h-[60px]">
-            <div className="w-full h-full rounded-10 flex justify-around bg-main border border-1 border-gray">
-              <MakerTaker />
-              <CustomFiatRate />
-              <RegionDropdown />
-            </div>
-          </div>
-        )}
       </div>
       {newFilterView && (
         <button

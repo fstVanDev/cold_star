@@ -5,10 +5,8 @@ import Profit from "./Profit";
 import { close, star, favouriteStar } from "../../images";
 
 const Chain = () => {
-  const { currentId, config, currentOrder, setCurrentOrder } =
-    useContext(StateContext);
+  const { config } = useContext(StateContext);
 
-  const [currentChain, setCurrentChain] = useState(0);
   const [fav, setFav] = useState(false);
 
   return (

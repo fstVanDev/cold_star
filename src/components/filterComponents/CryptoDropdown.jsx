@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
-const CryptoDrowdown = ({ crypto, setCurrentCrypto, currentCrypto }) => {
+const CryptoDrowdown = () => {
+  const { crypto, setCurrentCrypto } = useContext(StateContext);
+
   const [defaultCrypto, setDefaultCrypto] = useState("Enter...");
   const [activeCrypto, setActiveCrypto] = useState(false);
   const [cryptoValue, setCryptoValue] = useState("");
-
-  // useEffect(() => {
-  //   setCurrentCrypto(null);
-  //   setDefaultCrypto("USDT...");
-  //   setCryptoValue("");
-  // }, []);
 
   useEffect(() => {
     if (crypto !== null) {

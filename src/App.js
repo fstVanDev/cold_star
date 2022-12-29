@@ -41,9 +41,6 @@ const App = () => {
           />
         )}
 
-        {/* <Route path={`/favourites`} render={() => <Favourites />} /> */}
-        {/* <Route path={`/:id/toTrade`} render={() => <Main />} /> */}
-
         <Redirect to={"/"} />
       </Switch>
       <Bottom />

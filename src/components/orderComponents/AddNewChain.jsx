@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const AddNewChain = () => {
-  const { setNewFilterView, setGlobalId, globalId, config, setCurrentOrder } =
+  const { setNewFilterView, setGlobalId, globalId, setCurrentOrder } =
     useContext(StateContext);
 
   return (

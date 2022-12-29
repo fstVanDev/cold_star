@@ -34,7 +34,6 @@ const Navbar = () => {
               <NavLink
                 to={{
                   pathname: `/${user.name}-${user.id}/toTrade`,
-                  // pathname: "/:id/toTrade",
                 }}
                 className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
               >
@@ -128,7 +127,6 @@ const Navbar = () => {
                 <NavLink
                   to={{
                     pathname: `/${user.name}-${user.id}/favourites`,
-                    // pathname: `//favourites`,
                   }}
                 >
                   <p className="text-14 text-gray font-bold leading-22 w-max h-max mx-auto">

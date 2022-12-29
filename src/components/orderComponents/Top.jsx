@@ -6,11 +6,12 @@ const Top = () => {
 
   const barDefault = [
     { value: "Мethod", width: "w-max" },
-    { value: "Advertisers (Completion rate)", width: "w-[170px]" },
-    { value: "Price", width: "w-[80px]" },
-    { value: "Limit/Available", width: "w-[185px]" },
-    { value: "Payment", width: "w-[150px]" },
-    { value: "Your Fees", width: "w-[120px]" },
+    { value: "Advertisers (Completion rate)", width: "w-[175px]" },
+    { value: "Price", width: "w-[100px]" },
+    { value: "Limit/Available", width: "w-[195px]" },
+    { value: "Payment", width: "w-[170px]" },
+    { value: "Your Fees", width: "w-[88px]" },
+    { value: "", width: "w-[50px]" },
   ];
 
   return (
