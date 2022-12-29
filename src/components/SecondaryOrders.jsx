@@ -36,10 +36,10 @@ const SecondaryOrders = ({ price2 }) => {
     const prof = Number(profit.attributes.value.value);
     console.log(prof, "secondaryOrders");
     setFee(prof);
-    var array = config;
-    array[array.length - 1].currentFee = prof;
-    console.log(array);
-    setConfig(array);
+    // var array = config;
+    // array[array.length - 1].currentFee = prof;
+    // console.log(array);
+    // setConfig(array);
   };
 
   useEffect(() => {
