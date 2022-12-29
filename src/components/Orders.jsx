@@ -58,11 +58,11 @@ const Orders = () => {
         currentFee: prof,
       };
 
-      let arr = config;
+      // let arr = config;
 
-      arr[arr.length - 2] = localObject;
-      console.log(111);
-      setConfig(arr);
+      // arr[arr.length - 2] = localObject;
+      // console.log(111);
+      // setConfig(arr);
 
       arr.map((obj, index) => {
         if (obj.id === globalId && arr[arr.length - 2] !== globalId) {
