@@ -34,30 +34,29 @@ const Orders = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [fee, setFee] = useState(0);
 
-  function getOutFee(item, index) {
+  function getOutFee(index) {
     const profit = document.getElementById(`${index}profit1`);
-    const prof = (config[config.length - 2].currentFee = Number(
-      profit.firstChild.nodeValue
-    ));
+    const prof = Number(profit.firstChild.nodeValue);
     console.log(prof, "orders");
     setFee(prof);
 
-    var array = config;
-    const localObject = {
-      id: globalId,
-      mode: mode,
-      amount: currentAmount,
-      defaultAmount: currentAmount.length === 0 ? false : true,
-      fiat: currentFiat,
-      crypto: currentCrypto,
-      payments: currentPayment,
-      orders: currentOrders,
-      currentOrder: item,
-      currentFee: prof,
-    };
+    // var array = config;
+    // const localObject = {
+    //   id: globalId,
+    //   mode: mode,
+    //   amount: currentAmount,
+    //   defaultAmount: currentAmount.length === 0 ? false : true,
+    //   fiat: currentFiat,
+    //   crypto: currentCrypto,
+    //   payments: currentPayment,
+    //   orders: currentOrders,
+    //   currentOrder: item,
+    //   currentFee: prof,
+    // };
 
-    array[array.length - 2] = localObject;
-    setConfig(array);
+    // array[array.length - 2] = localObject;
+    // setConfig(array);
+    return prof;
   }
 
   useEffect(() => {
@@ -286,61 +285,62 @@ const Orders = () => {
                               setCurrentIndex(null);
                             } else {
                               setCurrentIndex(index);
-                              getOutFee(item, index);
+                              // getOutFee(item, index);
 
-                              // if (
-                              //   currentFiat !== null &&
-                              //   currentCrypto !== null &&
-                              //   currentPayment !== null &&
-                              //   fee !== 0
-                              // ) {
-                              //   const localObject = {
-                              //     id: globalId,
-                              //     mode: mode,
-                              //     amount: currentAmount,
-                              //     defaultAmount:
-                              //       currentAmount.length === 0 ? false : true,
-                              //     fiat: currentFiat,
-                              //     crypto: currentCrypto,
-                              //     payments: currentPayment,
-                              //     orders: currentOrders,
-                              //     currentOrder: item,
-                              //     currentFee: fee,
-                              //   };
+                              if (
+                                currentFiat !== null &&
+                                currentCrypto !== null &&
+                                currentPayment !== null &&
+                                fee !== 0
+                              ) {
+                                const localObject = {
+                                  id: globalId,
+                                  mode: mode,
+                                  amount: currentAmount,
+                                  defaultAmount:
+                                    currentAmount.length === 0 ? false : true,
+                                  fiat: currentFiat,
+                                  crypto: currentCrypto,
+                                  payments: currentPayment,
+                                  orders: currentOrders,
+                                  currentOrder: item,
+                                  currentFee: getOutFee(index),
+                                };
 
-                              //   let arr = config;
+                                let arr = config;
 
-                              //   arr[arr.length - 2] = localObject;
-                              //   console.log(111);
-                              //   setConfig(arr);
+                                arr[arr.length - 2] = localObject;
+                                console.log(111);
+                                setConfig(arr);
 
-                              // arr.map((obj, index) => {
-                              //   if (
-                              //     obj.id === globalId &&
-                              //     arr[arr.length - 2] !== globalId
-                              //   ) {
-                              //     if (
-                              //       JSON.stringify(obj) !==
-                              //       JSON.stringify(localObject)
-                              //     ) {
-                              //       arr.splice(index, 1);
-                              //       const insert = function (
-                              //         array,
-                              //         indexi,
-                              //         obje
-                              //       ) {
-                              //         return [
-                              //           ...array.slice(0, indexi),
-                              //           obje,
-                              //           ...array.slice(indexi),
-                              //         ];
-                              //       };
-                              //       arr = insert(arr, index, localObject);
-                              //       console.log(arr);
-                              //       setConfig(arr);
-                              //     }
-                              //   }
-                              // });
+                                arr.map((obj, index) => {
+                                  if (
+                                    obj.id === globalId &&
+                                    arr[arr.length - 2] !== globalId
+                                  ) {
+                                    if (
+                                      JSON.stringify(obj) !==
+                                      JSON.stringify(localObject)
+                                    ) {
+                                      arr.splice(index, 1);
+                                      const insert = function (
+                                        array,
+                                        indexi,
+                                        obje
+                                      ) {
+                                        return [
+                                          ...array.slice(0, indexi),
+                                          obje,
+                                          ...array.slice(indexi),
+                                        ];
+                                      };
+                                      arr = insert(arr, index, localObject);
+                                      console.log(arr);
+                                      setConfig(arr);
+                                    }
+                                  }
+                                });
+                              }
                             }
                           }}
                         >
