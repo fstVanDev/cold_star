@@ -32,7 +32,7 @@ const SecondaryOrders = ({ price2 }) => {
   const [activeIndex, setACtiveIndex] = useState(null);
 
   function getOutFee(index) {
-    console.log(index, ` ${index}profit`);
+    console.log(index, `${index}profit`);
     const profit = document.getElementById(`${index}profit`);
     console.log(profit.attributes.value.value);
     // console.log(profit.target.value);
@@ -213,10 +213,6 @@ const SecondaryOrders = ({ price2 }) => {
                                 console.log(arr);
                                 setConfig(arr);
                                 console.log(3333);
-                              } else {
-                                console.log(2222);
-                                arr[arr.length - 1] = localObject;
-                                setConfig(arr);
                               }
                             }
                           });

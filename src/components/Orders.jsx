@@ -35,7 +35,7 @@ const Orders = () => {
   const [fee, setFee] = useState(0);
 
   function getOutFee(index) {
-    console.log(index, ` ${index}profit1`);
+    console.log(index, `${index}profit1`);
     const profit = document.getElementById(`${index}profit1`);
     console.log(profit.attributes.value.value);
     // console.log(profit.target.value);
