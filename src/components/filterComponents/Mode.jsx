@@ -5,7 +5,7 @@ const Mode = () => {
   const { mode, setMode } = useContext(StateContext);
 
   return (
-    <div className="w-max h-full flex">
+    <div className="w-max h-full flex my-auto">
       <div className="w-[120px] h-max h-[32px] border border-1 border-gray rounded-6 my-auto flex justify-between">
         <button
           type="button"

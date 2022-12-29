@@ -1376,12 +1376,12 @@ const CryptoDrowdown = () => {
   // ];
 
   return (
-    <div className="w-max h-full flex">
+    <div className="w-max h-full flex my-auto">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
         Asset
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 my-auto mt-[10px]">
+      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 my-auto">
         <button
           type="button"
           onClick={

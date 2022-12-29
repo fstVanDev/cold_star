@@ -23,7 +23,7 @@ const FiatDropdown = () => {
         Fiat
       </h2>
 
-      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative my-auto mt-[10px]">
+      <div className="w-[120px] h-max min-h-[40px] border border-1 border-gray rounded-6 relative my-auto">
         <button
           type="button"
           onClick={fiat.length > 0 ? () => setActiveFiat(!activeFiat) : null}

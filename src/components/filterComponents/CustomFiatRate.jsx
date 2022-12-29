@@ -16,7 +16,7 @@ const CustomFiatRate = () => {
         placeholder={
           currentFiat !== null
             ? Number(currentFiat.rates[0].rate).toFixed(2)
-            : "Enter fiat first"
+            : "Enter fiat..."
         }
         value={fiatRate}
         onChange={(e) => {

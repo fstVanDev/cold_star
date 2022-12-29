@@ -83,7 +83,7 @@ const PaymentDropdown = () => {
   }, [currentPayment]);
 
   return (
-    <div className="w-max h-[40px] flex">
+    <div className="w-max h-[40px] flex my-auto">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
         Payment
       </h2>
@@ -136,7 +136,7 @@ const PaymentDropdown = () => {
                 // </div>
               )
             ) : (
-              <p className="w-max h-max my-auto">First enter fiat and crypto</p>
+              <p className="w-max h-max my-auto">Enter fiat and crypto</p>
             )}
           </div>
 

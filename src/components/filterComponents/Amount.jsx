@@ -5,14 +5,14 @@ const Amount = () => {
   const { amount, setAmount } = useContext(StateContext);
 
   return (
-    <div className="w-max h-full flex">
+    <div className="w-max h-full flex my-auto">
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
         Amount
       </h2>
       <input
         type="text"
         className="h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
-        placeholder="Enter amount"
+        placeholder="Enter..."
         value={amount}
         onChange={(e) => {
           setAmount(Number(e.target.value));
