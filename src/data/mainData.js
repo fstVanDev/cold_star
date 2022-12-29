@@ -196,9 +196,9 @@ export const feeFunction = (
   makerProcent,
   fiat,
   fiatRate,
-  asset,
-  fee,
-  setFee
+  asset
+  // fee,
+  // setFee
 ) => {
   var rate;
   if (fiatRate.length === 0) {
@@ -206,13 +206,12 @@ export const feeFunction = (
   } else {
     rate = fiatRate;
   }
-  var arr = fee;
 
   var maker = makerProcent.length === 0 ? 0.1 : makerProcent;
   var result = (asset / (rate + rate * maker) - 1) * 100;
-  arr.push(result.toFixed(4));
-  setFee(arr);
-  console.log(arr, "fee");
+  // arr.push(result.toFixed(4));
+  // setFee(arr);
+  // console.log(arr, "fee");
 
   return Number(result).toFixed(4);
 };
