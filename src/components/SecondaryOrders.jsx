@@ -148,11 +148,7 @@ const SecondaryOrders = ({ price2 }) => {
                           makerProcent,
                           Number(config[config.length - 1].fiat.rates[0].rate),
                           fiatRate,
-                          Number(item.price),
-
-                          Number(config[config.length - 2].fiat.rates[0].rate),
-                          Number(price2),
-                          config
+                          Number(item.price)
                         )}
                         %
                       </p>

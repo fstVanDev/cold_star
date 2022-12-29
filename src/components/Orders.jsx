@@ -37,13 +37,12 @@ const Orders = () => {
   function getOutFee(index) {
     console.log(index, `${index}profit1`);
     const profit = document.getElementById(`${index}profit1`);
-    console.log(profit, "attr");
-    // console.log(profit.attributes.value.value, "attributes");
-    // const prof = (config[config.length - 1].currentFee = Number(
-    //   profit.attributes.value.value
-    // ));
+    console.log(profit.firstChild.nodeValue, "attributes");
+    const prof = (config[config.length - 1].currentFee = Number(
+      profit.firstChild.nodeValue
+    ));
 
-    // setFee(prof);
+    setFee(prof);
   }
 
   useEffect(() => {
@@ -245,7 +244,7 @@ const Orders = () => {
                               value={feeFunction(
                                 makerProcent,
                                 Number(
-                                  config[config.length - 2].fiat.rates[0].rate
+                                  config[config.length - 1].fiat.rates[0].rate
                                 ),
                                 fiatRate,
                                 Number(item.price)
@@ -254,7 +253,7 @@ const Orders = () => {
                               {feeFunction(
                                 makerProcent,
                                 Number(
-                                  config[config.length - 2].fiat.rates[0].rate
+                                  config[config.length - 1].fiat.rates[0].rate
                                 ),
                                 fiatRate,
                                 Number(item.price)
@@ -276,7 +275,7 @@ const Orders = () => {
                               feeFunction(
                                 makerProcent,
                                 Number(
-                                  config[config.length - 2].fiat.rates[0].rate
+                                  config[config.length - 1].fiat.rates[0].rate
                                 ),
                                 fiatRate,
                                 Number(item.price)
@@ -306,7 +305,7 @@ const Orders = () => {
 
                                 let arr = config;
 
-                                arr[arr.length - 2] = localObject;
+                                arr[arr.length - 1] = localObject;
                                 console.log(111);
                                 setConfig(arr);
                                 // arr.map((obj, index) => {
