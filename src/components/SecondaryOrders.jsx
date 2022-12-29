@@ -47,7 +47,7 @@ const SecondaryOrders = ({ price2 }) => {
     array[array.length - 2].currentFee = fee;
     console.log(array);
     setConfig(array);
-  }, [fee]);
+  }, [fee, config, setConfig]);
 
   return (
     <>

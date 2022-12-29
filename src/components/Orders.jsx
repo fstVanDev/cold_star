@@ -50,7 +50,7 @@ const Orders = () => {
       console.log(array);
       setConfig(array);
     }
-  }, [fee]);
+  }, [fee, config, setConfig]);
 
   return (
     <>
