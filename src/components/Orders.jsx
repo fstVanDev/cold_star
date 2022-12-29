@@ -284,7 +284,7 @@ const Orders = () => {
                               setCurrentIndex(null);
                             } else {
                               setCurrentIndex(index);
-                              // getOutFee(item, index);
+                              getOutFee(index);
 
                               if (
                                 currentFiat !== null &&
