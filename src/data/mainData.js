@@ -206,7 +206,7 @@ export const feeFunction = (
   } else {
     rate = fiatRate;
   }
-  var arr = [];
+  var arr = fee;
 
   var maker = makerProcent.length === 0 ? 0.1 : makerProcent;
   var result = (asset / (rate + rate * maker) - 1) * 100;
