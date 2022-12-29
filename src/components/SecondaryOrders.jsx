@@ -41,12 +41,12 @@ const SecondaryOrders = ({ price2 }) => {
     array[array.length - 1].currentFee = prof;
     array[array.length - 1].currentOrder = item;
     console.log(array);
-    setNewConfig(array);
+    setConfig(array);
   };
 
   useEffect(() => {
-    console.log(newConfig);
-    setConfig(newConfig);
+    // console.log(newConfig);
+    // setConfig(newConfig);
     // var array = config;
     // array[array.length - 2].currentFee = fee;
     // console.log(array);
