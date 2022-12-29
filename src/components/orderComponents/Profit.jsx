@@ -9,7 +9,7 @@ const Profit = () => {
   const [profit, setProfit] = useState(0);
 
   useEffect(() => {
-    if (config !== null && config.length >= 2) {
+    if (config !== null) {
       var sum = 0;
       var arr = [];
       config.map((item) => {

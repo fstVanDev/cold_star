@@ -17,15 +17,14 @@ const PaymentDropdown = () => {
 
   const [defaultPayment, setDefaultPayment] = useState("Bank...");
   const [activePayment, setActivePayment] = useState(false);
-  const [usersPayment, setUsersPayment] = useState(null);
+  const [usersPayment, setUsersPayment] = useState([]);
 
   function handleChangeCurrentValue(anything, setAnything, value) {
     let arr = anything;
     let ind = null;
 
-    if (arr !== null) {
+    if (arr.length !== 0) {
       arr.map((item, index) => {
-        // const found = arr.includes(value.id);
         if (item.id === value.id) {
           ind = index;
         }
@@ -111,13 +110,13 @@ const PaymentDropdown = () => {
         >
           <div className="w-max flex flex-wrap my-auto rounded-0 text-14 leading-14 font-normal mr-[2px]">
             {payment !== null ? (
-              usersPayment === null ? (
+              usersPayment.length === 0 ? (
                 <p className="w-max h-max my-auto text-lightGray">
                   {defaultPayment}
                 </p>
               ) : (
                 <p className="text-14 leading-20 font-normal text-lightGray w-max h-max my-auto">
-                  {usersPayment !== null && usersPayment.length >= 1
+                  {usersPayment.length >= 1
                     ? usersPayment[0].name + "..."
                     : usersPayment[0].name}
                 </p>
@@ -139,7 +138,7 @@ const PaymentDropdown = () => {
         </button>
         {activePayment && (
           <div className="w-full h-[180px] overflow-scroll bg-white border border-1 border-t-0 border-gray rounded-b-6 ">
-            {usersPayment !== null && usersPayment.length > 0 && (
+            {usersPayment.length > 0 && (
               <div className="border-b border-b-1 border-b-gray pb-[5px] w-full h-max">
                 {usersPayment.map((item, index) => (
                   <div
@@ -158,9 +157,13 @@ const PaymentDropdown = () => {
                       checked
                       id={index}
                       onClick={() => {
-                        var arr = usersPayment;
-                        arr.splice(index, 1);
-                        setUsersPayment(arr);
+                        if (usersPayment.length > 1) {
+                          var arr = usersPayment;
+                          arr.splice(index, 1);
+                          setUsersPayment(arr);
+                        } else {
+                          setUsersPayment([]);
+                        }
                       }}
                     />
                   </div>
