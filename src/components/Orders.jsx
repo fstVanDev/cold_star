@@ -254,67 +254,68 @@ const Orders = () => {
                               setCurrentIndex(null);
                             } else {
                               setCurrentIndex(index);
-                            }
-                            feeFunction(
-                              makerProcent,
-                              Number(
-                                config[config.length - 2].fiat.rates[0].rate
-                              ),
-                              fiatRate,
-                              Number(item.price)
-                            );
 
-                            getOutFee(index);
+                              feeFunction(
+                                makerProcent,
+                                Number(
+                                  config[config.length - 2].fiat.rates[0].rate
+                                ),
+                                fiatRate,
+                                Number(item.price)
+                              );
 
-                            if (
-                              currentFiat !== null &&
-                              currentCrypto !== null &&
-                              currentPayment !== null &&
-                              fee !== 0
-                            ) {
-                              const localObject = {
-                                id: globalId,
-                                mode: mode,
-                                amount: currentAmount,
-                                defaultAmount:
-                                  currentAmount.length === 0 ? false : true,
-                                fiat: currentFiat,
-                                crypto: currentCrypto,
-                                payments: currentPayment,
-                                orders: currentOrders,
-                                currentOrder: item,
-                                currentFee: fee,
-                              };
+                              getOutFee(index);
 
-                              let arr = config;
+                              if (
+                                currentFiat !== null &&
+                                currentCrypto !== null &&
+                                currentPayment !== null &&
+                                fee !== 0
+                              ) {
+                                const localObject = {
+                                  id: globalId,
+                                  mode: mode,
+                                  amount: currentAmount,
+                                  defaultAmount:
+                                    currentAmount.length === 0 ? false : true,
+                                  fiat: currentFiat,
+                                  crypto: currentCrypto,
+                                  payments: currentPayment,
+                                  orders: currentOrders,
+                                  currentOrder: item,
+                                  currentFee: fee,
+                                };
 
-                              arr.map((obj, index) => {
-                                if (
-                                  obj.id === globalId &&
-                                  arr[arr.length - 1] !== globalId
-                                ) {
+                                let arr = config;
+
+                                arr.map((obj, index) => {
                                   if (
-                                    JSON.stringify(obj) !==
-                                    JSON.stringify(localObject)
+                                    obj.id === globalId &&
+                                    arr[arr.length - 1] !== globalId
                                   ) {
-                                    arr.splice(index, 1);
-                                    const insert = function (
-                                      array,
-                                      indexi,
-                                      obje
+                                    if (
+                                      JSON.stringify(obj) !==
+                                      JSON.stringify(localObject)
                                     ) {
-                                      return [
-                                        ...array.slice(0, indexi),
-                                        obje,
-                                        ...array.slice(indexi),
-                                      ];
-                                    };
-                                    arr = insert(arr, index, localObject);
-                                    console.log(arr);
-                                    setConfig(arr);
+                                      arr.splice(index, 1);
+                                      const insert = function (
+                                        array,
+                                        indexi,
+                                        obje
+                                      ) {
+                                        return [
+                                          ...array.slice(0, indexi),
+                                          obje,
+                                          ...array.slice(indexi),
+                                        ];
+                                      };
+                                      arr = insert(arr, index, localObject);
+                                      console.log(arr);
+                                      setConfig(arr);
+                                    }
                                   }
-                                }
-                              });
+                                });
+                              }
                             }
                           }}
                         >
