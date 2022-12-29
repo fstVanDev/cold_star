@@ -12,7 +12,7 @@ const Profit = () => {
     if (config !== null && config.length >= 2) {
       var sum = 0;
       var arr = [];
-      config.map((item, index) => {
+      config.map((item) => {
         arr.push(item.currentFee);
       });
 
@@ -21,6 +21,7 @@ const Profit = () => {
       }
     }
     setProfit(sum);
+    console.log(sum);
   }, [config]);
 
   return (

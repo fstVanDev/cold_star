@@ -253,18 +253,20 @@ const Orders = () => {
                             id={`${index}profit1`}
                             value={feeFunction(
                               makerProcent,
-                              Number(
-                                config[config.length - 2].fiat.rates[0].rate
-                              ),
+                              Number(currentFiat.rates[0].rate),
+                              // Number(
+                              //   config[config.length - 2].fiat.rates[0].rate
+                              // ),
                               fiatRate,
                               Number(item.price)
                             )}
                           >
                             {feeFunction(
                               makerProcent,
-                              Number(
-                                config[config.length - 2].fiat.rates[0].rate
-                              ),
+                              Number(currentFiat.rates[0].rate),
+                              // Number(
+                              //   config[config.length - 2].fiat.rates[0].rate
+                              // ),
                               fiatRate,
                               Number(item.price)
                             )}{" "}
