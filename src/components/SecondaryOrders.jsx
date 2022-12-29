@@ -31,15 +31,11 @@ const SecondaryOrders = ({ price2 }) => {
   const [fee, setFee] = useState([]);
   const [activeIndex, setACtiveIndex] = useState(null);
 
-  useEffect(() => {
-    console.log(fee);
-  }, [fee]);
-
   return (
     <>
       {config.length >= 2 && (
         <div className="bg-white px-[10px] rounded-b-20 pb-[10px]">
-          <div className="bg-[#c5c5c5] rounded-15">
+          <div className="bg-main rounded-15">
             {config[config.length - 1].orders.map((item, index) => (
               <>
                 <div className="w-max h-max" key={index}>
@@ -132,6 +128,7 @@ const SecondaryOrders = ({ price2 }) => {
                           Number(item.price),
                           totalProfit,
                           setTotalProfit,
+                          fee,
                           setFee
                           // Number(config[config.length - 2].fiat.rates[0].rate),
                           // Number(config[config.length - 1].fiat.rates[0].rate),

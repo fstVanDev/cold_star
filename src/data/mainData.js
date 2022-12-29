@@ -211,6 +211,7 @@ export const feeFunction = (
   var maker = makerProcent.length === 0 ? 0.1 : makerProcent;
   var result = (asset / (rate + rate * maker) - 1) * 100;
   arr.push(result);
+  console.log(arr, "fee");
   setFee(arr);
 
   return Number(result).toFixed(4);
