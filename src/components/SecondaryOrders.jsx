@@ -42,6 +42,13 @@ const SecondaryOrders = ({ price2 }) => {
     setConfig(array);
   };
 
+  useEffect(() => {
+    var array = config;
+    array[array.length - 2].currentFee = prof;
+    console.log(array);
+    setConfig(array);
+  }, [fee]);
+
   return (
     <>
       {config.length >= 2 && (
