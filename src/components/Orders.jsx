@@ -4,11 +4,47 @@ import { plusOrders } from "../images";
 import { ordersChevron } from "../images";
 import Top from "./orderComponents/Top";
 import SecondaryOrders from "./SecondaryOrders";
+import { feeFunction } from "../data/mainData";
 
 const Orders = () => {
-  const { config, ordersView } = useContext(StateContext);
+  const {
+    config,
+    ordersView,
+    fiatRate,
+    makerProcent,
+    mode,
+    currentAmount,
+    currentFiat,
+    currentCrypto,
+    currentPayment,
+    currentOrders,
+    globalId,
+    setConfig,
+    setNewFilterView,
+    setCurrentOrders,
+    secondaryOrders,
+    setSecondaryOrders,
+    setCurrentOrder,
+    setOrdersView,
+    currentOrder,
+    totalProfit,
+    setTotalProfit,
+  } = useContext(StateContext);
 
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [fee, setFee] = useState(0);
+
+  function getOutFee(index) {
+    console.log(index, ` ${index}profit1`);
+    const profit = document.getElementById(`${index}profit1`);
+    console.log(profit.attributes.value.value);
+    // console.log(profit.target.value);
+    const prof = (config[config.length - 1].currentFee = Number(
+      profit.attributes.value.value
+    ));
+
+    setFee(prof);
+  }
 
   useEffect(() => {
     console.log(config);
@@ -203,12 +239,83 @@ const Orders = () => {
 
                         <button
                           type="button"
+                          id={index + "profit1"}
+                          value={feeFunction(
+                            makerProcent,
+                            Number(currentFiat.rates[0].rate),
+                            // Number(
+                            //   config[config.length - 1].fiat.rates[0].rate
+                            // ),
+                            fiatRate,
+                            Number(item.price)
+                          )}
                           className="w-[50px] h-[50px] border border-1 border-gray bg-main my-auto rounded-6 flex"
                           onClick={() => {
                             if (index === currentIndex) {
                               setCurrentIndex(null);
                             } else {
                               setCurrentIndex(index);
+                            }
+                            feeFunction(
+                              makerProcent,
+                              Number(
+                                config[config.length - 2].fiat.rates[0].rate
+                              ),
+                              fiatRate,
+                              Number(item.price)
+                            );
+
+                            getOutFee(index);
+
+                            if (
+                              currentFiat !== null &&
+                              currentCrypto !== null &&
+                              currentPayment !== null &&
+                              fee !== 0
+                            ) {
+                              const localObject = {
+                                id: globalId,
+                                mode: mode,
+                                amount: currentAmount,
+                                defaultAmount:
+                                  currentAmount.length === 0 ? false : true,
+                                fiat: currentFiat,
+                                crypto: currentCrypto,
+                                payments: currentPayment,
+                                orders: currentOrders,
+                                currentOrder: item,
+                                currentFee: fee,
+                              };
+
+                              let arr = config;
+
+                              arr.map((obj, index) => {
+                                if (
+                                  obj.id === globalId &&
+                                  arr[arr.length - 1] !== globalId
+                                ) {
+                                  if (
+                                    JSON.stringify(obj) !==
+                                    JSON.stringify(localObject)
+                                  ) {
+                                    arr.splice(index, 1);
+                                    const insert = function (
+                                      array,
+                                      indexi,
+                                      obje
+                                    ) {
+                                      return [
+                                        ...array.slice(0, indexi),
+                                        obje,
+                                        ...array.slice(indexi),
+                                      ];
+                                    };
+                                    arr = insert(arr, index, localObject);
+                                    console.log(arr);
+                                    setConfig(arr);
+                                  }
+                                }
+                              });
                             }
                           }}
                         >

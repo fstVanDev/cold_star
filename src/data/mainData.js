@@ -192,25 +192,7 @@ export const bottomData = {
   text3: "Copyright © 2022",
 };
 
-export const feeFunction = (
-  makerProcent,
-  fiat,
-  fiatRate,
-  asset,
-  fiatLast,
-  assetLast,
-  config
-) => {
-  // var rateLast;
-  // if (fiatRate.length === 0) {
-  //   rateLast = fiatLast;
-  // } else {
-  //   rateLast = fiatRate;
-  // }
-  // var makerLast = makerProcent.length === 0 ? 0.1 : makerProcent;
-  // var resultLast = (assetLast / (rateLast + rateLast * makerLast) - 1) * 100;
-  // config[config.length - 1].currentFiat = resultLast;
-
+export const feeFunction = (makerProcent, fiat, fiatRate, asset) => {
   var rate;
   if (fiatRate.length === 0) {
     rate = fiat;
