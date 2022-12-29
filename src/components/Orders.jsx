@@ -56,7 +56,6 @@ const Orders = () => {
 
     // array[array.length - 2] = localObject;
     // setConfig(array);
-    return prof;
   }
 
   useEffect(() => {
@@ -304,7 +303,7 @@ const Orders = () => {
                                   payments: currentPayment,
                                   orders: currentOrders,
                                   currentOrder: item,
-                                  currentFee: getOutFee(index),
+                                  currentFee: fee,
                                 };
 
                                 let arr = config;
