@@ -41,7 +41,7 @@ const Orders = () => {
     const prof = (config[config.length - 2].currentFee = Number(
       profit.firstChild.nodeValue
     ));
-
+    console.log(prof, "orders");
     setFee(prof);
   }
 
@@ -272,70 +272,60 @@ const Orders = () => {
                             } else {
                               setCurrentIndex(index);
                               getOutFee(index);
-                              feeFunction(
-                                makerProcent,
-                                Number(
-                                  config[config.length - 2].fiat.rates[0].rate
-                                ),
-                                fiatRate,
-                                Number(item.price)
-                              );
 
-                              getOutFee(index);
+                              // if (
+                              //   currentFiat !== null &&
+                              //   currentCrypto !== null &&
+                              //   currentPayment !== null &&
+                              //   fee !== 0
+                              // ) {
+                              //   const localObject = {
+                              //     id: globalId,
+                              //     mode: mode,
+                              //     amount: currentAmount,
+                              //     defaultAmount:
+                              //       currentAmount.length === 0 ? false : true,
+                              //     fiat: currentFiat,
+                              //     crypto: currentCrypto,
+                              //     payments: currentPayment,
+                              //     orders: currentOrders,
+                              //     currentOrder: item,
+                              //     currentFee: fee,
+                              //   };
 
-                              if (
-                                currentFiat !== null &&
-                                currentCrypto !== null &&
-                                currentPayment !== null &&
-                                fee !== 0
-                              ) {
-                                const localObject = {
-                                  id: globalId,
-                                  mode: mode,
-                                  amount: currentAmount,
-                                  defaultAmount:
-                                    currentAmount.length === 0 ? false : true,
-                                  fiat: currentFiat,
-                                  crypto: currentCrypto,
-                                  payments: currentPayment,
-                                  orders: currentOrders,
-                                  currentOrder: item,
-                                  currentFee: fee,
-                                };
+                              //   let arr = config;
 
-                                let arr = config;
+                              //   arr[arr.length - 2] = localObject;
+                              //   console.log(111);
+                              //   setConfig(arr);
 
-                                arr[arr.length - 2] = localObject;
-                                console.log(111);
-                                setConfig(arr);
-                                // arr.map((obj, index) => {
-                                //   if (
-                                //     obj.id === globalId &&
-                                //     arr[arr.length - 2] !== globalId
-                                //   ) {
-                                //     if (
-                                //       JSON.stringify(obj) !==
-                                //       JSON.stringify(localObject)
-                                //     ) {
-                                //       arr.splice(index, 1);
-                                //       const insert = function (
-                                //         array,
-                                //         indexi,
-                                //         obje
-                                //       ) {
-                                //         return [
-                                //           ...array.slice(0, indexi),
-                                //           obje,
-                                //           ...array.slice(indexi),
-                                //         ];
-                                //       };
-                                //       arr = insert(arr, index, localObject);
-                                //       console.log(arr);
-                                //       setConfig(arr);
-                                //     }
-                                //   }
-                                // });
-                              }
+                              // arr.map((obj, index) => {
+                              //   if (
+                              //     obj.id === globalId &&
+                              //     arr[arr.length - 2] !== globalId
+                              //   ) {
+                              //     if (
+                              //       JSON.stringify(obj) !==
+                              //       JSON.stringify(localObject)
+                              //     ) {
+                              //       arr.splice(index, 1);
+                              //       const insert = function (
+                              //         array,
+                              //         indexi,
+                              //         obje
+                              //       ) {
+                              //         return [
+                              //           ...array.slice(0, indexi),
+                              //           obje,
+                              //           ...array.slice(indexi),
+                              //         ];
+                              //       };
+                              //       arr = insert(arr, index, localObject);
+                              //       console.log(arr);
+                              //       setConfig(arr);
+                              //     }
+                              //   }
+                              // });
                             }
                           }}
                         >
