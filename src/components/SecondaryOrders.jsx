@@ -32,19 +32,21 @@ const SecondaryOrders = ({ price2 }) => {
   const [activeIndex, setACtiveIndex] = useState(null);
   const [newConfig, setNewConfig] = useState(null);
 
-  const getOutFee = (index) => {
+  const getOutFee = (index, item) => {
     const profit = document.getElementById(`${index}profit`);
     const prof = Number(profit.attributes.value.value);
     console.log(prof, "secondaryOrders");
     setFee(prof);
     var array = config;
     array[array.length - 1].currentFee = prof;
+    array[array.length - 1].currentOrder = item;
     console.log(array);
     setNewConfig(array);
   };
 
   useEffect(() => {
     console.log(newConfig);
+    setConfig(newConfig);
     // var array = config;
     // array[array.length - 2].currentFee = fee;
     // console.log(array);
@@ -167,7 +169,7 @@ const SecondaryOrders = ({ price2 }) => {
                           : "border-gray bg-white"
                       } rounded-6 my-auto flex`}
                       onClick={() => {
-                        getOutFee(index);
+                        getOutFee(index, item);
                         setCurrentOrder(item);
                         setACtiveIndex(index);
                         // if (
