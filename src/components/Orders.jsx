@@ -125,8 +125,7 @@ const Orders = () => {
                     makerProcent,
                     Number(currentFiat.rates[0].rate),
                     fiatRate,
-                    Number(item.price),
-                    setProfitArray
+                    Number(item.price)
                   )}
                   %
                 </p>

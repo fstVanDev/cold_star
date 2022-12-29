@@ -1386,7 +1386,7 @@ const CryptoDrowdown = () => {
           activeCrypto
             ? "rounded-b-0 rounded-t-6 border-r border-r-1 border-l border-l-1 border-r-gray border-l-gray border-t border-t-1 border-t-gray"
             : "rounded-6 border border-1 border-gray "
-        } rounded-6  my-auto`}
+        } my-auto`}
       >
         <button
           type="button"
