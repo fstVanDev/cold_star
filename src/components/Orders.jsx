@@ -237,7 +237,7 @@ const Orders = () => {
                           </div>
                         </div>
 
-                        {config.length - 1 >= 2 && (
+                        {config.length - 1 >= 1 && (
                           <div className="max-w-[120px] h-max flex my-auto">
                             <p
                               className="text-green text-18 leading-24 font-bold text-center"
