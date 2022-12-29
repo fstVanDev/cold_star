@@ -52,7 +52,7 @@ const Filter = () => {
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">
       <div className="grid h-max w-full rounded-15 bg-white border border-1 border-gray px-[30px] py-[10px]">
-        <div className="flex justify-around w-full h-[60px]">
+        <div className="flex justify-around w-full h-max">
           <Mode />
           <Amount />
           <FiatDropdown />
