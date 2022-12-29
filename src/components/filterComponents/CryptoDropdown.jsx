@@ -1393,12 +1393,11 @@ const CryptoDrowdown = () => {
           onClick={
             crypto.length > 0 ? () => setActiveCrypto(!activeCrypto) : null
           }
-          className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]
-               ${
-                 activeCrypto && "rounded-b-0 border-b border-b-1 border-b-gray"
-               }  
-               ${!activeCrypto && "rounded-6"}
-               `}
+          className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]`}
+          //   ${
+          //    activeCrypto && "rounded-b-0 border-b border-b-1 border-b-gray"
+          //  }
+          //  ${!activeCrypto && "rounded-6"}
         >
           <p className="w-max h-max text-lightGray text-12 leading-14 font-normal my-auto">
             {crypto.length > 0 ? defaultCrypto : "Load..."}

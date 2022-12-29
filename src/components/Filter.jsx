@@ -21,7 +21,7 @@ const Filter = () => {
     currentCrypto,
     globalId,
     setGlobalId,
-    currentAmount,
+    amount,
     newFilterView,
     setNewFilterView,
     setOrders,
@@ -40,7 +40,7 @@ const Filter = () => {
     if (currentPayment !== null) {
       getOrders(
         mode,
-        currentAmount,
+        amount,
         currentFiat,
         currentCrypto,
         currentPayment,

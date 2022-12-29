@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
-import { getOrders } from "../../data/Requests";
 import { refresh } from "../../images";
 
 const Refresh = () => {

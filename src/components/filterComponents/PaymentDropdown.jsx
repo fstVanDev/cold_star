@@ -143,7 +143,7 @@ const PaymentDropdown = () => {
               <div className="border-b border-b-1 border-b-gray pb-[5px] w-full h-max">
                 {usersPayment.map((item, index) => (
                   <div
-                    className="w-full h-max flex justify-around my-[12px] pl-[8px]"
+                    className="w-full h-max flex justify-around my-[12px] px-[8px]"
                     key={index}
                   >
                     <label
