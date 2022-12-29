@@ -9,18 +9,20 @@ const Profit = () => {
   const [profit, setProfit] = useState(0);
 
   useEffect(() => {
-    console.log(config, "totalConfig");
-    var arr = [];
-    config.map((item) => {
-      arr.push(item.currentFee);
-    });
-    console.log(arr, "total");
-    var sum = 0;
-    for (var i = 0; i < arr.length; i++) {
-      sum += arr[i];
-    }
+    if (config.length >= 2) {
+      console.log(config, "totalConfig");
+      var arr = [];
+      config.map((item) => {
+        arr.push(item.currentFee);
+      });
+      console.log(arr, "total");
+      var sum = 0;
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
 
-    console.log(sum, "totalSum");
+      console.log(sum, "totalSum");
+    }
   }, [config]);
 
   return (
