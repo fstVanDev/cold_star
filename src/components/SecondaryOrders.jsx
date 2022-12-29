@@ -36,9 +36,11 @@ const SecondaryOrders = ({ price2 }) => {
     const profit = document.getElementById(`${index}profit`);
     console.log(profit.attributes.value.value);
     // console.log(profit.target.value);
-    config[config.length - 1].currentFee = Number(
+    const prof = (config[config.length - 1].currentFee = Number(
       profit.attributes.value.value
-    );
+    ));
+
+    setFee(prof);
   }
 
   useEffect(() => {
@@ -180,7 +182,7 @@ const SecondaryOrders = ({ price2 }) => {
                             payments: currentPayment,
                             orders: currentOrders,
                             currentOrder: item,
-                            currentFee: 0,
+                            currentFee: fee,
                           };
 
                           let arr = config;
