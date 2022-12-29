@@ -43,7 +43,7 @@ const Orders = () => {
     //   profit.attributes.value.value
     // ));
 
-    setFee(prof);
+    // setFee(prof);
   }
 
   useEffect(() => {
