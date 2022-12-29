@@ -38,11 +38,9 @@ const Orders = () => {
     const profit = document.getElementById(`${index}profit1`);
     console.log(profit);
     const prof = Number(profit.firstChild.nodeValue);
-    // const prof = Number(profit.attributes.value.value);
 
     console.log(prof, "orders");
     setFee(prof);
-    console.log(config);
   }
 
   useEffect(() => {
@@ -236,7 +234,6 @@ const Orders = () => {
                           </div>
                         </div>
 
-                        {/* {config.length - 1 >= 1 && ( */}
                         <div className="max-w-[120px] h-max flex my-auto">
                           <p
                             className="text-green text-18 leading-24 font-bold text-center"
@@ -250,19 +247,17 @@ const Orders = () => {
                               Number(item.price)
                             )}
                           >
-                            {config.length === 1
-                              ? "-"
-                              : feeFunction(
-                                  makerProcent,
-                                  Number(
-                                    config[config.length - 2].fiat.rates[0].rate
-                                  ),
-                                  fiatRate,
-                                  Number(item.price)
-                                ) + "%"}
+                            {feeFunction(
+                              makerProcent,
+                              Number(
+                                config[config.length - 2].fiat.rates[0].rate
+                              ),
+                              fiatRate,
+                              Number(item.price)
+                            )}{" "}
+                            %
                           </p>
                         </div>
-                        {/* )} */}
 
                         <button
                           type="button"
