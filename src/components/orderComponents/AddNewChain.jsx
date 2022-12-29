@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const AddNewChain = () => {
-  const { setNewFilterView, setGlobalId, globalId } = useContext(StateContext);
+  const { setNewFilterView, setGlobalId, globalId, setOrdersView } =
+    useContext(StateContext);
 
   return (
     <button
@@ -11,6 +12,7 @@ const AddNewChain = () => {
       onClick={() => {
         setNewFilterView(true);
         setGlobalId(globalId + 1);
+        setOrdersView(false);
         console.log("Add new Filter, click button");
       }}
     >
