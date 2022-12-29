@@ -144,25 +144,25 @@ const SecondaryOrders = ({ price2 }) => {
                           : "border-gray bg-white"
                       } rounded-6 my-auto flex`}
                       onClick={() => {
-                        var array = [];
-                        var ind = index;
+                        // var array = [];
+                        // var ind = index;
 
-                        if (totalProfit.length === 0) {
-                          array.push(fee[ind]);
-                          setTotalProfit(array);
-                        } else {
-                          if (totalProfit.length - 1 !== config.length) {
-                            array = totalProfit;
-                            array.push(fee[ind]);
-                            setTotalProfit(array);
-                          } else if (
-                            totalProfit.length - 1 === config.length &&
-                            totalProfit[totalProfit.length - 1] !== fee[ind]
-                          ) {
-                            array = totalProfit;
-                            array[array.length - 1] = fee[ind];
-                          }
-                        }
+                        // if (totalProfit.length === 0) {
+                        //   array.push(fee[ind]);
+                        //   setTotalProfit(array);
+                        // } else {
+                        //   if (totalProfit.length - 1 !== config.length) {
+                        //     array = totalProfit;
+                        //     array.push(fee[ind]);
+                        //     setTotalProfit(array);
+                        //   } else if (
+                        //     totalProfit.length - 1 === config.length &&
+                        //     totalProfit[totalProfit.length - 1] !== fee[ind]
+                        //   ) {
+                        //     array = totalProfit;
+                        //     array[array.length - 1] = fee[ind];
+                        //   }
+                        // }
 
                         setCurrentOrder(item);
                         setACtiveIndex(index);
