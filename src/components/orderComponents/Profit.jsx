@@ -27,7 +27,7 @@ const Profit = () => {
   // }, [config]);
 
   function getTotalProfit() {
-    arr = [];
+    var arr = [];
     config.map((item) => {
       if (item.currentFee !== 0) {
         arr.push(item.currentFee);
@@ -47,7 +47,9 @@ const Profit = () => {
       <p className="text-white font-normal text-12 leading-16 my-auto">
         Total Profit
       </p>
-      <p className="text-white font-bold text-18 leading-24">{profit}%</p>
+      <p className="text-white font-bold text-18 leading-24">
+        {getTotalProfit()}%
+      </p>
     </div>
   );
 };
