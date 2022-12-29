@@ -236,32 +236,33 @@ const Orders = () => {
                           </div>
                         </div>
 
-                        {config.length - 1 >= 1 && (
-                          <div className="max-w-[120px] h-max flex my-auto">
-                            <p
-                              className="text-green text-18 leading-24 font-bold text-center"
-                              id={index + "profit1"}
-                              value={feeFunction(
-                                makerProcent,
-                                Number(
-                                  config[config.length - 2].fiat.rates[0].rate
-                                ),
-                                fiatRate,
-                                Number(item.price)
-                              )}
-                            >
-                              {feeFunction(
-                                makerProcent,
-                                Number(
-                                  config[config.length - 2].fiat.rates[0].rate
-                                ),
-                                fiatRate,
-                                Number(item.price)
-                              )}
-                              %
-                            </p>
-                          </div>
-                        )}
+                        {/* {config.length - 1 >= 1 && ( */}
+                        <div className="max-w-[120px] h-max flex my-auto">
+                          <p
+                            className="text-green text-18 leading-24 font-bold text-center"
+                            id={`${index}profit1`}
+                            value={feeFunction(
+                              makerProcent,
+                              Number(
+                                config[config.length - 2].fiat.rates[0].rate
+                              ),
+                              fiatRate,
+                              Number(item.price)
+                            )}
+                          >
+                            {config.length === 1
+                              ? "-"
+                              : feeFunction(
+                                  makerProcent,
+                                  Number(
+                                    config[config.length - 2].fiat.rates[0].rate
+                                  ),
+                                  fiatRate,
+                                  Number(item.price)
+                                ) + "%"}
+                          </p>
+                        </div>
+                        {/* )} */}
 
                         <button
                           type="button"
