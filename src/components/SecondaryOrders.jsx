@@ -31,18 +31,14 @@ const SecondaryOrders = ({ price2 }) => {
   const [fee, setFee] = useState(0);
   const [activeIndex, setACtiveIndex] = useState(null);
 
-  function getOutFee(index) {
+  function getOutFee(index, config) {
     const profit = document.getElementById(`${index}profit`);
-    const prof = (config[config.length - 1].currentFee = Number(
-      profit.attributes.value.value
-    ));
+    const prof = Number(profit.attributes.value.value);
     console.log(prof, "secondaryOrders");
     setFee(prof);
+    config[config.length - 1].currentFee = prof;
+    console.log(config);
   }
-
-  // useEffect(() => {
-  //   console.log(totalProfit);
-  // }, [totalProfit]);
 
   return (
     <>
@@ -160,7 +156,7 @@ const SecondaryOrders = ({ price2 }) => {
                           : "border-gray bg-white"
                       } rounded-6 my-auto flex`}
                       onClick={() => {
-                        getOutFee(index);
+                        getOutFee(index, config);
                         setCurrentOrder(item);
                         setACtiveIndex(index);
                         // if (
