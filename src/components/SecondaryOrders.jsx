@@ -212,7 +212,9 @@ const SecondaryOrders = ({ price2 }) => {
                                 arr = insert(arr, index, localObject);
                                 console.log(arr);
                                 setConfig(arr);
+                                console.log(3333);
                               } else {
+                                console.log(2222);
                                 arr[arr.length - 1] = localObject;
                                 setConfig(arr);
                               }
