@@ -59,11 +59,11 @@ const Filter = () => {
           <CryptoDropdown />
           <PaymentDropdown />
           <Refresh />
-          <div className="mt-[10px] w-full h-[60px]">
-            <MakerTaker />
-            <CustomFiatRate />
-            <RegionDropdown />
-          </div>
+        </div>
+        <div className="mt-[10px] w-full h-[60px]">
+          <MakerTaker />
+          <CustomFiatRate />
+          <RegionDropdown />
         </div>
       </div>
       {newFilterView && (
