@@ -44,10 +44,12 @@ const Orders = () => {
   };
 
   useEffect(() => {
-    var array = config;
-    array[array.length - 2].currentFee = fee;
-    console.log(array);
-    setConfig(array);
+    if (config.length >= 2) {
+      var array = config;
+      array[array.length - 2].currentFee = fee;
+      console.log(array);
+      setConfig(array);
+    }
   }, [fee]);
 
   return (
