@@ -58,7 +58,7 @@ const Orders = () => {
         currentFee: prof,
       };
 
-      // let arr = config;
+      let arr = config;
 
       // arr[arr.length - 2] = localObject;
       // console.log(111);
