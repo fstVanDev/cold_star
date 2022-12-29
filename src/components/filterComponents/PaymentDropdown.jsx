@@ -117,14 +117,14 @@ const PaymentDropdown = () => {
                 </p>
               ) : (
                 <p className="text-14 leading-20 font-normal text-lightGray w-max h-max my-auto">
-                  {usersPayment.length >= 2
+                  {usersPayment !== null && usersPayment.length >= 1
                     ? usersPayment[0].name + "..."
                     : usersPayment[0].name}
                 </p>
               )
             ) : (
               <p className="w-max h-max my-auto text-14 leading-20 font-normal">
-                Enter fiat and crypto
+                ...
               </p>
             )}
           </div>
@@ -143,7 +143,7 @@ const PaymentDropdown = () => {
               <div className="border-b border-b-1 border-b-gray pb-[5px] w-full h-max">
                 {usersPayment.map((item, index) => (
                   <div
-                    className="w-full h-max flex justify-around my-[10px]"
+                    className="w-full h-max flex justify-around my-[12px] pl-[8px]"
                     key={index}
                   >
                     <label
@@ -170,7 +170,7 @@ const PaymentDropdown = () => {
             {payment.map((item) => (
               <button
                 type="button"
-                className="w-full h-max flex justify-around my-[10px]"
+                className="w-full h-max flex justify-around my-[12px] pl-[8px]"
                 onClick={() =>
                   handleChangeCurrentValue(usersPayment, setUsersPayment, item)
                 }

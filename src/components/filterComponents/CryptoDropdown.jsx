@@ -1383,7 +1383,9 @@ const CryptoDrowdown = () => {
 
       <div
         className={`w-[120px] h-[40px] border border-1 border-gray ${
-          activeCrypto ? "rounded-b-0 roudned-t-6" : "rounded-6"
+          activeCrypto
+            ? "rounded-b-0 rounded-t-6 border-r border-r-1 border-l border-l-1 border-r-gray border-l-gray border-t border-t-1 border-t-gray"
+            : "rounded-6 border border-1 border-gray "
         } rounded-6  my-auto`}
       >
         <button
