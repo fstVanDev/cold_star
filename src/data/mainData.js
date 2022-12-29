@@ -201,15 +201,15 @@ export const feeFunction = (
   assetLast,
   config
 ) => {
-  var rateLast;
-  if (fiatRate.length === 0) {
-    rateLast = fiatLast;
-  } else {
-    rateLast = fiatRate;
-  }
-  var makerLast = makerProcent.length === 0 ? 0.1 : makerProcent;
-  var resultLast = (assetLast / (rateLast + rateLast * makerLast) - 1) * 100;
-  config[config.length - 2].currentFiat = resultLast;
+  // var rateLast;
+  // if (fiatRate.length === 0) {
+  //   rateLast = fiatLast;
+  // } else {
+  //   rateLast = fiatRate;
+  // }
+  // var makerLast = makerProcent.length === 0 ? 0.1 : makerProcent;
+  // var resultLast = (assetLast / (rateLast + rateLast * makerLast) - 1) * 100;
+  // config[config.length - 1].currentFiat = resultLast;
 
   var rate;
   if (fiatRate.length === 0) {
