@@ -12,6 +12,7 @@ const Orders = () => {
     currentFiat,
     currentFee,
     setCurrentFee,
+    setCurrentOrder,
     config,
     setConfig,
   } = useContext(StateContext);
@@ -134,6 +135,7 @@ const Orders = () => {
                 } rounded-6 my-auto flex`}
                 onClick={() => {
                   setCurrentIndex(index);
+                  setCurrentOrder(item);
                   setCurrentFee(
                     feeFunction(
                       makerProcent,
