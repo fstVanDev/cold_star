@@ -75,10 +75,10 @@ const Main = () => {
           }
         });
       }
-    } else {
-      alert(
-        "To receive orders, fiat, crypto and payment fields must be filled! Please check data..."
-      );
+      // } else {
+      //   alert(
+      //     "To receive orders, fiat, crypto and payment fields must be filled! Please check data..."
+      //   );
     }
   }, [
     currentFiat,
