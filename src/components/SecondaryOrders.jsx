@@ -38,6 +38,7 @@ const SecondaryOrders = ({ price2 }) => {
     setFee(prof);
     config[config.length - 1].currentFee = prof;
     console.log(config);
+    return config;
   }
 
   return (

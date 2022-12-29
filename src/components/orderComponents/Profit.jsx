@@ -11,9 +11,7 @@ const Profit = () => {
   useEffect(() => {
     var arr = [];
     config.map((item) => {
-      if (item.currentFee !== 0) {
-        arr.push(item.currentFee);
-      }
+      arr.push(item.currentFee);
     });
     console.log(arr, "total");
     var sum = 0;

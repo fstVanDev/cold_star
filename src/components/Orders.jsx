@@ -43,6 +43,7 @@ const Orders = () => {
     setFee(prof);
     config[config.length - 2].currentFee = prof;
     console.log(config);
+    return config;
   }
 
   useEffect(() => {
