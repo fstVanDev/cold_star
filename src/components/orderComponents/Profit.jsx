@@ -39,7 +39,7 @@ const Profit = () => {
       sum += arr[i];
     }
 
-    setProfit(sum);
+    return sum;
   }
 
   return (
