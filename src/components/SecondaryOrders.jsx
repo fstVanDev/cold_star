@@ -31,6 +31,12 @@ const SecondaryOrders = ({ price2 }) => {
   const [fee, setFee] = useState([]);
   const [activeIndex, setACtiveIndex] = useState(null);
 
+  function getOutFee(index) {
+    const profit = document.getElementById(`${index}profit`);
+    console.log(profit.value);
+    // config[config.length - 1].currentFee = profit.value;
+  }
+
   useEffect(() => {
     console.log(totalProfit);
   }, [totalProfit]);
@@ -122,14 +128,15 @@ const SecondaryOrders = ({ price2 }) => {
 
                     {/* Fees */}
                     <div className="max-w-[120px] h-max flex my-auto">
-                      <p className="text-green text-18 leading-24 font-bold text-center">
+                      <p
+                        className="text-green text-18 leading-24 font-bold text-center"
+                        id={index + "profit"}
+                      >
                         {feeFunction(
                           makerProcent,
                           Number(config[config.length - 1].fiat.rates[0].rate),
                           fiatRate,
                           Number(item.price)
-                          // fee,
-                          // setFee
                         )}
                         %
                       </p>
@@ -144,26 +151,7 @@ const SecondaryOrders = ({ price2 }) => {
                           : "border-gray bg-white"
                       } rounded-6 my-auto flex`}
                       onClick={() => {
-                        // var array = [];
-                        // var ind = index;
-
-                        // if (totalProfit.length === 0) {
-                        //   array.push(fee[ind]);
-                        //   setTotalProfit(array);
-                        // } else {
-                        //   if (totalProfit.length - 1 !== config.length) {
-                        //     array = totalProfit;
-                        //     array.push(fee[ind]);
-                        //     setTotalProfit(array);
-                        //   } else if (
-                        //     totalProfit.length - 1 === config.length &&
-                        //     totalProfit[totalProfit.length - 1] !== fee[ind]
-                        //   ) {
-                        //     array = totalProfit;
-                        //     array[array.length - 1] = fee[ind];
-                        //   }
-                        // }
-
+                        getOutFee(index);
                         setCurrentOrder(item);
                         setACtiveIndex(index);
                         if (
