@@ -30,24 +30,26 @@ const SecondaryOrders = ({ price2 }) => {
 
   const [fee, setFee] = useState(0);
   const [activeIndex, setACtiveIndex] = useState(null);
+  const [newConfig, setNewConfig] = useState(null);
 
   const getOutFee = (index) => {
     const profit = document.getElementById(`${index}profit`);
     const prof = Number(profit.attributes.value.value);
     console.log(prof, "secondaryOrders");
     setFee(prof);
-    // var array = config;
-    // array[array.length - 1].currentFee = prof;
-    // console.log(array);
-    // setConfig(array);
+    var array = config;
+    array[array.length - 1].currentFee = prof;
+    console.log(array);
+    setNewConfig(array);
   };
 
   useEffect(() => {
-    var array = config;
-    array[array.length - 2].currentFee = fee;
-    console.log(array);
-    setConfig(array);
-  }, [fee, config, setConfig]);
+    console.log(newConfig);
+    // var array = config;
+    // array[array.length - 2].currentFee = fee;
+    // console.log(array);
+    // setConfig(array);
+  }, [newConfig]);
 
   return (
     <>

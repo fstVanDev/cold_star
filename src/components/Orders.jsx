@@ -33,6 +33,7 @@ const Orders = () => {
 
   const [currentIndex, setCurrentIndex] = useState(null);
   const [fee, setFee] = useState(0);
+  const [newConfig, setNewConfig] = useState(null);
 
   const getOutFee = (index) => {
     const profit = document.getElementById(`${index}profit1`);
@@ -41,16 +42,22 @@ const Orders = () => {
 
     console.log(prof, "orders");
     setFee(prof);
+    var array = config;
+    array[array.length - 2].currentFee = prof;
+    console.log(array);
+    setNewConfig(array);
   };
 
   useEffect(() => {
-    if (config.length >= 2) {
-      var array = config;
-      array[array.length - 2].currentFee = fee;
-      console.log(array);
-      setConfig(array);
-    }
-  }, [fee, config, setConfig]);
+    console.log(newConfig);
+
+    // if (config.length >= 2) {
+    //   var array = config;
+    //   array[array.length - 2].currentFee = fee;
+    //   console.log(array);
+    //   setConfig(array);
+    // }
+  }, [newConfig]);
 
   return (
     <>
