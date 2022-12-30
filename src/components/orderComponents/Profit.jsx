@@ -20,8 +20,8 @@ const Profit = () => {
         sum += Number(arr[i]);
       }
     }
-    setProfit(sum);
-    console.log(sum);
+    setProfit(Number(sum));
+    console.log(Number(sum));
   }, [config]);
 
   return (

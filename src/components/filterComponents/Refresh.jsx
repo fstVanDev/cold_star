@@ -10,8 +10,8 @@ const Refresh = () => {
       className="w-max h-max my-auto flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
-        setOrdersView(true);
         setNewFilterView(false);
+        setOrdersView(true);
       }}
     >
       <div className="h-max w-full rounded-10 p-[10px]">
