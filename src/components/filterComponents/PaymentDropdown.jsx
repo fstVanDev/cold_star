@@ -123,7 +123,7 @@ const PaymentDropdown = () => {
               )
             ) : (
               <p className="w-max h-max my-auto text-14 leading-20 font-normal">
-                ....
+                ...
               </p>
             )}
           </div>
