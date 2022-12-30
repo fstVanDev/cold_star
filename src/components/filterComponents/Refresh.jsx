@@ -3,20 +3,7 @@ import { StateContext } from "../../context/StateProvider";
 import { refresh } from "../../images";
 
 const Refresh = () => {
-  const {
-    mode,
-    amount,
-    currentFiat,
-    currentCrypto,
-    currentPayment,
-    orders,
-    globalId,
-    config,
-    setConfig,
-    setNewFilterView,
-    currentOrder,
-    setOrdersView,
-  } = useContext(StateContext);
+  const { setNewFilterView, setOrdersView } = useContext(StateContext);
 
   return (
     <button
@@ -24,6 +11,7 @@ const Refresh = () => {
       type="button"
       onClick={() => {
         setOrdersView(true);
+        setNewFilterView(false);
       }}
     >
       <div className="h-max w-full rounded-10 p-[10px]">

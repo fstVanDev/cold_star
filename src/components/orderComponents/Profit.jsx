@@ -17,7 +17,7 @@ const Profit = () => {
       });
 
       for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
+        sum += Number(arr[i]);
       }
     }
     setProfit(sum);
