@@ -23,7 +23,6 @@ const Profit = () => {
     }
     hey = Number(sum);
     setProfit(hey);
-    console.log(hey, typeof hey);
   }, [config]);
 
   return (
@@ -32,7 +31,7 @@ const Profit = () => {
         Total Profit
       </p>
       <p className="text-white font-bold text-18 leading-24 mr-[15px] my-auto">
-        {profit}%
+        {profit.toFixed(4)}%
       </p>
     </div>
   );

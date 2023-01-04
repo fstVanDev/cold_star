@@ -44,7 +44,7 @@ const Chain = () => {
                     <div className="w-max h-max">
                       <button
                         type="button"
-                        onClick={() => console.log("delete chain click")}
+                        onClick={() => console.log(config.splice(index, 1))}
                         className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
                       >
                         <img
@@ -55,9 +55,7 @@ const Chain = () => {
                       </button>
                       <button
                         type="button"
-                        onClick={() =>
-                          console.log("delete chain click", index, config)
-                        }
+                        onClick={() => console.log("add to fav click")}
                         className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex mt-[15px]"
                       >
                         <img
