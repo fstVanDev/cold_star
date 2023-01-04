@@ -15,7 +15,7 @@ const Chain = () => {
 
       {config !== null ? (
         <>
-          {config.map((item) => {
+          {config.map((item, index) => {
             if (item.currentOrder === null) {
               return null;
             } else {
@@ -55,7 +55,9 @@ const Chain = () => {
                       </button>
                       <button
                         type="button"
-                        onClick={() => console.log("delete chain click")}
+                        onClick={() =>
+                          console.log("delete chain click", index, config)
+                        }
                         className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex mt-[15px]"
                       >
                         <img
