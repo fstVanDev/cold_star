@@ -20,9 +20,12 @@ const Profit = () => {
       for (let i = 0; i < arr.length; i++) {
         sum = sum + Number(arr[i]);
       }
+
+      hey = Number(sum);
+      setProfit(hey);
+    } else {
+      setProfit(0);
     }
-    hey = Number(sum);
-    setProfit(hey);
   }, [config]);
 
   return (
