@@ -35,6 +35,8 @@ const Chain = () => {
       arr.splice(index, 1);
       console.log(arr, "остаток после удаления");
       setConfig(arr);
+      setCurrentFee(null);
+      setCurrentOrder(null);
     }
   };
 
