@@ -29,27 +29,18 @@ const Chain = () => {
       console.log("clean config when only one object");
       setConfig(null);
     } else {
-      console.log("clean config when some onject");
-      let arr = config;
-      arr.splice(index, 1);
-      console.log(arr, "arr config remove click");
-      setGlobalId(globalId - 1);
-      for (let i = 0; i < arr.length; i++) {
-        arr[i].id = i;
-      }
-      setConfig(arr);
-    }
+      // let arr = config;
+      // setConfig(null);
+      // arr.splice(index, 1);
+      // console.log(arr, "arr config remove click");
+      // setGlobalId(globalId - 1);
+      // for (let i = 0; i < arr.length; i++) {
+      //   arr[i].id = i;
+      // }
 
-    console.log(
-      "id",
-      globalId,
-      "fee",
-      currentFee,
-      "currenOrder",
-      currentOrder,
-      "çonfig",
-      config
-    );
+      // setConfig(arr);
+      console.log("hell no");
+    }
     // if (
     //   currentFiat !== null &&
     //   currentCrypto !== null &&
