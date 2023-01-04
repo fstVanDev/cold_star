@@ -31,11 +31,10 @@ const Chain = () => {
       setCurrentFee(null);
       setCurrentOrder(null);
     } else {
-      console.log("hell no");
       let arr = config;
-      const newArr = arr.splice(index, 1);
-      console.log(newArr, "остаток");
-      setConfig(newArr);
+      arr.splice(index, 1);
+      console.log(arr, "остаток после удаления");
+      setConfig(arr);
     }
   };
 
