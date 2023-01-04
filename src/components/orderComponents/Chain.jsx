@@ -24,7 +24,7 @@ const Chain = () => {
 
   const [fav, setFav] = useState(false);
 
-  const removeObject = (index) => {
+  const removeObject = (index, setConfig) => {
     if (config.length === 1) {
       console.log("clean config when only one object");
       // setConfig(null);
@@ -32,13 +32,13 @@ const Chain = () => {
       setCurrentOrder(null);
     } else {
       let arr = config;
-      arr.splice(index, 1);
-
-      for (let i = 0; i < arr.length; i++) {
-        arr[i].id = i;
+      // arr.splice(index, 1);
+      let newArray = arr.filter((item) => item.id !== index);
+      for (let i = 0; i < newArray.length; i++) {
+        newArray[i].id = i;
       }
-      console.log(arr, "остаток после удаления");
-      setConfig(arr);
+      console.log(newArray, "остаток после удаления");
+      setConfig(newArray);
       setCurrentFee(null);
       setCurrentOrder(null);
     }
@@ -81,7 +81,7 @@ const Chain = () => {
                         <div className="w-max h-max">
                           <button
                             type="button"
-                            onClick={() => removeObject(index)}
+                            onClick={() => removeObject(index, setConfig)}
                             className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
                           >
                             <img
