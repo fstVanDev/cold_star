@@ -38,7 +38,8 @@ const Chain = () => {
       for (let i = 0; i < arr.length; i++) {
         arr[i].id = i;
       }
-      console.log(arr);
+      console.log(arr, "остаток");
+      setConfig(arr);
       // setConfig(null);
       // arr.splice(index, 1);
       // console.log(arr, "arr config remove click");
