@@ -33,6 +33,10 @@ const Chain = () => {
     } else {
       let arr = config;
       arr.splice(index, 1);
+
+      for (let i = 0; i < arr.length; i++) {
+        arr[i].id = i;
+      }
       console.log(arr, "остаток после удаления");
       setConfig(arr);
       setCurrentFee(null);
