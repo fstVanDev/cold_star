@@ -5,15 +5,25 @@ import Profit from "./Profit";
 import { close, star, favouriteStar } from "../../images";
 
 const Chain = () => {
-  const { config } = useContext(StateContext);
+  const { config, setConfig } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
+
+  const removeObject = (index) => {
+    if (config.length === 1) {
+      setConfig([]);
+    } else {
+      let arr = config;
+      arr.splice(index, 1);
+      setConfig(arr);
+    }
+  };
 
   return (
     <div className="2xl:w-[190px] h-max">
       <AddNewChain />
 
-      {config !== null ? (
+      {config !== null || config.length > 0 ? (
         <>
           {config.map((item, index) => {
             if (item.currentOrder === null) {
@@ -44,7 +54,7 @@ const Chain = () => {
                     <div className="w-max h-max">
                       <button
                         type="button"
-                        onClick={() => config.splice(index, 1)}
+                        onClick={() => removeObject(index)}
                         className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
                       >
                         <img
