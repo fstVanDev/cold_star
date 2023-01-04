@@ -25,9 +25,6 @@ const Chain = () => {
   const [fav, setFav] = useState(false);
 
   const removeObject = (index) => {
-    setCurrentOrder(null);
-    setCurrentFee(null);
-
     if (config.length === 1) {
       console.log("clean config when only one object");
 
