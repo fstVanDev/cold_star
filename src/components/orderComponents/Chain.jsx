@@ -32,7 +32,7 @@ const Chain = () => {
       setCurrentOrder(null);
     } else {
       console.log("hell no");
-      // let arr = config;
+      let arr = config;
       console.log(arr[index]);
       // arr.splice(index, 1);
       // console.log(arr, "остаток");
