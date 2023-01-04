@@ -31,6 +31,11 @@ const Chain = () => {
     } else {
       let arr = config;
       console.log(arr[index]);
+      arr.splice(index, 1);
+      for (let i = 0; i < arr.length; i++) {
+        arr[i].id = i;
+      }
+      console.log(arr);
       // setConfig(null);
       // arr.splice(index, 1);
       // console.log(arr, "arr config remove click");

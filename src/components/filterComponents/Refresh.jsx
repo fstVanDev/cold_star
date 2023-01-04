@@ -3,7 +3,7 @@ import { StateContext } from "../../context/StateProvider";
 import { refresh } from "../../images";
 
 const Refresh = () => {
-  const { setNewFilterView, setOrdersView, setCurrentOrder } =
+  const { setNewFilterView, setOrdersView, setCurrentOrder, setCurrentFee } =
     useContext(StateContext);
 
   return (
@@ -13,6 +13,7 @@ const Refresh = () => {
       onClick={() => {
         setNewFilterView(false);
         setCurrentOrder(null);
+        setCurrentFee(null);
         setOrdersView(true);
       }}
     >
