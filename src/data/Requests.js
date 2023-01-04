@@ -129,6 +129,14 @@ export async function getOrders(
   currentPayment,
   setCurrentOrders
 ) {
+  console.log(
+    mode,
+    amount,
+    currentFiat,
+    currentCrypto,
+    currentPayment,
+    setCurrentOrders
+  );
   let type;
   if (mode === true) {
     type = 2;

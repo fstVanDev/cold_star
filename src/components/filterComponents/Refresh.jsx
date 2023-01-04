@@ -3,7 +3,8 @@ import { StateContext } from "../../context/StateProvider";
 import { refresh } from "../../images";
 
 const Refresh = () => {
-  const { setNewFilterView, setOrdersView } = useContext(StateContext);
+  const { setNewFilterView, setOrdersView, setCurrentOrder } =
+    useContext(StateContext);
 
   return (
     <button
@@ -11,6 +12,7 @@ const Refresh = () => {
       type="button"
       onClick={() => {
         setNewFilterView(false);
+        setCurrentOrder(null);
         setOrdersView(true);
       }}
     >

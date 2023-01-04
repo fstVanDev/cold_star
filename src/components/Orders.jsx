@@ -19,6 +19,12 @@ const Orders = () => {
 
   const [currentIndex, setCurrentIndex] = useState(null);
 
+  const getColor = (index) => {
+    const tag = document.getElementById(index);
+    console.log(tag);
+    console.log(tag.textContent);
+  };
+
   useEffect(() => {
     if (currentFee !== null) {
       console.log(currentFee);
@@ -98,12 +104,13 @@ const Orders = () => {
                 <div className="w-full h-max flex flex-wrap my-auto mx-auto">
                   {item.trade_methods.map((obj, index) => (
                     <div
+                      key={index}
                       className={`border border-1 w-max h-max rounded-2 px-[5px] py-[px] mx-[2px] my-[2px]`}
-                      style={{ borderColor: item.color }}
+                      style={{ borderColor: obj.color }}
                     >
                       <p
                         className={`text-12 leading-14 w-max font-normal`}
-                        style={{ color: item.color }}
+                        style={{ color: obj.color }}
                       >
                         {obj.name}
                       </p>
@@ -114,7 +121,11 @@ const Orders = () => {
 
               {/* Profit */}
               <div className="w-[88px] h-max flex my-auto">
-                <p className="text-green text-18 leading-24 font-bold text-center">
+                <p
+                  className={`text-green text-18 leading-24 font-bold text-center`}
+                  id={index}
+                >
+                  {getColor(index)}
                   {feeFunction(
                     makerProcent,
                     Number(currentFiat.rates[0].rate),

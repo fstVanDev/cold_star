@@ -9,6 +9,7 @@ const Profit = () => {
   const [profit, setProfit] = useState(0);
 
   useEffect(() => {
+    let hey;
     if (config !== null) {
       var sum = 0;
       var arr = [];
@@ -17,11 +18,12 @@ const Profit = () => {
       });
 
       for (let i = 0; i < arr.length; i++) {
-        sum += Number(arr[i]);
+        sum = sum + Number(arr[i]);
       }
     }
-    setProfit(Number(sum));
-    console.log(Number(sum));
+    hey = Number(sum);
+    setProfit(hey);
+    console.log(hey, typeof hey);
   }, [config]);
 
   return (

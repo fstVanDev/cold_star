@@ -110,7 +110,7 @@ const PaymentDropdown = () => {
         >
           <div className="w-max flex flex-wrap my-auto rounded-0 text-14 leading-14 font-normal mr-[2px]">
             {payment !== null ? (
-              usersPayment === null ? (
+              usersPayment === null || usersPayment === undefined ? (
                 <p className="w-max h-max my-auto text-lightGray">
                   {defaultPayment}
                 </p>
@@ -142,7 +142,7 @@ const PaymentDropdown = () => {
               <div className="border-b border-b-1 border-b-gray pb-[5px] w-full h-max">
                 {usersPayment.map((item, index) => (
                   <div
-                    className="w-full h-max flex justify-around my-[12px] px-[8px]"
+                    className="w-full h-max flex justify-around my-[20px] px-[8px]"
                     key={index}
                   >
                     <label

@@ -30,12 +30,16 @@ const FilterModal = () => {
   const { newFilterView, setNewFilterView } = useContext(StateContext);
 
   return (
-    <Modal
-      visible={newFilterView}
-      setNewFilterView={() => setNewFilterView(false)}
-    >
-      <Filter />
-    </Modal>
+    <>
+      {newFilterView === true && (
+        <Modal
+          visible={newFilterView}
+          setNewFilterView={() => setNewFilterView(false)}
+        >
+          <Filter />
+        </Modal>
+      )}
+    </>
   );
 };
 
