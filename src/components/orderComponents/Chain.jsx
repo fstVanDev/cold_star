@@ -31,20 +31,13 @@ const Chain = () => {
     } else {
       console.log("clean config when some onject");
       let arr = config;
-      // arr.splice(index, 1);
+      arr.splice(index, 1);
       console.log(arr, "arr config remove click");
       setGlobalId(globalId - 1);
-      var finalArr = [];
       for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== index) {
-          finalArr.push(arr[i]);
-        }
+        arr[i].id = i;
       }
-      for (let i = 0; i < finalArr.length; i++) {
-        finalArr[i].id = i;
-      }
-
-      setConfig(finalArr);
+      setConfig(arr);
     }
 
     console.log(
