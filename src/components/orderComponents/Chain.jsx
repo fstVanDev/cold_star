@@ -29,7 +29,8 @@ const Chain = () => {
       console.log("clean config when only one object");
       setConfig(null);
     } else {
-      // let arr = config;
+      let arr = config;
+      console.log(arr[index]);
       // setConfig(null);
       // arr.splice(index, 1);
       // console.log(arr, "arr config remove click");
