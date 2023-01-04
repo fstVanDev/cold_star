@@ -19,12 +19,6 @@ const Orders = () => {
 
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  const getColor = (index) => {
-    const tag = document.getElementById(index);
-    console.log(tag);
-    console.log(tag.textContent);
-  };
-
   useEffect(() => {
     if (currentFee !== null) {
       console.log(currentFee);
@@ -121,11 +115,7 @@ const Orders = () => {
 
               {/* Profit */}
               <div className="w-[88px] h-max flex my-auto">
-                <p
-                  className={`text-green text-18 leading-24 font-bold text-center`}
-                  id={index}
-                >
-                  {getColor(index)}
+                <p className="text-green text-18 leading-24 font-bold text-center">
                   {feeFunction(
                     makerProcent,
                     Number(currentFiat.rates[0].rate),
