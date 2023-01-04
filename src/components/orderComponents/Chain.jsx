@@ -39,7 +39,7 @@ const Chain = () => {
       console.log(arr, "arr config remove click");
       setGlobalId(globalId - 1);
       for (let i = 0; i < arr.length; i++) {
-        arr[i].id === i;
+        arr[i].id = i;
       }
       setConfig(arr);
     }
