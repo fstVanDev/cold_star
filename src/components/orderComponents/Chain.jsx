@@ -32,7 +32,6 @@ const Chain = () => {
       console.log("clean config when only one object");
 
       setConfig(null);
-      setGlobalId(globalId - 1);
     } else {
       console.log("clean config when some onject");
       let arr = config;
