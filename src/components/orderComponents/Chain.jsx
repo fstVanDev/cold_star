@@ -28,7 +28,10 @@ const Chain = () => {
     if (config.length === 1) {
       console.log("clean config when only one object");
       setConfig(null);
+      setCurrentFee(null);
+      setCurrentOrder(null);
     } else {
+      console.log("hell no");
       let arr = config;
       console.log(arr[index]);
       arr.splice(index, 1);
@@ -45,7 +48,6 @@ const Chain = () => {
       // }
 
       // setConfig(arr);
-      console.log("hell no");
     }
     // if (
     //   currentFiat !== null &&
