@@ -27,8 +27,8 @@ const Chain = () => {
   const removeObject = (index) => {
     if (config.length === 1) {
       console.log("clean config when only one object");
-      setCurrentOrder(null);
-      setCurrentFee(null);
+      // setCurrentOrder(null);
+      // setCurrentFee(null);
       setConfig([]);
       setGlobalId(globalId - 1);
     } else {
@@ -36,8 +36,8 @@ const Chain = () => {
       let arr = config;
       arr.splice(index, 1);
       console.log(arr, "arr config remove click");
-      setCurrentOrder(null);
-      setCurrentFee(null);
+      // setCurrentOrder(null);
+      // setCurrentFee(null);
       setConfig(arr);
       setGlobalId(globalId - 1);
     }
