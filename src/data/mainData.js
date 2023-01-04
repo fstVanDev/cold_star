@@ -193,8 +193,6 @@ export const bottomData = {
 };
 
 export const feeFunction = (makerProcent, fiat, fiatRate, asset) => {
-  console.log(makerProcent, fiat, fiatRate, asset, "feeFunction");
-
   var rate;
   if (fiatRate.length === 0) {
     rate = fiat;
