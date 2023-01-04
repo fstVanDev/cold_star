@@ -18,6 +18,8 @@ const Chain = () => {
     setGlobalId,
     setCurrentOrder,
     setCurrentFee,
+    amount,
+    mode,
   } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
