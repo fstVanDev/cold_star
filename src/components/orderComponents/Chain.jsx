@@ -28,6 +28,7 @@ const Chain = () => {
     let arr = config;
     console.log(arr[index].currentOrder, "ордер который мы сейчас удаляем");
     arr[index].currentOrder = null;
+    arr[index].currentFee = null;
     setConfig(arr);
 
     // if (config.length === 1) {
