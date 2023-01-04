@@ -27,16 +27,15 @@ const Chain = () => {
   const removeObject = (index) => {
     if (config.length === 1) {
       console.log("clean config when only one object");
-      setConfig(null);
+      // setConfig(null);
       setCurrentFee(null);
       setCurrentOrder(null);
     } else {
       console.log("hell no");
       let arr = config;
-      console.log(arr[index]);
-      // arr.splice(index, 1);
-      // console.log(arr, "остаток");
-      // setConfig(arr);
+      const newArr = arr.splice(index, 1);
+      console.log(newArr, "остаток");
+      setConfig(newArr);
     }
   };
 
