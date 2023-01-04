@@ -19,7 +19,6 @@ const Main = () => {
     globalId,
     setConfig,
     currentOrder,
-    setOrdersView,
     currentFee,
   } = useContext(StateContext);
 
