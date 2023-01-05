@@ -1,0 +1,56 @@
+import React, { useContext } from "react";
+import { StateContext } from "../../context/StateProvider";
+
+const ClearAll = () => {
+  const {
+    setConfig,
+    setGlobalId,
+    setCurrentId,
+    setMode,
+    setPayment,
+    setOrders,
+    setFiatRate,
+    setMakerProcent,
+    setAmount,
+    setCurrentFiat,
+    setCurrentCrypto,
+    setCurrentPayment,
+    setCurrentOrder,
+    setCurrentFee,
+    setNewFilterView,
+    setOrdersView,
+  } = useContext(StateContext);
+
+  const clearAll = () => {
+    setConfig(null);
+    setGlobalId(0);
+    setCurrentId(0);
+    setMode(true);
+    setPayment(null);
+    setOrders(null);
+    setFiatRate("");
+    setMakerProcent("");
+    setAmount("");
+    setCurrentFiat(null);
+    setCurrentCrypto(null);
+    setCurrentPayment(null);
+    setCurrentOrder(null);
+    setCurrentFee(null);
+    setNewFilterView(false);
+    setOrdersView(false);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={() => clearAll()}
+      className="w-full h-[60px] border border-2 border-green rounded-15 mt-[30px] flex justify-center"
+    >
+      <p className="text-green font-normal text-12 leading-16 my-auto">
+        Clear All
+      </p>
+    </button>
+  );
+};
+
+export default ClearAll;

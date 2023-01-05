@@ -41,7 +41,11 @@ const App = () => {
           />
         )}
 
-        <Redirect to={"/"} />
+        {user === null ? (
+          <Redirect to={"/"} />
+        ) : (
+          <Redirect to={`/${user.name}-${user.id}/toTrade`} />
+        )}
       </Switch>
       <Bottom />
     </div>
