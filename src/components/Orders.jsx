@@ -13,8 +13,10 @@ const Orders = () => {
     currentFee,
     setCurrentFee,
     setCurrentOrder,
+    currentOrder,
     config,
     setConfig,
+    currentId,
   } = useContext(StateContext);
 
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -30,11 +32,15 @@ const Orders = () => {
       <Top />
       <>
         {orders.map((item, index) => (
-          <div className="w-max h-max mb-[10px] rounded-20">
+          <div
+            className={`${
+              currentOrder !== null
+                ? item.id === currentOrder.id && "border-green"
+                : ""
+            } w-max h-max mb-[10px] rounded-20`}
+          >
             <div
-              className={`2xl:w-[1070px] h-max flex justify-between bg-white py-[12px] px-[30px] ${
-                index === currentIndex ? "rounded-t-20" : " rounded-20"
-              }`}
+              className="2xl:w-[1070px] h-max flex justify-between bg-white py-[12px] px-[30px] rounded-20"
               key={index}
             >
               {/* Mode */}
@@ -129,11 +135,7 @@ const Orders = () => {
               {/* Button */}
               <button
                 type="button"
-                className={`w-[50px] h-[50px] border border-1  ${
-                  currentIndex === index
-                    ? "border-green bg-main"
-                    : "border-gray bg-white"
-                } rounded-6 my-auto flex`}
+                className="w-[50px] h-[50px] border border-1 rounded-6 my-auto flex"
                 onClick={() => {
                   setCurrentIndex(index);
                   setCurrentOrder(item);
@@ -145,7 +147,6 @@ const Orders = () => {
                       Number(item.price)
                     )
                   );
-                  console.log("кнопка записывает сurrentProfit");
                 }}
               >
                 <img

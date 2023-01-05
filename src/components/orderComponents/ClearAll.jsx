@@ -44,7 +44,7 @@ const ClearAll = () => {
     <button
       type="button"
       onClick={() => clearAll()}
-      className="w-full h-[60px] border border-2 border-green rounded-15 mt-[30px] flex justify-center"
+      className="w-full h-[32px] bg-white border border-2 border-green rounded-6 mt-[20px] flex justify-center"
     >
       <p className="text-green font-normal text-12 leading-16 my-auto">
         Clear All

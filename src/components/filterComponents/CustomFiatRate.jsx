@@ -6,7 +6,7 @@ const CustomFiatRate = () => {
 
   return (
     <div className="w-max h-full flex">
-      <h2 className="w-max h-max text-center my-auto text-12 leading-16 font-normal text-lightGray mx-auto mr-[15px]">
+      <h2 className="max-w-[60px] h-max text-center my-auto text-12 leading-16 font-normal text-lightGray mx-auto mr-[15px]">
         Custom fiat rate
       </h2>
 

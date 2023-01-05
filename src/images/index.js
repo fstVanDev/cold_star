@@ -26,3 +26,4 @@ export { default as favouriteStar } from "./favouriteStar.svg";
 export { default as accountBanner } from "./accountBanner.svg";
 export { default as videoInstruction } from "./videoInstruction.svg";
 export { default as kztFlag } from "./kztFlag.svg";
+export { default as toBinance } from "./toBinance.svg";

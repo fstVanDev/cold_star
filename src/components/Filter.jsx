@@ -60,7 +60,7 @@ const Filter = () => {
           <PaymentDropdown />
           <Refresh />
         </div>
-        <div className="mt-[10px] w-full h-[60px] flex justify-between pl-[135px] pr-[370px]">
+        <div className="mt-[10px] w-full h-[60px] flex justify-between pl-[217px] pr-[400px]">
           <MakerTaker />
           <CustomFiatRate />
           <RegionDropdown />
