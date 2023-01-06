@@ -28,7 +28,7 @@ const Main = () => {
     console.log(config);
 
     if (config !== null) {
-      if (config.length > 0 && currentId === globalId) {
+      if (config.length > 0) {
         setCurrentId(config.length - 1);
       }
     }
