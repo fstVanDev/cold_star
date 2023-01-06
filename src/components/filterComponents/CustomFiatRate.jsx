@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const CustomFiatRate = () => {
-  const { fiatRate, setFiatRate, currentFiat } = useContext(StateContext);
+  const { fiatRate, setFiatRate, currentFiat, config, currentId } =
+    useContext(StateContext);
 
   return (
     <div className="w-max h-full flex">
@@ -14,14 +15,16 @@ const CustomFiatRate = () => {
         type="number"
         className="min-h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
         placeholder={
-          currentFiat !== null
-            ? Number(currentFiat.rates[0].rate).toFixed(2)
+          config !== null
+            ? Number(config[currentId].fiat.rates[0].rate).toFixed(2)
             : "Enter fiat..."
         }
         value={fiatRate}
         onChange={(e) => {
           if (e.target.value === "") {
-            setFiatRate(Number(currentFiat.rates[0].rate).toFixed(2));
+            setFiatRate(
+              Number(config[currentId].fiat.rates[0].rate).toFixed(2)
+            );
           } else {
             setFiatRate(Number(e.target.value));
             console.log(Number(e.target.value), "CustomFiatRate");
