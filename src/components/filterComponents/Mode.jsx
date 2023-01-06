@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const Mode = () => {
-  const { mode, setMode } = useContext(StateContext);
+  const { mode, setMode, config, currentId } = useContext(StateContext);
 
   return (
     <div className="w-max h-full flex my-auto">

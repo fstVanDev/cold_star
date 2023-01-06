@@ -32,8 +32,6 @@ const Filter = () => {
     currentId,
   } = useContext(StateContext);
 
-  const [addition, setAddition] = useState(false);
-
   useEffect(() => {
     if (currentCrypto !== null && currentFiat !== null) {
       getTradeMethods(mode, currentFiat, currentCrypto, setPayment);

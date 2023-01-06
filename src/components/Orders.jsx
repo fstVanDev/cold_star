@@ -6,16 +6,12 @@ import { feeFunction } from "../data/mainData";
 
 const Orders = () => {
   const {
-    orders,
     makerProcent,
     fiatRate,
-    currentFiat,
     currentFee,
     setCurrentFee,
     setCurrentOrder,
-
     config,
-    setConfig,
     currentId,
   } = useContext(StateContext);
 

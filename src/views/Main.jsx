@@ -37,9 +37,10 @@ const Main = () => {
 
   useEffect(() => {
     if (
-      currentFiat !== null &&
-      currentCrypto !== null &&
-      currentPayment !== null
+      (currentFiat !== null &&
+        currentCrypto !== null &&
+        currentPayment !== null) ||
+      (currentFee !== null && currentOrder !== null)
     ) {
       const localObject = {
         id: globalId,
