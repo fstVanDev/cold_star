@@ -68,7 +68,10 @@ const Chain = () => {
                               // ? "border-green"
                               "border-secondary"
                         }  rounded-15 bg-white p-[15px] grid`}
-                        onClick={() => setCurrentId(index)}
+                        onClick={() => {
+                          console.log(index, "index");
+                          setCurrentId(index);
+                        }}
                       >
                         <div className="flex justify-between">
                           <div className="w-max h-full">
