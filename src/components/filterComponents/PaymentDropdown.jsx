@@ -12,6 +12,8 @@ const PaymentDropdown = () => {
     currentPayment,
     setCurrentOrders,
     payment,
+    config,
+    currentId,
     setCurrentPayment,
   } = useContext(StateContext);
 
@@ -77,7 +79,25 @@ const PaymentDropdown = () => {
   useEffect(() => {
     if (currentPayment !== null) {
       setActivePayment(false);
-      // setUsersPayment(currentPayment);
+    }
+
+    if (currentPayment === null) {
+      if (config !== null) {
+        if (config.length > 0) {
+          if (config[currentId].payments !== null) {
+            setCurrentPayment(config[currentId].payments);
+
+            console.log("возврат");
+          } else {
+            setCurrentPayment(null);
+            console.log("дефолт");
+          }
+        }
+      } else {
+        setDefaultPayment("Bank...");
+        setUsersPayment(null);
+        setActivePayment(false);
+      }
     }
   }, [currentPayment]);
 
