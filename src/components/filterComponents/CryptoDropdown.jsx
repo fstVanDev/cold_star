@@ -4,7 +4,8 @@ import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
 const CryptoDrowdown = () => {
-  const { crypto, setCurrentCrypto, currentCrypto } = useContext(StateContext);
+  const { crypto, setCurrentCrypto, currentCrypto, config, currentId } =
+    useContext(StateContext);
 
   const [defaultCrypto, setDefaultCrypto] = useState("Enter...");
   const [activeCrypto, setActiveCrypto] = useState(false);
@@ -20,7 +21,19 @@ const CryptoDrowdown = () => {
 
   useEffect(() => {
     if (currentCrypto === null) {
-      setCryptoValue("");
+      if (config !== null) {
+        if (config.length > 0) {
+          if (config[currentId].crypto !== null) {
+            setCurrentCrypto(config[currentId].crypto.name);
+            setCryptoValue(config[currentId].crypto.name);
+            console.log("возврат");
+          } else {
+            setCurrentCrypto(null);
+            setCryptoValue("");
+            console.log("дефолт");
+          }
+        }
+      }
     }
   }, [currentCrypto]);
 
