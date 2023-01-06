@@ -77,16 +77,18 @@ const PaymentDropdown = () => {
   }, [payment]);
 
   useEffect(() => {
-    if (currentPayment !== null) {
-      setActivePayment(false);
-    }
+    // if (currentPayment !== null) {
+    //   setActivePayment(false);
+    // }
 
     if (currentPayment === null) {
       if (config !== null) {
         if (config.length > 0) {
           if (config[currentId].payments !== null) {
+            let arr;
             setCurrentPayment(config[currentId].payments);
-
+            arr = config[currentId].payments;
+            setUsersPayment(arr);
             console.log("возврат");
           } else {
             setCurrentPayment(null);
