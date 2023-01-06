@@ -64,9 +64,7 @@ const Chain = () => {
                         className={`w-[190px] h-max border border-2 ${
                           currentId !== null && index === currentId
                             ? "border-green"
-                            : // : index === config.length - 1
-                              // ? "border-green"
-                              "border-secondary"
+                            : "border-secondary"
                         }  rounded-15 bg-white p-[15px] grid`}
                         onClick={() => {
                           console.log(index, "index");
@@ -79,7 +77,13 @@ const Chain = () => {
                               {item.currentOrder.trade_user.name}
                             </p>
                             <div className="w-max h-max flex">
-                              <p className="text-green text-10 leading-14 font-bold w-max h-max my-auto mr-[5px]">
+                              <p
+                                className={` ${
+                                  item.currentOrder.type === 2
+                                    ? "text-green"
+                                    : "text-orange"
+                                }  text-10 leading-14 font-bold w-max h-max my-auto mr-[5px]`}
+                              >
                                 {item.currentOrder.type === 2 ? "Buy" : "Sell"}
                               </p>
                               <p className="font-normal text-10 leading-14 w-max h-max my-auto">
@@ -213,103 +217,7 @@ const Chain = () => {
                               </div>
                             )}
                           </>
-                        ) : // ) : index === config.length - 1 ? (
-                        //   <>
-                        //     {about === false || activeAbout !== index ? (
-                        //       <div className="w-full h-max grid mt-[10px]">
-                        //         <button
-                        //           type="button"
-                        //           onClick={() => {
-                        //             setAbout(true);
-                        //             setActiveAbout(index);
-                        //           }}
-                        //           className="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
-                        //         >
-                        //           <p className="w-max h-max my-auto text-12 leading-16 font-normal text-green">
-                        //             About
-                        //           </p>
-                        //         </button>
-                        //         <a
-                        //           target="_blank"
-                        //           href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
-                        //           className="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
-                        //         >
-                        //           <p className="w-max h-max my-auto text-12 leading-16 font-normal text-white">
-                        //             To Binance
-                        //           </p>
-                        //           <img
-                        //             src={toBinance}
-                        //             alt="a"
-                        //             className="w-[12px] h-[12px] ml-[5px] my-auto"
-                        //           />
-                        //         </a>
-                        //       </div>
-                        //     ) : (
-                        //       <div className="w-full h-max mt-[10px] grid">
-                        //         <div className="w-full h-[1px] border border-1 border-green"></div>
-
-                        //         <div className="flex justify-between w-full h-max mt-[10px]">
-                        //           <div className="max-w-[130px] h-max grid">
-                        //             <p className="text-12 font-bold leading-14 text-green w-max h-max">
-                        //               Pair
-                        //             </p>
-                        //             <p className="text-12 font-normal text-gray leading-14 w-max h-max">
-                        //               {item.currentOrder.fiat.name} /{" "}
-                        //               {item.currentOrder.asset.name}
-                        //             </p>
-
-                        //             <p className="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
-                        //               Available
-                        //             </p>
-                        //             <p className="text-12 font-normal text-gray leading-14 w-max h-max ">
-                        //               {item.currentOrder.amount}{" "}
-                        //               {item.currentOrder.asset.name}
-                        //             </p>
-
-                        //             <p className="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
-                        //               Limit
-                        //             </p>
-                        //             <p className="text-12 font-normal text-gray leading-14 h-max max-w-[130px]">
-                        //               {item.currentOrder.min_trans_amount} -
-                        //               {item.currentOrder.max_trans_amount}{" "}
-                        //               {item.currentOrder.fiat.name}
-                        //             </p>
-                        //           </div>
-
-                        //           <button
-                        //             type="button"
-                        //             onClick={() => setAbout(false)}
-                        //             className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
-                        //           >
-                        //             <img
-                        //               src={close}
-                        //               alt="cls"
-                        //               className="w-[12px] h-[12px] m-auto"
-                        //             />
-                        //           </button>
-                        //         </div>
-
-                        //         <div className="w-full h-max flex flex-wrap mx-auto mt-[5px]">
-                        //           {item.currentOrder.trade_methods.map(
-                        //             (obj) => (
-                        //               <div
-                        //                 className="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
-                        //                 style={{ borderColor: `${obj.color}` }}
-                        //               >
-                        //                 <p
-                        //                   className="text-10 leading-12 w-max font-normal"
-                        //                   style={{ color: `${obj.color}` }}
-                        //                 >
-                        //                   {obj.name}
-                        //                 </p>
-                        //               </div>
-                        //             )
-                        //           )}
-                        //         </div>
-                        //       </div>
-                        //     )}
-                        //   </>
-                        null}
+                        ) : null}
                       </div>
                     </>
                   );

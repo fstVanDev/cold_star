@@ -63,24 +63,53 @@ const Main = () => {
       } else {
         let arr = config;
 
-        arr.map((item, index) => {
-          if (item.id === globalId && arr[arr.length - 1] !== globalId) {
-            if (JSON.stringify(item) !== JSON.stringify(localObject)) {
-              arr.splice(index, 1);
-              const insert = function (array, indexi, obj) {
-                return [...array.slice(0, indexi), obj, ...array.slice(indexi)];
-              };
-              arr = insert(arr, index, localObject);
+        if (currentId === globalId) {
+          arr.map((item, index) => {
+            if (item.id === globalId && arr[arr.length - 1] !== globalId) {
+              if (JSON.stringify(item) !== JSON.stringify(localObject)) {
+                arr.splice(index, 1);
+                const insert = function (array, indexi, obj) {
+                  return [
+                    ...array.slice(0, indexi),
+                    obj,
+                    ...array.slice(indexi),
+                  ];
+                };
+                arr = insert(arr, index, localObject);
 
-              setConfig(arr);
+                setConfig(arr);
+              }
+            } else {
+              if (arr.length - 1 !== globalId) {
+                arr.push(localObject);
+                setConfig(arr);
+              }
             }
-          } else {
-            if (arr.length - 1 !== globalId) {
-              arr.push(localObject);
-              setConfig(arr);
+          });
+        } else {
+          arr.map((item, index) => {
+            if (item.id === currentId && arr[arr.length - 1] !== currentId) {
+              if (JSON.stringify(item) !== JSON.stringify(localObject)) {
+                arr.splice(index, 1);
+                const insert = function (array, indexi, obj) {
+                  return [
+                    ...array.slice(0, indexi),
+                    obj,
+                    ...array.slice(indexi),
+                  ];
+                };
+                arr = insert(arr, index, localObject);
+
+                setConfig(arr);
+              }
+            } else {
+              if (arr.length - 1 !== currentId) {
+                arr.push(localObject);
+                setConfig(arr);
+              }
             }
-          }
-        });
+          });
+        }
       }
     }
   }, [
@@ -92,6 +121,7 @@ const Main = () => {
     amount,
     orders,
     globalId,
+    currentId,
     mode,
   ]);
 
