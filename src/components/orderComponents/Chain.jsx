@@ -104,22 +104,22 @@ const Chain = () => {
                         {currentId !== null && index === currentId ? (
                           <>
                             {about === false ? (
-                              <div class="w-full h-max grid mt-[10px]">
+                              <div className="w-full h-max grid mt-[10px]">
                                 <button
                                   type="button"
-                                  onClick={() => setAbout(true)}
-                                  class="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
+                                  onClick={() => setAbout(!about)}
+                                  className="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
                                 >
-                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-green">
+                                  <p className="w-max h-max my-auto text-12 leading-16 font-normal text-green">
                                     About
                                   </p>
                                 </button>
                                 <a
                                   target="_blank"
                                   href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
-                                  class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
+                                  className="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
                                 >
-                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-white">
+                                  <p className="w-max h-max my-auto text-12 leading-16 font-normal text-white">
                                     To Binance
                                   </p>
                                   <img
@@ -130,31 +130,31 @@ const Chain = () => {
                                 </a>
                               </div>
                             ) : (
-                              <div class="w-full h-max mt-[10px] grid">
-                                <div class="w-full h-[1px] border border-1 border-green"></div>
+                              <div className="w-full h-max mt-[10px] grid">
+                                <div className="w-full h-[1px] border border-1 border-green"></div>
 
-                                <div class="flex justify-between w-full h-max mt-[10px]">
-                                  <div class="max-w-[130px] h-max grid">
-                                    <p class="text-12 font-bold leading-14 text-green w-max h-max">
+                                <div className="flex justify-between w-full h-max mt-[10px]">
+                                  <div className="max-w-[130px] h-max grid">
+                                    <p className="text-12 font-bold leading-14 text-green w-max h-max">
                                       Pair
                                     </p>
-                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max">
+                                    <p className="text-12 font-normal text-gray leading-14 w-max h-max">
                                       {item.currentOrder.fiat.name} /{" "}
                                       {item.currentOrder.asset.name}
                                     </p>
 
-                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                    <p className="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
                                       Available
                                     </p>
-                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max ">
+                                    <p className="text-12 font-normal text-gray leading-14 w-max h-max ">
                                       {item.currentOrder.amount}{" "}
                                       {item.currentOrder.asset.name}
                                     </p>
 
-                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                    <p className="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
                                       Limit
                                     </p>
-                                    <p class="text-12 font-normal text-gray leading-14 h-max max-w-[130px]">
+                                    <p className="text-12 font-normal text-gray leading-14 h-max max-w-[130px]">
                                       {item.currentOrder.min_trans_amount} -
                                       {item.currentOrder.max_trans_amount}{" "}
                                       {item.currentOrder.fiat.name}
@@ -163,7 +163,7 @@ const Chain = () => {
 
                                   <button
                                     type="button"
-                                    onClick={() => setAbout(false)}
+                                    onClick={() => setAbout(!about)}
                                     className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
                                   >
                                     <img
@@ -174,15 +174,15 @@ const Chain = () => {
                                   </button>
                                 </div>
 
-                                <div class="w-full h-max flex flex-wrap mx-auto mt-[5px]">
+                                <div className="w-full h-max flex flex-wrap mx-auto mt-[5px]">
                                   {item.currentOrder.trade_methods.map(
                                     (obj) => (
                                       <div
-                                        class="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
+                                        className="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
                                         style={`border-color: ${obj.color}`}
                                       >
                                         <p
-                                          class="text-10 leading-12 w-max font-normal"
+                                          className="text-10 leading-12 w-max font-normal"
                                           style={`color: ${obj.color}`}
                                         >
                                           {obj.name}
@@ -197,22 +197,22 @@ const Chain = () => {
                         ) : index === config.length - 1 ? (
                           <>
                             {about === false ? (
-                              <div class="w-full h-max grid mt-[10px]">
+                              <div className="w-full h-max grid mt-[10px]">
                                 <button
                                   type="button"
                                   onClick={() => setAbout(true)}
-                                  class="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
+                                  className="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
                                 >
-                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-green">
+                                  <p className="w-max h-max my-auto text-12 leading-16 font-normal text-green">
                                     About
                                   </p>
                                 </button>
                                 <a
                                   target="_blank"
                                   href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
-                                  class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
+                                  className="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
                                 >
-                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-white">
+                                  <p className="w-max h-max my-auto text-12 leading-16 font-normal text-white">
                                     To Binance
                                   </p>
                                   <img
@@ -223,31 +223,31 @@ const Chain = () => {
                                 </a>
                               </div>
                             ) : (
-                              <div class="w-full h-max mt-[10px] grid">
-                                <div class="w-full h-[1px] border border-1 border-green"></div>
+                              <div className="w-full h-max mt-[10px] grid">
+                                <div className="w-full h-[1px] border border-1 border-green"></div>
 
-                                <div class="flex justify-between w-full h-max mt-[10px]">
-                                  <div class="max-w-[130px] h-max grid">
-                                    <p class="text-12 font-bold leading-14 text-green w-max h-max">
+                                <div className="flex justify-between w-full h-max mt-[10px]">
+                                  <div className="max-w-[130px] h-max grid">
+                                    <p className="text-12 font-bold leading-14 text-green w-max h-max">
                                       Pair
                                     </p>
-                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max">
+                                    <p className="text-12 font-normal text-gray leading-14 w-max h-max">
                                       {item.currentOrder.fiat.name} /{" "}
                                       {item.currentOrder.asset.name}
                                     </p>
 
-                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                    <p className="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
                                       Available
                                     </p>
-                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max ">
+                                    <p className="text-12 font-normal text-gray leading-14 w-max h-max ">
                                       {item.currentOrder.amount}{" "}
                                       {item.currentOrder.asset.name}
                                     </p>
 
-                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                    <p className="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
                                       Limit
                                     </p>
-                                    <p class="text-12 font-normal text-gray leading-14 h-max max-w-[130px]">
+                                    <p className="text-12 font-normal text-gray leading-14 h-max max-w-[130px]">
                                       {item.currentOrder.min_trans_amount} -
                                       {item.currentOrder.max_trans_amount}{" "}
                                       {item.currentOrder.fiat.name}
@@ -267,15 +267,15 @@ const Chain = () => {
                                   </button>
                                 </div>
 
-                                <div class="w-full h-max flex flex-wrap mx-auto mt-[5px]">
+                                <div className="w-full h-max flex flex-wrap mx-auto mt-[5px]">
                                   {item.currentOrder.trade_methods.map(
                                     (obj) => (
                                       <div
-                                        class="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
+                                        className="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
                                         style={`border-color: ${obj.color}`}
                                       >
                                         <p
-                                          class="text-10 leading-12 w-max font-normal"
+                                          className="text-10 leading-12 w-max font-normal"
                                           style={`color: ${obj.color}`}
                                         >
                                           {obj.name}
