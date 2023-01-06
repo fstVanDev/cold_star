@@ -6,8 +6,14 @@ import ClearAll from "./ClearAll";
 import { close, star, favouriteStar, toBinance } from "../../images";
 
 const Chain = () => {
-  const { config, setConfig, currentId, setCurrentOrder, setCurrentFee } =
-    useContext(StateContext);
+  const {
+    config,
+    setConfig,
+    currentId,
+    setCurrentOrder,
+    setCurrentFee,
+    setCurrentId,
+  } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
   const [about, setAbout] = useState(false);
@@ -27,6 +33,11 @@ const Chain = () => {
         newArray[i].id = i;
       }
       console.log(newArray, "остаток после удаления");
+      if (newArray.length === 1) {
+        setCurrentId(0);
+      } else {
+        setCurrentId(newArray.length - 1);
+      }
       setConfig(newArray);
       setCurrentFee(null);
       setCurrentOrder(null);
