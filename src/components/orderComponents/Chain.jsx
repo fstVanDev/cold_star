@@ -179,11 +179,11 @@ const Chain = () => {
                                     (obj) => (
                                       <div
                                         className="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
-                                        style={`border-color: ${obj.color}`}
+                                        style={{ borderColor: `${obj.color}` }}
                                       >
                                         <p
                                           className="text-10 leading-12 w-max font-normal"
-                                          style={`color: ${obj.color}`}
+                                          style={{ color: `${obj.color}` }}
                                         >
                                           {obj.name}
                                         </p>
@@ -272,11 +272,11 @@ const Chain = () => {
                                     (obj) => (
                                       <div
                                         className="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
-                                        style={`border-color: ${obj.color}`}
+                                        style={{ borderColor: `${obj.color}` }}
                                       >
                                         <p
                                           className="text-10 leading-12 w-max font-normal"
-                                          style={`color: ${obj.color}`}
+                                          style={{ color: `${obj.color}` }}
                                         >
                                           {obj.name}
                                         </p>
