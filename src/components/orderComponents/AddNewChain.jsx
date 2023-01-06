@@ -2,17 +2,29 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const AddNewChain = () => {
-  const { setNewFilterView, setGlobalId, globalId, setOrdersView } =
-    useContext(StateContext);
+  const {
+    setNewFilterView,
+    setGlobalId,
+    globalId,
+    setCurrentFiat,
+    setCurrentCrypto,
+    setCurrentPayment,
+    setCurrentOrder,
+    setCurrentFee,
+  } = useContext(StateContext);
 
   return (
     <button
       type="button"
       className="w-full h-[54px] rounded-10 border-dashed border-2 border-green"
       onClick={() => {
-        setNewFilterView(true);
         setGlobalId(globalId + 1);
-        // setOrdersView(false);
+        setCurrentPayment(null);
+        setCurrentFiat(null);
+        setCurrentCrypto(null);
+        setCurrentOrder(null);
+        setCurrentFee(null);
+        setNewFilterView(true);
         console.log("Add new Filter, click button");
       }}
     >
