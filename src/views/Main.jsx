@@ -20,10 +20,17 @@ const Main = () => {
     setConfig,
     currentOrder,
     currentFee,
+    setCurrentId,
+    currentId,
   } = useContext(StateContext);
 
   useEffect(() => {
     console.log(config);
+
+    if (config !== null) {
+      setCurrentId(config.length - 1);
+    }
+    console.log(currentId, "currentId");
   }, [config]);
 
   useEffect(() => {

@@ -11,6 +11,7 @@ const Chain = () => {
 
   const [fav, setFav] = useState(false);
   const [about, setAbout] = useState(false);
+  const [activeAbout, setActiveAbout] = useState(null);
 
   const removeObject = (index, setConfig) => {
     if (config.length === 1) {
@@ -46,7 +47,7 @@ const Chain = () => {
                 } else {
                   return (
                     <>
-                      <div className="h-[30px] bg-gray w-[2px] mx-auto" />
+                      <div className="h-[30px] bg-secondary w-[2px] mx-auto" />
 
                       <div
                         className={`w-[190px] h-max border border-2 ${
@@ -54,7 +55,7 @@ const Chain = () => {
                             ? "border-green"
                             : index === config.length - 1
                             ? "border-green"
-                            : "border-gray"
+                            : "border-secondary"
                         }  rounded-15 bg-white p-[15px] grid`}
                       >
                         <div className="flex justify-between">
@@ -103,11 +104,14 @@ const Chain = () => {
 
                         {currentId !== null && index === currentId ? (
                           <>
-                            {about === false ? (
+                            {about === false || activeAbout !== index ? (
                               <div className="w-full h-max grid mt-[10px]">
                                 <button
                                   type="button"
-                                  onClick={() => setAbout(!about)}
+                                  onClick={() => {
+                                    setAbout(!about);
+                                    setActiveAbout(index);
+                                  }}
                                   className="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
                                 >
                                   <p className="w-max h-max my-auto text-12 leading-16 font-normal text-green">
@@ -196,11 +200,14 @@ const Chain = () => {
                           </>
                         ) : index === config.length - 1 ? (
                           <>
-                            {about === false ? (
+                            {about === false || activeAbout !== index ? (
                               <div className="w-full h-max grid mt-[10px]">
                                 <button
                                   type="button"
-                                  onClick={() => setAbout(true)}
+                                  onClick={() => {
+                                    setAbout(true);
+                                    setActiveAbout(index);
+                                  }}
                                   className="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
                                 >
                                   <p className="w-max h-max my-auto text-12 leading-16 font-normal text-green">
@@ -299,7 +306,7 @@ const Chain = () => {
       ) : null}
 
       <Profit />
-      {config !== null && <>{config.length >= 2 && <ClearAll />}</>}
+      {config !== null && <>{config.length >= 0 && <ClearAll />}</>}
     </div>
   );
 };

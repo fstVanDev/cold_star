@@ -12,7 +12,7 @@ const AddNewChain = () => {
       onClick={() => {
         setNewFilterView(true);
         setGlobalId(globalId + 1);
-        setOrdersView(false);
+        // setOrdersView(false);
         console.log("Add new Filter, click button");
       }}
     >
