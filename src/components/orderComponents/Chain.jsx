@@ -49,7 +49,7 @@ const Chain = () => {
                       <div className="h-[30px] bg-gray w-[2px] mx-auto" />
 
                       <div
-                        className={`w-[190px] h-[93px] border border-2 ${
+                        className={`w-[190px] h-max border border-2 ${
                           currentId !== null && index === currentId
                             ? "border-green"
                             : index === config.length - 1
@@ -121,7 +121,7 @@ const Chain = () => {
                               <img
                                 src={toBinance}
                                 alt="a"
-                                className="w-[16px] h-[16px] ml-[10px] my-auto"
+                                className="w-[12px] h-[12px] ml-[5px] my-auto"
                               />
                             </button>
                           </div>
@@ -135,8 +135,8 @@ const Chain = () => {
                                 About
                               </p>
                             </button>
-                            <button
-                              type="button"
+                            <a
+                              href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
                               class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
                             >
                               <p class="w-max h-max my-auto text-12 leading-16 font-normal text-white">
@@ -145,9 +145,9 @@ const Chain = () => {
                               <img
                                 src={toBinance}
                                 alt="a"
-                                className="w-[16px] h-[16px] ml-[10px] my-auto"
+                                className="w-[12px] h-[12px] ml-[5px] my-auto"
                               />
-                            </button>
+                            </a>
                           </div>
                         ) : null}
                       </div>

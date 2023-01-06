@@ -35,7 +35,9 @@ const Orders = () => {
           <div
             className={`${
               currentOrder !== null
-                ? item.id === currentOrder.id && "border-green"
+                ? item.id === currentOrder.id
+                  ? "border-green border border-1"
+                  : ""
                 : ""
             } w-max h-max mb-[10px] rounded-20`}
           >
