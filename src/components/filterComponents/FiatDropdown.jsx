@@ -3,7 +3,8 @@ import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
 const FiatDropdown = () => {
-  const { fiat, setCurrentFiat } = useContext(StateContext);
+  const { fiat, setCurrentFiat, currentFiat, config, currentId } =
+    useContext(StateContext);
 
   const [defaultFiat, setDefaultFiat] = useState("Enter...");
   const [activeFiat, setActiveFiat] = useState(false);
@@ -16,6 +17,27 @@ const FiatDropdown = () => {
       setActiveFiat(false);
     }
   }, [fiat]);
+
+  useEffect(() => {
+    if (currentFiat === null) {
+      if (config !== null) {
+        if (config.length > 0) {
+          if (config[currentId].fiat !== null) {
+            setCurrentFiat(config[currentId].fiat.name);
+
+            console.log("возврат");
+          } else {
+            setCurrentFiat(null);
+            console.log("дефолт");
+          }
+        }
+      } else {
+        setDefaultFiat("Enter...");
+        setFiatValue("");
+        setActiveFiat(false);
+      }
+    }
+  }, [currentFiat]);
 
   return (
     <div className="w-max h-full flex ">
