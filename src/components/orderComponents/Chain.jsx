@@ -115,6 +115,7 @@ const Chain = () => {
                                   </p>
                                 </button>
                                 <a
+                                  target="_blank"
                                   href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
                                   class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
                                 >
@@ -139,15 +140,15 @@ const Chain = () => {
                                     </p>
                                     <p class="text-12 font-normal text-gray leading-14 w-max h-max">
                                       {item.currentOrder.fiat.name} /{" "}
-                                      {item.curretOrder.asset.name}
+                                      {item.currentOrder.asset.name}
                                     </p>
 
                                     <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
                                       Available
                                     </p>
                                     <p class="text-12 font-normal text-gray leading-14 w-max h-max ">
-                                      {item.curretOrder.amount}{" "}
-                                      {item.curretOrder.asset.name}
+                                      {item.currentOrder.amount}{" "}
+                                      {item.currentOrder.asset.name}
                                     </p>
 
                                     <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
@@ -207,6 +208,7 @@ const Chain = () => {
                                   </p>
                                 </button>
                                 <a
+                                  target="_blank"
                                   href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
                                   class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
                                 >
@@ -231,15 +233,15 @@ const Chain = () => {
                                     </p>
                                     <p class="text-12 font-normal text-gray leading-14 w-max h-max">
                                       {item.currentOrder.fiat.name} /{" "}
-                                      {item.curretOrder.asset.name}
+                                      {item.currentOrder.asset.name}
                                     </p>
 
                                     <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
                                       Available
                                     </p>
                                     <p class="text-12 font-normal text-gray leading-14 w-max h-max ">
-                                      {item.curretOrder.amount}{" "}
-                                      {item.curretOrder.asset.name}
+                                      {item.currentOrder.amount}{" "}
+                                      {item.currentOrder.asset.name}
                                     </p>
 
                                     <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
