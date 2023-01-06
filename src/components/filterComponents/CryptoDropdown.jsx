@@ -32,6 +32,10 @@ const CryptoDrowdown = () => {
             console.log("дефолт");
           }
         }
+      } else {
+        setDefaultCrypto("Enter...");
+        setCryptoValue("");
+        setActiveCrypto(false);
       }
     }
   }, [currentCrypto]);
