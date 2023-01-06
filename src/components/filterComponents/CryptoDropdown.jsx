@@ -24,7 +24,7 @@ const CryptoDrowdown = () => {
       if (config !== null) {
         if (config.length > 0) {
           if (config[currentId].crypto !== null) {
-            setCurrentCrypto(config[currentId].crypto.name);
+            setCurrentCrypto(config[currentId].crypto);
 
             console.log("возврат");
           } else {

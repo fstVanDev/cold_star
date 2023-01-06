@@ -23,7 +23,7 @@ const FiatDropdown = () => {
       if (config !== null) {
         if (config.length > 0) {
           if (config[currentId].fiat !== null) {
-            setCurrentFiat(config[currentId].fiat.name);
+            setCurrentFiat(config[currentId].fiat);
 
             console.log("возврат");
           } else {
