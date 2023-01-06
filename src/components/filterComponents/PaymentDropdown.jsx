@@ -80,27 +80,26 @@ const PaymentDropdown = () => {
     // if (currentPayment !== null) {
     //   setActivePayment(false);
     // }
-
-    if (currentPayment === null) {
-      if (config !== null) {
-        if (config.length > 0) {
-          if (config[currentId].payments !== null) {
-            let arr;
-            setCurrentPayment(config[currentId].payments);
-            arr = config[currentId].payments;
-            setUsersPayment(arr);
-            console.log("возврат");
-          } else {
-            setCurrentPayment(null);
-            console.log("дефолт");
-          }
-        }
-      } else {
-        setDefaultPayment("Bank...");
-        setUsersPayment(null);
-        setActivePayment(false);
-      }
-    }
+    // if (currentPayment === null) {
+    //   if (config !== null) {
+    //     if (config.length > 0) {
+    //       if (config[currentId].payments !== null) {
+    //         let arr;
+    //         setCurrentPayment(config[currentId].payments);
+    //         arr = config[currentId].payments;
+    //         setUsersPayment(arr);
+    //         console.log("возврат");
+    //       } else {
+    //         setCurrentPayment(null);
+    //         console.log("дефолт");
+    //       }
+    //     }
+    //   } else {
+    //     setDefaultPayment("Bank...");
+    //     setUsersPayment(null);
+    //     setActivePayment(false);
+    //   }
+    // }
   }, [currentPayment]);
 
   return (
