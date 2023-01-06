@@ -25,13 +25,15 @@ const CryptoDrowdown = () => {
         if (config.length > 0) {
           if (config[currentId].crypto !== null) {
             setCurrentCrypto(config[currentId].crypto.name);
-            setCryptoValue(config[currentId].crypto.name);
+            // setCryptoValue(config[currentId].crypto.name);
             console.log("возврат");
           } else {
             setCurrentCrypto(null);
-            setCryptoValue("");
+            // setCryptoValue("");
             console.log("дефолт");
           }
+          setCryptoValue("");
+          setDefaultCrypto("Enter...");
         }
       }
     }
