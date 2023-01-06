@@ -10,7 +10,7 @@ const Chain = () => {
     useContext(StateContext);
 
   const [fav, setFav] = useState(false);
-  const [readMore, setReadMore] = useState(false);
+  const [about, setAbout] = useState(false);
 
   const removeObject = (index, setConfig) => {
     if (config.length === 1) {
@@ -102,53 +102,189 @@ const Chain = () => {
                         </div>
 
                         {currentId !== null && index === currentId ? (
-                          <div class="w-full h-max grid mt-[10px]">
-                            <button
-                              type="button"
-                              class="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
-                            >
-                              <p class="w-max h-max my-auto text-12 leading-16 font-normal text-green">
-                                About
-                              </p>
-                            </button>
-                            <button
-                              type="button"
-                              class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
-                            >
-                              <p class="w-max h-max my-auto text-12 leading-16 font-normal text-white">
-                                To Binance
-                              </p>
-                              <img
-                                src={toBinance}
-                                alt="a"
-                                className="w-[12px] h-[12px] ml-[5px] my-auto"
-                              />
-                            </button>
-                          </div>
+                          <>
+                            {about === false ? (
+                              <div class="w-full h-max grid mt-[10px]">
+                                <button
+                                  type="button"
+                                  onClick={() => setAbout(true)}
+                                  class="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
+                                >
+                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-green">
+                                    About
+                                  </p>
+                                </button>
+                                <a
+                                  href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
+                                  class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
+                                >
+                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-white">
+                                    To Binance
+                                  </p>
+                                  <img
+                                    src={toBinance}
+                                    alt="a"
+                                    className="w-[12px] h-[12px] ml-[5px] my-auto"
+                                  />
+                                </a>
+                              </div>
+                            ) : (
+                              <div class="w-full h-max mt-[10px] grid">
+                                <div class="w-full h-[1px] border border-1 border-green"></div>
+
+                                <div class="flex justify-between w-full h-max mt-[10px]">
+                                  <div class="max-w-[130px] h-max grid">
+                                    <p class="text-12 font-bold leading-14 text-green w-max h-max">
+                                      Pair
+                                    </p>
+                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max">
+                                      {item.currentOrder.fiat.name} /{" "}
+                                      {item.curretOrder.asset.name}
+                                    </p>
+
+                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                      Available
+                                    </p>
+                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max ">
+                                      {item.curretOrder.amount}{" "}
+                                      {item.curretOrder.asset.name}
+                                    </p>
+
+                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                      Limit
+                                    </p>
+                                    <p class="text-12 font-normal text-gray leading-14 h-max max-w-[130px]">
+                                      {item.currentOrder.min_trans_amount} -
+                                      {item.currentOrder.max_trans_amount}{" "}
+                                      {item.currentOrder.fiat.name}
+                                    </p>
+                                  </div>
+
+                                  <button
+                                    type="button"
+                                    onClick={() => setAbout(false)}
+                                    className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
+                                  >
+                                    <img
+                                      src={close}
+                                      alt="cls"
+                                      className="w-[12px] h-[12px] m-auto"
+                                    />
+                                  </button>
+                                </div>
+
+                                <div class="w-full h-max flex flex-wrap mx-auto mt-[5px]">
+                                  {item.currentOrder.trade_methods.map(
+                                    (obj) => (
+                                      <div
+                                        class="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
+                                        style={`border-color: ${obj.color}`}
+                                      >
+                                        <p
+                                          class="text-10 leading-12 w-max font-normal"
+                                          style={`color: ${obj.color}`}
+                                        >
+                                          {obj.name}
+                                        </p>
+                                      </div>
+                                    )
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                          </>
                         ) : index === config.length - 1 ? (
-                          <div class="w-full h-max grid mt-[10px]">
-                            <button
-                              type="button"
-                              class="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
-                            >
-                              <p class="w-max h-max my-auto text-12 leading-16 font-normal text-green">
-                                About
-                              </p>
-                            </button>
-                            <a
-                              href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
-                              class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
-                            >
-                              <p class="w-max h-max my-auto text-12 leading-16 font-normal text-white">
-                                To Binance
-                              </p>
-                              <img
-                                src={toBinance}
-                                alt="a"
-                                className="w-[12px] h-[12px] ml-[5px] my-auto"
-                              />
-                            </a>
-                          </div>
+                          <>
+                            {about === false ? (
+                              <div class="w-full h-max grid mt-[10px]">
+                                <button
+                                  type="button"
+                                  onClick={() => setAbout(true)}
+                                  class="w-full h-[32px] rounded-6 border-green border border-1 bg-white flex justify-center"
+                                >
+                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-green">
+                                    About
+                                  </p>
+                                </button>
+                                <a
+                                  href={`https://p2p.binance.com/en/advertiserDetail?advertiserNo=${item.currentOrder.trade_user.external_id}`}
+                                  class="mt-[10px] w-full h-[32px] rounded-6 border-green border border-1 bg-green flex justify-center"
+                                >
+                                  <p class="w-max h-max my-auto text-12 leading-16 font-normal text-white">
+                                    To Binance
+                                  </p>
+                                  <img
+                                    src={toBinance}
+                                    alt="a"
+                                    className="w-[12px] h-[12px] ml-[5px] my-auto"
+                                  />
+                                </a>
+                              </div>
+                            ) : (
+                              <div class="w-full h-max mt-[10px] grid">
+                                <div class="w-full h-[1px] border border-1 border-green"></div>
+
+                                <div class="flex justify-between w-full h-max mt-[10px]">
+                                  <div class="max-w-[130px] h-max grid">
+                                    <p class="text-12 font-bold leading-14 text-green w-max h-max">
+                                      Pair
+                                    </p>
+                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max">
+                                      {item.currentOrder.fiat.name} /{" "}
+                                      {item.curretOrder.asset.name}
+                                    </p>
+
+                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                      Available
+                                    </p>
+                                    <p class="text-12 font-normal text-gray leading-14 w-max h-max ">
+                                      {item.curretOrder.amount}{" "}
+                                      {item.curretOrder.asset.name}
+                                    </p>
+
+                                    <p class="text-12 font-bold leading-14 text-green w-max h-max mt-[5px]">
+                                      Limit
+                                    </p>
+                                    <p class="text-12 font-normal text-gray leading-14 h-max max-w-[130px]">
+                                      {item.currentOrder.min_trans_amount} -
+                                      {item.currentOrder.max_trans_amount}{" "}
+                                      {item.currentOrder.fiat.name}
+                                    </p>
+                                  </div>
+
+                                  <button
+                                    type="button"
+                                    onClick={() => setAbout(false)}
+                                    className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
+                                  >
+                                    <img
+                                      src={close}
+                                      alt="cls"
+                                      className="w-[12px] h-[12px] m-auto"
+                                    />
+                                  </button>
+                                </div>
+
+                                <div class="w-full h-max flex flex-wrap mx-auto mt-[5px]">
+                                  {item.currentOrder.trade_methods.map(
+                                    (obj) => (
+                                      <div
+                                        class="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
+                                        style={`border-color: ${obj.color}`}
+                                      >
+                                        <p
+                                          class="text-10 leading-12 w-max font-normal"
+                                          style={`color: ${obj.color}`}
+                                        >
+                                          {obj.name}
+                                        </p>
+                                      </div>
+                                    )
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                          </>
                         ) : null}
                       </div>
                     </>
