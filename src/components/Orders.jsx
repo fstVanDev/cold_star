@@ -19,7 +19,7 @@ const Orders = () => {
     currentId,
   } = useContext(StateContext);
 
-  const [currentIndex, setCurrentIndex] = useState(null);
+  // const [currentIndex, setCurrentIndex] = useState(null);
 
   useEffect(() => {
     if (currentFee !== null) {
@@ -31,7 +31,7 @@ const Orders = () => {
     <div className="2xl:w-[1290px] mx-auto">
       <Top />
       <>
-        {orders.map((item, index) => (
+        {config[currentId].orders.map((item, index) => (
           <div
             className={`${
               currentOrder !== null
@@ -139,7 +139,7 @@ const Orders = () => {
                 type="button"
                 className="w-[50px] h-[50px] border border-1 rounded-6 my-auto flex"
                 onClick={() => {
-                  setCurrentIndex(index);
+                  // setCurrentIndex(index);
                   setCurrentOrder(item);
                   setCurrentFee(
                     feeFunction(
