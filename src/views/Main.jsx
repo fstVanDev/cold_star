@@ -30,11 +30,10 @@ const Main = () => {
     if (config !== null) {
       if (config.length > 0) {
         setCurrentId(config.length - 1);
-        console.log(config.length - 1);
       }
     }
     console.log(currentId, "currentId");
-  }, [config, currentId]);
+  }, [config]);
 
   useEffect(() => {
     if (
