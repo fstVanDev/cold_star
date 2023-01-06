@@ -16,7 +16,9 @@ const CustomFiatRate = () => {
         className="min-h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
         placeholder={
           config !== null
-            ? Number(config[currentId].fiat.rates[0].rate).toFixed(2)
+            ? config.length > 0
+              ? Number(config[currentId].fiat.rates[0].rate).toFixed(2)
+              : "Enter fiat..."
             : "Enter fiat..."
         }
         value={fiatRate}
