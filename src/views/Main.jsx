@@ -46,7 +46,7 @@ const Main = () => {
         id: globalId,
         mode: mode,
         amount: amount,
-        defaultAmount: amount.length === 0 ? false : true,
+        defaultAmount: amount.length === 0 ? true : false,
         fiat: currentFiat,
         crypto: currentCrypto,
         payments: currentPayment,

@@ -30,6 +30,11 @@ const Filter = () => {
     setCurrentFee,
     config,
     currentId,
+    setCurrentFiat,
+    setCurrentCrypto,
+    setCurrentPayment,
+    setAmount,
+    setMode,
   } = useContext(StateContext);
 
   useEffect(() => {
@@ -72,6 +77,12 @@ const Filter = () => {
         <button
           onClick={() => {
             setNewFilterView(false);
+            setCurrentFiat(config[currentId].fiat);
+            setCurrentCrypto(config[currentId].crypto);
+            setCurrentPayment(config[currentId].payments);
+            setAmount(config[currentId].amount);
+            setMode(config[currentId].mode);
+            setOrders(config[currentId].orders);
             setCurrentOrder(config[currentId].currentOrder);
             setCurrentFee(config[currentId].currentFee);
             setGlobalId(globalId - 1);
