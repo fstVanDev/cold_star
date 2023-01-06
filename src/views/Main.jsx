@@ -87,6 +87,7 @@ const Main = () => {
     currentFee,
     currentOrder,
     amount,
+    orders,
     globalId,
     mode,
   ]);
