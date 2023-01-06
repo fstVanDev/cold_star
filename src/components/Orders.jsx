@@ -13,7 +13,7 @@ const Orders = () => {
     currentFee,
     setCurrentFee,
     setCurrentOrder,
-    currentOrder,
+
     config,
     setConfig,
     currentId,
@@ -34,8 +34,8 @@ const Orders = () => {
         {config[currentId].orders.map((item, index) => (
           <div
             className={`${
-              currentOrder !== null
-                ? item.id === currentOrder.id
+              config[currentId].currentOrder !== null
+                ? item.id === config[currentId].currentOrder.id
                   ? "border-green border border-1"
                   : ""
                 : ""
@@ -126,7 +126,7 @@ const Orders = () => {
                 <p className="text-green text-18 leading-24 font-bold text-center">
                   {feeFunction(
                     makerProcent,
-                    Number(currentFiat.rates[0].rate),
+                    Number(config[currentId].fiat.rates[0].rate),
                     fiatRate,
                     Number(item.price)
                   )}
@@ -144,7 +144,7 @@ const Orders = () => {
                   setCurrentFee(
                     feeFunction(
                       makerProcent,
-                      Number(currentFiat.rates[0].rate),
+                      Number(config[currentId].fiat.rates[0].rate),
                       fiatRate,
                       Number(item.price)
                     )
