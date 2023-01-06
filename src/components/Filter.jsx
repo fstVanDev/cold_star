@@ -26,6 +26,10 @@ const Filter = () => {
     setNewFilterView,
     setOrders,
     setPayment,
+    setCurrentOrder,
+    setCurrentFee,
+    config,
+    currentId,
   } = useContext(StateContext);
 
   const [addition, setAddition] = useState(false);
@@ -70,6 +74,8 @@ const Filter = () => {
         <button
           onClick={() => {
             setNewFilterView(false);
+            setCurrentOrder(config[currentId].currentOrder);
+            setCurrentFee(config[currentId].currentFee);
             setGlobalId(globalId - 1);
           }}
           className="bg-main w-[24px] h-[24px]  my-auto ml-[20px] rounded-6"

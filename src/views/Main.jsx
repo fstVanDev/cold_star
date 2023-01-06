@@ -28,7 +28,9 @@ const Main = () => {
     console.log(config);
 
     if (config !== null) {
-      setCurrentId(config.length - 1);
+      if (config.length > 0) {
+        setCurrentId(config.length - 1);
+      }
     }
     console.log(currentId, "currentId");
   }, [config]);
