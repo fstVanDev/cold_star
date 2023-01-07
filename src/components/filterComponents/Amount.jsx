@@ -23,7 +23,7 @@ const Amount = () => {
         value={amount}
         onChange={(e) => {
           if (e.target.value === "") {
-            setAmount(Number(amount));
+            setAmount(Number(config[currentId].amount));
           }
           setAmount(Number(e.target.value));
           console.log(Number(e.target.value), "amount custom");
