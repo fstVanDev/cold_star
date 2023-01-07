@@ -39,8 +39,12 @@ const Main = () => {
   }, [config]);
 
   useEffect(() => {
-    console.log(currentId, globalId);
+    console.log(currentId, "currentId");
   }, [currentId]);
+
+  useEffect(() => {
+    console.log(globalId, "globalId");
+  }, [globalId]);
 
   useEffect(() => {
     if (

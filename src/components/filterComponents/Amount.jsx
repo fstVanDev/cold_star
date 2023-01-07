@@ -13,13 +13,7 @@ const Amount = () => {
         type="text"
         className="h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
         placeholder="Enter..."
-        value={
-          config !== null
-            ? config.length > 0
-              ? config[currentId].amount
-              : amount
-            : amount
-        }
+        value={amount}
         onChange={(e) => {
           setAmount(Number(e.target.value));
           console.log(Number(e.target.value), "amount");

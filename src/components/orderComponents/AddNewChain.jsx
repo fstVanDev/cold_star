@@ -12,6 +12,7 @@ const AddNewChain = () => {
     setCurrentOrder,
     setCurrentFee,
     setPayment,
+    setAmount,
   } = useContext(StateContext);
 
   return (
@@ -20,6 +21,7 @@ const AddNewChain = () => {
       className="w-full h-[54px] rounded-10 border-dashed border-2 border-green"
       onClick={() => {
         setGlobalId(globalId + 1);
+        setAmount(null);
         setPayment(null);
         setCurrentPayment(null);
         setCurrentFiat(null);
