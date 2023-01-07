@@ -13,14 +13,14 @@ const Amount = () => {
       <input
         type="text"
         className="h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
-        placeholder="Enter..."
-        value={
+        placeholder={
           config !== null
             ? config.length > 0
               ? Number(config[currentId].amount)
               : Number(amount)
             : ""
         }
+        value={amount}
         onChange={(e) => {
           if (e.target.value === "") {
             setAmount(Number(amount));
