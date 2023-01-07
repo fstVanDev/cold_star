@@ -18,7 +18,7 @@ const CustomFiatRate = () => {
           config !== null
             ? config.length > 0
               ? Number(config[currentId].fiat.rates[0].rate).toFixed(2)
-              : "Enter fiat..."
+              : Number(currentFiat.rates[0].rate).toFixed(2)
             : "Enter fiat..."
         }
         value={fiatRate}

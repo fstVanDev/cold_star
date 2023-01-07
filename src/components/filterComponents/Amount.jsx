@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const Amount = () => {
-  const { amount, setAmount } = useContext(StateContext);
+  const { amount, setAmount, config, currentId } = useContext(StateContext);
 
   return (
     <div className="w-max h-full flex my-auto">
