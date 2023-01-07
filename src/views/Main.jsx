@@ -98,10 +98,16 @@ const Main = () => {
       } else {
         let arr = config;
         console.log("change1");
+        console.log(currentId, arr[currentId]);
+        console.log(localObject);
         if (JSON.stringify(arr[currentId]) !== JSON.stringify(localObject)) {
           arr[currentId] = localObject;
           setConfig(arr);
+          console.log(localObject);
           console.log("change2");
+        } else {
+          console.log("change nothing");
+          console.log(localObject);
         }
       }
     }
