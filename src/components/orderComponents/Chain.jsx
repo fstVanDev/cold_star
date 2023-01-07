@@ -13,6 +13,7 @@ const Chain = () => {
     setCurrentOrder,
     setCurrentFee,
     setCurrentId,
+    globalId,
   } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
@@ -68,6 +69,12 @@ const Chain = () => {
                         }  rounded-15 bg-white p-[15px] grid`}
                         onClick={() => {
                           console.log(index, "index");
+                          if (currentId !== globalId) {
+                            setEditMode(true);
+                            console.log("editMode true");
+                          } else {
+                            console.log("edit false");
+                          }
                           setCurrentId(index);
                         }}
                       >

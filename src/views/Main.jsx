@@ -30,14 +30,15 @@ const Main = () => {
     console.log(config);
 
     if (editMode === false) {
+      console.log(currentId, "true");
       if (config !== null) {
         if (config.length > 0) {
           setCurrentId(config.length - 1);
         }
       }
+    } else {
+      console.log(currentId, "false");
     }
-
-    console.log(currentId, "currentId");
   }, [config, editMode]);
 
   useEffect(() => {
@@ -60,48 +61,44 @@ const Main = () => {
         currentFee: currentFee,
       };
 
-      if (editMode === false) {
-        if (config === null) {
-          const arr = [];
-          arr.push(localObject);
+      // if (editMode === false) {
+      if (config === null) {
+        const arr = [];
+        arr.push(localObject);
 
-          setConfig(arr);
-        } else {
-          let arr = config;
-
-          arr.map((item, index) => {
-            if (item.id === globalId && arr[arr.length - 1] !== globalId) {
-              if (JSON.stringify(item) !== JSON.stringify(localObject)) {
-                arr.splice(index, 1);
-                const insert = function (array, indexi, obj) {
-                  return [
-                    ...array.slice(0, indexi),
-                    obj,
-                    ...array.slice(indexi),
-                  ];
-                };
-                arr = insert(arr, index, localObject);
-
-                setConfig(arr);
-              }
-            } else {
-              if (arr.length - 1 !== globalId) {
-                arr.push(localObject);
-                setConfig(arr);
-              }
-            }
-          });
-        }
+        setConfig(arr);
       } else {
         let arr = config;
-        console.log("change1");
-        if (JSON.stringify(arr[currentId]) !== JSON.stringify(localObject)) {
-          arr[currentId] = localObject;
-          setConfig(arr);
-          console.log("change2");
-          setEditMode(false);
-        }
+
+        arr.map((item, index) => {
+          if (item.id === globalId && arr[arr.length - 1] !== globalId) {
+            if (JSON.stringify(item) !== JSON.stringify(localObject)) {
+              arr.splice(index, 1);
+              const insert = function (array, indexi, obj) {
+                return [...array.slice(0, indexi), obj, ...array.slice(indexi)];
+              };
+              arr = insert(arr, index, localObject);
+
+              setConfig(arr);
+            }
+          } else {
+            if (arr.length - 1 !== globalId) {
+              arr.push(localObject);
+              setConfig(arr);
+            }
+          }
+        });
       }
+      // } else {
+      //   let arr = config;
+      //   console.log("change1");
+      //   if (JSON.stringify(arr[currentId]) !== JSON.stringify(localObject)) {
+      //     arr[currentId] = localObject;
+      //     setConfig(arr);
+      //     console.log("change2");
+      //     setEditMode(false);
+      //   }
+      // }
     }
   }, [
     currentFiat,

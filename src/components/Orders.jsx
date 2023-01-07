@@ -137,9 +137,6 @@ const Orders = () => {
                 type="button"
                 className="w-[50px] h-[50px] border border-1 rounded-6 my-auto flex"
                 onClick={() => {
-                  if (currentId !== globalId) {
-                    setEditMode(true);
-                  }
                   // setCurrentIndex(index);
                   setCurrentOrder(item);
                   setCurrentFee(
