@@ -71,9 +71,11 @@ const Chain = () => {
                         onClick={() => {
                           console.log(index, "index");
                           if (currentId !== globalId) {
+                            console.log(currentId, globalId);
                             setEditMode(true);
                             console.log("editMode true");
                           } else {
+                            console.log(currentId, globalId);
                             console.log("edit false");
                           }
                           setCurrentId(index);

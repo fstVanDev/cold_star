@@ -29,15 +29,17 @@ const Main = () => {
   useEffect(() => {
     console.log(config);
 
-    if (editMode === false) {
-      console.log(currentId, "true");
-      if (config !== null) {
-        if (config.length > 0) {
+    if (config !== null) {
+      if (config.length > 0) {
+        if (editMode === false) {
           setCurrentId(config.length - 1);
+          console.log(currentId, "false");
+          console.log(currentId, globalId);
+        } else {
+          console.log(currentId, "true");
+          console.log(currentId, globalId);
         }
       }
-    } else {
-      console.log(currentId, "false");
     }
   }, [config, editMode]);
 
