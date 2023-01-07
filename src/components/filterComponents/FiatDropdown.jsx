@@ -18,25 +18,29 @@ const FiatDropdown = () => {
     }
   }, [fiat]);
 
-  useEffect(() => {
-    if (currentFiat === null) {
-      if (config !== null) {
-        if (config.length > 0) {
-          if (config[currentId].fiat !== null) {
-            setCurrentFiat(config[currentId].fiat);
+  // useEffect(() => {
+  //   if (currentFiat === null) {
+  //     if (config !== null) {
+  //       if (config.length > 0) {
+  //         if (config[currentId].fiat !== null) {
+  //           setCurrentFiat(config[currentId].fiat);
 
-            console.log("возврат");
-          } else {
-            setCurrentFiat(null);
-            console.log("дефолт");
-          }
-        }
-      } else {
-        setDefaultFiat("Enter...");
-        setFiatValue("");
-        setActiveFiat(false);
-      }
-    }
+  //           console.log("возврат");
+  //         } else {
+  //           setCurrentFiat(null);
+  //           console.log("дефолт");
+  //         }
+  //       }
+  //     } else {
+  //       setDefaultFiat("Enter...");
+  //       setFiatValue("");
+  //       setActiveFiat(false);
+  //     }
+  //   }
+  // }, [currentFiat]);
+
+  useEffect(() => {
+    console.log(currentFiat);
   }, [currentFiat]);
 
   return (
@@ -56,10 +60,6 @@ const FiatDropdown = () => {
           type="button"
           onClick={fiat.length > 0 ? () => setActiveFiat(!activeFiat) : null}
           className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]`}
-          //  ${
-          //    activeFiat && "rounded-b-0 border-b border-b-1 border-b-gray"
-          //  }
-          //  ${!activeFiat && "rounded-6"}
         >
           <p className="w-max h-max text-lightGray text-12 leading-14 font-normal my-auto">
             {fiat.length > 0 ? defaultFiat : "Load..."}
