@@ -33,6 +33,8 @@ export const StateProvider = ({ children }) => {
   const [newFilterView, setNewFilterView] = useState(false);
   const [ordersView, setOrdersView] = useState(false);
 
+  const [editMode, setEditMode] = useState(false);
+
   // const [secondaryMode, setSecondaryMode] = useState(true);
   // const [ordersView, setOrdersView] = useState(false);
 
@@ -64,6 +66,8 @@ export const StateProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
+        editMode,
+        setEditMode,
         user,
         setUser,
         email,

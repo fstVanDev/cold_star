@@ -13,6 +13,8 @@ const Orders = () => {
     setCurrentOrder,
     config,
     currentId,
+    editMode,
+    etEditMode,
   } = useContext(StateContext);
 
   // const [currentIndex, setCurrentIndex] = useState(null);
