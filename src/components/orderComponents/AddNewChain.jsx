@@ -17,6 +17,8 @@ const AddNewChain = () => {
     setFiatRate,
     setMakerProcent,
     currentId,
+    setMode,
+    setOrdersView,
   } = useContext(StateContext);
 
   return (
@@ -27,6 +29,7 @@ const AddNewChain = () => {
         if (config[currentId].currentOrder !== null) {
           setGlobalId(globalId + 1);
           setAmount("");
+          setMode(true);
           setPayment(null);
           setMakerProcent("");
           setFiatRate("");
@@ -36,6 +39,7 @@ const AddNewChain = () => {
           setCurrentOrder(null);
           setCurrentFee(null);
           setNewFilterView(true);
+          setOrdersView(false);
           console.log("Add new Filter, click button");
         } else {
           alert("Please choose order");

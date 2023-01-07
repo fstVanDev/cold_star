@@ -35,6 +35,7 @@ const Filter = () => {
     setCurrentPayment,
     setAmount,
     setMode,
+    setOrdersView,
   } = useContext(StateContext);
 
   useEffect(() => {
@@ -86,6 +87,7 @@ const Filter = () => {
             setCurrentOrder(config[currentId].currentOrder);
             setCurrentFee(config[currentId].currentFee);
             setGlobalId(globalId - 1);
+            setOrdersView(true);
           }}
           className="bg-main w-[24px] h-[24px]  my-auto ml-[20px] rounded-6"
         >

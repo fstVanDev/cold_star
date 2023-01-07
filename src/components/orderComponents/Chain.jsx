@@ -78,31 +78,31 @@ const Chain = () => {
                           console.log(index, "index => currentId");
                           setCurrentId(index);
 
-                          if (index === globalId) {
-                            console.log(currentId, globalId);
-                            console.log("edit false");
-                            setEditMode(false);
-                            setCurrentFiat(config[globalId].fiat);
-                            setCurrentCrypto(config[globalId].crypto);
-                            setCurrentPayment(config[globalId].payments);
-                            setAmount(config[globalId].amount);
-                            setMode(config[globalId].mode);
-                            setOrders(config[globalId].orders);
-                            setCurrentOrder(config[globalId].currentOrder);
-                            setCurrentFee(config[globalId].currentFee);
-                          } else {
-                            setEditMode(true);
-                            console.log("editMode true");
-                            setCurrentFiat(config[currentId].fiat);
-                            setCurrentCrypto(config[currentId].crypto);
-                            setCurrentPayment(config[currentId].payments);
-                            setAmount(config[currentId].amount);
-                            setMode(config[currentId].mode);
-                            setOrders(config[currentId].orders);
-                            setCurrentOrder(config[currentId].currentOrder);
-                            setCurrentFee(config[currentId].currentFee);
-                            console.log(index, globalId);
-                          }
+                          // if (index === globalId) {
+                          //   console.log(currentId, globalId);
+                          //   console.log("edit false");
+                          //   setEditMode(false);
+                          //   setCurrentFiat(config[globalId].fiat);
+                          //   setCurrentCrypto(config[globalId].crypto);
+                          //   setCurrentPayment(config[globalId].payments);
+                          //   setAmount(config[globalId].amount);
+                          //   setMode(config[globalId].mode);
+                          //   setOrders(config[globalId].orders);
+                          //   setCurrentOrder(config[globalId].currentOrder);
+                          //   setCurrentFee(config[globalId].currentFee);
+                          // } else {
+                          setEditMode(true);
+                          console.log("editMode true");
+                          setCurrentFiat(config[currentId].fiat);
+                          setCurrentCrypto(config[currentId].crypto);
+                          setCurrentPayment(config[currentId].payments);
+                          setAmount(config[currentId].amount);
+                          setMode(config[currentId].mode);
+                          setOrders(config[currentId].orders);
+                          setCurrentOrder(config[currentId].currentOrder);
+                          setCurrentFee(config[currentId].currentFee);
+                          console.log(index, globalId);
+                          // }
                         }}
                       >
                         <div className="flex justify-between">
