@@ -55,7 +55,7 @@ const Filter = () => {
         setOrders
       );
     }
-  }, [currentPayment]);
+  }, [currentPayment, mode, amount]);
 
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">

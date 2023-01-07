@@ -10,7 +10,7 @@ export const StateProvider = ({ children }) => {
   const [name, setName] = useState(""); // имя пользователя
 
   // mainData states
-  const [config, setConfig] = useState(null);
+
   const [globalId, setGlobalId] = useState(0);
   const [currentId, setCurrentId] = useState(0);
 
@@ -34,6 +34,8 @@ export const StateProvider = ({ children }) => {
   const [ordersView, setOrdersView] = useState(false);
 
   const [editMode, setEditMode] = useState(false);
+
+  const [config, setConfig] = useState(null);
 
   return (
     <StateContext.Provider

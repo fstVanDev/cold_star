@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Filter from "../components/Filter";
 import Orders from "../components/Orders";
 import Chain from "../components/orderComponents/Chain";
 import FilterModal from "../components/FilterModal";
 import { StateContext } from "../context/StateProvider";
 import { useEffect } from "react";
+import { render } from "react-dom";
 
 const Main = () => {
   const {
@@ -24,6 +25,7 @@ const Main = () => {
     currentId,
     editMode,
     setEditMode,
+    setGlobalId,
     fiatRate,
   } = useContext(StateContext);
 
@@ -48,13 +50,13 @@ const Main = () => {
   }, [globalId]);
 
   useEffect(() => {
-    if (
-      (currentFiat !== null &&
-        currentCrypto !== null &&
-        currentPayment !== null) ||
-      (currentFee !== null && currentOrder !== null)
-    ) {
-      if (editMode === false) {
+    if (editMode === false) {
+      if (
+        (currentFiat !== null &&
+          currentCrypto !== null &&
+          currentPayment !== null) ||
+        (currentFee !== null && currentOrder !== null)
+      ) {
         const localObject = {
           id: globalId,
           mode: mode,
@@ -75,7 +77,7 @@ const Main = () => {
 
           setConfig(arr);
         } else {
-          console.log("change config with globalId");
+          console.log("change config ");
           let arr = config;
 
           arr.map((item, index) => {
@@ -101,39 +103,50 @@ const Main = () => {
             }
           });
         }
-      } else {
-        console.log("change config with currentId");
-
-        const localObject = {
-          id: currentId,
-          mode: mode,
-          amount: amount,
-          defaultAmount: amount.length === 0 ? true : false,
-          fiatRate: Number(fiatRate),
-          fiat: currentFiat,
-          crypto: currentCrypto,
-          payments: currentPayment,
-          orders: orders,
-          currentOrder: currentOrder,
-          currentFee: currentFee,
-        };
-
-        let arr = config;
-        console.log("change1");
-        console.log(currentId, arr[currentId]);
-        console.log(localObject);
-        if (JSON.stringify(arr[currentId]) !== JSON.stringify(localObject)) {
-          arr[currentId] = localObject;
-          setConfig(arr);
-          console.log(arr[currentId]);
-          console.log("change2");
-        } else {
-          console.log("change nothing");
-          console.log(localObject);
-        }
       }
     }
+
+    if (editMode === true) {
+      const localObject = {
+        id: currentId,
+        mode: mode,
+        amount: amount,
+        defaultAmount: amount.length === 0 ? true : false,
+        fiatRate: Number(fiatRate),
+        fiat: currentFiat,
+        crypto: currentCrypto,
+        payments: currentPayment,
+        orders: orders,
+        currentOrder: currentOrder,
+        currentFee: currentFee,
+      };
+
+      let array = config;
+      console.log("change config with currentId");
+      console.log(currentId, "id");
+      console.log(localObject, "local");
+      if (JSON.stringify(config[currentId]) !== JSON.stringify(localObject)) {
+        console.log("не равен");
+        array.splice(currentId, 1);
+        const insert = function (arr, indexi, obj) {
+          return [...arr.slice(0, indexi), obj, ...arr.slice(indexi)];
+        };
+        array = insert(array, currentId, localObject);
+
+        setConfig(array);
+      }
+
+      // if (JSON.stringify(array[currentId]) !== JSON.stringify(localObject)) {
+      //   console.log("не равны");
+      //   console.log(localObject, "localObject");
+      //   console.log(array[currentId], "array");
+      //   array[currentId] = localObject;
+      //   console.log(array);
+      //   setConfig(array);
+      // }
+    }
   }, [
+    config,
     currentFiat,
     currentCrypto,
     currentPayment,

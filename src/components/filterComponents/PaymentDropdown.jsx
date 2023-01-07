@@ -167,7 +167,7 @@ const PaymentDropdown = () => {
                     key={index}
                   >
                     <label
-                      for={index}
+                      htmlFor={index}
                       className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14 text-left"
                     >
                       {item.name}
@@ -191,13 +191,14 @@ const PaymentDropdown = () => {
                 ))}
               </div>
             )}
-            {payment.map((item) => (
+            {payment.map((item, index) => (
               <button
                 type="button"
                 className="w-full h-max flex justify-around my-[12px] pl-[8px]"
                 onClick={() =>
                   handleChangeCurrentValue(usersPayment, setUsersPayment, item)
                 }
+                key={index}
               >
                 <p className="w-[160px] h-max flex flex-wrap text-gray test-14 font-normal my-auto leading-14 text-left">
                   {item.name}

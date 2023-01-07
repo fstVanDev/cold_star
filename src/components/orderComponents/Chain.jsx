@@ -21,6 +21,18 @@ const Chain = () => {
     setAmount,
     setMode,
     setOrders,
+    setGlobalId,
+    fiatRate,
+    setFiatRate,
+    currentFiat,
+    currentCrypto,
+    currentPayment,
+    currentFee,
+    currentOrder,
+    editMode,
+    amount,
+    orders,
+    mode,
   } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
@@ -55,6 +67,46 @@ const Chain = () => {
     }
   };
 
+  // useEffect(() => {
+  //   if (editMode === true) {
+  //     const localObject = {
+  //       id: currentId,
+  //       mode: mode,
+  //       amount: amount,
+  //       defaultAmount: amount.length === 0 ? true : false,
+  //       fiatRate: Number(fiatRate),
+  //       fiat: currentFiat,
+  //       crypto: currentCrypto,
+  //       payments: currentPayment,
+  //       orders: orders,
+  //       currentOrder: currentOrder,
+  //       currentFee: currentFee,
+  //     };
+
+  //     const array = config;
+  //     console.log("change config with currentId");
+
+  //     if (JSON.stringify(array[currentId]) !== JSON.stringify(localObject)) {
+  //       console.log("не равны");
+  //       console.log(localObject, "localObject");
+  //       console.log(array[currentId], "array");
+  //       array[currentId] = localObject;
+  //       console.log(array);
+  //       setConfig(array);
+  //     }
+  //   }
+  // }, [
+  //   currentFiat,
+  //   currentCrypto,
+  //   currentPayment,
+  //   currentFee,
+  //   currentOrder,
+  //   amount,
+  //   orders,
+  //   currentId,
+  //   mode,
+  // ]);
+
   return (
     <div className="2xl:w-[190px] h-max">
       <AddNewChain />
@@ -69,10 +121,13 @@ const Chain = () => {
                 } else {
                   return (
                     <>
-                      <div className="h-[30px] bg-secondary w-[2px] mx-auto" />
+                      <div
+                        className="h-[30px] bg-secondary w-[2px] mx-auto"
+                        key={index}
+                      />
 
                       <div
-                        className={`w-[190px] h-max border border-2 ${
+                        className={`w-[190px] h-max border border-2  z-[2] ${
                           currentId !== null && index === currentId
                             ? "border-green"
                             : "border-secondary"
@@ -80,7 +135,6 @@ const Chain = () => {
                         onClick={() => {
                           console.log(index, "index => currentId");
                           setCurrentId(index);
-
                           if (index === globalId) {
                             console.log(currentId, globalId);
                             console.log("edit false");
@@ -90,25 +144,27 @@ const Chain = () => {
                             setCurrentPayment(config[globalId].payments);
                             setAmount(config[globalId].amount);
                             setMode(config[globalId].mode);
+                            setFiatRate(config[globalId].fiatRate);
                             setOrders(config[globalId].orders);
                             setCurrentOrder(config[globalId].currentOrder);
                             setCurrentFee(config[globalId].currentFee);
                           } else {
                             setEditMode(true);
                             console.log("editMode true");
-                            setCurrentFiat(config[currentId].fiat);
-                            setCurrentCrypto(config[currentId].crypto);
-                            setCurrentPayment(config[currentId].payments);
-                            setAmount(config[currentId].amount);
-                            setMode(config[currentId].mode);
-                            setOrders(config[currentId].orders);
-                            setCurrentOrder(config[currentId].currentOrder);
-                            setCurrentFee(config[currentId].currentFee);
+                            setCurrentFiat(config[index].fiat);
+                            setFiatRate(config[index].fiatRate);
+                            setCurrentCrypto(config[index].crypto);
+                            setCurrentPayment(config[index].payments);
+                            setAmount(config[index].amount);
+                            setMode(config[index].mode);
+                            setOrders(config[index].orders);
+                            setCurrentOrder(config[index].currentOrder);
+                            setCurrentFee(config[index].currentFee);
                             console.log(index, globalId);
                           }
                         }}
                       >
-                        <div className="flex justify-between">
+                        <div className="flex justify-between z-[1]">
                           <div className="w-max h-full">
                             <p className="font-bold text-12 leading-14 text-gray">
                               {item.currentOrder.trade_user.name}
@@ -132,11 +188,11 @@ const Chain = () => {
                               %
                             </p>
                           </div>
-                          <div className="w-max h-max">
+                          <div className="w-max h-max relative z-[3]">
                             <button
                               type="button"
                               onClick={() => removeObject(index, setConfig)}
-                              className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
+                              className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex "
                             >
                               <img
                                 src={close}

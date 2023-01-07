@@ -4,7 +4,7 @@ import { useState } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const Profit = () => {
-  const { config } = useContext(StateContext);
+  const { config, currentFee } = useContext(StateContext);
 
   const [profit, setProfit] = useState(0);
 
@@ -22,11 +22,12 @@ const Profit = () => {
       }
 
       hey = Number(sum);
+      console.log(hey, "profit");
       setProfit(hey);
     } else {
       setProfit(0);
     }
-  }, [config]);
+  }, [config, currentFee]);
 
   return (
     <div className="w-full h-[60px] bg-green rounded-15 mt-[30px] flex justify-between">

@@ -2,10 +2,14 @@ import React, { useContext, useEffect } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const Mode = () => {
-  const { mode, setMode, config, currentId } = useContext(StateContext);
+  const { mode, setMode, config, currentId, setConfig } =
+    useContext(StateContext);
 
   useEffect(() => {
     console.log(mode);
+    // let arr = config;
+    // arr[currentId].mode = mode;
+    // setConfig(arr);
   }, [mode]);
 
   return (
@@ -14,7 +18,6 @@ const Mode = () => {
         <button
           type="button"
           onClick={() => {
-            console.log("buy mode-true-2");
             setMode(true);
           }}
           className={`w-1/2 h-full border border-1 ${

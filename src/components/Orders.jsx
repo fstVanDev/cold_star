@@ -31,6 +31,7 @@ const Orders = () => {
       <>
         {config[currentId].orders.map((item, index) => (
           <div
+            key={index}
             className={`${
               config[currentId].currentOrder !== null
                 ? item.id === config[currentId].currentOrder.id
