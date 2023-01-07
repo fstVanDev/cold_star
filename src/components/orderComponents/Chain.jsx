@@ -95,7 +95,7 @@ const Chain = () => {
                             </p>
                             <div className="w-max h-max flex">
                               <p
-                                className={` ${
+                                className={`${
                                   item.currentOrder.type === 2
                                     ? "text-green"
                                     : "text-orange"

@@ -33,15 +33,14 @@ const Main = () => {
       if (config.length > 0) {
         if (editMode === false) {
           setCurrentId(config.length - 1);
-          console.log(currentId, "false");
-          console.log(currentId, globalId);
-        } else {
-          console.log(currentId, "true");
-          console.log(currentId, globalId);
         }
       }
     }
   }, [config]);
+
+  useEffect(() => {
+    console.log(currentId, globalId);
+  }, [currentId]);
 
   useEffect(() => {
     if (
@@ -50,20 +49,20 @@ const Main = () => {
         currentPayment !== null) ||
       (currentFee !== null && currentOrder !== null)
     ) {
-      const localObject = {
-        id: globalId,
-        mode: mode,
-        amount: amount,
-        defaultAmount: amount.length === 0 ? true : false,
-        fiat: currentFiat,
-        crypto: currentCrypto,
-        payments: currentPayment,
-        orders: orders,
-        currentOrder: currentOrder,
-        currentFee: currentFee,
-      };
-
       if (editMode === false) {
+        const localObject = {
+          id: globalId,
+          mode: mode,
+          amount: amount,
+          defaultAmount: amount.length === 0 ? true : false,
+          fiat: currentFiat,
+          crypto: currentCrypto,
+          payments: currentPayment,
+          orders: orders,
+          currentOrder: currentOrder,
+          currentFee: currentFee,
+        };
+
         if (config === null) {
           const arr = [];
           arr.push(localObject);
@@ -96,6 +95,19 @@ const Main = () => {
           });
         }
       } else {
+        const localObject = {
+          id: currentId,
+          mode: mode,
+          amount: amount,
+          defaultAmount: amount.length === 0 ? true : false,
+          fiat: currentFiat,
+          crypto: currentCrypto,
+          payments: currentPayment,
+          orders: orders,
+          currentOrder: currentOrder,
+          currentFee: currentFee,
+        };
+
         let arr = config;
         console.log("change1");
         console.log(currentId, arr[currentId]);

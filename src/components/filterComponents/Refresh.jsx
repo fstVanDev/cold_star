@@ -3,18 +3,25 @@ import { StateContext } from "../../context/StateProvider";
 import { refresh } from "../../images";
 
 const Refresh = () => {
-  const { setNewFilterView, setOrdersView, setCurrentOrder, setCurrentFee } =
-    useContext(StateContext);
+  const {
+    setNewFilterView,
+    setOrdersView,
+    setCurrentOrder,
+    setCurrentFee,
+    orders,
+  } = useContext(StateContext);
 
   return (
     <button
       className="w-max h-max my-auto flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
-        setNewFilterView(false);
-        setCurrentOrder(null);
-        setCurrentFee(null);
-        setOrdersView(true);
+        if (orders !== null) {
+          setNewFilterView(false);
+          setCurrentOrder(null);
+          setCurrentFee(null);
+          setOrdersView(true);
+        }
       }}
     >
       <div className="h-max w-full rounded-10 p-[10px]">
