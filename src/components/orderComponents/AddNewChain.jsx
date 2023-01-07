@@ -14,6 +14,8 @@ const AddNewChain = () => {
     setPayment,
     setAmount,
     config,
+    setFiatRate,
+    setMakerProcent,
     currentId,
   } = useContext(StateContext);
 
@@ -24,8 +26,10 @@ const AddNewChain = () => {
       onClick={() => {
         if (config[currentId].currentOrder !== null) {
           setGlobalId(globalId + 1);
-          setAmount(null);
+          setAmount("");
           setPayment(null);
+          setMakerProcent("");
+          setFiatRate("");
           setCurrentPayment(null);
           setCurrentFiat(null);
           setCurrentCrypto(null);
