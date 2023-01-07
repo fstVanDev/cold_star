@@ -19,6 +19,7 @@ const ClearAll = () => {
     setCurrentFee,
     setNewFilterView,
     setOrdersView,
+    setEditMode,
   } = useContext(StateContext);
 
   const clearAll = () => {
@@ -38,6 +39,7 @@ const ClearAll = () => {
     setCurrentFee(null);
     setNewFilterView(false);
     setOrdersView(false);
+    setEditMode(false);
   };
 
   return (
