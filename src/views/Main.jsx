@@ -31,14 +31,19 @@ const Main = () => {
 
     if (config !== null) {
       if (config.length > 0) {
-        if (editMode === false) {
+        if (currentId !== globalId) {
+          console.log(currentId, "true");
+          console.log(currentId, globalId);
+        } else {
           setCurrentId(config.length - 1);
           console.log(currentId, "false");
           console.log(currentId, globalId);
-        } else {
-          console.log(currentId, "true");
-          console.log(currentId, globalId);
         }
+        // if (editMode === false) {
+        // } else {
+        //   console.log(currentId, "true");
+        //   console.log(currentId, globalId);
+        // }
       }
     }
   }, [config, editMode]);
