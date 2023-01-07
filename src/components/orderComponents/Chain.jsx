@@ -70,6 +70,7 @@ const Chain = () => {
                         }  rounded-15 bg-white p-[15px] grid`}
                         onClick={() => {
                           console.log(index, "index");
+                          setCurrentId(index);
                           if (currentId !== globalId) {
                             console.log(currentId, globalId);
                             setEditMode(true);
@@ -78,7 +79,6 @@ const Chain = () => {
                             console.log(currentId, globalId);
                             console.log("edit false");
                           }
-                          setCurrentId(index);
                         }}
                       >
                         <div className="flex justify-between">
