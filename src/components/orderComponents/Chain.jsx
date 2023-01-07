@@ -13,6 +13,7 @@ const Chain = () => {
     setCurrentOrder,
     setCurrentFee,
     setCurrentId,
+    setEditMode,
     globalId,
   } = useContext(StateContext);
 
