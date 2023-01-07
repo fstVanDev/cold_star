@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { logout } from "../data/Requests";
 
 const Navbar = () => {
-  const { user, setUser } = useContext(StateContext);
+  const { user, setUser, fiat, crypto } = useContext(StateContext);
   const [accountView, setAccountView] = useState(false);
 
   return (
@@ -30,18 +30,21 @@ const Navbar = () => {
                 </span>
               </a>
             ))}
-            {user && (
-              <NavLink
-                to={{
-                  pathname: `/${user.name}-${user.id}/toTrade`,
-                }}
-                className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
-              >
-                <p className="font-bold text-black text-14 leading-20 underline ">
-                  To Trade
-                </p>
-              </NavLink>
-            )}
+            {user &&
+              fiat !== null &&
+              crypto !==
+                null(
+                  <NavLink
+                    to={{
+                      pathname: `/${user.name}-${user.id}/toTrade`,
+                    }}
+                    className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
+                  >
+                    <p className="font-bold text-black text-14 leading-20 underline ">
+                      To Trade
+                    </p>
+                  </NavLink>
+                )}
             {user === null ? (
               <button
                 type="button"

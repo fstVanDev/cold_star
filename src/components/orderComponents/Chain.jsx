@@ -30,9 +30,12 @@ const Chain = () => {
   const removeObject = (index, setConfig) => {
     if (config.length === 1) {
       console.log("clean config when only one object");
-      // setConfig(null);
       setCurrentFee(null);
       setCurrentOrder(null);
+      let arr = config;
+      arr[index].currentOrder = null;
+      arr[index].currentFee = null;
+      setConfig(arr);
     } else {
       let arr = config;
       // arr.splice(index, 1);

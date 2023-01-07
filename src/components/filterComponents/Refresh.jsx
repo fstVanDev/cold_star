@@ -9,6 +9,9 @@ const Refresh = () => {
     setCurrentOrder,
     setCurrentFee,
     orders,
+    currentFiat,
+    currentCrypto,
+    currentPayment,
   } = useContext(StateContext);
 
   return (
@@ -16,11 +19,18 @@ const Refresh = () => {
       className="w-max h-max my-auto flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
-        if (orders !== null) {
+        if (
+          orders !== null ||
+          currentFiat !== null ||
+          currentCrypto !== null ||
+          currentPayment !== null
+        ) {
           setNewFilterView(false);
           setCurrentOrder(null);
           setCurrentFee(null);
           setOrdersView(true);
+        } else {
+          setNewFilterView(false);
         }
       }}
     >

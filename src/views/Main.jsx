@@ -75,6 +75,7 @@ const Main = () => {
 
           setConfig(arr);
         } else {
+          console.log("change config with globalId");
           let arr = config;
 
           arr.map((item, index) => {
@@ -101,6 +102,8 @@ const Main = () => {
           });
         }
       } else {
+        console.log("change config with currentId");
+
         const localObject = {
           id: currentId,
           mode: mode,
@@ -139,6 +142,7 @@ const Main = () => {
     amount,
     orders,
     globalId,
+    currentId,
     mode,
   ]);
 
