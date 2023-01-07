@@ -35,34 +35,6 @@ export const StateProvider = ({ children }) => {
 
   const [editMode, setEditMode] = useState(false);
 
-  // const [secondaryMode, setSecondaryMode] = useState(true);
-  // const [ordersView, setOrdersView] = useState(false);
-
-  // // const [currentMode, setCurrentMode] = useState(true);
-  // const [currentAmount, setCurrentAmount] = useState("");
-  // const [secondaryAmount, setSecondaryAmount] = useState("");
-  // const [currentFiat, setCurrentFiat] = useState(null);
-  // const [secondaryFiat, setSecondaryFiat] = useState(null);
-  // const [currentCrypto, setCurrentCrypto] = useState(null);
-  // const [secondaryCrypto, setSecondaryCrypto] = useState(null);
-  // const [currentPayment, setCurrentPayment] = useState(null);
-  // const [secondaryPayment, setSecondaryPayment] = useState(null);
-  // const [currentOrders, setCurrentOrders] = useState(null);
-  // const [secondaryOrders, setSecondaryOrders] = useState(null);
-
-  // const [makerProcent, setMakerProcent] = useState("");
-
-  // const [currentOrder, setCurrentOrder] = useState(null);
-  // const [fiatRate, setFiatRate] = useState("");
-
-  // const [globalId, setGlobalId] = useState(0);
-  // const [currentId, setCurrentId] = useState(0);
-
-  // const [newFilterView, setNewFilterView] = useState(false);
-  // const [config, setConfig] = useState(null);
-
-  // const [totalProfit, setTotalProfit] = useState([]);
-
   return (
     <StateContext.Provider
       value={{

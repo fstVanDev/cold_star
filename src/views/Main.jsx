@@ -94,10 +94,12 @@ const Main = () => {
         }
       } else {
         let arr = config;
-
+        console.log("change1");
         if (JSON.stringify(arr[currentId]) !== JSON.stringify(localObject)) {
           arr[currentId] = localObject;
           setConfig(arr);
+          console.log("change2");
+          setEditMode(false);
         }
       }
     }
