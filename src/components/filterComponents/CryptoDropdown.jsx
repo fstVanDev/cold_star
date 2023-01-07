@@ -20,24 +20,24 @@ const CryptoDrowdown = () => {
   }, [crypto]);
 
   useEffect(() => {
-    // if (currentCrypto === null) {
-    if (config !== null) {
-      if (config.length > 0) {
-        if (config[currentId].crypto !== null) {
-          setCurrentCrypto(config[currentId].crypto);
-          // setCryptoValue(config[currentId].crypto);
-          console.log("возврат crypto from config");
-        } else {
-          setCurrentCrypto(null);
-          console.log("дефолт");
+    if (currentCrypto === null) {
+      if (config !== null) {
+        if (config.length > 0) {
+          if (config[currentId].crypto !== null) {
+            setCurrentCrypto(config[currentId].crypto);
+            // setCryptoValue(config[currentId].crypto);
+            console.log("возврат crypto from config");
+          } else {
+            setCurrentCrypto(null);
+            console.log("дефолт");
+          }
         }
+      } else {
+        setDefaultCrypto("Enter...");
+        setCryptoValue("");
+        setActiveCrypto(false);
       }
-    } else {
-      setDefaultCrypto("Enter...");
-      setCryptoValue("");
-      setActiveCrypto(false);
     }
-    // }
   }, [currentCrypto]);
 
   return (
