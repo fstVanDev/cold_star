@@ -15,6 +15,12 @@ const Chain = () => {
     setCurrentId,
     setEditMode,
     globalId,
+    setCurrentFiat,
+    setCurrentCrypto,
+    setCurrentPayment,
+    setAmount,
+    setMode,
+    setOrders,
   } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
@@ -77,7 +83,16 @@ const Chain = () => {
                           } else {
                             setEditMode(true);
                             console.log("editMode true");
-                            console.log(currentId, globalId);
+                            console.log(index, globalId);
+
+                            setCurrentFiat(config[index].fiat);
+                            setCurrentCrypto(config[index].crypto);
+                            setCurrentPayment(config[index].payments);
+                            setAmount(config[index].amount);
+                            setMode(config[index].mode);
+                            setOrders(config[index].orders);
+                            setCurrentOrder(config[index].currentOrder);
+                            setCurrentFee(config[index].currentFee);
                           }
                         }}
                       >
