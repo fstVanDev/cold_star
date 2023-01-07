@@ -1,17 +1,8 @@
 import React, { useContext } from "react";
-import { useEffect } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const Amount = () => {
-  const { amount, setAmount, config, currentId } = useContext(StateContext);
-
-  useEffect(() => {
-    if (config !== null) {
-      if (config.length > 0) {
-        setAmount(Number(config[currentId].amount));
-      }
-    }
-  }, [amount]);
+  const { amount, setAmount } = useContext(StateContext);
 
   return (
     <div className="w-max h-full flex my-auto">
