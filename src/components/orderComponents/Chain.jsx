@@ -80,6 +80,7 @@ const Chain = () => {
                           if (index === globalId) {
                             console.log(currentId, globalId);
                             console.log("edit false");
+                            setEditMode(false);
                           } else {
                             setEditMode(true);
                             console.log("editMode true");
