@@ -30,21 +30,18 @@ const Navbar = () => {
                 </span>
               </a>
             ))}
-            {user &&
-              fiat !== null &&
-              crypto !==
-                null(
-                  <NavLink
-                    to={{
-                      pathname: `/${user.name}-${user.id}/toTrade`,
-                    }}
-                    className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
-                  >
-                    <p className="font-bold text-black text-14 leading-20 underline ">
-                      To Trade
-                    </p>
-                  </NavLink>
-                )}
+            {user && fiat !== null && crypto !== null && (
+              <NavLink
+                to={{
+                  pathname: `/${user.name}-${user.id}/toTrade`,
+                }}
+                className="w-max h-max my-auto cursor-pointer 2xl:mr-[40px]"
+              >
+                <p className="font-bold text-black text-14 leading-20 underline ">
+                  To Trade
+                </p>
+              </NavLink>
+            )}
             {user === null ? (
               <button
                 type="button"
