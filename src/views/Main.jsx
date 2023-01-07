@@ -97,15 +97,15 @@ const Main = () => {
       } else {
         const localObject = {
           id: currentId,
-          mode: mode,
-          amount: amount,
-          defaultAmount: amount.length === 0 ? true : false,
-          fiat: currentFiat,
-          crypto: currentCrypto,
-          payments: currentPayment,
-          orders: orders,
-          currentOrder: currentOrder,
-          currentFee: currentFee,
+          mode: config[currentId].mode,
+          amount: config[currentId].amount,
+          defaultAmount: config[currentId].defaultAmount,
+          fiat: config[currentId].fiat,
+          crypto: config[currentId].crypto,
+          payments: config[currentId].payments,
+          orders: config[currentId].orders,
+          currentOrder: config[currentId].currentOrder,
+          currentFee: config[currentId].currentFee,
         };
 
         let arr = config;
@@ -115,7 +115,7 @@ const Main = () => {
         if (JSON.stringify(arr[currentId]) !== JSON.stringify(localObject)) {
           arr[currentId] = localObject;
           setConfig(arr);
-          console.log(localObject);
+          console.log(arr[currentId]);
           console.log("change2");
         } else {
           console.log("change nothing");
