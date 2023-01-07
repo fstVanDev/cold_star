@@ -71,14 +71,14 @@ const Chain = () => {
                         onClick={() => {
                           console.log(index, "index");
                           setCurrentId(index);
-                          // if (currentId !== globalId) {
-                          //   console.log(currentId, globalId);
-                          //   setEditMode(true);
-                          //   console.log("editMode true");
-                          // } else {
-                          //   console.log(currentId, globalId);
-                          //   console.log("edit false");
-                          // }
+                          if (index === globalId) {
+                            console.log(currentId, globalId);
+                            console.log("edit false");
+                          } else {
+                            setEditMode(true);
+                            console.log("editMode true");
+                            console.log(currentId, globalId);
+                          }
                         }}
                       >
                         <div className="flex justify-between">

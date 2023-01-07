@@ -139,6 +139,7 @@ const Orders = () => {
                 onClick={() => {
                   // setCurrentIndex(index);
                   setCurrentOrder(item);
+                  console.log(item, "currentOrder");
                   setCurrentFee(
                     feeFunction(
                       makerProcent,
