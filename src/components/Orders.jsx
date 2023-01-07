@@ -125,7 +125,7 @@ const Orders = () => {
                   {feeFunction(
                     makerProcent,
                     Number(config[currentId].fiat.rates[0].rate),
-                    fiatRate,
+                    Number(fiatRate),
                     Number(item.price)
                   )}
                   %
@@ -144,7 +144,7 @@ const Orders = () => {
                     feeFunction(
                       makerProcent,
                       Number(config[currentId].fiat.rates[0].rate),
-                      fiatRate,
+                      Number(fiatRate),
                       Number(item.price)
                     )
                   );
