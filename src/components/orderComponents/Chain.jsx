@@ -80,6 +80,15 @@ const Chain = () => {
                           if (index === globalId) {
                             console.log(currentId, globalId);
                             console.log("edit false");
+
+                            setCurrentFiat(config[index].fiat);
+                            setCurrentCrypto(config[index].crypto);
+                            setCurrentPayment(config[index].payments);
+                            setAmount(config[index].amount);
+                            setMode(config[index].mode);
+                            setOrders(config[index].orders);
+                            setCurrentOrder(config[index].currentOrder);
+                            setCurrentFee(config[index].currentFee);
                           } else {
                             setEditMode(true);
                             console.log("editMode true");
