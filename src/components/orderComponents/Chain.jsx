@@ -84,6 +84,14 @@ const Chain = () => {
                           } else {
                             setEditMode(true);
                             console.log("editMode true");
+                            setCurrentFiat(config[index].fiat);
+                            setCurrentCrypto(config[index].crypto);
+                            setCurrentPayment(config[index].payments);
+                            setAmount(config[index].amount);
+                            setMode(config[index].mode);
+                            setOrders(config[index].orders);
+                            setCurrentOrder(config[index].currentOrder);
+                            setCurrentFee(config[index].currentFee);
                             console.log(index, globalId);
                           }
                         }}
