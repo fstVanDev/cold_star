@@ -102,7 +102,6 @@ const Main = () => {
           arr[currentId] = localObject;
           setConfig(arr);
           console.log("change2");
-          setEditMode(false);
         }
       }
     }
