@@ -13,6 +13,8 @@ const AddNewChain = () => {
     setCurrentFee,
     setPayment,
     setAmount,
+    config,
+    currentId,
   } = useContext(StateContext);
 
   return (
@@ -20,16 +22,20 @@ const AddNewChain = () => {
       type="button"
       className="w-full h-[54px] rounded-10 border-dashed border-2 border-green"
       onClick={() => {
-        setGlobalId(globalId + 1);
-        setAmount(null);
-        setPayment(null);
-        setCurrentPayment(null);
-        setCurrentFiat(null);
-        setCurrentCrypto(null);
-        setCurrentOrder(null);
-        setCurrentFee(null);
-        setNewFilterView(true);
-        console.log("Add new Filter, click button");
+        if (config[currentId].currentOrder !== null) {
+          setGlobalId(globalId + 1);
+          setAmount(null);
+          setPayment(null);
+          setCurrentPayment(null);
+          setCurrentFiat(null);
+          setCurrentCrypto(null);
+          setCurrentOrder(null);
+          setCurrentFee(null);
+          setNewFilterView(true);
+          console.log("Add new Filter, click button");
+        } else {
+          alert("Please choose order");
+        }
       }}
     >
       <div className="flex w-max rounded-10 h-max justify-between px-[30px] py-[15px] m-auto">
