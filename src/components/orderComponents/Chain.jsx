@@ -75,24 +75,21 @@ const Chain = () => {
                             : "border-secondary"
                         }  rounded-15 bg-white p-[15px] grid`}
                         onClick={() => {
-                          console.log(index, "index");
+                          console.log(index, "index => currentId");
                           setCurrentId(index);
+
                           if (index === globalId) {
                             console.log(currentId, globalId);
                             console.log("edit false");
                             setEditMode(false);
-                            setCurrentFiat(config[config.length - 1].fiat);
-                            setCurrentCrypto(config[config.length - 1].crypto);
-                            setCurrentPayment(
-                              config[config.length - 1].payments
-                            );
-                            setAmount(config[config.length - 1].amount);
-                            setMode(config[config.length - 1].mode);
-                            setOrders(config[config.length - 1].orders);
-                            setCurrentOrder(
-                              config[config.length - 1].currentOrder
-                            );
-                            setCurrentFee(config[config.length - 1].currentFee);
+                            setCurrentFiat(config[globalId].fiat);
+                            setCurrentCrypto(config[globalId].crypto);
+                            setCurrentPayment(config[globalId].payments);
+                            setAmount(config[globalId].amount);
+                            setMode(config[globalId].mode);
+                            setOrders(config[globalId].orders);
+                            setCurrentOrder(config[globalId].currentOrder);
+                            setCurrentFee(config[globalId].currentFee);
                           } else {
                             setEditMode(true);
                             console.log("editMode true");

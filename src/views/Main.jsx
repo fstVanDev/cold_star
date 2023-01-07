@@ -24,6 +24,7 @@ const Main = () => {
     currentId,
     editMode,
     setEditMode,
+    fiatRate,
   } = useContext(StateContext);
 
   useEffect(() => {
@@ -59,6 +60,7 @@ const Main = () => {
           mode: mode,
           amount: amount,
           defaultAmount: amount.length === 0 ? true : false,
+          fiatRate: fiatRate,
           fiat: currentFiat,
           crypto: currentCrypto,
           payments: currentPayment,
@@ -104,6 +106,7 @@ const Main = () => {
           mode: mode,
           amount: amount,
           defaultAmount: amount.length === 0 ? true : false,
+          fiatRate: fiatRate,
           fiat: currentFiat,
           crypto: currentCrypto,
           payments: currentPayment,

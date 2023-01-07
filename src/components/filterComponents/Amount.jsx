@@ -1,9 +1,13 @@
-import { id } from "ethers/lib/utils";
 import React, { useContext } from "react";
+import { useEffect } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const Amount = () => {
   const { amount, setAmount, config, currentId } = useContext(StateContext);
+
+  useEffect(() => {
+    console.log(amount);
+  }, [amount]);
 
   return (
     <div className="w-max h-full flex my-auto">
@@ -13,18 +17,9 @@ const Amount = () => {
       <input
         type="text"
         className="h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
-        placeholder={
-          config !== null
-            ? config.length > 0
-              ? Number(config[currentId].amount)
-              : Number(amount)
-            : ""
-        }
+        placeholder={amount.length === 0 ? "" : amount}
         value={amount}
         onChange={(e) => {
-          if (e.target.value === "") {
-            setAmount(Number(config[currentId].amount));
-          }
           setAmount(Number(e.target.value));
           console.log(Number(e.target.value), "amount custom");
         }}
