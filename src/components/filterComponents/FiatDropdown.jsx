@@ -41,12 +41,6 @@ const FiatDropdown = () => {
 
   useEffect(() => {
     console.log(currentFiat);
-
-    if (currentFiat === null) {
-      setDefaultFiat("Enter...");
-      setFiatValue("");
-      setActiveFiat(false);
-    }
   }, [currentFiat]);
 
   return (
