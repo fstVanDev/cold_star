@@ -97,15 +97,15 @@ const Main = () => {
       } else {
         const localObject = {
           id: currentId,
-          mode: config[currentId].mode,
-          amount: config[currentId].amount,
-          defaultAmount: config[currentId].defaultAmount,
-          fiat: config[currentId].fiat,
-          crypto: config[currentId].crypto,
-          payments: config[currentId].payments,
-          orders: config[currentId].orders,
-          currentOrder: config[currentId].currentOrder,
-          currentFee: config[currentId].currentFee,
+          mode: mode,
+          amount: amount,
+          defaultAmount: amount.length === 0 ? true : false,
+          fiat: currentFiat,
+          crypto: currentCrypto,
+          payments: currentPayment,
+          orders: orders,
+          currentOrder: currentOrder,
+          currentFee: currentFee,
         };
 
         let arr = config;

@@ -81,9 +81,29 @@ const Chain = () => {
                             console.log(currentId, globalId);
                             console.log("edit false");
                             setEditMode(false);
+                            setCurrentFiat(config[config.length - 1].fiat);
+                            setCurrentCrypto(config[config.length - 1].crypto);
+                            setCurrentPayment(
+                              config[config.length - 1].payments
+                            );
+                            setAmount(config[config.length - 1].amount);
+                            setMode(config[config.length - 1].mode);
+                            setOrders(config[config.length - 1].orders);
+                            setCurrentOrder(
+                              config[config.length - 1].currentOrder
+                            );
+                            setCurrentFee(config[config.length - 1].currentFee);
                           } else {
                             setEditMode(true);
                             console.log("editMode true");
+                            setCurrentFiat(config[currentId].fiat);
+                            setCurrentCrypto(config[currentId].crypto);
+                            setCurrentPayment(config[currentId].payments);
+                            setAmount(config[currentId].amount);
+                            setMode(config[currentId].mode);
+                            setOrders(config[currentId].orders);
+                            setCurrentOrder(config[currentId].currentOrder);
+                            setCurrentFee(config[currentId].currentFee);
                             console.log(index, globalId);
                           }
                         }}
