@@ -5,7 +5,6 @@ import Chain from "../components/orderComponents/Chain";
 import FilterModal from "../components/FilterModal";
 import { StateContext } from "../context/StateProvider";
 import { useEffect } from "react";
-import { render } from "react-dom";
 
 const Main = () => {
   const {
@@ -135,18 +134,10 @@ const Main = () => {
 
         setConfig(array);
       }
-
-      // if (JSON.stringify(array[currentId]) !== JSON.stringify(localObject)) {
-      //   console.log("не равны");
-      //   console.log(localObject, "localObject");
-      //   console.log(array[currentId], "array");
-      //   array[currentId] = localObject;
-      //   console.log(array);
-      //   setConfig(array);
-      // }
     }
   }, [
     config,
+    fiatRate,
     currentFiat,
     currentCrypto,
     currentPayment,

@@ -19,11 +19,11 @@ const Orders = () => {
 
   // const [currentIndex, setCurrentIndex] = useState(null);
 
-  useEffect(() => {
-    if (currentFee !== null) {
-      console.log(currentFee);
-    }
-  }, [currentFee]);
+  // useEffect(() => {
+  //   if (currentFee !== null) {
+  //     console.log(currentFee);
+  //   }
+  // }, [currentFee]);
 
   return (
     <div className="2xl:w-[1290px] mx-auto">
@@ -138,9 +138,7 @@ const Orders = () => {
                 type="button"
                 className="w-[50px] h-[50px] border border-1 rounded-6 my-auto flex"
                 onClick={() => {
-                  // setCurrentIndex(index);
                   setCurrentOrder(item);
-                  console.log(item, "currentOrder");
                   setCurrentFee(
                     feeFunction(
                       makerProcent,

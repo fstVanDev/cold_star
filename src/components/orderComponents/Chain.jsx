@@ -21,91 +21,79 @@ const Chain = () => {
     setAmount,
     setMode,
     setOrders,
-    setGlobalId,
-    fiatRate,
     setFiatRate,
-    currentFiat,
-    currentCrypto,
-    currentPayment,
-    currentFee,
-    currentOrder,
     editMode,
-    amount,
-    orders,
-    mode,
+    setGlobalId,
   } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
   const [about, setAbout] = useState(false);
   const [activeAbout, setActiveAbout] = useState(null);
 
-  const removeObject = (index, setConfig) => {
-    if (config.length === 1) {
-      console.log("clean config when only one object");
-      setCurrentFee(null);
-      setCurrentOrder(null);
-      let arr = config;
-      arr[index].currentOrder = null;
-      arr[index].currentFee = null;
-      setConfig(arr);
-    } else {
-      let arr = config;
-      // arr.splice(index, 1);
-      let newArray = arr.filter((item) => item.id !== index);
-      for (let i = 0; i < newArray.length; i++) {
-        newArray[i].id = i;
-      }
-      console.log(newArray, "остаток после удаления");
-      if (newArray.length === 1) {
-        setCurrentId(0);
-      } else {
-        setCurrentId(newArray.length - 1);
-      }
-      setConfig(newArray);
-      setCurrentFee(null);
-      setCurrentOrder(null);
-    }
+  const removeObject = (index) => {
+    let arr = config;
+
+    // if (config.length === 1) {
+    console.log("clean config when only one object");
+    setCurrentFee(null);
+    setCurrentOrder(null);
+    arr[index].currentOrder = null;
+    arr[index].currentFee = null;
+    setConfig(arr);
+    console.log(arr);
+    // } else {
+    //   console.log("000");
+    //   setIsClear(false);
+    // }
+    // if (editMode === true) {
+    //   console.log(config[index], "sss");
+    //   let arr = config;
+    //   arr.splice(index, 1);
+    //   setCurrentId(arr.length - 1);
+    //   // setGlobalId(arr.legnth - 1);
+    //   setConfig(arr);
+    //   console.log(arr);
+    // }
+    // let newArray = arr.filter((item) => item.id !== index);
+    // for (let i = 0; i < newArray.length; i++) {
+    //   newArray[i].id = i;
+    // }
+    // console.log(newArray, "остаток после удаления");
+    // if (newArray.length === 1) {
+    //   setCurrentId(0);
+    //   console.log(0);
+    // } else {
+    //   setCurrentId(newArray.length - 1);
+    //   console.log(newArray.length - 1);
+    // }
+    // console.log(newArray);
+    // setConfig(newArray);
+    // setCurrentFee(null);
+    // setCurrentOrder(null);
+    // console.log(config);
+    // if (editMode === true) {
+    //   console.log("edit");
+    //   console.log(currentId);
+    //   console.log(globalId - 1);
+    //   // setGlobalId(globalId - 1);
+    // } else {
+    //   console.log(currentId);
+    //   console.log(globalId);
+    // }
+
+    // if (config.length > 1) {
+    //   if (index === globalId) {
+    //     console.log("это удаление последнего объекта");
+    //     console.log(arr, "config до удаления");
+    //     let newArray = arr.filter((item) => item.id !== index);
+    //     // console.log(newArray, "config после удаления");
+    //     setCurrentId(newArray.length - 1);
+    //     setGlobalId(newArray.length - 1);
+    //     console.log(currentId, newArray.length - 1);
+    //     setIsClear(true);
+    //   }
+    // }
   };
-
-  // useEffect(() => {
-  //   if (editMode === true) {
-  //     const localObject = {
-  //       id: currentId,
-  //       mode: mode,
-  //       amount: amount,
-  //       defaultAmount: amount.length === 0 ? true : false,
-  //       fiatRate: Number(fiatRate),
-  //       fiat: currentFiat,
-  //       crypto: currentCrypto,
-  //       payments: currentPayment,
-  //       orders: orders,
-  //       currentOrder: currentOrder,
-  //       currentFee: currentFee,
-  //     };
-
-  //     const array = config;
-  //     console.log("change config with currentId");
-
-  //     if (JSON.stringify(array[currentId]) !== JSON.stringify(localObject)) {
-  //       console.log("не равны");
-  //       console.log(localObject, "localObject");
-  //       console.log(array[currentId], "array");
-  //       array[currentId] = localObject;
-  //       console.log(array);
-  //       setConfig(array);
-  //     }
-  //   }
-  // }, [
-  //   currentFiat,
-  //   currentCrypto,
-  //   currentPayment,
-  //   currentFee,
-  //   currentOrder,
-  //   amount,
-  //   orders,
-  //   currentId,
-  //   mode,
-  // ]);
 
   return (
     <div className="2xl:w-[190px] h-max">
@@ -127,12 +115,13 @@ const Chain = () => {
                       />
 
                       <div
-                        className={`w-[190px] h-max border border-2  z-[2] ${
+                        className={`w-[190px] h-max border border-2 ${
                           currentId !== null && index === currentId
                             ? "border-green"
                             : "border-secondary"
                         }  rounded-15 bg-white p-[15px] grid`}
                         onClick={() => {
+                          // if (isClear === false) {
                           console.log(index, "index => currentId");
                           setCurrentId(index);
                           if (index === globalId) {
@@ -149,22 +138,27 @@ const Chain = () => {
                             setCurrentOrder(config[globalId].currentOrder);
                             setCurrentFee(config[globalId].currentFee);
                           } else {
-                            setEditMode(true);
-                            console.log("editMode true");
-                            setCurrentFiat(config[index].fiat);
-                            setFiatRate(config[index].fiatRate);
-                            setCurrentCrypto(config[index].crypto);
-                            setCurrentPayment(config[index].payments);
-                            setAmount(config[index].amount);
-                            setMode(config[index].mode);
-                            setOrders(config[index].orders);
-                            setCurrentOrder(config[index].currentOrder);
-                            setCurrentFee(config[index].currentFee);
-                            console.log(index, globalId);
+                            if (editMode === false) {
+                              setEditMode(true);
+                              console.log("editMode true");
+                              setCurrentFiat(config[index].fiat);
+                              setFiatRate(config[index].fiatRate);
+                              setCurrentCrypto(config[index].crypto);
+                              setCurrentPayment(config[index].payments);
+                              setAmount(config[index].amount);
+                              setMode(config[index].mode);
+                              setOrders(config[index].orders);
+                              setCurrentOrder(config[index].currentOrder);
+                              setCurrentFee(config[index].currentFee);
+                              console.log(index, globalId);
+                            }
                           }
+                          // } else {
+                          //   console.log("00000");
+                          // }
                         }}
                       >
-                        <div className="flex justify-between z-[1]">
+                        <div className="flex justify-between">
                           <div className="w-max h-full">
                             <p className="font-bold text-12 leading-14 text-gray">
                               {item.currentOrder.trade_user.name}
@@ -188,30 +182,35 @@ const Chain = () => {
                               %
                             </p>
                           </div>
-                          <div className="w-max h-max relative z-[3]">
-                            <button
-                              type="button"
-                              onClick={() => removeObject(index, setConfig)}
-                              className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex "
-                            >
-                              <img
-                                src={close}
-                                alt="cls"
-                                className="w-[12px] h-[12px] m-auto"
-                              />
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => console.log("add to fav click")}
-                              className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex mt-[15px]"
-                            >
-                              <img
-                                src={fav !== true ? star : favouriteStar}
-                                alt="star"
-                                className="w-[12px] h-[12px] m-auto"
-                              />
-                            </button>
-                          </div>
+                          {currentId !== null && index === currentId ? (
+                            <div className="w-max h-max ml-auto ">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  // setIsClear(true);
+                                  removeObject(index, setConfig);
+                                }}
+                                className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"
+                              >
+                                <img
+                                  src={close}
+                                  alt="cls"
+                                  className="w-[12px] h-[12px] m-auto"
+                                />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => console.log("add to fav click")}
+                                className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex mt-[15px]"
+                              >
+                                <img
+                                  src={fav !== true ? star : favouriteStar}
+                                  alt="star"
+                                  className="w-[12px] h-[12px] m-auto"
+                                />
+                              </button>
+                            </div>
+                          ) : null}
                         </div>
 
                         {currentId !== null && index === currentId ? (

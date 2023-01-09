@@ -37,6 +37,8 @@ export const StateProvider = ({ children }) => {
 
   const [config, setConfig] = useState(null);
 
+  const [clear, setClear] = useState(false);
+
   return (
     <StateContext.Provider
       value={{

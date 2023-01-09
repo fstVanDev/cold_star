@@ -23,7 +23,8 @@ const Refresh = () => {
           orders !== null ||
           currentFiat !== null ||
           currentCrypto !== null ||
-          currentPayment !== null
+          currentPayment !== null ||
+          orders !== null
         ) {
           setNewFilterView(false);
           setCurrentOrder(null);

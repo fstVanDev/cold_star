@@ -22,7 +22,7 @@ const Profit = () => {
       }
 
       hey = Number(sum);
-      console.log(hey, "profit");
+
       setProfit(hey);
     } else {
       setProfit(0);

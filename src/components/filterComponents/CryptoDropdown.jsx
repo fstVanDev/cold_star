@@ -4,8 +4,15 @@ import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
 const CryptoDrowdown = () => {
-  const { crypto, setCurrentCrypto, currentCrypto, config, currentId } =
-    useContext(StateContext);
+  const {
+    crypto,
+    setCurrentCrypto,
+    currentCrypto,
+    config,
+    currentId,
+    ordersView,
+    setOrdersView,
+  } = useContext(StateContext);
 
   const [defaultCrypto, setDefaultCrypto] = useState("Enter...");
   const [activeCrypto, setActiveCrypto] = useState(false);
@@ -19,30 +26,18 @@ const CryptoDrowdown = () => {
     }
   }, [crypto]);
 
-  // useEffect(() => {
-  //   if (currentCrypto === null) {
-  //     if (config !== null) {
-  //       if (config.length > 0) {
-  //         if (config[currentId].crypto !== null) {
-  //           setCurrentCrypto(config[currentId].crypto);
-  //           // setCryptoValue(config[currentId].crypto);
-  //           console.log("возврат crypto from config");
-  //         } else {
-  //           setCurrentCrypto(null);
-  //           console.log("дефолт");
-  //         }
-  //       }
-  //     } else {
-  //       setDefaultCrypto("Enter...");
-  //       setCryptoValue("");
-  //       setActiveCrypto(false);
-  //     }
-  //   }
-  // }, [currentCrypto]);
-
   useEffect(() => {
     console.log(currentCrypto);
+    // if (config !== null) {
+    //   setOrdersView(false);
+    // }
   }, [currentCrypto]);
+
+  useEffect(() => {
+    if (ordersView === true) {
+      setActiveCrypto(false);
+    }
+  }, [ordersView]);
 
   return (
     <div className="w-max h-full flex my-auto">
@@ -63,10 +58,6 @@ const CryptoDrowdown = () => {
             crypto.length > 0 ? () => setActiveCrypto(!activeCrypto) : null
           }
           className={`flex justify-between h-[38px] w-[120px] my-auto text-lightGray rounded-0 text-14 leading-20 font-normal px-[12px]`}
-          //   ${
-          //    activeCrypto && "rounded-b-0 border-b border-b-1 border-b-gray"
-          //  }
-          //  ${!activeCrypto && "rounded-6"}
         >
           <p className="w-max h-max text-lightGray text-12 leading-14 font-normal my-auto">
             {crypto.length > 0 ? defaultCrypto : "Load..."}
@@ -95,7 +86,7 @@ const CryptoDrowdown = () => {
                       setCryptoValue("");
                       setActiveCrypto(false);
                     }}
-                    className="w-full h-max text-gray test-14 font-normal my-[10px]"
+                    className="w-full h-max text-gray text-14 font-normal my-[5px]"
                   >
                     {item.name}
                   </button>
@@ -112,7 +103,7 @@ const CryptoDrowdown = () => {
                           setCryptoValue("");
                           setActiveCrypto(false);
                         }}
-                        className="w-full h-max text-gray test-14 font-normal my-[10px] "
+                        className="w-full h-max text-gray text-14 font-normal "
                       >
                         {item.name}
                       </button>

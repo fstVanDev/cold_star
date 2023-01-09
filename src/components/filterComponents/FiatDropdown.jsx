@@ -3,8 +3,15 @@ import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
 
 const FiatDropdown = () => {
-  const { fiat, setCurrentFiat, currentFiat, config, currentId } =
-    useContext(StateContext);
+  const {
+    fiat,
+    setCurrentFiat,
+    currentFiat,
+    config,
+    currentId,
+    setOrdersView,
+    ordersView,
+  } = useContext(StateContext);
 
   const [defaultFiat, setDefaultFiat] = useState("Enter...");
   const [activeFiat, setActiveFiat] = useState(false);
@@ -18,30 +25,15 @@ const FiatDropdown = () => {
     }
   }, [fiat]);
 
-  // useEffect(() => {
-  //   if (currentFiat === null) {
-  //     if (config !== null) {
-  //       if (config.length > 0) {
-  //         if (config[currentId].fiat !== null) {
-  //           setCurrentFiat(config[currentId].fiat);
-
-  //           console.log("возврат");
-  //         } else {
-  //           setCurrentFiat(null);
-  //           console.log("дефолт");
-  //         }
-  //       }
-  //     } else {
-  //       setDefaultFiat("Enter...");
-  //       setFiatValue("");
-  //       setActiveFiat(false);
-  //     }
-  //   }
-  // }, [currentFiat]);
-
   useEffect(() => {
     console.log(currentFiat);
   }, [currentFiat]);
+
+  useEffect(() => {
+    if (ordersView === true) {
+      setActiveFiat(false);
+    }
+  }, [ordersView]);
 
   return (
     <div className="w-max h-full flex ">
@@ -74,8 +66,12 @@ const FiatDropdown = () => {
         </button>
 
         {activeFiat && (
-          <div className="w-full h-[180px] overflow-scroll bg-white rounded-b-6 relative border border-1 border-gray">
-            <div className="w-full h-max px-[10px]">
+          <div
+            className={`w-full ${
+              fiatValue.length === 0 ? "h-[180px]" : "max-h-[180px] h-max"
+            }  bg-white rounded-b-6 relative border border-1 border-gray justify-center`}
+          >
+            <div className="w-[110px] flex h-max px-auto mx-auto bg-white">
               <input
                 type="text"
                 placeholder="Search..."
@@ -86,45 +82,51 @@ const FiatDropdown = () => {
                 className="h-[32px] border mx-auto my-[10px] w-[98px] pl-[6px] rounded-6 font-normal text-14 text-lightGray focus:ring-0 focus:outline-none"
               />
             </div>
-            {fiat.map((item) => (
-              <div key={item.code}>
-                {fiatValue.length === 0 ? (
-                  <button
-                    type="button"
-                    key={item.code}
-                    onClick={() => {
-                      console.log(item, "currentFiat");
-                      setCurrentFiat(item);
-                      setDefaultFiat(item.name);
-                      setFiatValue("");
-                      setActiveFiat(false);
-                    }}
-                    className="w-full h-max text-gray test-14 font-normal my-[10px]"
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <>
-                    {item.name.startsWith(fiatValue) === true ? (
-                      <button
-                        type="button"
-                        key={item.code}
-                        onClick={() => {
-                          console.log(item, "currentFiat");
-                          setCurrentFiat(item);
-                          setDefaultFiat(item.name);
-                          setFiatValue("");
-                          setActiveFiat(false);
-                        }}
-                        className="w-full h-max text-gray test-14 font-normal my-[10px] "
-                      >
-                        {item.name}
-                      </button>
-                    ) : null}
-                  </>
-                )}
-              </div>
-            ))}
+            <div
+              className={`overflow-scroll ${
+                fiatValue === 0 ? "h-[120px] " : "max-h-[120px] h-max"
+              } `}
+            >
+              {fiat.map((item) => (
+                <div key={item.code}>
+                  {fiatValue.length === 0 ? (
+                    <button
+                      type="button"
+                      key={item.code}
+                      onClick={() => {
+                        console.log(item, "currentFiat");
+                        setCurrentFiat(item);
+                        setDefaultFiat(item.name);
+                        setFiatValue("");
+                        setActiveFiat(false);
+                      }}
+                      className="w-full h-max text-gray text-14 font-normal my-[5px]"
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <>
+                      {item.name.startsWith(fiatValue) === true ? (
+                        <button
+                          type="button"
+                          key={item.code}
+                          onClick={() => {
+                            console.log(item, "currentFiat");
+                            setCurrentFiat(item);
+                            setDefaultFiat(item.name);
+                            setFiatValue("");
+                            setActiveFiat(false);
+                          }}
+                          className="w-full h-max text-gray text-14 font-normal mb-[10px]"
+                        >
+                          {item.name}
+                        </button>
+                      ) : null}
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
