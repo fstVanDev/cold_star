@@ -69,6 +69,9 @@ module.exports = {
         xl: { min: "1024px", max: "1289px" },
         "2xl": { min: "1290px" },
       },
+      // keyframes: {
+      //   'spinSlow':
+      // }
     },
   },
   plugins: [],

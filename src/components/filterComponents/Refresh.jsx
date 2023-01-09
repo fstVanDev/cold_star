@@ -12,6 +12,8 @@ const Refresh = () => {
     currentFiat,
     currentCrypto,
     currentPayment,
+    config,
+    currentId,
   } = useContext(StateContext);
 
   return (
@@ -24,8 +26,9 @@ const Refresh = () => {
           currentFiat !== null ||
           currentCrypto !== null ||
           currentPayment !== null ||
-          orders !== null
+          config[currentId].orders !== null
         ) {
+          console.log(config[currentId]);
           setNewFilterView(false);
           setCurrentOrder(null);
           setCurrentFee(null);

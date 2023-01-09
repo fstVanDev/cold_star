@@ -36,6 +36,7 @@ const Filter = () => {
     setAmount,
     setMode,
     setOrdersView,
+    loader,
   } = useContext(StateContext);
 
   useEffect(() => {

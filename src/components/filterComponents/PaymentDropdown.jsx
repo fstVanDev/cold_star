@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 import { chevronFilter } from "../../images";
-import { getOrders } from "../../data/Requests";
 
 const PaymentDropdown = () => {
   const {
@@ -93,6 +92,8 @@ const PaymentDropdown = () => {
     if (currentPayment !== null) {
       setUsersPayment(currentPayment);
       console.log(1);
+    } else {
+      setUsersPayment([]);
     }
   }, [currentPayment]);
 

@@ -37,7 +37,7 @@ export const StateProvider = ({ children }) => {
 
   const [config, setConfig] = useState(null);
 
-  const [clear, setClear] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   return (
     <StateContext.Provider

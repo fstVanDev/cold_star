@@ -5,6 +5,7 @@ import Chain from "../components/orderComponents/Chain";
 import FilterModal from "../components/FilterModal";
 import { StateContext } from "../context/StateProvider";
 import { useEffect } from "react";
+import Loader from "../components/Loader";
 
 const Main = () => {
   const {
@@ -25,6 +26,8 @@ const Main = () => {
     editMode,
     setEditMode,
     setGlobalId,
+    loader,
+    setLoader,
     fiatRate,
   } = useContext(StateContext);
 
@@ -151,6 +154,9 @@ const Main = () => {
   ]);
 
   return (
+    // <div className="pt-[70px]">
+    //   <Loader />
+    // </div>
     <div className="pt-[70px] min-h-[100vh] bg-main">
       <Filter />
       <FilterModal />

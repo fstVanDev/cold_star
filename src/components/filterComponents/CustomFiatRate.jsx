@@ -10,15 +10,21 @@ const CustomFiatRate = () => {
     console.log(fiatRate);
   }, [fiatRate]);
 
-  // useEffect(() => {
-  //   if (currentFiat !== null) {
-  //     if (
-  //       config[currentId].fiatRate !==
-  //       Number(currentFiat.rates[0].rate).toFixed(2)
-  //     )
-  //       setFiatRate(Number(currentFiat.rates[0].rate).toFixed(2));
-  //   }
-  // }, [currentFiat]);
+  useEffect(() => {
+    if (currentFiat !== null) {
+      if (config !== null) {
+        if (
+          config[currentId].fiatRate !==
+          Number(currentFiat.rates[0].rate).toFixed(2)
+        )
+          setFiatRate(Number(currentFiat.rates[0].rate).toFixed(2));
+        console.log(
+          Number(currentFiat.rates[0].rate).toFixed(2),
+          "222222222222222"
+        );
+      }
+    }
+  }, [currentFiat]);
 
   return (
     <div className="w-max h-full flex">

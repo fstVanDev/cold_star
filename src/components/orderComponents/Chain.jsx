@@ -291,10 +291,11 @@ const Chain = () => {
 
                                 <div className="w-full h-max flex flex-wrap mx-auto mt-[5px]">
                                   {item.currentOrder.trade_methods.map(
-                                    (obj) => (
+                                    (obj, index) => (
                                       <div
                                         className="border border-1 my-[2px] w-max h-max rounded-2 px-[5px] py-[1px] mx-[2px]"
                                         style={{ borderColor: `${obj.color}` }}
+                                        key={index}
                                       >
                                         <p
                                           className="text-10 leading-12 w-max font-normal"

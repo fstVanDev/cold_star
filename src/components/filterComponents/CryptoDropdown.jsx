@@ -28,7 +28,15 @@ const CryptoDrowdown = () => {
 
   useEffect(() => {
     console.log(currentCrypto);
-    // if (config !== null) {
+    if (currentCrypto !== null) {
+      setDefaultCrypto(currentCrypto.name);
+    } else {
+      setDefaultCrypto("Enter...");
+    }
+    // if (config !== null)  {
+    //   if (config[currentId].crypto) {
+    //     setDefaultCrypto("Enter..");
+    //   }
     //   setOrdersView(false);
     // }
   }, [currentCrypto]);

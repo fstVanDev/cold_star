@@ -26,7 +26,12 @@ const FiatDropdown = () => {
   }, [fiat]);
 
   useEffect(() => {
-    console.log(currentFiat);
+    console.log("44444");
+    if (currentFiat !== null) {
+      setDefaultFiat(currentFiat.name);
+    } else {
+      setDefaultFiat("Enter..");
+    }
   }, [currentFiat]);
 
   useEffect(() => {
@@ -40,7 +45,6 @@ const FiatDropdown = () => {
       <h2 className="w-max h-max my-auto text-12 leadong-16 font-normal text-lightGray mr-[15px]">
         Fiat
       </h2>
-
       <div
         className={`w-[120px] h-[40px]  ${
           activeFiat
