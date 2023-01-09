@@ -23,7 +23,6 @@ const MakerTaker = () => {
         value={makerProcent}
         onChange={(e) => {
           setMakerProcent(Number(e.target.value));
-          console.log(Number(e.target.value), "makerProcent");
         }}
       />
     </div>

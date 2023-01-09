@@ -7,9 +7,6 @@ const Mode = () => {
 
   useEffect(() => {
     console.log(mode);
-    // let arr = config;
-    // arr[currentId].mode = mode;
-    // setConfig(arr);
   }, [mode]);
 
   return (

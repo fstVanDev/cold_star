@@ -27,20 +27,24 @@ const AddNewChain = () => {
       className="w-full h-[54px] rounded-10 border-dashed border-2 border-green"
       onClick={() => {
         if (config[currentId].currentOrder !== null) {
-          setGlobalId(globalId + 1);
-          setAmount("");
-          setMode(true);
-          // setPayment(null);
-          setMakerProcent("");
-          setFiatRate("");
-          setCurrentPayment(null);
-          setCurrentFiat(null);
-          setCurrentCrypto(null);
-          setCurrentOrder(null);
-          setCurrentFee(null);
-          setNewFilterView(true);
-          setOrdersView(false);
-          console.log("Add new Filter, click button");
+          if (currentId === globalId) {
+            console.log("currentId === globalId", currentId, globalId);
+            setGlobalId(globalId + 1);
+            setAmount("");
+            setMode(true);
+            // setPayment(null);
+            setMakerProcent("");
+            setFiatRate("");
+            setCurrentPayment(null);
+            setCurrentFiat(null);
+            setCurrentCrypto(null);
+            setCurrentOrder(null);
+            setCurrentFee(null);
+            setNewFilterView(true);
+            setOrdersView(false);
+          } else {
+            console.log("currentId !== globalId", currentId, globalId);
+          }
         } else {
           alert("Please choose order");
         }

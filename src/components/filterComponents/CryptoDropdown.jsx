@@ -27,18 +27,11 @@ const CryptoDrowdown = () => {
   }, [crypto]);
 
   useEffect(() => {
-    console.log(currentCrypto);
     if (currentCrypto !== null) {
       setDefaultCrypto(currentCrypto.name);
     } else {
       setDefaultCrypto("Enter...");
     }
-    // if (config !== null)  {
-    //   if (config[currentId].crypto) {
-    //     setDefaultCrypto("Enter..");
-    //   }
-    //   setOrdersView(false);
-    // }
   }, [currentCrypto]);
 
   useEffect(() => {
@@ -88,7 +81,6 @@ const CryptoDrowdown = () => {
                     type="button"
                     key={item.code}
                     onClick={() => {
-                      console.log(item, "currentCrypto");
                       setCurrentCrypto(item);
                       setDefaultCrypto(item.name);
                       setCryptoValue("");
@@ -105,7 +97,6 @@ const CryptoDrowdown = () => {
                         type="button"
                         key={item.code}
                         onClick={() => {
-                          console.log(item, "currentCrypto");
                           setCurrentCrypto(item);
                           setDefaultCrypto(item.name);
                           setCryptoValue("");

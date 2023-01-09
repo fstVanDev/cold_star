@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StateContext } from "../../context/StateProvider";
 import { refresh } from "../../images";
+import { getOrders } from "../../data/Requests";
 
 const Refresh = () => {
   const {
@@ -14,6 +15,10 @@ const Refresh = () => {
     currentPayment,
     config,
     currentId,
+    mode,
+    amount,
+    setOrders,
+    ordersView,
   } = useContext(StateContext);
 
   return (
@@ -21,6 +26,19 @@ const Refresh = () => {
       className="w-max h-max my-auto flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
+        if (ordersView === true) {
+          setOrdersView(false);
+        }
+
+        getOrders(
+          mode,
+          amount,
+          currentFiat,
+          currentCrypto,
+          currentPayment,
+          setOrders,
+          setOrdersView
+        );
         if (
           orders !== null ||
           currentFiat !== null ||
@@ -28,11 +46,10 @@ const Refresh = () => {
           currentPayment !== null ||
           config[currentId].orders !== null
         ) {
-          console.log(config[currentId]);
           setNewFilterView(false);
           setCurrentOrder(null);
           setCurrentFee(null);
-          setOrdersView(true);
+          // setOrdersView(true);
         } else {
           setNewFilterView(false);
         }

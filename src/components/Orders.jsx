@@ -17,14 +17,6 @@ const Orders = () => {
     globalId,
   } = useContext(StateContext);
 
-  // const [currentIndex, setCurrentIndex] = useState(null);
-
-  // useEffect(() => {
-  //   if (currentFee !== null) {
-  //     console.log(currentFee);
-  //   }
-  // }, [currentFee]);
-
   return (
     <div className="2xl:w-[1290px] mx-auto">
       <Top />
@@ -125,7 +117,20 @@ const Orders = () => {
 
                   {/* Profit */}
                   <div className="w-[88px] h-max flex my-auto">
-                    <p className="text-green text-18 leading-24 font-bold text-center">
+                    <p
+                      className={` ${
+                        Number(
+                          feeFunction(
+                            makerProcent,
+                            Number(config[currentId].fiat.rates[0].rate),
+                            Number(fiatRate),
+                            Number(item.price)
+                          )
+                        ) > 0
+                          ? "text-green"
+                          : "text-orange"
+                      } text-18 leading-24 font-bold text-center`}
+                    >
                       {feeFunction(
                         makerProcent,
                         Number(config[currentId].fiat.rates[0].rate),

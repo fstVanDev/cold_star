@@ -31,68 +31,21 @@ const Chain = () => {
   const [activeAbout, setActiveAbout] = useState(null);
 
   const removeObject = (index) => {
+    console.log(index, config.length - 1, globalId, currentId);
     let arr = config;
+    if (config.length === 1) {
+      console.log("clean config when only one object");
+      setCurrentFee(null);
+      setCurrentOrder(null);
+      arr[index].currentOrder = null;
+      arr[index].currentFee = null;
+      setConfig(arr);
+      console.log(arr);
+    }
 
-    // if (config.length === 1) {
-    console.log("clean config when only one object");
-    setCurrentFee(null);
-    setCurrentOrder(null);
-    arr[index].currentOrder = null;
-    arr[index].currentFee = null;
-    setConfig(arr);
-    console.log(arr);
-    // } else {
-    //   console.log("000");
-    //   setIsClear(false);
-    // }
-    // if (editMode === true) {
-    //   console.log(config[index], "sss");
-    //   let arr = config;
-    //   arr.splice(index, 1);
-    //   setCurrentId(arr.length - 1);
-    //   // setGlobalId(arr.legnth - 1);
-    //   setConfig(arr);
-    //   console.log(arr);
-    // }
-    // let newArray = arr.filter((item) => item.id !== index);
-    // for (let i = 0; i < newArray.length; i++) {
-    //   newArray[i].id = i;
-    // }
-    // console.log(newArray, "остаток после удаления");
-    // if (newArray.length === 1) {
-    //   setCurrentId(0);
-    //   console.log(0);
-    // } else {
-    //   setCurrentId(newArray.length - 1);
-    //   console.log(newArray.length - 1);
-    // }
-    // console.log(newArray);
-    // setConfig(newArray);
-    // setCurrentFee(null);
-    // setCurrentOrder(null);
-    // console.log(config);
-    // if (editMode === true) {
-    //   console.log("edit");
-    //   console.log(currentId);
-    //   console.log(globalId - 1);
-    //   // setGlobalId(globalId - 1);
-    // } else {
-    //   console.log(currentId);
-    //   console.log(globalId);
-    // }
-
-    // if (config.length > 1) {
-    //   if (index === globalId) {
-    //     console.log("это удаление последнего объекта");
-    //     console.log(arr, "config до удаления");
-    //     let newArray = arr.filter((item) => item.id !== index);
-    //     // console.log(newArray, "config после удаления");
-    //     setCurrentId(newArray.length - 1);
-    //     setGlobalId(newArray.length - 1);
-    //     console.log(currentId, newArray.length - 1);
-    //     setIsClear(true);
-    //   }
-    // }
+    if (index !== config.length - 1) {
+      console.log("55555");
+    }
   };
 
   return (
@@ -121,12 +74,15 @@ const Chain = () => {
                             : "border-secondary"
                         }  rounded-15 bg-white p-[15px] grid`}
                         onClick={() => {
-                          // if (isClear === false) {
-                          console.log(index, "index => currentId");
                           setCurrentId(index);
                           if (index === globalId) {
-                            console.log(currentId, globalId);
-                            console.log("edit false");
+                            console.log(
+                              "edit false",
+                              "globalId => ",
+                              globalId,
+                              "currentId =>",
+                              index
+                            );
                             setEditMode(false);
                             setCurrentFiat(config[globalId].fiat);
                             setCurrentCrypto(config[globalId].crypto);
@@ -138,24 +94,26 @@ const Chain = () => {
                             setCurrentOrder(config[globalId].currentOrder);
                             setCurrentFee(config[globalId].currentFee);
                           } else {
-                            if (editMode === false) {
-                              setEditMode(true);
-                              console.log("editMode true");
-                              setCurrentFiat(config[index].fiat);
-                              setFiatRate(config[index].fiatRate);
-                              setCurrentCrypto(config[index].crypto);
-                              setCurrentPayment(config[index].payments);
-                              setAmount(config[index].amount);
-                              setMode(config[index].mode);
-                              setOrders(config[index].orders);
-                              setCurrentOrder(config[index].currentOrder);
-                              setCurrentFee(config[index].currentFee);
-                              console.log(index, globalId);
-                            }
+                            // if (editMode === false) {
+                            setEditMode(true);
+                            console.log(
+                              "editMode true",
+                              "globalId => ",
+                              globalId,
+                              "currentId =>",
+                              index
+                            );
+                            setCurrentFiat(config[index].fiat);
+                            setFiatRate(config[index].fiatRate);
+                            setCurrentCrypto(config[index].crypto);
+                            setCurrentPayment(config[index].payments);
+                            setAmount(config[index].amount);
+                            setMode(config[index].mode);
+                            setOrders(config[index].orders);
+                            setCurrentOrder(config[index].currentOrder);
+                            setCurrentFee(config[index].currentFee);
+                            // }
                           }
-                          // } else {
-                          //   console.log("00000");
-                          // }
                         }}
                       >
                         <div className="flex justify-between">
@@ -177,7 +135,15 @@ const Chain = () => {
                                 {item.currentOrder.price}
                               </p>
                             </div>
-                            <p className="text-green font-bold text-18 leading-24 w-max h-max mt-[5px]">
+                            <p
+                              className={` ${
+                                item.currentFee !== null
+                                  ? Number(item.currentFee) > 0
+                                    ? "text-green"
+                                    : "text-orange"
+                                  : ""
+                              }  font-bold text-18 leading-24 w-max h-max mt-[5px]`}
+                            >
                               {item.currentFee !== null ? item.currentFee : "-"}
                               %
                             </p>

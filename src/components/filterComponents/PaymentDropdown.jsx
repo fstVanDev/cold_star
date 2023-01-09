@@ -19,58 +19,9 @@ const PaymentDropdown = () => {
   const [activePayment, setActivePayment] = useState(false);
   const [usersPayment, setUsersPayment] = useState([]);
 
-  // function handleChangeCurrentValue(anything, setAnything, value) {
-  //   let arr = anything;
-  //   let ind = null;
-
-  //   if (arr !== null) {
-  //     arr.map((item, index) => {
-  //       if (item.id === value.id) {
-  //         ind = index;
-  //       }
-  //     });
-
-  //     if (ind === null) {
-  //       arr.push(value);
-  //       setAnything(arr);
-  //       setCurrentPayment(arr);
-  //       console.log(arr, "currentPayment");
-  //       getOrders(
-  //         mode,
-  //         currentAmount,
-  //         currentFiat,
-  //         currentCrypto,
-  //         currentPayment,
-  //         setCurrentOrders
-  //       );
-  //     } else {
-  //       arr.splice(ind, 1);
-  //       setAnything(arr);
-  //       setCurrentPayment(arr);
-  //       getOrders(
-  //         mode,
-  //         currentAmount,
-  //         currentFiat,
-  //         currentCrypto,
-  //         currentPayment,
-  //         setCurrentOrders
-  //       );
-  //       console.log(arr, "currentPayment");
-  //     }
-  //   } else {
-  //     arr = [];
-  //     arr.push(value);
-  //     setAnything(arr);
-  //     setActivePayment(true);
-  //     setCurrentPayment(arr);
-  //     console.log(arr, "currentPayment");
-  //   }
-  // }
-
   const addPaymentToConfig = (item, index) => {
     let arr = usersPayment;
     let newArray = arr.filter((obj) => obj.id === item.id);
-    console.log(newArray);
 
     if (newArray.length === 0) {
       arr.push(item);
@@ -78,7 +29,6 @@ const PaymentDropdown = () => {
 
     setUsersPayment(arr);
     setCurrentPayment(arr);
-    console.log(arr);
   };
 
   const removePaymentToConfig = (item, index) => {
@@ -91,7 +41,6 @@ const PaymentDropdown = () => {
   useEffect(() => {
     if (currentPayment !== null) {
       setUsersPayment(currentPayment);
-      console.log(1);
     } else {
       setUsersPayment([]);
     }
@@ -113,8 +62,9 @@ const PaymentDropdown = () => {
         <div
           onClick={() => {
             if (payment !== null) {
-              setActivePayment(!activePayment);
-              console.log(activePayment);
+              if (payment.length > 0) {
+                setActivePayment(!activePayment);
+              }
             }
           }}
           className={`w-[140px] h-[40px] px-[12px] relative my-auto ${

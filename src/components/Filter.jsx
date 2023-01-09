@@ -45,18 +45,18 @@ const Filter = () => {
     }
   }, [currentCrypto, currentFiat]);
 
-  useEffect(() => {
-    if (currentPayment !== null) {
-      getOrders(
-        mode,
-        amount,
-        currentFiat,
-        currentCrypto,
-        currentPayment,
-        setOrders
-      );
-    }
-  }, [currentPayment, mode, amount]);
+  // useEffect(() => {
+  //   if (currentPayment !== null) {
+  //     getOrders(
+  //       mode,
+  //       amount,
+  //       currentFiat,
+  //       currentCrypto,
+  //       currentPayment,
+  //       setOrders
+  //     );
+  //   }
+  // }, [currentPayment, mode, amount]);
 
   return (
     <div className="2xl:w-[1290px] flex mx-auto h-max py-[30px] z-[200]">

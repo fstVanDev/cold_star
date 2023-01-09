@@ -132,7 +132,8 @@ export async function getOrders(
   currentFiat,
   currentCrypto,
   currentPayment,
-  setCurrentOrders
+  setCurrentOrders,
+  setOrdersView
 ) {
   console.log(
     mode,
@@ -140,7 +141,8 @@ export async function getOrders(
     currentFiat,
     currentCrypto,
     currentPayment,
-    setCurrentOrders
+    setCurrentOrders,
+    setOrdersView
   );
   let type;
   if (mode === true) {
@@ -192,6 +194,7 @@ export async function getOrders(
     .then(function (response) {
       console.log(response.data.data, "Orders");
       setCurrentOrders(response.data.data);
+      setOrdersView(true);
     })
     .catch(function (error) {
       console.log(error);

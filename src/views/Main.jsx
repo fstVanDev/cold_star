@@ -32,7 +32,7 @@ const Main = () => {
   } = useContext(StateContext);
 
   useEffect(() => {
-    console.log(config);
+    console.log(config, "from main useEffect => config");
 
     if (config !== null) {
       if (config.length > 0) {
@@ -41,7 +41,7 @@ const Main = () => {
         }
       }
     }
-  }, [config]);
+  }, [config, currentId]);
 
   useEffect(() => {
     console.log(currentId, "currentId");
@@ -79,7 +79,7 @@ const Main = () => {
 
           setConfig(arr);
         } else {
-          console.log("change config ");
+          console.log("change config");
           let arr = config;
 
           arr.map((item, index) => {
@@ -94,7 +94,7 @@ const Main = () => {
                   ];
                 };
                 arr = insert(arr, index, localObject);
-
+                console.log("что то поменяно с globalid");
                 setConfig(arr);
               }
             } else {
@@ -124,17 +124,15 @@ const Main = () => {
       };
 
       let array = config;
-      console.log("change config with currentId");
-      console.log(currentId, "id");
-      console.log(localObject, "local");
+      console.log("change config with currentId", localObject, "localObject");
+
       if (JSON.stringify(config[currentId]) !== JSON.stringify(localObject)) {
-        console.log("не равен");
         array.splice(currentId, 1);
         const insert = function (arr, indexi, obj) {
           return [...arr.slice(0, indexi), obj, ...arr.slice(indexi)];
         };
         array = insert(array, currentId, localObject);
-
+        console.log("что то поменяно с currentId");
         setConfig(array);
       }
     }
@@ -149,14 +147,11 @@ const Main = () => {
     amount,
     orders,
     globalId,
-    currentId,
+    // currentId,
     mode,
   ]);
 
   return (
-    // <div className="pt-[70px]">
-    //   <Loader />
-    // </div>
     <div className="pt-[70px] min-h-[100vh] bg-main">
       <Filter />
       <FilterModal />

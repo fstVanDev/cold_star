@@ -26,7 +26,6 @@ const FiatDropdown = () => {
   }, [fiat]);
 
   useEffect(() => {
-    console.log("44444");
     if (currentFiat !== null) {
       setDefaultFiat(currentFiat.name);
     } else {
@@ -98,7 +97,6 @@ const FiatDropdown = () => {
                       type="button"
                       key={item.code}
                       onClick={() => {
-                        console.log(item, "currentFiat");
                         setCurrentFiat(item);
                         setDefaultFiat(item.name);
                         setFiatValue("");
@@ -115,7 +113,6 @@ const FiatDropdown = () => {
                           type="button"
                           key={item.code}
                           onClick={() => {
-                            console.log(item, "currentFiat");
                             setCurrentFiat(item);
                             setDefaultFiat(item.name);
                             setFiatValue("");
