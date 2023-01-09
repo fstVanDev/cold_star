@@ -24,29 +24,59 @@ const Chain = () => {
     setFiatRate,
     editMode,
     setGlobalId,
+    remove,
+    setRemove,
   } = useContext(StateContext);
 
   const [fav, setFav] = useState(false);
   const [about, setAbout] = useState(false);
   const [activeAbout, setActiveAbout] = useState(null);
 
+  const [newCurrent, setNewCurrent] = useState(0);
+  const [newGlobal, setNewGlobal] = useState(0);
+
   const removeObject = (index) => {
     console.log(index, config.length - 1, globalId, currentId);
     let arr = config;
-    if (config.length === 1) {
-      console.log("clean config when only one object");
-      setCurrentFee(null);
-      setCurrentOrder(null);
-      arr[index].currentOrder = null;
-      arr[index].currentFee = null;
-      setConfig(arr);
-      console.log(arr);
-    }
+    if (remove === true) {
+      if (config.length === 1) {
+        console.log("clean config when only one object");
+        setCurrentFee(null);
+        setCurrentOrder(null);
+        arr[index].currentOrder = null;
+        arr[index].currentFee = null;
+        setConfig(arr);
+        console.log(arr);
+      } else {
+        console.log("remove111---------------------");
+        arr.splice(index, 1);
+        console.log(arr);
+        for (let i = 0; i < arr.length; i++) {
+          arr[i].id = i;
+        }
 
-    if (index !== config.length - 1) {
-      console.log("55555");
+        setCurrentId(arr.length - 1);
+        //
+        setEditMode(false);
+        setCurrentFiat(config[arr.length - 1].fiat);
+        setCurrentCrypto(config[arr.length - 1].crypto);
+        setCurrentPayment(config[arr.length - 1].payments);
+        setAmount(config[arr.length - 1].amount);
+        setMode(config[arr.length - 1].mode);
+        setFiatRate(config[arr.length - 1].fiatRate);
+        setOrders(config[arr.length - 1].orders);
+        setCurrentOrder(config[arr.length - 1].currentOrder);
+        setCurrentFee(config[arr.length - 1].currentFee);
+        setGlobalId(arr.length - 1);
+        //
+      }
     }
+    // setRemove(false);
   };
+
+  useEffect(() => {
+    console.log(remove, "remove from chain useEffect");
+  }, [remove]);
 
   return (
     <div className="2xl:w-[190px] h-max">
@@ -74,6 +104,8 @@ const Chain = () => {
                             : "border-secondary"
                         }  rounded-15 bg-white p-[15px] grid`}
                         onClick={() => {
+                          //
+                          // if (remove === false) {
                           setCurrentId(index);
                           if (index === globalId) {
                             console.log(
@@ -94,7 +126,6 @@ const Chain = () => {
                             setCurrentOrder(config[globalId].currentOrder);
                             setCurrentFee(config[globalId].currentFee);
                           } else {
-                            // if (editMode === false) {
                             setEditMode(true);
                             console.log(
                               "editMode true",
@@ -112,8 +143,9 @@ const Chain = () => {
                             setOrders(config[index].orders);
                             setCurrentOrder(config[index].currentOrder);
                             setCurrentFee(config[index].currentFee);
-                            // }
                           }
+                          // }
+                          //
                         }}
                       >
                         <div className="flex justify-between">
@@ -152,8 +184,12 @@ const Chain = () => {
                             <div className="w-max h-max ml-auto ">
                               <button
                                 type="button"
-                                onClick={() => {
-                                  // setIsClear(true);
+                                onClick={(e) => {
+                                  // if (currentId === index) {
+                                  e.stopPropagation();
+                                  // }
+
+                                  setRemove(true);
                                   removeObject(index, setConfig);
                                 }}
                                 className="w-[20px] h-[20px] border border-1 border-gray rounded-6 bg-main flex"

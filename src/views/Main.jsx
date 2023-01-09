@@ -29,6 +29,10 @@ const Main = () => {
     loader,
     setLoader,
     fiatRate,
+    remove,
+    setCurrentFee,
+    setCurrentOrder,
+    setRemove,
   } = useContext(StateContext);
 
   useEffect(() => {
@@ -137,7 +141,7 @@ const Main = () => {
       }
     }
   }, [
-    config,
+    // config,
     fiatRate,
     currentFiat,
     currentCrypto,

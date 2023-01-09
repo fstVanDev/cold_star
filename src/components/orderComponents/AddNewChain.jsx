@@ -32,7 +32,7 @@ const AddNewChain = () => {
             setGlobalId(globalId + 1);
             setAmount("");
             setMode(true);
-            // setPayment(null);
+            setPayment(null);
             setMakerProcent("");
             setFiatRate("");
             setCurrentPayment(null);

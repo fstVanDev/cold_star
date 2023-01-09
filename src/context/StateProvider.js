@@ -37,11 +37,13 @@ export const StateProvider = ({ children }) => {
 
   const [config, setConfig] = useState(null);
 
-  const [loader, setLoader] = useState(false);
+  const [remove, setRemove] = useState(false);
 
   return (
     <StateContext.Provider
       value={{
+        remove,
+        setRemove,
         editMode,
         setEditMode,
         user,
