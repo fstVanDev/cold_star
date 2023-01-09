@@ -3,11 +3,11 @@ import axios from "axios";
 export async function getCsrf(setUser, setFiat, setCrypto) {
   var config = {
     method: "get",
-    // url: "https://top2pro.com/sanctum/csrf-cookie",
-    url: "https://app.top2pro.com/sanctum/csrf-cookie",
+    url: "https://top2pro.com/sanctum/csrf-cookie",
+    // url: "https://app.top2pro.com/sanctum/csrf-cookie",
     headers: {
       "X-Requested-With": "XMLHttpRequest",
-      Authorization: "Bearer 20|AY1o7b5K3KhSktKI5fGiFchL0bzpkVFLsqA7MkjV",
+      // Authorization: "Bearer 20|AY1o7b5K3KhSktKI5fGiFchL0bzpkVFLsqA7MkjV",
     },
     withCredentials: true,
   };
@@ -29,7 +29,7 @@ export async function getUser(setUser, setFiat, setCrypto) {
     headers: {
       Accept: "application/json",
       "X-Requested-With": "XMLHttpRequest",
-      Authorization: "Bearer Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      // Authorization: "Bearer Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
     withCredentials: true,
   };
@@ -39,9 +39,9 @@ export async function getUser(setUser, setFiat, setCrypto) {
       console.log(response.data, "getUser");
       setUser(response.data);
       getCurrencies(setFiat, setCrypto);
-      // if (window.location.href !== "https://top2pro.com/") {
-      //   window.location.href = "https://top2pro.com/";
-      // }
+      if (window.location.href !== "https://top2pro.com/") {
+        window.location.href = "https://top2pro.com/";
+      }
     })
     .catch(function (error) {
       console.log(error);
@@ -54,7 +54,7 @@ export async function getCurrencies(setFiat, setCrypto) {
     url: "https://app.top2pro.com/api/currencies/getAll",
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
     withCredentials: true,
   };
@@ -109,7 +109,7 @@ export async function getTradeMethods(
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
     data: data,
     withCredentials: true,
@@ -182,7 +182,7 @@ export async function getOrders(
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
     data: data,
     withCredentials: true,
@@ -210,7 +210,7 @@ export async function loginFunc(email, password, setUser, setFiat, setCrypto) {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
     data: data,
     withCredentials: true,
@@ -249,7 +249,7 @@ export async function registerFunc(
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
     data: data,
     withCredentials: true,
@@ -271,7 +271,7 @@ export async function logout(setUser) {
     url: "https://app.top2pro.com/logout",
     headers: {
       Accept: "application/json",
-      Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
+      // Authorization: "Bearer 2|mgb01gq4fifwlYGUQGie0fHnImWCyjofpbHOI04Y",
     },
     withCredentials: true,
   };
