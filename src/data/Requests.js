@@ -180,9 +180,9 @@ export async function getOrders(
       fiat: currentFiat.id,
       asset: currentCrypto.id,
       tradeMethods: methods,
-      onlyMerchants: true,
-      minOrdersCount: 100,
-      minFinishRate: 0.5,
+      // onlyMerchants: true,
+      // minOrdersCount: 100,
+      // minFinishRate: 0.5,
       amount: amont,
     },
   });
