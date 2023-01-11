@@ -13,6 +13,7 @@ const Login = () => {
     setUser,
     setFiat,
     setCrypto,
+    setLoader,
   } = useContext(StateContext);
 
   const [hide, setHide] = useState(false);
@@ -80,7 +81,15 @@ const Login = () => {
             onClick={() => {
               if (email.length !== 0 && password.length !== 0) {
                 console.log("login func");
-                loginFunc(email, password, setUser, setFiat, setCrypto);
+                setLoader(true);
+                loginFunc(
+                  email,
+                  password,
+                  setUser,
+                  setFiat,
+                  setCrypto,
+                  setLoader
+                );
               } else {
                 alert("Something wrong! Please check your data...");
               }

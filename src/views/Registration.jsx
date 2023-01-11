@@ -15,6 +15,7 @@ const Registration = () => {
     setUser,
     setFiat,
     setCrypto,
+    setLoader,
   } = useContext(StateContext);
 
   const [hide, setHide] = useState(false);
@@ -121,6 +122,7 @@ const Registration = () => {
                 name.length !== 0 &&
                 email.length !== 0
               ) {
+                setLoader(true);
                 registerFunc(
                   name,
                   email,
@@ -128,7 +130,8 @@ const Registration = () => {
                   confirm,
                   setUser,
                   setFiat,
-                  setCrypto
+                  setCrypto,
+                  setLoader
                 );
                 console.log("register button");
               } else {

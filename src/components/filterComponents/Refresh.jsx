@@ -19,6 +19,7 @@ const Refresh = () => {
     amount,
     setOrders,
     ordersView,
+    setLoader,
   } = useContext(StateContext);
 
   return (
@@ -29,7 +30,7 @@ const Refresh = () => {
         if (ordersView === true) {
           setOrdersView(false);
         }
-
+        setLoader(true);
         getOrders(
           mode,
           amount,
@@ -37,7 +38,8 @@ const Refresh = () => {
           currentCrypto,
           currentPayment,
           setOrders,
-          setOrdersView
+          setOrdersView,
+          setLoader
         );
         if (
           orders !== null ||

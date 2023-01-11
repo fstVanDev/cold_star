@@ -11,17 +11,27 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { StateContext } from "./context/StateProvider";
 import { getCsrf } from "./data/Requests";
 
+import Loader from "./components/Loader";
+
 const App = () => {
-  const { user, setUser, setFiat, setCrypto } = useContext(StateContext);
+  const { user, setUser, setFiat, setCrypto, setLoader, loader } =
+    useContext(StateContext);
 
   // csrf -> user -> fiat/crypto
   useEffect(() => {
-    getCsrf(setUser, setFiat, setCrypto);
+    setLoader(true);
+    getCsrf(setUser, setFiat, setCrypto, setLoader);
   }, []);
 
   return (
     <div>
       <Navbar />
+
+      {loader === true && (
+        <div className="w-full min-h-[2514px] absolute bg-gray-100 opacity-50 z-[5] pt-[100px]">
+          <Loader />
+        </div>
+      )}
 
       <Switch>
         <Route path="/" exact render={() => <Home />} />

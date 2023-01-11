@@ -163,6 +163,7 @@ const Main = () => {
       {orders !== null && ordersView === true && (
         <div className="2xl:w-[1290px] mx-auto flex justify-between">
           <Orders />
+
           <Chain />
         </div>
       )}
