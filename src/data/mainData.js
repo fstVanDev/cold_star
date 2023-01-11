@@ -193,14 +193,14 @@ export const bottomData = {
 };
 
 export const feeFunction = (makerProcent, fiat, fiatRate, asset) => {
-  // console.log(makerProcent, fiat, fiatRate, asset);
+  console.log(makerProcent, fiat, fiatRate, asset);
   var rate;
   if (fiatRate === 0) {
     rate = fiat;
   } else {
     rate = fiatRate;
   }
-  var maker = makerProcent.length === 0 ? 0.001 : makerProcent;
+  var maker = makerProcent.length === 0 ? 0.001 : Number(makerProcent);
 
   var result = (asset / (rate + rate * maker) - 1) * 100;
   // console.log(Number(result).toFixed(4));

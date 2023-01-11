@@ -15,9 +15,9 @@ const CustomFiatRate = () => {
       if (config !== null) {
         if (
           config[currentId].fiatRate !==
-          Number(currentFiat.rates[0].rate).toFixed(2)
+          parseFloat(currentFiat.rates[0].rate).toFixed(2)
         )
-          setFiatRate(Number(currentFiat.rates[0].rate).toFixed(2));
+          setFiatRate(parseFloat(currentFiat.rates[0].rate).toFixed(2));
       }
     }
   }, [currentFiat]);
@@ -29,18 +29,18 @@ const CustomFiatRate = () => {
       </h2>
 
       <input
-        type="number"
+        type="text"
         className="min-h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
         placeholder={
           currentFiat !== null
             ? fiatRate.length === 0
-              ? Number(currentFiat.rates[0].rate).toFixed(2)
+              ? parseFloat(currentFiat.rates[0].rate).toFixed(2)
               : fiatRate
             : "Enter fiat..."
         }
         value={fiatRate}
         onChange={(e) => {
-          setFiatRate(Number(e.target.value));
+          setFiatRate(e.target.value);
         }}
       />
     </div>

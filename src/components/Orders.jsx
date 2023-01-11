@@ -124,7 +124,7 @@ const Orders = () => {
                         className={` ${
                           Number(
                             feeFunction(
-                              makerProcent,
+                              Number(makerProcent),
                               Number(config[currentId].fiat.rates[0].rate),
                               Number(fiatRate),
                               Number(item.price)
@@ -135,7 +135,7 @@ const Orders = () => {
                         } text-18 leading-24 font-bold text-center`}
                       >
                         {feeFunction(
-                          makerProcent,
+                          Number(makerProcent),
                           Number(config[currentId].fiat.rates[0].rate),
                           Number(fiatRate),
                           Number(item.price)
@@ -152,7 +152,7 @@ const Orders = () => {
                         setCurrentOrder(item);
                         setCurrentFee(
                           feeFunction(
-                            makerProcent,
+                            Number(makerProcent),
                             Number(config[currentId].fiat.rates[0].rate),
                             Number(fiatRate),
                             Number(item.price)

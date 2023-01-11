@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { StateContext } from "../../context/StateProvider";
 
 const Amount = () => {
-  const { amount, setAmount, config, currentId } = useContext(StateContext);
+  const { amount, setAmount } = useContext(StateContext);
 
   useEffect(() => {
     console.log(amount);
@@ -17,11 +17,10 @@ const Amount = () => {
       <input
         type="text"
         className="h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
-        placeholder={amount.length === 0 ? "" : amount}
         value={amount}
         onChange={(e) => {
-          setAmount(Number(e.target.value));
-          console.log(Number(e.target.value), "amount custom");
+          setAmount(e.target.value);
+          console.log(parseFloat(e.target.value));
         }}
       />
     </div>

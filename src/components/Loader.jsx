@@ -2,11 +2,14 @@ import React from "react";
 
 const Loader = () => {
   return (
-    <div className="z-[10] relative">
-      <div role="status" className="mt-[400px] mx-auto w-[60px] h-[60px]">
+    <div>
+      <div
+        role="status"
+        className="mt-[400px] mx-auto w-[60px] h-[60px] z-[10] relative p-auto"
+      >
         <svg
           aria-hidden="true"
-          class="w-max h-msx mr-2 text-lightGray animate-spin fill-[#21C3A4] mx-auto"
+          class="mr-2 text-lightGray animate-spin fill-[#21C3A4] mx-auto w-[60px] h-[60px]"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +23,7 @@ const Loader = () => {
             fill="currentFill"
           ></path>
         </svg>
-        <span class="sr-only">Loading...</span>
+        {/* <span class="sr-only">Loading...</span> */}
       </div>
       <p className="w-max h-max text-gray text-14 font-normal leading-14 mx-auto mt-[4px]">
         Loading...

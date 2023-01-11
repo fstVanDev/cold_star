@@ -12,17 +12,17 @@ const MakerTaker = () => {
         </h2>
         <p className="w-max h-max text-center my-auto text-10 leading-16 font-normal text-lightGray mx-auto">
           {" "}
-          (0.1% default)
+          (0.001% default)
         </p>
       </div>
 
       <input
         type="number"
         className="min-h-[40px] w-[100px] border border-1 border-gray rounded-6 my-auto text-lightGray text-14 leading-20 font-normal px-[8px] focus:ring-0 focus:outline-none"
-        placeholder="0.1%"
+        placeholder="0.001"
         value={makerProcent}
         onChange={(e) => {
-          setMakerProcent(Number(e.target.value));
+          setMakerProcent(e.target.value);
         }}
       />
     </div>
