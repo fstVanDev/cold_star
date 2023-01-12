@@ -27,33 +27,48 @@ const Refresh = () => {
       className="w-max h-max my-auto flex border border-1 border-orange rounded-4"
       type="button"
       onClick={() => {
-        if (ordersView === true) {
-          setOrdersView(false);
-        }
-        setLoader(true);
-        getOrders(
-          mode,
-          amount,
-          currentFiat,
-          currentCrypto,
-          currentPayment,
-          setOrders,
-          setOrdersView,
-          setLoader
-        );
         if (
-          orders !== null ||
-          currentFiat !== null ||
-          currentCrypto !== null ||
-          currentPayment !== null ||
-          config[currentId].orders !== null
+          currentCrypto !== null &&
+          currentFiat !== null &&
+          currentPayment !== null
         ) {
-          setNewFilterView(false);
-          setCurrentOrder(null);
-          setCurrentFee(null);
-          // setOrdersView(true);
-        } else {
-          setNewFilterView(false);
+          if (
+            (ordersView === true && orders !== null) ||
+            currentFiat !== null ||
+            currentCrypto !== null ||
+            currentPayment !== null ||
+            config[currentId].orders !== null
+          ) {
+            setOrdersView(false);
+            setLoader(false);
+          }
+          setLoader(true);
+
+          getOrders(
+            mode,
+            amount,
+            currentFiat,
+            currentCrypto,
+            currentPayment,
+            setOrders,
+            setOrdersView,
+            setLoader
+          );
+          if (
+            orders !== null ||
+            currentFiat !== null ||
+            currentCrypto !== null ||
+            currentPayment !== null ||
+            config[currentId].orders !== null
+          ) {
+            setNewFilterView(false);
+            setCurrentOrder(null);
+            setCurrentFee(null);
+            // setOrdersView(true);
+          } else {
+            setLoader(false);
+            setNewFilterView(false);
+          }
         }
       }}
     >

@@ -7,7 +7,7 @@ export async function getCsrf(setUser, setFiat, setCrypto, setLoader) {
     // url: "https://app.top2pro.com/sanctum/csrf-cookie",
     headers: {
       "X-Requested-With": "XMLHttpRequest",
-      Authorization: "Bearer 20|AY1o7b5K3KhSktKI5fGiFchL0bzpkVFLsqA7MkjV",
+      // Authorization: "Bearer 20|AY1o7b5K3KhSktKI5fGiFchL0bzpkVFLsqA7MkjV",
     },
     withCredentials: true,
   };
